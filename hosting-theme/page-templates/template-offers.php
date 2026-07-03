@@ -80,7 +80,7 @@ get_header();
                     'is_popular'  => true,
                 ),
                 array(
-                    'title'       => '5GB + .COM',
+                    'title'       => '10GB + .COM',
                     'description' => 'Classic .COM domain',
                     'price_bdt'   => 1500,
                     'price_usd'   => 13.65,
