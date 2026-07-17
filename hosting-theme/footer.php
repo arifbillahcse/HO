@@ -155,7 +155,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <div class="container-wrapper">
         <div class="footer-bottom-content">
             <p class="copyright">
-                &copy; <?php echo esc_html( date( 'Y' ) ); ?> <?php bloginfo( 'name' ); ?>. <?php esc_html_e( 'All Rights Reserved.', 'hosting-theme' ); ?>
+                &copy; <?php echo esc_html( date( 'Y' ) ); ?> <?php esc_html_e( 'copyright', 'hosting-theme' ); ?> | <?php bloginfo( 'name' ); ?>. <?php esc_html_e( 'All Rights Reserved.', 'hosting-theme' ); ?>
             </p>
             <div class="footer-bottom-links">
                 <a href="#"><?php esc_html_e( 'Privacy Policy', 'hosting-theme' ); ?></a>
