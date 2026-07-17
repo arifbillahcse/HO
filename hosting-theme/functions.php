@@ -54,6 +54,12 @@ function hosting_theme_setup() {
 		'script',
 	) );
 
+	// Add WooCommerce support so My Account, Cart, Checkout pages render correctly.
+	add_theme_support( 'woocommerce' );
+	add_theme_support( 'wc-product-gallery-zoom' );
+	add_theme_support( 'wc-product-gallery-lightbox' );
+	add_theme_support( 'wc-product-gallery-slider' );
+
 	// Add support for custom logo.
 	add_theme_support( 'custom-logo', array(
 		'height'      => 60,
