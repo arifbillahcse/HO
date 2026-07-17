@@ -166,6 +166,56 @@ if ( ! defined( 'ABSPATH' ) ) {
     </div>
 </div>
 
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/8801779440297" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    <span class="whatsapp-tooltip">Chat with us</span>
+</a>
+
+<style>
+.whatsapp-float {
+    position: fixed;
+    left: 20px;
+    bottom: 30px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: #25D366;
+    border-radius: 50%;
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.45);
+    color: #fff;
+    font-size: 30px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 24px rgba(37, 211, 102, 0.6);
+    color: #fff;
+}
+.whatsapp-tooltip {
+    position: absolute;
+    left: 66px;
+    background: #25D366;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.whatsapp-float:hover .whatsapp-tooltip {
+    opacity: 1;
+}
+</style>
+
 <?php wp_footer(); ?>
 </body>
 </html>
