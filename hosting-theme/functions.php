@@ -24,6 +24,7 @@ require_once HOSTING_THEME_DIR . '/inc/custom-post-types.php';
 require_once HOSTING_THEME_DIR . '/inc/hosting-types-cpt.php';
 require_once HOSTING_THEME_DIR . '/inc/acf-fields.php';
 require_once HOSTING_THEME_DIR . '/inc/polylang-strings.php';
+require_once HOSTING_THEME_DIR . '/inc/setup-pages.php';
 
 /**
  * Theme setup.
