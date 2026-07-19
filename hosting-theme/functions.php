@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define theme constants.
  */
-define( 'HOSTING_THEME_VERSION', '1.0.0' );
+define( 'HOSTING_THEME_VERSION', '1.0.1' );
 define( 'HOSTING_THEME_DIR', get_template_directory() );
 define( 'HOSTING_THEME_URI', get_template_directory_uri() );
 
