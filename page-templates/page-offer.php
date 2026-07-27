@@ -88,7 +88,7 @@ add_action( 'wp_head', function() {
         },
         {
           "@type": "Offer",
-          "name": "5GB+.COM Hosting Deal (Recommended)",
+          "name": "10GB+.COM Hosting Deal (Recommended)",
           "price": "2999",
           "priceCurrency": "BDT"
         },
@@ -252,7 +252,7 @@ add_action( 'wp_head', function() {
           "position": 3,
           "item": {
             "@type": "Product",
-            "name": "5GB+.COM Hosting Deal - Best Choice (Recommended)",
+            "name": "10GB+.COM Hosting Deal - Best Choice (Recommended)",
             "description": "Best choice for starting eCommerce. 10GB NVMe storage, 10 websites, FREE .COM domain, unlimited email, free SSL. Most popular offer!",
             "image": "https://hostorio.com/assets/images/hostorio-domain-hosting-register.jpg",
             "brand": {
@@ -473,7 +473,7 @@ add_action( 'wp_head', function() {
           "name": "Which web hosting plan do I need to choose?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "For personal blogs, choose 2GB+.SHOP domain. For small businesses, 5GB+XYZ is ideal. For eCommerce or businesses needing a domain, our recommended 5GB+.COM deal is the best choice. For growing businesses, select the 20GB+.COM offer."
+            "text": "For personal blogs, choose 2GB+.SHOP domain. For small businesses, 5GB+XYZ is ideal. For eCommerce or businesses needing a domain, our recommended 10GB+.COM deal is the best choice. For growing businesses, select the 20GB+.COM offer."
           }
         },
         {
@@ -939,15 +939,15 @@ get_header();
 
                 </div>
 
-                <!-- Card 3 - 5GB+.COM (Recommended) -->
+                <!-- Card 3 - 10GB+.COM (Recommended) -->
                 <div class="cloud-card popular">
                     <div class="cloud-popular-badge" data-i18n="offerPricing.recommended">Recommended</div>
 
                     <div class="cloud-icon">
-                        <img src="<?php echo esc_url( HOSTORIO_URI ); ?>/assets/images/pricing/data-server.svg" alt="5GB+.COM best hosting deal – recommended offer with FREE domain at ৳2,999 per year">
+                        <img src="<?php echo esc_url( HOSTORIO_URI ); ?>/assets/images/pricing/data-server.svg" alt="10GB+.COM best hosting deal – recommended offer with FREE domain at ৳2,999 per year">
                     </div>
 
-                    <h3 class="cloud-plan-name" data-i18n="offerPricing.plans.plan3.name">5GB+.COM</h3>
+                    <h3 class="cloud-plan-name" data-i18n="offerPricing.plans.plan3.name">10GB+.COM</h3>
                     <p class="cloud-plan-desc" data-i18n="offerPricing.plans.plan3.desc">Best Choice for Start eCommerce</p>
 
                     <div class="cloud-pricing" data-yearly-price="2999">
@@ -1500,11 +1500,11 @@ get_header();
                     </div>
                 </div>
 
-                <!-- Plan 3: 5GB+.COM (Recommended) -->
+                <!-- Plan 3: 10GB+.COM (Recommended) -->
                 <div class="plan-column popular">
                     <div class="plan-header">
                         <div class="cloud-popular-badge" data-i18n="offerPricing.recommended">Recommended</div>
-                        <h3 class="plan-title" data-i18n="offerPricing.plans.plan3.name">5GB+.COM</h3>
+                        <h3 class="plan-title" data-i18n="offerPricing.plans.plan3.name">10GB+.COM</h3>
                     </div>
                     <div class="plan-features">
                         <div class="plan-feature">10 GB NVMe</div>
