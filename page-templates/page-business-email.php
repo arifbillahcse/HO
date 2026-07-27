@@ -75,13 +75,6 @@ add_action( 'wp_head', function() {
         "highPrice": "10080",
         "offerCount": "3",
         "availability": "https://schema.org/InStock"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": "500",
-        "bestRating": "5",
-        "worstRating": "1"
       }
     }
     </script>

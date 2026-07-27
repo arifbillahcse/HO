@@ -113,13 +113,6 @@ add_action( 'wp_head', function() {
           "returnFees": "https://schema.org/FreeReturn"
         }
       },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": 4.8,
-        "reviewCount": 500,
-        "bestRating": 5,
-        "worstRating": 1
-      }
     }
     </script>
     <script type="application/ld+json">
@@ -176,13 +169,6 @@ add_action( 'wp_head', function() {
           "returnFees": "https://schema.org/FreeReturn"
         }
       },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": 4.8,
-        "reviewCount": 500,
-        "bestRating": 5,
-        "worstRating": 1
-      }
     }
     </script>
     <script type="application/ld+json">
@@ -239,13 +225,6 @@ add_action( 'wp_head', function() {
           "returnFees": "https://schema.org/FreeReturn"
         }
       },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": 4.8,
-        "reviewCount": 500,
-        "bestRating": 5,
-        "worstRating": 1
-      }
     }
     </script>
     <script type="application/ld+json">
@@ -302,13 +281,6 @@ add_action( 'wp_head', function() {
           "returnFees": "https://schema.org/FreeReturn"
         }
       },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": 4.8,
-        "reviewCount": 500,
-        "bestRating": 5,
-        "worstRating": 1
-      }
     }
     </script>
     <script type="application/ld+json">
@@ -367,11 +339,6 @@ add_action( 'wp_head', function() {
       },
       "priceRange": "৳৳",
       "servesCuisine": "Web Hosting, VPS, Domain Registration",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": 4.8,
-        "reviewCount": 500
-      }
     }
     </script>
     <script type="application/ld+json">
@@ -393,13 +360,6 @@ add_action( 'wp_head', function() {
         "highPrice": 12000,
         "offerCount": 4,
         "availability": "https://schema.org/InStock"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": 4.8,
-        "reviewCount": 500,
-        "bestRating": 5,
-        "worstRating": 1
       },
       "review": [
         {

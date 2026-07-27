@@ -76,13 +76,6 @@ add_action( 'wp_head', function() {
         "offerCount": "3",
         "availability": "https://schema.org/InStock"
       },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": "500",
-        "bestRating": "5",
-        "worstRating": "1"
-      }
     }
     </script>
     <script type="application/ld+json">
