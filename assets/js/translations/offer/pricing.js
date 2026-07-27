@@ -41,7 +41,7 @@ window.translations.en.offerPricing = {
             f12: "cPanel"
         },
         plan3: {
-            name: "5GB+.COM",
+            name: "10GB+.COM",
             desc: "Best Choice for Start eCommerce",
             f1: "100% Pure 10GB NVMe",
             f2: "Free .com Domain",
@@ -118,7 +118,7 @@ window.translations.bn.offerPricing = {
             f12: "cPanel"
         },
         plan3: {
-            name: "৫ জিবি+.COM",
+            name: "১০ জিবি+.COM",
             desc: "ই-কমার্স শুরুর জন্য সেরা পছন্দ",
             f1: "১০০% বিশুদ্ধ ১০ জিবি NVMe",
             f2: "বিনামূল্যে .com ডোমেইন",
