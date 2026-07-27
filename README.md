@@ -1,157 +1,115 @@
-# Hostorio - Web Hosting Services Website
+# Hostorio WordPress Theme
 
-Hostorio is a web hosting services provider offering Shared Hosting, Business Hosting, Reseller Hosting, VPS, and Domain Registration/Transfer services.
+Custom WordPress theme for [Hostorio](https://hostorio.com) — a web hosting services provider based in Bangladesh. Converted from a static HTML/CSS/JS site into a fully functional WordPress theme.
 
-## Project Structure
+## Features
+
+- **Multi-language support** — English and Bangla (BN) via client-side i18n
+- **Currency switcher** — BDT / USD with configurable exchange rate
+- **SEO optimized** — Schema.org JSON-LD markup, Open Graph, Twitter Cards (defers to Yoast/RankMath when installed)
+- **Responsive design** — Mobile navigation drawer, adaptive layouts
+- **LiteSpeed compatible** — Designed for LiteSpeed + NVMe hosting environments
+- **Admin settings panel** — Manage business info, social links, exchange rate, and client area URL from the dashboard
+
+## Requirements
+
+- WordPress 5.9+
+- PHP 7.4+
+
+## Installation
+
+1. Copy the `hostorio` folder into `wp-content/themes/`
+2. In the WordPress admin, go to **Appearance > Themes** and activate **Hostorio**
+3. On activation, the theme automatically creates pages for each template (Home, Web Hosting, Turbo Hosting, etc.) and sets the Home page as the static front page
+
+## Theme Structure
 
 ```
 hostorio/
-├── index.html                    # Homepage
-├── pages/
-│   └── package.html              # Hosting packages & pricing page
 ├── assets/
-│   ├── css/
-│   │   ├── main.css              # Entry point - imports all modules
-│   │   ├── variables.css         # CSS custom properties (colors, fonts, spacing)
-│   │   ├── base.css              # Reset, body defaults, container
-│   │   ├── header.css            # Top bar, navigation, mobile menu
-│   │   ├── hero.css              # Hero section styles
-│   │   ├── pricing.css           # Pricing cards, plans comparison, FAQ, testimonials
-│   │   └── utilities.css         # Domain search, services, WordPress, support, footer
-│   ├── js/
-│   │   ├── main.js               # Entry point / initialization
-│   │   ├── header.js             # Mobile menu, dropdown navigation
-│   │   ├── utils.js              # Language selector, currency switcher, localStorage
-│   │   ├── pricing.js            # Service buttons, billing toggle, plan interactions
-│   │   └── animations.js         # FAQ accordion, testimonial carousel
-│   └── images/
-│       ├── logo/                 # Brand logos
-│       ├── hero/                 # Hero section images
-│       ├── pricing/              # Pricing card icons
-│       ├── services/             # Service section illustrations (SVG)
-│       ├── flags/                # Country flag icons
-│       ├── payment/              # Payment method logos
-│       ├── testimonials/         # Testimonial photos
-│       ├── icons/                # Misc icons
-│       └── backgrounds/          # Background images
-├── .github/
-│   └── workflows/
-│       └── deploy.yml            # GitHub Pages auto-deploy
-├── .gitignore
-└── README.md
+│   ├── css/styles.css          # All styles (preserved from original)
+│   ├── images/                 # Logos, hero, pricing, support, testimonials
+│   └── js/
+│       ├── animations.js       # Scroll animations
+│       ├── billing.js          # Billing toggle (monthly/annual)
+│       ├── countdown.js        # Offer page countdown timer
+│       ├── header.js           # Header scroll & mobile menu
+│       ├── i18n.js             # Internationalization engine
+│       ├── main.js             # App entry point
+│       ├── pricing.js          # Pricing card logic
+│       ├── translations.js     # Translation registry
+│       ├── translations/       # Per-page translation files (EN/BN)
+│       └── utils.js            # Utility helpers
+├── inc/
+│   ├── admin-settings.php      # Settings page under Appearance > Hostorio Settings
+│   └── theme-activation.php    # Auto-creates pages & sets static front page
+├── page-templates/
+│   ├── page-home.php           # Home (index.html)
+│   ├── page-web-hosting.php    # Web Hosting
+│   ├── page-turbo-hosting.php  # Turbo Hosting
+│   ├── page-reseller-hosting.php
+│   ├── page-student-hosting.php
+│   ├── page-business-email.php
+│   ├── page-vps.php
+│   ├── page-offer.php          # Offer / Deals (with countdown)
+│   ├── page-package.php        # Package comparison
+│   ├── page-privacy.php        # Privacy Policy
+│   └── page-terms.php          # Terms & Conditions
+├── 404.php
+├── footer.php
+├── front-page.php              # Routes to page-home.php
+├── functions.php               # Theme setup, asset enqueuing, helpers
+├── header.php                  # Top bar, navigation, mobile nav
+├── index.php                   # Fallback template
+├── page.php                    # Generic page template
+└── style.css                   # Theme metadata
 ```
 
-## Getting Started
+## Page Templates
 
-### Prerequisites
+Each HTML page maps to a WordPress page template:
 
-No build tools required. This is a static HTML/CSS/JavaScript project.
+| HTML Source               | Page Template              | WP Page Title       |
+|---------------------------|----------------------------|---------------------|
+| `index.html`              | `page-home.php`            | Home                |
+| `web-hosting.html`        | `page-web-hosting.php`     | Web Hosting         |
+| `turbo-hosting.html`      | `page-turbo-hosting.php`   | Turbo Hosting       |
+| `reseller-hosting.html`   | `page-reseller-hosting.php`| Reseller Hosting    |
+| `student-hosting.html`    | `page-student-hosting.php` | Student Hosting     |
+| `business-email.html`     | `page-business-email.php`  | Business Email      |
+| `vps.html`                | `page-vps.php`             | VPS                 |
+| `offer.html`              | `page-offer.php`           | Offer               |
+| `package.html`            | `page-package.php`         | Package             |
+| `privacy-policy.html`     | `page-privacy.php`         | Privacy Policy      |
+| `terms-and-conditions.html`| `page-terms.php`          | Terms & Conditions  |
 
-- A modern web browser (Chrome, Firefox, Safari, Edge)
-- A local web server for development (recommended for proper CSS @import loading)
+## Admin Settings
 
-### Local Development
+Navigate to **Appearance > Hostorio Settings** to configure:
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/arifbillah360/HO.git
-   cd HO
-   ```
+- **Client Area URL** — Base URL for WHMCS/client portal (default: `https://my.hostorio.com/`)
+- **Business Name, Phone, Email, Address**
+- **Logo URL**
+- **Social Media Links** — Facebook, Twitter, YouTube, LinkedIn
+- **USD Exchange Rate** — Used by the currency switcher
 
-2. **Start a local server** (choose one):
-   ```bash
-   # Python 3
-   python -m http.server 8000
+## Customizer Options
 
-   # Node.js (if npx available)
-   npx serve .
+Under **Appearance > Customize**:
 
-   # PHP
-   php -S localhost:8000
-   ```
+- **Footer Description** text
+- **Copyright** text
+- **Social media** URLs (Facebook, Twitter, YouTube, LinkedIn)
 
-3. **Open in browser:**
-   ```
-   http://localhost:8000
-   ```
+## How It Works
 
-### Direct File Access
-
-You can also open `index.html` directly in a browser, though some CSS @import features work best when served via HTTP.
-
-## Pages
-
-| Page | Path | Description |
-|------|------|-------------|
-| Homepage | `index.html` | Main landing page with hero, pricing cards, services, WordPress section |
-| Packages | `pages/package.html` | Detailed hosting plans, comparison table, FAQ, testimonials |
-
-## CSS Architecture
-
-The CSS uses a modular `@import` structure loaded through `main.css`:
-
-1. **variables.css** - Design tokens (colors, typography, spacing, border-radius)
-2. **base.css** - CSS reset, body defaults, container wrapper
-3. **header.css** - Top info bar, main navigation, mobile menu, language/currency selectors
-4. **hero.css** - Hero banner with CTA
-5. **pricing.css** - Cloud pricing cards, plan comparison table, floating icons, FAQ accordion, testimonials carousel
-6. **utilities.css** - Domain search, services section, WordPress hosting section, support cards, footer
-
-### Z-Index Hierarchy
-
-```
-Language/currency dropdowns:  1200
-Top info bar:                 1100
-Desktop dropdown menus:       1070
-Header brand/right:           1060
-Main header:                  1050
-Mobile nav drawer:            1045
-Mobile nav overlay:           1040
-Service dropdown (pricing):   1001
-Pricing hero content:         10
-Floating icons:               2
-Percentage icons:             1
-```
-
-## JavaScript Modules
-
-All scripts load at the end of `<body>` for performance:
-
-- **header.js** - Mobile hamburger menu toggle, desktop/mobile dropdown menus, outside-click closing, resize handling
-- **utils.js** - Language selector with flag updates, currency switcher (desktop buttons + mobile dropdown), localStorage persistence
-- **pricing.js** - Service button selection, mobile service dropdown, billing period toggle
-- **animations.js** - FAQ accordion with expand/collapse, testimonial carousel with keyboard navigation
-
-## Deployment
-
-### GitHub Pages (Automatic)
-
-The repository includes a GitHub Actions workflow (`.github/workflows/deploy.yml`) that automatically deploys to GitHub Pages on push to `main`.
-
-To enable:
-1. Go to repository **Settings** > **Pages**
-2. Set Source to **GitHub Actions**
-3. Push to `main` branch
-
-### Manual Deployment
-
-Upload all files to any static hosting provider (Netlify, Vercel, any web server). No build step needed.
-
-## Tech Stack
-
-- **HTML5** - Semantic markup
-- **CSS3** - Custom properties, Flexbox, Grid, animations, gradients, media queries
-- **Vanilla JavaScript** - No frameworks or dependencies
-- **Font Awesome 6** - Icon library (loaded via CDN)
-
-## Browser Support
-
-- Chrome 80+
-- Firefox 75+
-- Safari 13+
-- Edge 80+
-- Mobile browsers (iOS Safari, Chrome for Android)
+- `header.php` and `footer.php` provide the shared layout (top info bar, navigation, footer columns)
+- Each page template contains the full body content from its corresponding HTML file
+- Static asset paths (`./assets/...`) are replaced with `<?php echo esc_url( HOSTORIO_URI ); ?>/assets/...`
+- Internal links between pages use the `hostorio_page_url()` helper, which resolves page slugs to WordPress permalinks
+- External links to the client area use `hostorio_get( 'client_area_url' )` so the base URL is configurable
+- All output is escaped with `esc_url()`, `esc_html()`, or `esc_attr()` per WordPress coding standards
 
 ## License
 
-All rights reserved. Copyright 2026 Hostorio.
+GPL-2.0-or-later
