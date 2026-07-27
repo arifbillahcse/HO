@@ -3,14 +3,14 @@
  * Hostorio Theme Functions
  *
  * @package Hostorio
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'HOSTORIO_VERSION', '1.0.0' );
+define( 'HOSTORIO_VERSION', '1.0.1' );
 define( 'HOSTORIO_DIR', get_template_directory() );
 define( 'HOSTORIO_URI', get_template_directory_uri() );
 
