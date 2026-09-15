@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Route;
+
+// Sitemap
+Route::get('sitemap.xml', [SitemapController::class, 'sitemap']);
 
 // Homepage
 Route::get('/', function () {

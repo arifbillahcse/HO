@@ -1,58 +1,275 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Hostorio Laravel Web Hosting Platform
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A modern Laravel 13 application converted from the WordPress Hostorio theme. Fast, SEO-optimized marketing website for web hosting services with a built-in admin panel.
 
-## About Laravel
+## Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+✨ **Modern Architecture**
+- Laravel 13.25.0 with Blade templating
+- SQLite database with migrations
+- Client-side i18n system (English & Bengali)
+- Responsive design with Font Awesome 6.5.2
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+🎨 **12 Full-Featured Pages**
+- Homepage with hero section
+- Web Hosting, Turbo Hosting, Reseller Hosting, Student Hosting
+- VPS Hosting with pricing tiers
+- Business Email Solutions
+- Terms & Conditions, Privacy Policy, About Us
+- Special Offers page
+- Dynamic 404 error page
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+🔧 **Admin Panel**
+- Filament admin dashboard at `/admin`
+- Settings management interface
+- Default admin: `admin@hostorio.com` / `admin123`
 
-## Learning Laravel
+⚡ **Performance**
+- Settings cached with 1-hour TTL
+- Optimized database queries
+- SEO-friendly URL structure
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+📱 **SEO & Crawlability**
+- Dynamic sitemap.xml at `/sitemap.xml`
+- robots.txt for search engines
+- Meta tags and OpenGraph support
+- Canonical URLs and JSON-LD data
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+🌍 **Multilingual Support**
+- English & Bengali translations
+- Currency switching (BDT/USD)
+- Dynamic exchange rate configuration
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+## Quick Start
 
-## Agentic Development
-
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+### Installation
 
 ```bash
-composer require laravel/boost --dev
+# Clone repository
+git clone https://github.com/arifbillahcse/laravel-ho.git
+cd laravel-ho
 
-php artisan boost:install
+# Install dependencies
+composer install
+
+# Setup environment
+cp .env.example .env
+php artisan key:generate
+
+# Setup database
+php artisan migrate --seed
+
+# Run dev server
+php artisan serve
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+**Access:**
+- Website: http://localhost:8000
+- Admin Panel: http://localhost:8000/admin
+- Admin Credentials: `admin@hostorio.com` / `admin123`
 
-## Contributing
+## Deployment
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Laravel Forge (Recommended)
 
-## Code of Conduct
+1. Connect GitHub repo to Forge
+2. Create server (Ubuntu 24.04)
+3. Deploy via Forge UI
+4. Set environment variables in Forge dashboard
+5. Run migration: `php artisan migrate --force`
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Manual VPS Deployment
 
-## Security Vulnerabilities
+```bash
+# SSH to VPS
+ssh deploy@your-vps-ip
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# Install PHP, MySQL, Nginx
+sudo apt install php8.2-fpm mysql-server nginx composer
+
+# Clone and setup
+cd /var/www
+git clone https://github.com/arifbillahcse/laravel-ho.git hostorio
+cd hostorio
+composer install --no-dev
+cp .env.example .env
+php artisan key:generate
+php artisan config:cache
+
+# Database setup
+php artisan migrate --force
+php artisan db:seed
+
+# Permissions
+sudo chown -R www-data:www-data /var/www/hostorio
+sudo chmod -R 755 /var/www/hostorio
+sudo chmod -R 775 storage
+```
+
+Configure Nginx and enable HTTPS with Let's Encrypt (see README for full config).
+
+## Settings Management
+
+Access via admin panel at `/admin`:
+
+**Available Settings:**
+- Business info (name, phone, email, address)
+- Social media links (Facebook, Twitter, YouTube, LinkedIn)
+- Logo URL and footer description
+- Client area URL
+- Exchange rate (BDT to USD)
+- Default currency and language
+
+## Pages
+
+- `/` - Homepage
+- `/web-hosting` - Web Hosting
+- `/turbo-hosting` - Turbo Hosting
+- `/reseller-hosting` - Reseller Hosting
+- `/student-hosting` - Student Hosting
+- `/vps` - VPS Hosting
+- `/business-email` - Business Email
+- `/about-us` - About Us
+- `/offer` - Special Offers
+- `/terms-and-conditions` - Terms & Conditions
+- `/privacy-policy` - Privacy Policy
+- `/package` - Hosting Packages
+
+## SEO Features
+
+- **Sitemap**: `/sitemap.xml` (auto-generated, 1h cache)
+- **Robots.txt**: `/robots.txt` (search engine crawl rules)
+- **Meta tags**: Description, OpenGraph, Canonical URLs
+- **JSON-LD**: Structured data for rich snippets
+- **Mobile responsive**: Works perfectly on all devices
+
+## Admin Panel
+
+**Access**: `https://yoursite.com/admin`
+
+**Features:**
+- List all settings with search
+- Edit individual settings
+- Changes reflected immediately (cache: 1 hour)
+- User account management
+
+**Default Login:**
+- Email: `admin@hostorio.com`
+- Password: `admin123`
+
+⚠️ Change password immediately in production!
+
+## Project Structure
+
+```
+laravel-ho/
+├── app/
+│   ├── Filament/              # Admin panel (Filament)
+│   ├── Http/Controllers/      # Request handlers
+│   ├── Models/Setting.php     # Settings model
+│   └── Services/              # Business logic
+├── resources/views/
+│   ├── pages/                 # 12 page templates
+│   ├── partials/              # Header, footer
+│   ├── errors/404.blade.php   # Error page
+│   └── layouts/app.blade.php  # Master layout
+├── public/
+│   ├── assets/                # CSS, JS, images
+│   ├── robots.txt             # SEO crawler rules
+│   └── sitemap.xml            # Dynamic sitemap
+├── database/
+│   ├── migrations/            # Database schema
+│   └── seeders/               # Initial data
+└── routes/web.php             # Application routes
+```
+
+## Helpers
+
+### Get Settings in Blade
+```blade
+{{ hostorio('business_phone', '+8801779440297') }}
+{{ hostorio('logo_url') }}
+```
+
+### Generate URLs
+```blade
+{{ route('home') }}
+{{ route('page', 'web-hosting') }}
+```
+
+## Cache Management
+
+Settings are cached with 1-hour TTL:
+
+```php
+// In code
+use App\Services\SettingsService;
+SettingsService::flush(); // Clear cache
+```
+
+Or via Artisan:
+```bash
+php artisan cache:clear
+```
+
+## Performance
+
+- Settings cached for 1 hour
+- Asset caching headers (images: 1 year)
+- Optimized database queries
+- Gzip compression (Nginx)
+- CDN-ready for static assets
+
+## Security
+
+✅ Admin panel requires authentication
+✅ CSRF protection
+✅ XSS protection (Blade auto-escaping)
+✅ robots.txt blocks /admin/
+✅ Environment variables in .env
+
+📋 Checklist:
+- [ ] Change admin password (production)
+- [ ] Enable HTTPS (Let's Encrypt)
+- [ ] Setup firewall rules
+- [ ] Configure backups
+- [ ] Monitor error logs
+
+## Troubleshooting
+
+**404 pages not showing:**
+- Verify view files in `resources/views/pages/`
+- Clear view cache: `php artisan view:clear`
+
+**Admin panel inaccessible:**
+- Check database connection
+- Create admin: `php artisan db:seed --class=AdminUserSeeder`
+
+**Settings not updating:**
+- Clear cache: `php artisan cache:clear`
+- Check database permissions
+
+**Sitemap not generating:**
+- Clear routes: `php artisan route:clear`
+- Verify `/sitemap.xml` route exists
+
+## Support
+
+- GitHub: https://github.com/arifbillahcse/laravel-ho
+- Issues: GitHub Issues
+- Documentation: README.md
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+MIT License - See LICENSE file
+
+## Credits
+
+- **Conversion**: Claude Haiku 4.5 (Anthropic)
+- **Original Theme**: WordPress Hostorio Theme
+- **Framework**: Laravel 13 by Taylor Otwell
+- **Admin**: Filament by Dan Harrin
+
+---
+
+**Version**: 1.0.0 | **Status**: Production Ready | **Last Updated**: September 2026
