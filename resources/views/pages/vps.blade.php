@@ -1,7 +1,5 @@
 @extends('layouts.app')
-
 @section('title', 'VPS Hosting – Hostorio Web Hosting')
-
 @push('meta')
 <meta name="description" content="Hostorio - VPS Hosting. Fast, reliable web hosting services.">
 <link rel="canonical" href="{{ url('/vps') }}">
@@ -11,21 +9,17 @@
 <meta property="og:description" content="Hostorio - VPS Hosting">
 <meta property="og:url" content="{{ url('/vps') }}">
 @endpush
-
 @push('head')
 <style>
 .st0{fill:none;stroke:#144FC4;stroke-linecap:round;stroke-linejoin:round}.st1{fill:none;stroke:#144FC4}.st2{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#144FC4}.st3{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#FF7800}.st4{fill-rule:evenodd;clip-rule:evenodd;fill:#FF7800}
 </style>
 @endpush
-
 @push('translations')
 <script src="{{ asset('assets/js/translations/header-footer/header.js') }}"></script>
 <script src="{{ asset('assets/js/translations/Hosting/vps.js') }}"></script>
 <script src="{{ asset('assets/js/translations/header-footer/footer.js') }}"></script>
 @endpush
-
 @section('content')
-
 <script type="application/ld+json">
 {
       "@context": "https://schema.org",
@@ -157,15 +151,7 @@
         }
       ]
     }
-    </script>
-    <?php
-}, 1 );
-
-get_header();
-?>
-
-
-    <!-- ===========================
+    </script>!-- ===========================
          PACKAGE CHOOSER SECTION
          =========================== -->
     <div class="package-chooser-wrapper">
@@ -190,57 +176,52 @@ get_header();
             <i class="fas fa-plug motion-item item-17"></i>
             <i class="fas fa-sitemap motion-item item-18"></i>
         </div>
-
         <!-- Left Side Icon Box -->
         <div class="side-icon-box left-side">
             <i class="fas fa-server"></i>
         </div>
-
         <!-- Right Side Icon Box -->
         <div class="side-icon-box right-side">
             <i class="fas fa-database"></i>
         </div>
-
         <div class="content-container">
             <div class="chooser-inner">
                 <h1 class="section-headline" data-i18n="vpsHero.headline">Powerful VPS Hosting for Your Business</h1>
-
                 <!-- Desktop Package Grid -->
                 <div class="packages-desktop">
                     <div class="top-packages">
-                        <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="package-card ">
+                        <a href="" class="package-card ">
                             <span class="card-icon">⚡</span>
                             <span class="card-title-pricing-hero" data-i18n="packageHero.wordpress">WordPress Hosting</span>
                         </a>
-                        <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="package-card">
+                        <a href="" class="package-card">
                             <span class="card-icon">🚀</span>
                             <span class="card-title-pricing-hero" data-i18n="packageHero.turbo">Turbo Hosting</span>
                         </a>
-                        <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="package-card">
+                        <a href="" class="package-card">
                             <span class="card-icon">🔄</span>
                             <span class="card-title-pricing-hero" data-i18n="packageHero.reseller">Reseller Hosting</span>
                         </a>
-                        <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="package-card">
+                        <a href="" class="package-card">
                             <span class="card-icon">🎓</span>
                             <span class="card-title-pricing-hero" data-i18n="packageHero.student">Student Hosting</span>
                         </a>
                     </div>
                     <div class="bottom-packages">
-                        <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="package-card highlighted">
+                        <a href="" class="package-card highlighted">
                             <span class="card-icon">🖥️</span>
                             <span class="card-title-pricing-hero" data-i18n="packageHero.vps">VPS</span>
                         </a>
-                        <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="package-card">
+                        <a href="" class="package-card">
                             <span class="card-icon">✉️</span>
                             <span class="card-title-pricing-hero" data-i18n="packageHero.email">Business Email</span>
                         </a>
-                        <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="package-card">
+                        <a href="" class="package-card">
                             <span class="card-icon">🌐</span>
                             <span class="card-title-pricing-hero" data-i18n="packageHero.offer">Offer</span>
                         </a>
                     </div>
                 </div>
-
                 <!-- Mobile Package Dropdown -->
                 <div class="packages-mobile">
                     <div class="mobile-chooser">
@@ -250,31 +231,31 @@ get_header();
                             <i class="fas fa-chevron-down btn-chevron" id="chevronIcon"></i>
                         </button>
                         <nav class="chooser-list" id="packageList">
-                            <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="list-option selected" data-icon="⚡" data-label="WordPress Hosting">
+                            <a href="" class="list-option selected" data-icon="⚡" data-label="WordPress Hosting">
                                 <span class="opt-icon">⚡</span>
                                 <span class="opt-label" data-i18n="packageHero.wordpress">Web Hosting</span>
                             </a>
-                            <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="list-option" data-icon="🚀" data-label="Turbo Hosting">
+                            <a href="" class="list-option" data-icon="🚀" data-label="Turbo Hosting">
                                 <span class="opt-icon">🚀</span>
                                 <span class="opt-label" data-i18n="packageHero.turbo">Turbo Hosting</span>
                             </a>
-                            <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="list-option" data-icon="🔄" data-label="Reseller Hosting">
+                            <a href="" class="list-option" data-icon="🔄" data-label="Reseller Hosting">
                                 <span class="opt-icon">🔄</span>
                                 <span class="opt-label" data-i18n="packageHero.reseller">Reseller Hosting</span>
                             </a>
-                            <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="list-option" data-icon="🎓" data-label="Student Hosting">
+                            <a href="" class="list-option" data-icon="🎓" data-label="Student Hosting">
                                 <span class="opt-icon">🎓</span>
                                 <span class="opt-label" data-i18n="packageHero.student">Student Hosting</span>
                             </a>
-                            <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="list-option" data-icon="🖥️" data-label="VPS">
+                            <a href="" class="list-option" data-icon="🖥️" data-label="VPS">
                                 <span class="opt-icon">🖥️</span>
                                 <span class="opt-label" data-i18n="packageHero.vps">VPS</span>
                             </a>
-                            <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="list-option" data-icon="✉️" data-label="Business Email">
+                            <a href="" class="list-option" data-icon="✉️" data-label="Business Email">
                                 <span class="opt-icon">✉️</span>
                                 <span class="opt-label" data-i18n="packageHero.email">Business Email</span>
                             </a>
-                            <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="list-option" data-icon="🌐" data-label="Domain">
+                            <a href="" class="list-option" data-icon="🌐" data-label="Domain">
                                 <span class="opt-icon">🌐</span>
                                 <span class="opt-label" data-i18n="packageHero.offer">Offer</span>
                             </a>
@@ -284,17 +265,12 @@ get_header();
             </div>
         </div>
     </div>
-
-
-
 <!-- VPS Pricing Section -->
 <section class="vps-plan-pricing-section" id="#vps-section-id" style="padding: 60px 0; background: #f8fafc;">
     <div class="container-wrapper">
-
         <!-- Section Header -->
         <div class="pricing-header" style="margin-bottom: 40px;">
             <h2 class="pricing-main-title" data-i18n="vpsPricing.heading">Choose Your VPS Hosting Plan</h2>
-
             <!-- VPS Billing Toggle -->
             <div class="billing-toggle" data-billing-default="monthly">
                 <span class="toggle-label active" data-i18n="pricing.billedMonthly">Billed Monthly</span>
@@ -306,18 +282,15 @@ get_header();
                 <span class="save-badge" data-i18n="pricing.saveBadge">Save 30%!</span>
             </div>
         </div>
-
         <!-- VPS Plan Cards -->
         <div class="cloud-pricing-cards" style="justify-content: center;">
-
             <!-- Plan 1: Enhanced VPS -->
             <div class="cloud-card">
                 <div class="cloud-icon">
-                    <img src="<?php echo htmlspecialchars( HOSTORIO_URI ); ?>/assets/images/pricing/data-server.svg" alt="Enhanced VPS hosting – 4 core CPU, 4GB RAM virtual private server">
+                    <img src="{{ asset('') }}/assets/images/pricing/data-server.svg" alt="Enhanced VPS hosting – 4 core CPU, 4GB RAM virtual private server">
                 </div>
                 <h3 class="cloud-plan-name" data-i18n="vpsPricing.plans.enhanced.name">Enhanced VPS</h3>
                 <p class="cloud-plan-desc" data-i18n="vpsPricing.plans.enhanced.specs">4 Cores · 4 GB RAM · 50 GB SSD</p>
-
                 <div class="cloud-pricing" data-yearly-price="17640">
                     <div class="cloud-price-original">
                         <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
@@ -329,7 +302,6 @@ get_header();
                         <span class="cloud-period" data-i18n="pricing.perMonth">/mo</span>
                     </div>
                 </div>
-
                 <ul class="cloud-features">
                     <li>
                         <svg class="cloud-icon-check" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -360,18 +332,15 @@ get_header();
                         <span data-i18n="vpsPricing.plans.enhanced.bandwidth">2 TB Bandwidth</span>
                     </li>
                 </ul>
-
                 <button class="cloud-order-btn" data-i18n="vpsPricing.deployNow">DEPLOY NOW</button>
             </div>
-
             <!-- Plan 2: Premium VPS -->
             <div class="cloud-card">
                 <div class="cloud-icon">
-                    <img src="<?php echo htmlspecialchars( HOSTORIO_URI ); ?>/assets/images/pricing/data-server.svg" alt="Premium VPS hosting – 6 core CPU, 8GB RAM dedicated virtual server">
+                    <img src="{{ asset('') }}/assets/images/pricing/data-server.svg" alt="Premium VPS hosting – 6 core CPU, 8GB RAM dedicated virtual server">
                 </div>
                 <h3 class="cloud-plan-name" data-i18n="vpsPricing.plans.premium.name">Premium VPS</h3>
                 <p class="cloud-plan-desc" data-i18n="vpsPricing.plans.premium.specs">6 Cores · 8 GB RAM · 100 GB SSD</p>
-
                 <div class="cloud-pricing" data-yearly-price="35280">
                     <div class="cloud-price-original">
                         <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
@@ -383,7 +352,6 @@ get_header();
                         <span class="cloud-period" data-i18n="pricing.perMonth">/mo</span>
                     </div>
                 </div>
-
                 <ul class="cloud-features">
                     <li>
                         <svg class="cloud-icon-check" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -414,19 +382,16 @@ get_header();
                         <span data-i18n="vpsPricing.plans.premium.bandwidth">4 TB Bandwidth</span>
                     </li>
                 </ul>
-
                 <button class="cloud-order-btn" data-i18n="vpsPricing.deployNow">DEPLOY NOW</button>
             </div>
-
             <!-- Plan 3: Elite VPS (Most Popular) -->
             <div class="cloud-card popular">
                 <div class="cloud-popular-badge" data-i18n="vpsPricing.mostPopular">Most Popular</div>
                 <div class="cloud-icon">
-                    <img src="<?php echo htmlspecialchars( HOSTORIO_URI ); ?>/assets/images/pricing/data-server.svg" alt="Elite VPS hosting – 8 core CPU, 16GB RAM high-performance server">
+                    <img src="{{ asset('') }}/assets/images/pricing/data-server.svg" alt="Elite VPS hosting – 8 core CPU, 16GB RAM high-performance server">
                 </div>
                 <h3 class="cloud-plan-name" data-i18n="vpsPricing.plans.elite.name">Elite VPS</h3>
                 <p class="cloud-plan-desc" data-i18n="vpsPricing.plans.elite.specs">8 Cores · 16 GB RAM · 150 GB SSD</p>
-
                 <div class="cloud-pricing" data-yearly-price="70560">
                     <div class="cloud-price-original">
                         <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
@@ -438,7 +403,6 @@ get_header();
                         <span class="cloud-period" data-i18n="pricing.perMonth">/mo</span>
                     </div>
                 </div>
-
                 <ul class="cloud-features">
                     <li>
                         <svg class="cloud-icon-check" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -469,18 +433,15 @@ get_header();
                         <span data-i18n="vpsPricing.plans.elite.bandwidth">6 TB Bandwidth</span>
                     </li>
                 </ul>
-
                 <button class="cloud-order-btn" data-i18n="vpsPricing.deployNow">DEPLOY NOW</button>
             </div>
-
             <!-- Plan 4: Ultimate VPS -->
             <div class="cloud-card">
                 <div class="cloud-icon">
-                    <img src="<?php echo htmlspecialchars( HOSTORIO_URI ); ?>/assets/images/pricing/data-server.svg" alt="Ultimate VPS hosting – 16 core CPU, 32GB RAM enterprise virtual server">
+                    <img src="{{ asset('') }}/assets/images/pricing/data-server.svg" alt="Ultimate VPS hosting – 16 core CPU, 32GB RAM enterprise virtual server">
                 </div>
                 <h3 class="cloud-plan-name" data-i18n="vpsPricing.plans.ultimate.name">Ultimate VPS</h3>
                 <p class="cloud-plan-desc" data-i18n="vpsPricing.plans.ultimate.specs">16 Cores · 32 GB RAM · 300 GB SSD</p>
-
                 <div class="cloud-pricing" data-yearly-price="141120">
                     <div class="cloud-price-original">
                         <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
@@ -492,7 +453,6 @@ get_header();
                         <span class="cloud-period" data-i18n="pricing.perMonth">/mo</span>
                     </div>
                 </div>
-
                 <ul class="cloud-features">
                     <li>
                         <svg class="cloud-icon-check" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -523,15 +483,11 @@ get_header();
                         <span data-i18n="vpsPricing.plans.ultimate.bandwidth">8 TB Bandwidth</span>
                     </li>
                 </ul>
-
                 <button class="cloud-order-btn" data-i18n="vpsPricing.deployNow">DEPLOY NOW</button>
             </div>
-
         </div><!-- /.cloud-pricing-cards -->
     </div><!-- /.container-wrapper -->
 </section>
-
-
 <!-- ===========================
      VPS SECTION
      =========================== -->
@@ -539,10 +495,8 @@ get_header();
     <!-- Background elements -->
     <div class="vps-bg-element vps-bg-1"></div>
     <div class="vps-bg-element vps-bg-2"></div>
-
     <div class="container-wrapper">
         <div class="vps-content">
-
             <!-- Section Header -->
             <div class="vps-header">
                 <div class="vps-tag">
@@ -556,10 +510,8 @@ get_header();
                     Enterprise-grade virtual servers designed for developers who demand speed, security, and complete control over their hosting environment.
                 </p>
             </div>
-
             <!-- 4 Feature Cards Grid -->
             <div class="vps-grid">
-
                 <!-- Card 1 -->
                 <div class="vps-card">
                     <span class="vps-card-number">01</span>
@@ -575,10 +527,8 @@ get_header();
                     <div>
                         <h3 class="vps-card-title" data-i18n="vpsPricing.features.security.title">Powerful Security</h3>
                         <p class="vps-card-desc" data-i18n="vpsPricing.features.security.desc">Enterprise-grade DDoS protection and proactive threat monitoring keeps your VPS locked down 24/7.</p>
-
                     </div>
                 </div>
-
                 <!-- Card 2 -->
                 <div class="vps-card">
                     <span class="vps-card-number">02</span>
@@ -597,10 +547,8 @@ get_header();
                     <div>
                         <h3 class="vps-card-title" data-i18n="vpsPricing.features.managed.title">Managed VPS</h3>
                         <p class="vps-card-desc" data-i18n="vpsPricing.features.managed.desc">Free cPanel, automated updates, and round-the-clock monitoring. We handle everything operational.</p>
-
                     </div>
                 </div>
-
                 <!-- Card 3 -->
                 <div class="vps-card">
                     <span class="vps-card-number">03</span>
@@ -616,10 +564,8 @@ get_header();
                     <div>
                         <h3 class="vps-card-title" data-i18n="vpsPricing.features.deploy.title">Deploy Instantly</h3>
                         <p class="vps-card-desc" data-i18n="vpsPricing.features.deploy.desc">Server goes live in under 60 seconds from signup. Full root access granted immediately—no delays.</p>
-
                     </div>
                 </div>
-
                 <!-- Card 4 -->
                 <div class="vps-card">
                     <span class="vps-card-number">04</span>
@@ -636,18 +582,14 @@ get_header();
                     <div>
                         <h3 class="vps-card-title" data-i18n="vpsPricing.features.uptime.title">99.9% Uptime Guarantee</h3>
                         <p class="vps-card-desc" data-i18n="vpsPricing.features.uptime.desc">Redundant infrastructure across multiple data centers ensures your applications stay online always.</p>
-
                     </div>
                 </div>
-
             </div>
-
             <!-- Hero Banner -->
             <div class="vps-banner">
                 <div class="vps-banner-accent"></div>
                 <div class="vps-banner-wrapper">
                     <div class="vps-banner-content">
-
                         <!-- Icon Panel -->
                         <div class="vps-banner-icon-wrap">
                             <div class="vps-banner-icon-box">
@@ -671,7 +613,6 @@ get_header();
                             </div>
                             <div class="vps-banner-badge" data-i18n="vpsPricing.bannerBadge">Cloud VPS</div>
                         </div>
-
                         <!-- Text Content -->
                         <div class="vps-banner-text">
                             <div class="vps-banner-tag">
@@ -684,7 +625,6 @@ get_header();
                             <p class="vps-banner-desc" data-i18n="vpsPricing.bannerDesc">
                                 The best platform to build your own cloud server with an easy-to-use interface and high data security at a very affordable price. You'll select your plan from there.
                             </p>
-
                             <!-- Stats -->
                             <div class="vps-banner-stats">
                                 <div class="vps-stat">
@@ -705,7 +645,6 @@ get_header();
                                 </div>
                             </div>
                         </div>
-
                         <!-- CTA Buttons -->
                         <div class="vps-banner-cta">
                             <a href="#vps-section-id" class="vps-btn-primary">
@@ -716,27 +655,23 @@ get_header();
                                 <span data-i18n="vpsPricing.bannerBtn2">Support</span> <i class="fas fa-chevron-right"></i>
                             </a>
                         </div>
-
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
-
 <!-- Testimonial Carousel Section -->
 <!-- Testimonial Section - Horizontal Layout -->
 <section class="testimonial-horizontal-section">
     <div class="testimonial-horizontal-container">
-
         <!-- Testimonial Item 1 -->
         <div class="testimonial-horizontal-item active">
             <div class="testimonial-horizontal-content">
                 <!-- Image Side -->
                 <div class="testimonial-image-side">
                     <div class="testimonial-video-wrapper">
-                        <img src="<?php echo htmlspecialchars( HOSTORIO_URI ); ?>/assets/images/testimonials/shaidulislamrony.png" alt="Shaidul Islam Rony – VPS hosting customer review" class="testimonial-person-image">
+                        <img src="{{ asset('') }}/assets/images/testimonials/shaidulislamrony.png" alt="Shaidul Islam Rony – VPS hosting customer review" class="testimonial-person-image">
                         <div class="video-play-button">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="play-svg">
                                 <path fill="currentColor" d="M8 5v14l11-7z"></path>
@@ -744,7 +679,6 @@ get_header();
                         </div>
                     </div>
                 </div>
-
                 <!-- Text Side -->
                 <div class="testimonial-text-side">
                     <div class="quote-mark">
@@ -752,19 +686,15 @@ get_header();
                             <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
                         </svg>
                     </div>
-
                     <p class="testimonial-quote" data-i18n="testimonial.item1.quote">
                         I could <span class="highlight-text">manage</span> the hosting, domain name, and SSL certificate <span class="highlight-text">in one place</span>, which was really refreshing.
                     </p>
-
                     <a href="#" class="testimonial-read-more" data-i18n="testimonial.readMore">Read more</a>
-
                     <div class="testimonial-author-section">
                         <div class="author-details">
                             <p class="author-name-text">Shaidul Islam Rony</p>
                             <p class="author-site">bhrelocationinc.com</p>
                         </div>
-
                         <div class="carousel-navigation">
                             <button class="carousel-btn carousel-prev" aria-label="Previous">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -781,14 +711,13 @@ get_header();
                 </div>
             </div>
         </div>
-
         <!-- Testimonial Item 2 -->
         <div class="testimonial-horizontal-item">
             <div class="testimonial-horizontal-content">
                 <!-- Image Side -->
                 <div class="testimonial-image-side">
                     <div class="testimonial-video-wrapper">
-                        <img src="<?php echo htmlspecialchars( HOSTORIO_URI ); ?>/assets/images/testimonials/tutul.png" alt="Tutul – satisfied VPS hosting customer" class="testimonial-person-image">
+                        <img src="{{ asset('') }}/assets/images/testimonials/tutul.png" alt="Tutul – satisfied VPS hosting customer" class="testimonial-person-image">
                         <div class="video-play-button">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="play-svg">
                                 <path fill="currentColor" d="M8 5v14l11-7z"></path>
@@ -796,7 +725,6 @@ get_header();
                         </div>
                     </div>
                 </div>
-
                 <!-- Text Side -->
                 <div class="testimonial-text-side">
                     <div class="quote-mark">
@@ -804,19 +732,15 @@ get_header();
                             <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
                         </svg>
                     </div>
-
                     <p class="testimonial-quote" data-i18n="testimonial.item2.quote">
                         We honestly reference <span class="highlight-text">Hostorio as the benchmark</span> for our engineers when providing support.
                     </p>
-
                     <a href="#" class="testimonial-read-more" data-i18n="testimonial.readMore">Read more</a>
-
                     <div class="testimonial-author-section">
                         <div class="author-details">
                             <p class="author-name-text">Tutul</p>
                             <p class="author-site">clientwebsite.com</p>
                         </div>
-
                         <div class="carousel-navigation">
                             <button class="carousel-btn carousel-prev" aria-label="Previous">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -833,11 +757,8 @@ get_header();
                 </div>
             </div>
         </div>
-
     </div>
 </section>
-
-
     <!-- Support Section -->
     <section class="support-section">
         <div class="container-wrapper">
@@ -846,14 +767,12 @@ get_header();
                 <h2 class="section-main-title" data-i18n="support.sectionTitle">Customer Success Focus</h2>
                 <p class="section-subtitle" data-i18n="support.sectionSubtitle">We provide everything you need to succeed online</p>
             </div>
-
             <!-- Support Cards -->
             <div class="support-cards">
-
                 <!-- Card 1 -->
                 <div class="support-card">
                     <div class="card-image-wrapper">
-                        <img src="<?php echo htmlspecialchars( HOSTORIO_URI ); ?>/assets/images/support/support-hostorio.webp" alt="Onboarding Support" class="card-image">
+                        <img src="{{ asset('') }}/assets/images/support/support-hostorio.webp" alt="Onboarding Support" class="card-image">
                         <div class="image-overlay blue-overlay"></div>
                     </div>
                     <div class="card-content">
@@ -864,11 +783,10 @@ get_header();
                         <a href="https://my.hostorio.com/submitticket.php" class="card-button" data-i18n="support.card1.btn">Get started</a>
                     </div>
                 </div>
-
                 <!-- Card 2 -->
                 <div class="support-card">
                     <div class="card-image-wrapper">
-                        <img src="<?php echo htmlspecialchars( HOSTORIO_URI ); ?>/assets/images/support/blog-hostorio.webp" alt="Discover Resources" class="card-image">
+                        <img src="{{ asset('') }}/assets/images/support/blog-hostorio.webp" alt="Discover Resources" class="card-image">
                         <div class="image-overlay green-overlay"></div>
                     </div>
                     <div class="card-content">
@@ -879,11 +797,10 @@ get_header();
                         <a href="https://my.hostorio.com/knowledgebase" class="card-button" data-i18n="support.card2.btn">Get learning</a>
                     </div>
                 </div>
-
                 <!-- Card 3 -->
                 <div class="support-card">
                     <div class="card-image-wrapper">
-                        <img src="<?php echo htmlspecialchars( HOSTORIO_URI ); ?>/assets/images/support/trasfer-hosting-hostorio.webp" alt="Hassle-Free Transfers" class="card-image">
+                        <img src="{{ asset('') }}/assets/images/support/trasfer-hosting-hostorio.webp" alt="Hassle-Free Transfers" class="card-image">
                         <div class="image-overlay orange-overlay"></div>
                     </div>
                     <div class="card-content">
@@ -894,15 +811,10 @@ get_header();
                         <a href="https://my.hostorio.com/cart.php?a=add&domain=transfer" class="card-button" data-i18n="support.card3.btn">Transfer today</a>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
-
-
-
     <!-- Main Footer -->
     
 <?
-
 @endsection

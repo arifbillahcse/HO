@@ -20,7 +20,7 @@
                         ];
                     @endphp
                     @foreach ($socials as $network => $icon)
-                        @php $url = hostorio('social_' . $network, '') @endphp
+                        @php $url = hostorio('social_' . $network, ''); @endphp
                         @if (!empty($url))
                             <a href="{{ $url }}" class="social-icon" aria-label="{{ ucfirst($network) }}">
                                 <i class="{{ $icon }}"></i>

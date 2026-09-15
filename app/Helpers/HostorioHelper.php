@@ -4,16 +4,24 @@ namespace App\Helpers;
 
 use App\Services\SettingsService;
 
-if (!function_exists('hostorio')) {
-    function hostorio(string $key, $default = null)
+class HostorioHelper
+{
+    protected static $settingsService;
+
+    public static function get($key, $default = null)
     {
-        return SettingsService::get($key, $default);
+        if (!self::$settingsService) {
+            self::$settingsService = app(SettingsService::class);
+        }
+
+        $value = self::$settingsService->get($key);
+        return $value !== null ? $value : $default;
     }
 }
 
-if (!function_exists('hostorio_url')) {
-    function hostorio_url(string $name, $parameters = [])
+if (!function_exists('hostorio')) {
+    function hostorio($key, $default = null)
     {
-        return route($name, $parameters);
+        return \App\Helpers\HostorioHelper::get($key, $default);
     }
 }

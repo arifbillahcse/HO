@@ -1,7 +1,5 @@
 @extends('layouts.app')
-
 @section('title', 'Privacy Policy – Hostorio Web Hosting')
-
 @push('meta')
 <meta name="description" content="Hostorio - Privacy Policy. Fast, reliable web hosting services.">
 <link rel="canonical" href="{{ url('/privacy') }}">
@@ -11,20 +9,17 @@
 <meta property="og:description" content="Hostorio - Privacy Policy">
 <meta property="og:url" content="{{ url('/privacy') }}">
 @endpush
-
 @push('head')
 <style>
 /* =============================================
            PRIVACY POLICY PAGE — PAGE-SPECIFIC CSS
            ============================================= */
-
         /* ── Container ──────────────────────────────── */
         .privacy-page-container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
         /* ── Hero Section ───────────────────────────── */
         .privacy-hero-section {
             background: linear-gradient(135deg, #01257D 0%, #011d5f 100%);
@@ -32,7 +27,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .privacy-hero-section::before {
             content: '';
             position: absolute;
@@ -45,13 +39,11 @@
                 radial-gradient(circle at 80% 50%, rgba(255, 144, 0, 0.1) 0%, transparent 50%);
             pointer-events: none;
         }
-
         .privacy-hero-content {
             text-align: center;
             position: relative;
             z-index: 1;
         }
-
         .hero-icon-box {
             width: 100px;
             height: 100px;
@@ -63,12 +55,10 @@
             margin: 0 auto 30px;
             border: 2px solid rgba(255, 255, 255, 0.2);
         }
-
         .hero-icon-box i {
             font-size: 48px;
             color: #FF7800;
         }
-
         .privacy-hero-title {
             font-size: 48px;
             font-weight: 700;
@@ -76,13 +66,11 @@
             margin-bottom: 12px;
             line-height: 1.2;
         }
-
         .privacy-hero-subtitle {
             font-size: 24px;
             color: rgba(255, 255, 255, 0.9);
             margin-bottom: 20px;
         }
-
         .last-updated {
             display: inline-flex;
             align-items: center;
@@ -93,23 +81,19 @@
             color: rgba(255, 255, 255, 0.95);
             font-size: 14px;
         }
-
         .last-updated i {
             color: #FF7800;
         }
-
         /* ── Content Section ────────────────────────── */
         .privacy-content-section {
             padding: 80px 0;
         }
-
         .privacy-content-wrapper {
             background: #FFFFFF;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             padding: 50px;
         }
-
         /* ── Intro Box ──────────────────────────────── */
         .privacy-intro-box {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
@@ -120,7 +104,6 @@
             display: flex;
             gap: 20px;
         }
-
         .intro-icon {
             flex-shrink: 0;
             width: 60px;
@@ -131,34 +114,28 @@
             align-items: center;
             justify-content: center;
         }
-
         .intro-icon i {
             font-size: 28px;
             color: #FFFFFF;
         }
-
         .intro-text-content {
             flex: 1;
         }
-
         .intro-heading {
             font-size: 24px;
             font-weight: 700;
             color: #01257D;
             margin-bottom: 15px;
         }
-
         .intro-description {
             font-size: 16px;
             line-height: 1.8;
             color: #495057;
         }
-
         /* ── Section Blocks ─────────────────────────── */
         .privacy-section-block {
             margin-bottom: 50px;
         }
-
         .section-header-block {
             display: flex;
             align-items: center;
@@ -167,7 +144,6 @@
             padding-bottom: 15px;
             border-bottom: 2px solid #e9ecef;
         }
-
         .section-number-badge {
             width: 50px;
             height: 50px;
@@ -178,12 +154,10 @@
             justify-content: center;
             flex-shrink: 0;
         }
-
         .section-number-badge i {
             font-size: 24px;
             color: #FFFFFF;
         }
-
         /* Badge Variants */
         .collection-badge { background: linear-gradient(135deg, #0170B9 0%, #1368E7 100%); }
         .purpose-badge    { background: linear-gradient(135deg, #FF7800 0%, #ff8c00 100%); }
@@ -191,14 +165,12 @@
         .disclosure-badge { background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%); }
         .concerns-badge   { background: linear-gradient(135deg, #dc3545 0%, #c82333 100%); }
         .changes-badge    { background: linear-gradient(135deg, #6f42c1 0%, #5a32a3 100%); }
-
         .section-title-text {
             font-size: 28px;
             font-weight: 700;
             color: #212529;
             margin: 0;
         }
-
         /* ── Subsections ────────────────────────────── */
         .privacy-subsection {
             background: #f8f9fa;
@@ -207,7 +179,6 @@
             margin-bottom: 20px;
             border: 1px solid #e9ecef;
         }
-
         .subsection-title {
             display: flex;
             align-items: center;
@@ -217,23 +188,19 @@
             color: #01257D;
             margin-bottom: 15px;
         }
-
         .subsection-title i {
             font-size: 22px;
             color: #FF7800;
         }
-
         .subsection-text {
             font-size: 15px;
             line-height: 1.8;
             color: #495057;
             margin-bottom: 20px;
         }
-
         .subsection-text:last-child {
             margin-bottom: 0;
         }
-
         /* ── Info List ──────────────────────────────── */
         .info-list-box {
             display: flex;
@@ -241,7 +208,6 @@
             gap: 15px;
             margin-top: 20px;
         }
-
         .info-list-item {
             display: flex;
             gap: 18px;
@@ -251,13 +217,11 @@
             border: 1px solid #e9ecef;
             transition: all 0.3s ease;
         }
-
         .info-list-item:hover {
             border-color: #01257D;
             box-shadow: 0 4px 12px rgba(1, 37, 125, 0.1);
             transform: translateX(5px);
         }
-
         .list-icon {
             flex-shrink: 0;
             width: 50px;
@@ -268,36 +232,30 @@
             align-items: center;
             justify-content: center;
         }
-
         .list-icon i {
             font-size: 24px;
             color: #FFFFFF;
         }
-
         .list-content {
             flex: 1;
         }
-
         .list-content h5 {
             font-size: 16px;
             font-weight: 700;
             color: #212529;
             margin-bottom: 5px;
         }
-
         .list-content p {
             font-size: 14px;
             color: #6c757d;
             margin: 0;
         }
-
         /* ── Purpose Grid ───────────────────────────── */
         .purpose-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
         }
-
         .purpose-card {
             background: #f8f9fa;
             border-radius: 8px;
@@ -306,14 +264,12 @@
             border: 1px solid #e9ecef;
             transition: all 0.3s ease;
         }
-
         .purpose-card:hover {
             background: #FFFFFF;
             border-color: #FF7800;
             box-shadow: 0 6px 20px rgba(255, 120, 0, 0.15);
             transform: translateY(-5px);
         }
-
         .purpose-icon {
             width: 60px;
             height: 60px;
@@ -324,26 +280,22 @@
             justify-content: center;
             margin: 0 auto 15px;
         }
-
         .purpose-icon i {
             font-size: 28px;
             color: #FFFFFF;
         }
-
         .purpose-title {
             font-size: 18px;
             font-weight: 700;
             color: #212529;
             margin-bottom: 10px;
         }
-
         .purpose-description {
             font-size: 14px;
             color: #6c757d;
             line-height: 1.6;
             margin: 0;
         }
-
         /* ── Guarantee Box ──────────────────────────── */
         .guarantee-box {
             background: linear-gradient(135deg, #28a745 0%, #218838 100%);
@@ -353,7 +305,6 @@
             gap: 20px;
             margin-bottom: 30px;
         }
-
         .guarantee-icon {
             flex-shrink: 0;
             width: 60px;
@@ -364,30 +315,25 @@
             align-items: center;
             justify-content: center;
         }
-
         .guarantee-icon i {
             font-size: 32px;
             color: #FFFFFF;
         }
-
         .guarantee-content {
             flex: 1;
         }
-
         .guarantee-title {
             font-size: 22px;
             font-weight: 700;
             color: #FFFFFF;
             margin-bottom: 10px;
         }
-
         .guarantee-text {
             font-size: 16px;
             color: rgba(255, 255, 255, 0.95);
             margin: 0;
             line-height: 1.7;
         }
-
         /* ── Usage Info Box ─────────────────────────── */
         .usage-info-box {
             background: #f8f9fa;
@@ -395,40 +341,34 @@
             padding: 30px;
             border: 1px solid #e9ecef;
         }
-
         .usage-heading {
             font-size: 18px;
             font-weight: 700;
             color: #01257D;
             margin-bottom: 20px;
         }
-
         .usage-points {
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
-
         .usage-point {
             display: flex;
             gap: 12px;
             align-items: flex-start;
         }
-
         .usage-point i {
             color: #28a745;
             font-size: 20px;
             margin-top: 2px;
             flex-shrink: 0;
         }
-
         .usage-point p {
             font-size: 15px;
             line-height: 1.7;
             color: #495057;
             margin: 0;
         }
-
         /* ── Disclosure Cards ───────────────────────── */
         .disclosure-card {
             background: #f8f9fa;
@@ -437,43 +377,36 @@
             margin-bottom: 20px;
             border: 1px solid #e9ecef;
         }
-
         .disclosure-header {
             display: flex;
             align-items: center;
             gap: 12px;
             margin-bottom: 15px;
         }
-
         .disclosure-header i {
             font-size: 24px;
             color: #0170B9;
         }
-
         .disclosure-header h4 {
             font-size: 20px;
             font-weight: 700;
             color: #212529;
             margin: 0;
         }
-
         .disclosure-card p {
             font-size: 15px;
             line-height: 1.8;
             color: #495057;
             margin-bottom: 15px;
         }
-
         .disclosure-card p:last-child {
             margin-bottom: 0;
         }
-
         .disclosure-card ul {
             list-style: none;
             padding: 0;
             margin: 15px 0 0 0;
         }
-
         .disclosure-card li {
             position: relative;
             padding-left: 25px;
@@ -482,7 +415,6 @@
             line-height: 1.7;
             color: #495057;
         }
-
         .disclosure-card li::before {
             content: "•";
             position: absolute;
@@ -491,16 +423,13 @@
             font-size: 20px;
             line-height: 1.5;
         }
-
         .important-disclosure {
             background: #fff3cd;
             border-color: #ffc107;
         }
-
         .important-disclosure .disclosure-header i {
             color: #ff9800;
         }
-
         /* ── Concerns Box ───────────────────────────── */
         .concerns-box {
             background: #f8f9fa;
@@ -510,7 +439,6 @@
             gap: 20px;
             border: 1px solid #e9ecef;
         }
-
         .concerns-icon {
             flex-shrink: 0;
             width: 60px;
@@ -521,30 +449,25 @@
             align-items: center;
             justify-content: center;
         }
-
         .concerns-icon i {
             font-size: 32px;
             color: #FFFFFF;
         }
-
         .concerns-content {
             flex: 1;
         }
-
         .concerns-title {
             font-size: 20px;
             font-weight: 700;
             color: #212529;
             margin-bottom: 10px;
         }
-
         .concerns-text {
             font-size: 15px;
             line-height: 1.8;
             color: #495057;
             margin: 0;
         }
-
         /* ── Changes Notice Box ─────────────────────── */
         .changes-notice-box {
             background: linear-gradient(135deg, #6f42c1 0%, #5a32a3 100%);
@@ -553,7 +476,6 @@
             display: flex;
             gap: 20px;
         }
-
         .changes-icon {
             flex-shrink: 0;
             width: 50px;
@@ -564,12 +486,10 @@
             align-items: center;
             justify-content: center;
         }
-
         .changes-icon i {
             font-size: 28px;
             color: #FFFFFF;
         }
-
         .changes-text {
             flex: 1;
             font-size: 15px;
@@ -577,7 +497,6 @@
             color: rgba(255, 255, 255, 0.95);
             margin: 0;
         }
-
         /* ── Contact Box ────────────────────────────── */
         .privacy-contact-box {
             background: linear-gradient(135deg, #01257D 0%, #011d5f 100%);
@@ -588,7 +507,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .privacy-contact-box::before {
             content: '';
             position: absolute;
@@ -601,7 +519,6 @@
                 radial-gradient(circle at 80% 50%, rgba(255, 144, 0, 0.1) 0%, transparent 50%);
             pointer-events: none;
         }
-
         .contact-icon-circle {
             position: relative;
             z-index: 1;
@@ -614,12 +531,10 @@
             justify-content: center;
             margin: 0 auto 20px;
         }
-
         .contact-icon-circle i {
             font-size: 36px;
             color: #FF7800;
         }
-
         .contact-heading {
             position: relative;
             z-index: 1;
@@ -628,7 +543,6 @@
             color: #FFFFFF;
             margin-bottom: 15px;
         }
-
         .contact-description {
             position: relative;
             z-index: 1;
@@ -639,7 +553,6 @@
             margin-left: auto;
             margin-right: auto;
         }
-
         .contact-support-button {
             position: relative;
             z-index: 1;
@@ -656,23 +569,19 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(255, 120, 0, 0.3);
         }
-
         .contact-support-button:hover {
             background: #ff8c00;
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(255, 120, 0, 0.4);
             color: #FFFFFF;
         }
-
         .contact-support-button i {
             font-size: 18px;
             transition: transform 0.3s ease;
         }
-
         .contact-support-button:hover i {
             transform: translateX(4px);
         }
-
         /* ── Responsive ─────────────────────────────── */
         @media (max-width: 768px) {
             .privacy-hero-section { padding: 60px 0; }
@@ -691,7 +600,6 @@
             .privacy-contact-box { padding: 40px 30px; }
             .contact-heading { font-size: 28px; }
         }
-
         @media (max-width: 480px) {
             .privacy-hero-section { padding: 50px 0; }
             .hero-icon-box { width: 70px; height: 70px; }
@@ -720,28 +628,22 @@
         }
 </style>
 @endpush
-
 @push('translations')
 <script src="{{ asset('assets/js/translations/header-footer/header.js') }}"></script>
 <script src="{{ asset('assets/js/translations/Legal/privacy.js') }}"></script>
 <script src="{{ asset('assets/js/translations/header-footer/footer.js') }}"></script>
 @endpush
-
 @section('content')
-
 <style>
-
         /* =============================================
            PRIVACY POLICY PAGE — PAGE-SPECIFIC CSS
            ============================================= */
-
         /* ── Container ──────────────────────────────── */
         .privacy-page-container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
         /* ── Hero Section ───────────────────────────── */
         .privacy-hero-section {
             background: linear-gradient(135deg, #01257D 0%, #011d5f 100%);
@@ -749,7 +651,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .privacy-hero-section::before {
             content: '';
             position: absolute;
@@ -762,13 +663,11 @@
                 radial-gradient(circle at 80% 50%, rgba(255, 144, 0, 0.1) 0%, transparent 50%);
             pointer-events: none;
         }
-
         .privacy-hero-content {
             text-align: center;
             position: relative;
             z-index: 1;
         }
-
         .hero-icon-box {
             width: 100px;
             height: 100px;
@@ -780,12 +679,10 @@
             margin: 0 auto 30px;
             border: 2px solid rgba(255, 255, 255, 0.2);
         }
-
         .hero-icon-box i {
             font-size: 48px;
             color: #FF7800;
         }
-
         .privacy-hero-title {
             font-size: 48px;
             font-weight: 700;
@@ -793,13 +690,11 @@
             margin-bottom: 12px;
             line-height: 1.2;
         }
-
         .privacy-hero-subtitle {
             font-size: 24px;
             color: rgba(255, 255, 255, 0.9);
             margin-bottom: 20px;
         }
-
         .last-updated {
             display: inline-flex;
             align-items: center;
@@ -810,23 +705,19 @@
             color: rgba(255, 255, 255, 0.95);
             font-size: 14px;
         }
-
         .last-updated i {
             color: #FF7800;
         }
-
         /* ── Content Section ────────────────────────── */
         .privacy-content-section {
             padding: 80px 0;
         }
-
         .privacy-content-wrapper {
             background: #FFFFFF;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             padding: 50px;
         }
-
         /* ── Intro Box ──────────────────────────────── */
         .privacy-intro-box {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
@@ -837,7 +728,6 @@
             display: flex;
             gap: 20px;
         }
-
         .intro-icon {
             flex-shrink: 0;
             width: 60px;
@@ -848,34 +738,28 @@
             align-items: center;
             justify-content: center;
         }
-
         .intro-icon i {
             font-size: 28px;
             color: #FFFFFF;
         }
-
         .intro-text-content {
             flex: 1;
         }
-
         .intro-heading {
             font-size: 24px;
             font-weight: 700;
             color: #01257D;
             margin-bottom: 15px;
         }
-
         .intro-description {
             font-size: 16px;
             line-height: 1.8;
             color: #495057;
         }
-
         /* ── Section Blocks ─────────────────────────── */
         .privacy-section-block {
             margin-bottom: 50px;
         }
-
         .section-header-block {
             display: flex;
             align-items: center;
@@ -884,7 +768,6 @@
             padding-bottom: 15px;
             border-bottom: 2px solid #e9ecef;
         }
-
         .section-number-badge {
             width: 50px;
             height: 50px;
@@ -895,12 +778,10 @@
             justify-content: center;
             flex-shrink: 0;
         }
-
         .section-number-badge i {
             font-size: 24px;
             color: #FFFFFF;
         }
-
         /* Badge Variants */
         .collection-badge { background: linear-gradient(135deg, #0170B9 0%, #1368E7 100%); }
         .purpose-badge    { background: linear-gradient(135deg, #FF7800 0%, #ff8c00 100%); }
@@ -908,14 +789,12 @@
         .disclosure-badge { background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%); }
         .concerns-badge   { background: linear-gradient(135deg, #dc3545 0%, #c82333 100%); }
         .changes-badge    { background: linear-gradient(135deg, #6f42c1 0%, #5a32a3 100%); }
-
         .section-title-text {
             font-size: 28px;
             font-weight: 700;
             color: #212529;
             margin: 0;
         }
-
         /* ── Subsections ────────────────────────────── */
         .privacy-subsection {
             background: #f8f9fa;
@@ -924,7 +803,6 @@
             margin-bottom: 20px;
             border: 1px solid #e9ecef;
         }
-
         .subsection-title {
             display: flex;
             align-items: center;
@@ -934,23 +812,19 @@
             color: #01257D;
             margin-bottom: 15px;
         }
-
         .subsection-title i {
             font-size: 22px;
             color: #FF7800;
         }
-
         .subsection-text {
             font-size: 15px;
             line-height: 1.8;
             color: #495057;
             margin-bottom: 20px;
         }
-
         .subsection-text:last-child {
             margin-bottom: 0;
         }
-
         /* ── Info List ──────────────────────────────── */
         .info-list-box {
             display: flex;
@@ -958,7 +832,6 @@
             gap: 15px;
             margin-top: 20px;
         }
-
         .info-list-item {
             display: flex;
             gap: 18px;
@@ -968,13 +841,11 @@
             border: 1px solid #e9ecef;
             transition: all 0.3s ease;
         }
-
         .info-list-item:hover {
             border-color: #01257D;
             box-shadow: 0 4px 12px rgba(1, 37, 125, 0.1);
             transform: translateX(5px);
         }
-
         .list-icon {
             flex-shrink: 0;
             width: 50px;
@@ -985,36 +856,30 @@
             align-items: center;
             justify-content: center;
         }
-
         .list-icon i {
             font-size: 24px;
             color: #FFFFFF;
         }
-
         .list-content {
             flex: 1;
         }
-
         .list-content h5 {
             font-size: 16px;
             font-weight: 700;
             color: #212529;
             margin-bottom: 5px;
         }
-
         .list-content p {
             font-size: 14px;
             color: #6c757d;
             margin: 0;
         }
-
         /* ── Purpose Grid ───────────────────────────── */
         .purpose-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
         }
-
         .purpose-card {
             background: #f8f9fa;
             border-radius: 8px;
@@ -1023,14 +888,12 @@
             border: 1px solid #e9ecef;
             transition: all 0.3s ease;
         }
-
         .purpose-card:hover {
             background: #FFFFFF;
             border-color: #FF7800;
             box-shadow: 0 6px 20px rgba(255, 120, 0, 0.15);
             transform: translateY(-5px);
         }
-
         .purpose-icon {
             width: 60px;
             height: 60px;
@@ -1041,26 +904,22 @@
             justify-content: center;
             margin: 0 auto 15px;
         }
-
         .purpose-icon i {
             font-size: 28px;
             color: #FFFFFF;
         }
-
         .purpose-title {
             font-size: 18px;
             font-weight: 700;
             color: #212529;
             margin-bottom: 10px;
         }
-
         .purpose-description {
             font-size: 14px;
             color: #6c757d;
             line-height: 1.6;
             margin: 0;
         }
-
         /* ── Guarantee Box ──────────────────────────── */
         .guarantee-box {
             background: linear-gradient(135deg, #28a745 0%, #218838 100%);
@@ -1070,7 +929,6 @@
             gap: 20px;
             margin-bottom: 30px;
         }
-
         .guarantee-icon {
             flex-shrink: 0;
             width: 60px;
@@ -1081,30 +939,25 @@
             align-items: center;
             justify-content: center;
         }
-
         .guarantee-icon i {
             font-size: 32px;
             color: #FFFFFF;
         }
-
         .guarantee-content {
             flex: 1;
         }
-
         .guarantee-title {
             font-size: 22px;
             font-weight: 700;
             color: #FFFFFF;
             margin-bottom: 10px;
         }
-
         .guarantee-text {
             font-size: 16px;
             color: rgba(255, 255, 255, 0.95);
             margin: 0;
             line-height: 1.7;
         }
-
         /* ── Usage Info Box ─────────────────────────── */
         .usage-info-box {
             background: #f8f9fa;
@@ -1112,40 +965,34 @@
             padding: 30px;
             border: 1px solid #e9ecef;
         }
-
         .usage-heading {
             font-size: 18px;
             font-weight: 700;
             color: #01257D;
             margin-bottom: 20px;
         }
-
         .usage-points {
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
-
         .usage-point {
             display: flex;
             gap: 12px;
             align-items: flex-start;
         }
-
         .usage-point i {
             color: #28a745;
             font-size: 20px;
             margin-top: 2px;
             flex-shrink: 0;
         }
-
         .usage-point p {
             font-size: 15px;
             line-height: 1.7;
             color: #495057;
             margin: 0;
         }
-
         /* ── Disclosure Cards ───────────────────────── */
         .disclosure-card {
             background: #f8f9fa;
@@ -1154,43 +1001,36 @@
             margin-bottom: 20px;
             border: 1px solid #e9ecef;
         }
-
         .disclosure-header {
             display: flex;
             align-items: center;
             gap: 12px;
             margin-bottom: 15px;
         }
-
         .disclosure-header i {
             font-size: 24px;
             color: #0170B9;
         }
-
         .disclosure-header h4 {
             font-size: 20px;
             font-weight: 700;
             color: #212529;
             margin: 0;
         }
-
         .disclosure-card p {
             font-size: 15px;
             line-height: 1.8;
             color: #495057;
             margin-bottom: 15px;
         }
-
         .disclosure-card p:last-child {
             margin-bottom: 0;
         }
-
         .disclosure-card ul {
             list-style: none;
             padding: 0;
             margin: 15px 0 0 0;
         }
-
         .disclosure-card li {
             position: relative;
             padding-left: 25px;
@@ -1199,7 +1039,6 @@
             line-height: 1.7;
             color: #495057;
         }
-
         .disclosure-card li::before {
             content: "•";
             position: absolute;
@@ -1208,16 +1047,13 @@
             font-size: 20px;
             line-height: 1.5;
         }
-
         .important-disclosure {
             background: #fff3cd;
             border-color: #ffc107;
         }
-
         .important-disclosure .disclosure-header i {
             color: #ff9800;
         }
-
         /* ── Concerns Box ───────────────────────────── */
         .concerns-box {
             background: #f8f9fa;
@@ -1227,7 +1063,6 @@
             gap: 20px;
             border: 1px solid #e9ecef;
         }
-
         .concerns-icon {
             flex-shrink: 0;
             width: 60px;
@@ -1238,30 +1073,25 @@
             align-items: center;
             justify-content: center;
         }
-
         .concerns-icon i {
             font-size: 32px;
             color: #FFFFFF;
         }
-
         .concerns-content {
             flex: 1;
         }
-
         .concerns-title {
             font-size: 20px;
             font-weight: 700;
             color: #212529;
             margin-bottom: 10px;
         }
-
         .concerns-text {
             font-size: 15px;
             line-height: 1.8;
             color: #495057;
             margin: 0;
         }
-
         /* ── Changes Notice Box ─────────────────────── */
         .changes-notice-box {
             background: linear-gradient(135deg, #6f42c1 0%, #5a32a3 100%);
@@ -1270,7 +1100,6 @@
             display: flex;
             gap: 20px;
         }
-
         .changes-icon {
             flex-shrink: 0;
             width: 50px;
@@ -1281,12 +1110,10 @@
             align-items: center;
             justify-content: center;
         }
-
         .changes-icon i {
             font-size: 28px;
             color: #FFFFFF;
         }
-
         .changes-text {
             flex: 1;
             font-size: 15px;
@@ -1294,7 +1121,6 @@
             color: rgba(255, 255, 255, 0.95);
             margin: 0;
         }
-
         /* ── Contact Box ────────────────────────────── */
         .privacy-contact-box {
             background: linear-gradient(135deg, #01257D 0%, #011d5f 100%);
@@ -1305,7 +1131,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .privacy-contact-box::before {
             content: '';
             position: absolute;
@@ -1318,7 +1143,6 @@
                 radial-gradient(circle at 80% 50%, rgba(255, 144, 0, 0.1) 0%, transparent 50%);
             pointer-events: none;
         }
-
         .contact-icon-circle {
             position: relative;
             z-index: 1;
@@ -1331,12 +1155,10 @@
             justify-content: center;
             margin: 0 auto 20px;
         }
-
         .contact-icon-circle i {
             font-size: 36px;
             color: #FF7800;
         }
-
         .contact-heading {
             position: relative;
             z-index: 1;
@@ -1345,7 +1167,6 @@
             color: #FFFFFF;
             margin-bottom: 15px;
         }
-
         .contact-description {
             position: relative;
             z-index: 1;
@@ -1356,7 +1177,6 @@
             margin-left: auto;
             margin-right: auto;
         }
-
         .contact-support-button {
             position: relative;
             z-index: 1;
@@ -1373,23 +1193,19 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(255, 120, 0, 0.3);
         }
-
         .contact-support-button:hover {
             background: #ff8c00;
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(255, 120, 0, 0.4);
             color: #FFFFFF;
         }
-
         .contact-support-button i {
             font-size: 18px;
             transition: transform 0.3s ease;
         }
-
         .contact-support-button:hover i {
             transform: translateX(4px);
         }
-
         /* ── Responsive ─────────────────────────────── */
         @media (max-width: 768px) {
             .privacy-hero-section { padding: 60px 0; }
@@ -1408,7 +1224,6 @@
             .privacy-contact-box { padding: 40px 30px; }
             .contact-heading { font-size: 28px; }
         }
-
         @media (max-width: 480px) {
             .privacy-hero-section { padding: 50px 0; }
             .hero-icon-box { width: 70px; height: 70px; }
@@ -1437,12 +1252,10 @@
         }
     
 </style>
-
 <!-- ===========================
      PRIVACY POLICY PAGE
      =========================== -->
 <div class="privacy-page-wrapper">
-
     <!-- Hero Header -->
     <section class="privacy-hero-section">
         <div class="privacy-page-container">
@@ -1459,12 +1272,10 @@
             </div>
         </div>
     </section>
-
     <!-- Main Content -->
     <section class="privacy-content-section">
         <div class="privacy-page-container">
             <div class="privacy-content-wrapper">
-
                 <!-- Introduction -->
                 <div class="privacy-intro-box">
                     <div class="intro-icon">
@@ -1477,7 +1288,6 @@
                         </p>
                     </div>
                 </div>
-
                 <!-- ── Information Collection ──────────── -->
                 <div class="privacy-section-block">
                     <div class="section-header-block">
@@ -1486,7 +1296,6 @@
                         </div>
                         <h3 class="section-title-text" data-i18n="privacyPolicy.infoCollection.title">What Information Do We Collect?</h3>
                     </div>
-
                     <div class="privacy-subsection">
                         <h4 class="subsection-title">
                             <i class="fas fa-user-circle"></i>
@@ -1496,14 +1305,12 @@
                             When a visitor visits our website, our web server collects basic user information about you, including your ISP's domain, the time you accessed our website, and the pages from within our website that you visit. This information is not personally identifiable except as needed to prevent fraud or abuse of the system.
                         </p>
                     </div>
-
                     <div class="privacy-subsection">
                         <h4 class="subsection-title">
                             <i class="fas fa-shopping-cart"></i>
                             <span data-i18n="privacyPolicy.infoCollection.customer.title">Customer Information</span>
                         </h4>
                         <p class="subsection-text" data-i18n="privacyPolicy.infoCollection.customer.intro">When a customer orders our service, we collect the following information:</p>
-
                         <div class="info-list-box">
                             <div class="info-list-item">
                                 <div class="list-icon"><i class="fas fa-address-card"></i></div>
@@ -1543,7 +1350,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- ── Why We Collect ─────────────────── -->
                 <div class="privacy-section-block">
                     <div class="section-header-block">
@@ -1552,7 +1358,6 @@
                         </div>
                         <h3 class="section-title-text" data-i18n="privacyPolicy.purpose.title">Why We Collect This Information</h3>
                     </div>
-
                     <div class="purpose-grid">
                         <div class="purpose-card">
                             <div class="purpose-icon"><i class="fas fa-file-invoice-dollar"></i></div>
@@ -1576,7 +1381,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- ── How We Use ─────────────────────── -->
                 <div class="privacy-section-block">
                     <div class="section-header-block">
@@ -1585,7 +1389,6 @@
                         </div>
                         <h3 class="section-title-text" data-i18n="privacyPolicy.usage.title">How We Use Your Information</h3>
                     </div>
-
                     <div class="guarantee-box">
                         <div class="guarantee-icon"><i class="fas fa-lock"></i></div>
                         <div class="guarantee-content">
@@ -1593,7 +1396,6 @@
                             <p class="guarantee-text" data-i18n="privacyPolicy.usage.guarantee.text">We do not share, rent, sell, or release your personal information to any individual, entity, or third party.</p>
                         </div>
                     </div>
-
                     <div class="usage-info-box">
                         <h4 class="usage-heading" data-i18n="privacyPolicy.usage.heading">Hostorio may use personally identifiable information for:</h4>
                         <div class="usage-points">
@@ -1624,7 +1426,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- ── Disclosure ──────────────────────── -->
                 <div class="privacy-section-block">
                     <div class="section-header-block">
@@ -1633,7 +1434,6 @@
                         </div>
                         <h3 class="section-title-text" data-i18n="privacyPolicy.disclosure.title">Information Disclosure</h3>
                     </div>
-
                     <div class="disclosure-card standard-disclosure">
                         <div class="disclosure-header">
                             <i class="fas fa-comments"></i>
@@ -1641,7 +1441,6 @@
                         </div>
                         <p data-i18n="privacyPolicy.disclosure.testimonials.text">We may disclose contact information with your permission when gathering and posting testimonials.</p>
                     </div>
-
                     <div class="disclosure-card important-disclosure">
                         <div class="disclosure-header">
                             <i class="fas fa-gavel"></i>
@@ -1655,7 +1454,6 @@
                         </ul>
                     </div>
                 </div>
-
                 <!-- ── Privacy Concerns ───────────────── -->
                 <div class="privacy-section-block">
                     <div class="section-header-block">
@@ -1664,7 +1462,6 @@
                         </div>
                         <h3 class="section-title-text" data-i18n="privacyPolicy.concerns.title">Privacy Concerns</h3>
                     </div>
-
                     <div class="concerns-box">
                         <div class="concerns-icon"><i class="fas fa-user-shield"></i></div>
                         <div class="concerns-content">
@@ -1673,7 +1470,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- ── Policy Changes ─────────────────── -->
                 <div class="privacy-section-block">
                     <div class="section-header-block">
@@ -1682,13 +1478,11 @@
                         </div>
                         <h3 class="section-title-text" data-i18n="privacyPolicy.changes.title">Changes to Our Privacy Policy</h3>
                     </div>
-
                     <div class="changes-notice-box">
                         <div class="changes-icon"><i class="fas fa-bell"></i></div>
                         <p class="changes-text" data-i18n="privacyPolicy.changes.text">From time to time, we may change our Privacy Policy. We will post those changes on this page so that our customers will always be aware of what information we collect, how we use it, and under what circumstances we share the information with others.</p>
                     </div>
                 </div>
-
                 <!-- ── Contact ────────────────────────── -->
                 <div class="privacy-contact-box">
                     <div class="contact-icon-circle">
@@ -1701,13 +1495,10 @@
                         <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
-
             </div>
         </div>
     </section>
-
     <!-- Main Footer -->
     
 <?
-
 @endsection

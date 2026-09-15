@@ -1,7 +1,5 @@
 @extends('layouts.app')
-
 @section('title', 'Business Email – Hostorio Web Hosting')
-
 @push('meta')
 <meta name="description" content="Hostorio - Business Email. Fast, reliable web hosting services.">
 <link rel="canonical" href="{{ url('/business-email') }}">
@@ -11,21 +9,16 @@
 <meta property="og:description" content="Hostorio - Business Email">
 <meta property="og:url" content="{{ url('/business-email') }}">
 @endpush
-
 @push('head')
 <style>
-
 </style>
 @endpush
-
 @push('translations')
 <script src="{{ asset('assets/js/translations/header-footer/header.js') }}"></script>
 <script src="{{ asset('assets/js/translations/Services/business-email.js') }}"></script>
 <script src="{{ asset('assets/js/translations/header-footer/footer.js') }}"></script>
 @endpush
-
 @section('content')
-
 <script type="application/ld+json">
 {
       "@context": "https://schema.org",
@@ -173,15 +166,7 @@
         }
       ]
     }
-    </script>
-    <?php
-}, 1 );
-
-get_header();
-?>
-
-
-    <!-- ===========================
+    </script>!-- ===========================
          PACKAGE CHOOSER SECTION
          =========================== -->
     <div class="package-chooser-wrapper">
@@ -206,57 +191,52 @@ get_header();
             <i class="fas fa-plug motion-item item-17"></i>
             <i class="fas fa-sitemap motion-item item-18"></i>
         </div>
-
         <!-- Left Side Icon Box -->
         <div class="side-icon-box left-side">
             <i class="fas fa-server"></i>
         </div>
-
         <!-- Right Side Icon Box -->
         <div class="side-icon-box right-side">
             <i class="fas fa-database"></i>
         </div>
-
         <div class="content-container">
             <div class="chooser-inner">
                 <h1 class="section-headline" data-i18n="emailHero.headline">Professional Business Email Solutions</h1>
-
                 <!-- Desktop Package Grid -->
                 <div class="packages-desktop">
                     <div class="top-packages">
-                        <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="package-card">
+                        <a href="" class="package-card">
                             <span class="card-icon">⚡</span>
                             <span class="card-title-pricing-hero" data-i18n="packageHero.wordpress">Web Hosting</span>
                         </a>
-                        <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="package-card">
+                        <a href="" class="package-card">
                             <span class="card-icon">🚀</span>
                             <span class="card-title-pricing-hero" data-i18n="packageHero.turbo">Turbo Hosting</span>
                         </a>
-                        <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="package-card">
+                        <a href="" class="package-card">
                             <span class="card-icon">🔄</span>
                             <span class="card-title-pricing-hero" data-i18n="packageHero.reseller">Reseller Hosting</span>
                         </a>
-                        <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="package-card">
+                        <a href="" class="package-card">
                             <span class="card-icon">🎓</span>
                             <span class="card-title-pricing-hero" data-i18n="packageHero.student">Student Hosting</span>
                         </a>
                     </div>
                     <div class="bottom-packages">
-                        <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="package-card">
+                        <a href="" class="package-card">
                             <span class="card-icon">🖥️</span>
                             <span class="card-title-pricing-hero" data-i18n="packageHero.vps">VPS</span>
                         </a>
-                        <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="package-card highlighted">
+                        <a href="" class="package-card highlighted">
                             <span class="card-icon">✉️</span>
                             <span class="card-title-pricing-hero" data-i18n="packageHero.email">Business Email</span>
                         </a>
-                        <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="package-card">
+                        <a href="" class="package-card">
                             <span class="card-icon">🌐</span>
                             <span class="card-title-pricing-hero" data-i18n="packageHero.offer">Offer</span>
                         </a>
                     </div>
                 </div>
-
                 <!-- Mobile Package Dropdown -->
                 <div class="packages-mobile">
                     <div class="mobile-chooser">
@@ -266,31 +246,31 @@ get_header();
                             <i class="fas fa-chevron-down btn-chevron" id="chevronIcon"></i>
                         </button>
                         <nav class="chooser-list" id="packageList">
-                            <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="list-option selected" data-icon="⚡" data-label="Web Hosting">
+                            <a href="" class="list-option selected" data-icon="⚡" data-label="Web Hosting">
                                 <span class="opt-icon">⚡</span>
                                 <span class="opt-label" data-i18n="packageHero.wordpress">Web Hosting</span>
                             </a>
-                            <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="list-option" data-icon="🚀" data-label="Turbo Hosting">
+                            <a href="" class="list-option" data-icon="🚀" data-label="Turbo Hosting">
                                 <span class="opt-icon">🚀</span>
                                 <span class="opt-label" data-i18n="packageHero.turbo">Turbo Hosting</span>
                             </a>
-                            <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="list-option" data-icon="🔄" data-label="Reseller Hosting">
+                            <a href="" class="list-option" data-icon="🔄" data-label="Reseller Hosting">
                                 <span class="opt-icon">🔄</span>
                                 <span class="opt-label" data-i18n="packageHero.reseller">Reseller Hosting</span>
                             </a>
-                            <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="list-option" data-icon="🎓" data-label="Student Hosting">
+                            <a href="" class="list-option" data-icon="🎓" data-label="Student Hosting">
                                 <span class="opt-icon">🎓</span>
                                 <span class="opt-label" data-i18n="packageHero.student">Student Hosting</span>
                             </a>
-                            <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="list-option" data-icon="🖥️" data-label="VPS">
+                            <a href="" class="list-option" data-icon="🖥️" data-label="VPS">
                                 <span class="opt-icon">🖥️</span>
                                 <span class="opt-label" data-i18n="packageHero.vps">VPS</span>
                             </a>
-                            <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="list-option" data-icon="✉️" data-label="Business Email">
+                            <a href="" class="list-option" data-icon="✉️" data-label="Business Email">
                                 <span class="opt-icon">✉️</span>
                                 <span class="opt-label" data-i18n="packageHero.email">Business Email</span>
                             </a>
-                            <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="list-option" data-icon="🌐" data-label="Domain">
+                            <a href="" class="list-option" data-icon="🌐" data-label="Domain">
                                 <span class="opt-icon">🌐</span>
                                 <span class="opt-label" data-i18n="packageHero.offer">Offer</span>
                             </a>
@@ -300,16 +280,13 @@ get_header();
             </div>
         </div>
     </div>
-
            <!-- Pricing Section -->
     <section class="pricing-section">
         <div class="container-wrapper">
-
             <!-- Section Header -->
             <div class="pricing-header">
                 <h2 class="pricing-main-title" data-i18n="emailPricing.mainTitle">Choose Your Business Email Plan</h2>
                 <p class="pricing-subtitle" data-i18n="emailPricing.subtitle">Professional email hosting to keep your business communication secure and reliable.</p>
-
                 <!-- Billing Toggle -->
                 <div class="billing-toggle">
                     <span class="toggle-label" data-i18n="emailPricing.billedMonthly">Billed Monthly</span>
@@ -321,23 +298,18 @@ get_header();
                     <span class="save-badge" data-i18n="emailPricing.saveBadge">Save 30%!</span>
                 </div>
             </div>
-
         <!-- Cloud Pricing Section -->
         <section class="cloud-pricing-section">
         <div class="container-wrapper">
-
             <!-- Pricing Cards Grid -->
             <div class="cloud-pricing-cards" style="justify-content: center;">
-
                 <!-- Card 1 - Starter Mailboxes -->
                 <div class="cloud-card">
                     <div class="cloud-icon">
-                        <img src="<?php echo htmlspecialchars( HOSTORIO_URI ); ?>/assets/images/pricing/data-server.svg" alt="Starter business email plan – professional email hosting for small businesses">
+                        <img src="{{ asset('') }}/assets/images/pricing/data-server.svg" alt="Starter business email plan – professional email hosting for small businesses">
                     </div>
-
                     <h3 class="cloud-plan-name" data-i18n="emailPricing.plans.starter.name">Starter Mailboxes</h3>
                     <p class="cloud-plan-desc" data-i18n="emailPricing.plans.starter.mailboxes">1 Mailbox</p>
-
                     <div class="cloud-pricing" data-yearly-price="1680">
                         <div class="cloud-price-original">
                             <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
@@ -349,7 +321,6 @@ get_header();
                             <span class="cloud-period" data-i18n="emailPricing.perMonth">/mo</span>
                         </div>
                     </div>
-
                     <ul class="cloud-features">
                         <li>
                             <svg class="cloud-icon-check" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -387,22 +358,16 @@ get_header();
                             <span data-i18n="emailPricing.features.twoFA">2FA Protection</span>
                         </li>
                     </ul>
-
                     <a href="#" class="cloud-order-btn" data-i18n="emailPricing.getStarted">Get Started</a>
-
                 </div>
-
                 <!-- Card 2 - Pro Mailboxes (Most Popular) -->
                 <div class="cloud-card popular">
                     <div class="cloud-popular-badge" data-i18n="emailPricing.mostPopular">Most Popular</div>
-
                     <div class="cloud-icon">
-                        <img src="<?php echo htmlspecialchars( HOSTORIO_URI ); ?>/assets/images/pricing/data-server.svg" alt="Pro business email plan – custom domain email with spam protection">
+                        <img src="{{ asset('') }}/assets/images/pricing/data-server.svg" alt="Pro business email plan – custom domain email with spam protection">
                     </div>
-
                     <h3 class="cloud-plan-name" data-i18n="emailPricing.plans.pro.name">Pro Mailboxes</h3>
                     <p class="cloud-plan-desc" data-i18n="emailPricing.plans.pro.mailboxes">3 Mailboxes</p>
-
                     <div class="cloud-pricing" data-yearly-price="7140">
                         <div class="cloud-price-original">
                             <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
@@ -414,7 +379,6 @@ get_header();
                             <span class="cloud-period" data-i18n="emailPricing.perMonth">/mo</span>
                         </div>
                     </div>
-
                     <ul class="cloud-features">
                         <li>
                             <svg class="cloud-icon-check" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -459,20 +423,15 @@ get_header();
                             <span data-i18n="emailPricing.features.mobileSyncSupport">Full Mobile Sync Support</span>
                         </li>
                     </ul>
-
                     <a href="#" class="cloud-order-btn" data-i18n="emailPricing.getStarted">Get Started</a>
-
                 </div>
-
                 <!-- Card 3 - Ultimate Mailboxes -->
                 <div class="cloud-card">
                     <div class="cloud-icon">
-                        <img src="<?php echo htmlspecialchars( HOSTORIO_URI ); ?>/assets/images/pricing/data-server.svg" alt="Ultimate business email plan – premium email hosting for growing companies">
+                        <img src="{{ asset('') }}/assets/images/pricing/data-server.svg" alt="Ultimate business email plan – premium email hosting for growing companies">
                     </div>
-
                     <h3 class="cloud-plan-name" data-i18n="emailPricing.plans.ultimate.name">Ultimate Mailboxes</h3>
                     <p class="cloud-plan-desc" data-i18n="emailPricing.plans.ultimate.mailboxes">5 Mailboxes</p>
-
                     <div class="cloud-pricing" data-yearly-price="10080">
                         <div class="cloud-price-original">
                             <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
@@ -484,7 +443,6 @@ get_header();
                             <span class="cloud-period" data-i18n="emailPricing.perMonth">/mo</span>
                         </div>
                     </div>
-
                     <ul class="cloud-features">
                         <li>
                             <svg class="cloud-icon-check" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -536,20 +494,13 @@ get_header();
                             <span data-i18n="emailPricing.features.docsSheetsPresentations">Docs, Sheets &amp; Presentations</span>
                         </li>
                     </ul>
-
                     <a href="#" class="cloud-order-btn" data-i18n="emailPricing.getStarted">Get Started</a>
-
                 </div>
-
             </div>
-
         </div>
         </section>
-
         </div>
     </section>
-
-
    <!-- Jellyfish Section -->
     <section class="jellyfish-section">
         <div class="container-wrapper">
@@ -558,34 +509,28 @@ get_header();
             <div class="jellyfish-header">
                 <h2 class="jellyfish-main-title" data-i18n="emailJellyfish.mainTitle">Keep spam out of your Inbox with Jellyfish</h2>
             </div>
-
             <!-- Content Area -->
             <div class="jellyfish-content">
-
                 <!-- Right Side - Image -->
                 <div class="jellyfish-image-wrapper">
                     <img src="https://static.nc-img.com/uiprivateemailcms/16895731e887a21d77c41442f39ec90d.png" alt="Keep spam out of your Inbox with Jellyfish" class="jellyfish-image">
                 </div>
-
                 <!-- Left Side - Text Content -->
                 <div class="jellyfish-text">
                     <div class="jellyfish-title-wrapper">
                         <h3 class="jellyfish-subtitle" data-i18n="emailJellyfish.subtitle">Robust spam control</h3>
                         <span class="jellyfish-badge" data-i18n="emailJellyfish.badge">New anti-spam tool</span>
                     </div>
-
                     <div class="jellyfish-description">
                         <p data-i18n="emailJellyfish.desc1">See spam disappear over time as Jellyfish uses machine learning to tighten the net on junk emails — based on your preferences.</p>
                         <p data-i18n="emailJellyfish.desc2">From tailoring your email flow to creating specific advanced filter rules, Jellyfish is ready! Its smart machine-learning technology works quietly in the background to ensure your inbox is always free of spam.</p>
                     </div>
-
                     <a href="#" class="jellyfish-link">
                         <span data-i18n="emailJellyfish.link">Dive Deeper into Jellyfish</span>
                         <svg class="arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
                             <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </a>
-
                     <div class="jellyfish-features">
                         <div class="jellyfish-features-col">
                             <ul class="jellyfish-features-list">
@@ -625,25 +570,20 @@ get_header();
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </section>
-
-
 <!-- Testimonial Carousel Section -->
 <!-- Testimonial Section - Horizontal Layout -->
 <section class="testimonial-horizontal-section">
     <div class="testimonial-horizontal-container">
-
         <!-- Testimonial Item 1 -->
         <div class="testimonial-horizontal-item active">
             <div class="testimonial-horizontal-content">
                 <!-- Image Side -->
                 <div class="testimonial-image-side">
                     <div class="testimonial-video-wrapper">
-                        <img src="<?php echo htmlspecialchars( HOSTORIO_URI ); ?>/assets/images/testimonials/shaidulislamrony.png" alt="Shaidul Islam Rony – business email customer review" class="testimonial-person-image">
+                        <img src="{{ asset('') }}/assets/images/testimonials/shaidulislamrony.png" alt="Shaidul Islam Rony – business email customer review" class="testimonial-person-image">
                         <div class="video-play-button">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="play-svg">
                                 <path fill="currentColor" d="M8 5v14l11-7z"></path>
@@ -651,7 +591,6 @@ get_header();
                         </div>
                     </div>
                 </div>
-
                 <!-- Text Side -->
                 <div class="testimonial-text-side">
                     <div class="quote-mark">
@@ -659,19 +598,15 @@ get_header();
                             <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
                         </svg>
                     </div>
-
                     <p class="testimonial-quote" data-i18n="testimonial.item1.quote">
                         I could <span class="highlight-text">manage</span> the hosting, domain name, and SSL certificate <span class="highlight-text">in one place</span>, which was really refreshing.
                     </p>
-
                     <a href="#" class="testimonial-read-more" data-i18n="testimonial.readMore">Read more</a>
-
                     <div class="testimonial-author-section">
                         <div class="author-details">
                             <p class="author-name-text">Shaidul Islam Rony</p>
                             <p class="author-site">bhrelocationinc.com</p>
                         </div>
-
                         <div class="carousel-navigation">
                             <button class="carousel-btn carousel-prev" aria-label="Previous">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -688,14 +623,13 @@ get_header();
                 </div>
             </div>
         </div>
-
         <!-- Testimonial Item 2 -->
         <div class="testimonial-horizontal-item">
             <div class="testimonial-horizontal-content">
                 <!-- Image Side -->
                 <div class="testimonial-image-side">
                     <div class="testimonial-video-wrapper">
-                        <img src="<?php echo htmlspecialchars( HOSTORIO_URI ); ?>/assets/images/testimonials/tutul.png" alt="Tutul – satisfied business email customer" class="testimonial-person-image">
+                        <img src="{{ asset('') }}/assets/images/testimonials/tutul.png" alt="Tutul – satisfied business email customer" class="testimonial-person-image">
                         <div class="video-play-button">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="play-svg">
                                 <path fill="currentColor" d="M8 5v14l11-7z"></path>
@@ -703,7 +637,6 @@ get_header();
                         </div>
                     </div>
                 </div>
-
                 <!-- Text Side -->
                 <div class="testimonial-text-side">
                     <div class="quote-mark">
@@ -711,19 +644,15 @@ get_header();
                             <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
                         </svg>
                     </div>
-
                     <p class="testimonial-quote" data-i18n="testimonial.item2.quote">
                         We honestly reference <span class="highlight-text">Hostorio as the benchmark</span> for our engineers when providing support.
                     </p>
-
                     <a href="#" class="testimonial-read-more" data-i18n="testimonial.readMore">Read more</a>
-
                     <div class="testimonial-author-section">
                         <div class="author-details">
                             <p class="author-name-text">Tutul</p>
                             <p class="author-site">clientwebsite.com</p>
                         </div>
-
                         <div class="carousel-navigation">
                             <button class="carousel-btn carousel-prev" aria-label="Previous">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -740,10 +669,8 @@ get_header();
                 </div>
             </div>
         </div>
-
     </div>
 </section>
-
     <!-- FAQ Section -->
     <section class="faq-section">
         <div class="container-wrapper">
@@ -753,7 +680,6 @@ get_header();
                 <h2 class="faq-title" data-i18n="emailFaq.title">Frequently Asked Questions</h2>
                 <p class="faq-description" data-i18n="emailFaq.description">Find answers to common questions about our email hosting services</p>
             </div>
-
             <!-- FAQ Accordion -->
             <div class="faq-accordion">
                 <!-- FAQ Item 1 -->
@@ -771,7 +697,6 @@ get_header();
                         <a href="#" class="faq-link">Discover more about our email hosting</a>
                     </div>
                 </div>
-
                 <!-- FAQ Item 2 -->
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
@@ -786,7 +711,6 @@ get_header();
                         <p>Free online services such as <a href="https://mxtoolbox.com/" target="_blank" class="faq-link">MXtoolbox</a> will give you a list of MX records that usually offer a provider's name and corresponding IP address records. Sometimes, though, a domain might have a custom domain-based email MX record (e.g. mail.yourdomain.com). If that's the case, you should also perform a Whois search on one of the IP addresses. That will give you the name of the email provider.</p>
                     </div>
                 </div>
-
                 <!-- FAQ Item 3 -->
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
@@ -803,7 +727,6 @@ get_header();
                         <p>Once you have an email plan set up, yourname@yourdomain.com is ready to go!</p>
                     </div>
                 </div>
-
                 <!-- FAQ Item 4 -->
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
@@ -817,7 +740,6 @@ get_header();
                         <p>With our hosted email service, you are renting high-quality email servers to manage the communications of your business. Some hosting providers offer free email hosting options with very few features and little to no support. Our email hosting is a premium email solution that gives you more flexibility and power. It's just one of the reasons why so many business owners choose us, along with our 24/7 customer support.</p>
                     </div>
                 </div>
-
                 <!-- FAQ Item 5 -->
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
@@ -832,7 +754,6 @@ get_header();
                         <p>Our email hosting is perfect for big and small businesses looking to create a professional email presence. It enables users to set up custom business email addresses that build trust with customers.</p>
                     </div>
                 </div>
-
                 <!-- FAQ Item 6 -->
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
@@ -846,7 +767,6 @@ get_header();
                         <p>No, you don't need any web hosting plan to use our Email Hosting. They are two separate products and can be bought independently of one another, but they also work smoothly together.</p>
                     </div>
                 </div>
-
                 <!-- FAQ Item 7 -->
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
@@ -860,7 +780,6 @@ get_header();
                         <p>Yes — we have plenty of videos that show the look and feel of our Email Hosting interface. You can explore how to set up an email account, migrate email, manage your business email address, and much more.</p>
                     </div>
                 </div>
-
                 <!-- FAQ Item 8 -->
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
@@ -874,7 +793,6 @@ get_header();
                         <p>If you are using a third-party email service hosted elsewhere and would like to switch to our Email Hosting, you can easily migrate your old emails to our servers using the webmail interface. Important messages from your Inbox, Drafts, Sent, and other folders can all be moved to your new email accounts. Whether you are using Outlook, Thunderbird, MacMail, or another web-based email service, we assure you that our email migration service supports importing emails and setting up your business email addresses seamlessly.</p>
                     </div>
                 </div>
-
                 <!-- FAQ Item 9 -->
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
@@ -889,7 +807,6 @@ get_header();
                         <p>TOTP (Time-based One-Time Password) is a standardized method that generates a changing temporary code that is unique each time and expires as soon as the new one has been generated. Implementing 2FA enhances the security of your business email account, ensuring that your encrypted email communication remains protected with an additional layer of security.</p>
                     </div>
                 </div>
-
                 <!-- FAQ Item 10 -->
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
@@ -904,7 +821,6 @@ get_header();
                         <p>For those who haven't created an email account yet, start by setting up your email account. This involves creating an email address using your custom domain. For instance, if your domain name is <strong>yourbusiness.com</strong>, you might create a professional email address such as <strong>yourname@yourbusiness.com</strong>.</p>
                     </div>
                 </div>
-
                 <!-- FAQ Item 11 -->
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
@@ -918,7 +834,6 @@ get_header();
                         <p>After selecting your Email Hosting plan and registering your domain name, you can start setting up an email account to meet your business needs. This process usually involves configuring the correct DNS records and activating your mailbox. Following our easy step-by-step guides will help you establish a custom business email address, which builds trust with your clients and enhances your professional image. Our 24/7 customer support is available to answer any questions you might have.</p>
                     </div>
                 </div>
-
                 <!-- FAQ Item 12 -->
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
@@ -934,9 +849,7 @@ get_header();
                         <p>These guides will help you set up your email account correctly, ensuring secure email access and communication. Our 24/7 customer support is also ready to answer any questions.</p>
                     </div>
                 </div>
-
             </div>
-
             <!-- Contact CTA -->
             <div class="faq-cta">
                 <div class="faq-cta-content">
@@ -950,9 +863,6 @@ get_header();
             </div>
         </div>
     </section>
-
-
-
 <!-- Support Section -->
 <section class="support-section">
     <div class="container-wrapper">
@@ -961,14 +871,12 @@ get_header();
             <h2 class="section-main-title" data-i18n="support.sectionTitle">Customer Success Focus</h2>
             <p class="section-subtitle" data-i18n="support.sectionSubtitle">We provide everything you need to succeed online</p>
         </div>
-
         <!-- Support Cards -->
         <div class="support-cards">
-
             <!-- Card 1 -->
             <div class="support-card">
                 <div class="card-image-wrapper">
-                    <img src="<?php echo htmlspecialchars( HOSTORIO_URI ); ?>/assets/images/support/support-hostorio.webp" alt="Onboarding Support" class="card-image">
+                    <img src="{{ asset('') }}/assets/images/support/support-hostorio.webp" alt="Onboarding Support" class="card-image">
                     <div class="image-overlay blue-overlay"></div>
                 </div>
                 <div class="card-content">
@@ -979,11 +887,10 @@ get_header();
                     <a href="https://my.hostorio.com/submitticket.php" class="card-button" data-i18n="support.card1.btn">Get started</a>
                 </div>
             </div>
-
             <!-- Card 2 -->
             <div class="support-card">
                 <div class="card-image-wrapper">
-                    <img src="<?php echo htmlspecialchars( HOSTORIO_URI ); ?>/assets/images/support/blog-hostorio.webp" alt="Discover Resources" class="card-image">
+                    <img src="{{ asset('') }}/assets/images/support/blog-hostorio.webp" alt="Discover Resources" class="card-image">
                     <div class="image-overlay green-overlay"></div>
                 </div>
                 <div class="card-content">
@@ -994,11 +901,10 @@ get_header();
                     <a href="https://my.hostorio.com/knowledgebase" class="card-button" data-i18n="support.card2.btn">Get learning</a>
                 </div>
             </div>
-
             <!-- Card 3 -->
             <div class="support-card">
                 <div class="card-image-wrapper">
-                    <img src="<?php echo htmlspecialchars( HOSTORIO_URI ); ?>/assets/images/support/trasfer-hosting-hostorio.webp" alt="Hassle-Free Transfers" class="card-image">
+                    <img src="{{ asset('') }}/assets/images/support/trasfer-hosting-hostorio.webp" alt="Hassle-Free Transfers" class="card-image">
                     <div class="image-overlay orange-overlay"></div>
                 </div>
                 <div class="card-content">
@@ -1009,15 +915,10 @@ get_header();
                     <a href="https://my.hostorio.com/cart.php?a=add&domain=transfer" class="card-button" data-i18n="support.card3.btn">Transfer today</a>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
-
-
-
     <!-- Main Footer -->
     
 <?
-
 @endsection

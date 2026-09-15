@@ -1,7 +1,5 @@
 @extends('layouts.app')
-
 @section('title', 'Fast Web Hosting – Hostorio Web Hosting')
-
 @push('meta')
 <meta name="description" content="Hostorio - Fast Web Hosting. Fast, reliable web hosting services.">
 <link rel="canonical" href="{{ url('/') }}">
@@ -11,21 +9,16 @@
 <meta property="og:description" content="Hostorio - Fast Web Hosting">
 <meta property="og:url" content="{{ url('/') }}">
 @endpush
-
 @push('head')
 <style>
-
 </style>
 @endpush
-
 @push('translations')
 <script src="{{ asset('assets/js/translations/header-footer/header.js') }}"></script>
 <script src="{{ asset('assets/js/translations/Home/hero.js') }}"></script>
 <script src="{{ asset('assets/js/translations/header-footer/footer.js') }}"></script>
 @endpush
-
 @section('content')
-
 <script type="application/ld+json">
 {
       "@context": "https://schema.org",
@@ -332,15 +325,6 @@
       ]
     }
     </script>
-    <?php
-}, 1 );
-
-get_header();
-?>
-
-
-
-
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container-wrapper">
@@ -353,28 +337,23 @@ get_header();
                     </h1>
                     <p class="hero-description" data-i18n="hero.description">
                         From your first website to scaling a business - we provide lightning-fast hosting, domain, SSL certificates, and expert support. Trusted by 500+ entrepreneurs who started just like you.                    </p>
-                    <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="cta-button" data-i18n="hero.ctaButton">
+                    <a href="" class="cta-button" data-i18n="hero.ctaButton">
                         Get Started
                     </a>
                 </div>
                 <div class="hero-right">
-                    <img src="<?php echo htmlspecialchars( HOSTORIO_URI ); ?>/assets/images/hero/hostorio-cloud.png" alt="Hostorio cloud hosting infrastructure with NVMe SSD storage and LiteSpeed technology in Bangladesh" class="hero-image">
+                    <img src="{{ asset('') }}/assets/images/hero/hostorio-cloud.png" alt="Hostorio cloud hosting infrastructure with NVMe SSD storage and LiteSpeed technology in Bangladesh" class="hero-image">
                 </div>
             </div>
         </div>
     </section>
-
-
-
        <!-- Pricing Section -->
     <section class="pricing-section">
         <div class="container-wrapper">
-
             <!-- Section Header -->
             <div class="pricing-header">
                 <h2 class="pricing-main-title" data-i18n="pricing.mainTitle">Find the Hosting Plan that's Right for Your Business</h2>
                 <p class="pricing-subtitle" data-i18n="pricing.subtitle">We Have the Features and Service You Deserve!</p>
-
                 <!-- Billing Toggle -->
                 <div class="billing-toggle">
                     <span class="toggle-label" data-i18n="pricing.billedMonthly">Billed Monthly</span>
@@ -386,23 +365,18 @@ get_header();
                     <span class="save-badge" data-i18n="pricing.saveBadge">Save 30%!</span>
                 </div>
             </div>
-
         <!-- Cloud Pricing Section -->
         <section class="cloud-pricing-section">
         <div class="container-wrapper">
-
             <!-- Pricing Cards Grid -->
             <div class="cloud-pricing-cards">
-
                 <!-- Card 1 - Starter -->
                 <div class="cloud-card">
                     <div class="cloud-icon">
-                        <img src="<?php echo htmlspecialchars( HOSTORIO_URI ); ?>/assets/images/pricing/data-server.svg" alt="Starter web hosting plan – 5GB NVMe storage for personal websites">
+                        <img src="{{ asset('') }}/assets/images/pricing/data-server.svg" alt="Starter web hosting plan – 5GB NVMe storage for personal websites">
                     </div>
-
                     <h3 class="cloud-plan-name" data-i18n="pricing.plans.starter.name">Starter</h3>
                     <p class="cloud-plan-desc" data-i18n="pricing.plans.starter.desc">Ideal for beginner/personal websites</p>
-
                     <div class="cloud-pricing" data-yearly-price="3000">
                         <div class="cloud-price-original">
                             <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
@@ -414,7 +388,6 @@ get_header();
                             <span class="cloud-period" data-i18n="pricing.perYear">/yr</span>
                         </div>
                     </div>
-
                     <ul class="cloud-features">
                         <li>
                             <svg class="cloud-icon-check" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -494,20 +467,15 @@ get_header();
                             <span data-i18n="pricing.features.cpanelPanel">cPanel</span>
                         </li>
                     </ul>
-
                     <a href="https://my.hostorio.com/cart.php?a=add&pid=55" class="cloud-order-btn" data-i18n="pricing.orderNow">Order Now</a>
-
                 </div>
-
                 <!-- Card 2 - Lite Starter -->
                 <div class="cloud-card">
                     <div class="cloud-icon">
-                        <img src="<?php echo htmlspecialchars( HOSTORIO_URI ); ?>/assets/images/pricing/data-server.svg" alt="Lite Starter web hosting plan – 10GB NVMe storage for small business websites">
+                        <img src="{{ asset('') }}/assets/images/pricing/data-server.svg" alt="Lite Starter web hosting plan – 10GB NVMe storage for small business websites">
                     </div>
-
                     <h3 class="cloud-plan-name" data-i18n="pricing.plans.plus.name">Lite Starter</h3>
                     <p class="cloud-plan-desc" data-i18n="pricing.plans.plus.desc">Ideal for small business websites</p>
-
                     <div class="cloud-pricing" data-yearly-price="4200">
                         <div class="cloud-price-original">
                             <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
@@ -519,7 +487,6 @@ get_header();
                             <span class="cloud-period" data-i18n="pricing.perYear">/yr</span>
                         </div>
                     </div>
-
                     <ul class="cloud-features">
                         <li>
                             <svg class="cloud-icon-check" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -599,22 +566,16 @@ get_header();
                             <span data-i18n="pricing.features.cpanelPanel">cPanel</span>
                         </li>
                     </ul>
-
                     <a href="https://my.hostorio.com/cart.php?a=add&pid=56" class="cloud-order-btn" data-i18n="pricing.orderNow">Order Now</a>
-
                 </div>
-
                 <!-- Card 3 - Standard (Most Popular) -->
                 <div class="cloud-card popular">
                     <div class="cloud-popular-badge" data-i18n="pricing.mostPopular">Most Popular</div>
-
                     <div class="cloud-icon">
-                        <img src="<?php echo htmlspecialchars( HOSTORIO_URI ); ?>/assets/images/pricing/data-server.svg" alt="Standard web hosting plan – most popular plan with 20GB NVMe storage and 10 domains">
+                        <img src="{{ asset('') }}/assets/images/pricing/data-server.svg" alt="Standard web hosting plan – most popular plan with 20GB NVMe storage and 10 domains">
                     </div>
-
                     <h3 class="cloud-plan-name" data-i18n="pricing.plans.turbo.name">Standard</h3>
                     <p class="cloud-plan-desc" data-i18n="pricing.plans.turbo.desc">Most popular package</p>
-
                     <div class="cloud-pricing" data-yearly-price="6000">
                         <div class="cloud-price-original">
                             <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
@@ -626,7 +587,6 @@ get_header();
                             <span class="cloud-period" data-i18n="pricing.perYear">/yr</span>
                         </div>
                     </div>
-
                     <ul class="cloud-features">
                         <li>
                             <svg class="cloud-icon-check" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -706,20 +666,15 @@ get_header();
                             <span data-i18n="pricing.features.cpanelPanel">cPanel</span>
                         </li>
                     </ul>
-
                     <a href="https://my.hostorio.com/cart.php?a=add&pid=57" class="cloud-order-btn" data-i18n="pricing.orderNow">Order Now</a>
-
                 </div>
-
                 <!-- Card 4 - Advanced -->
                 <div class="cloud-card">
                     <div class="cloud-icon">
-                        <img src="<?php echo htmlspecialchars( HOSTORIO_URI ); ?>/assets/images/pricing/data-server.svg" alt="Advanced web hosting plan – unlimited NVMe storage for eCommerce and high-traffic websites">
+                        <img src="{{ asset('') }}/assets/images/pricing/data-server.svg" alt="Advanced web hosting plan – unlimited NVMe storage for eCommerce and high-traffic websites">
                     </div>
-
                     <h3 class="cloud-plan-name" data-i18n="pricing.plans.business.name">Advanced</h3>
                     <p class="cloud-plan-desc" data-i18n="pricing.plans.business.desc">Ideal for eCommerce websites</p>
-
                     <div class="cloud-pricing" data-yearly-price="12000">
                         <div class="cloud-price-original">
                             <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
@@ -731,7 +686,6 @@ get_header();
                             <span class="cloud-period" data-i18n="pricing.perYear">/yr</span>
                         </div>
                     </div>
-
                     <ul class="cloud-features">
                         <li>
                             <svg class="cloud-icon-check" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -811,24 +765,13 @@ get_header();
                             <span data-i18n="pricing.features.cpanelPanel">cPanel</span>
                         </li>
                     </ul>
-
                     <a href="https://my.hostorio.com/cart.php?a=add&pid=58" class="cloud-order-btn" data-i18n="pricing.orderNow">Order Now</a>
-
                 </div>
-
             </div>
-
         </div>
         </section>
-
         </div>
     </section>
-
-
-
-
-
-
 <!-- ===========================
      DYNAMIC DOMAIN SEARCH SECTION
      =========================== -->
@@ -878,8 +821,6 @@ get_header();
         </div>
     </div>
 </section>
-
-
         <!-- Services Section -->
     <section class="services-section">
         <div class="container-wrapper">
@@ -888,14 +829,12 @@ get_header();
                 <h2 class="section-main-title" data-i18n="services.sectionTitle">Your Complete Roadmap to Digital Growth</h2>
                 <p class="section-subtitle" data-i18n="services.sectionSubtitle">Hosting is just the engine—we provide the whole vehicle.</p>
             </div>
-
             <!-- Services List -->
             <div class="services-list">
-
                 <!-- Service Item 1 -->
                 <div class="service-item">
                     <div class="service-image">
-                        <img src="<?php echo htmlspecialchars( HOSTORIO_URI ); ?>/assets/images/hostorio-domain-hosting-register.jpg" alt="Hostorio domain registration – find and secure your perfect domain name online">
+                        <img src="{{ asset('') }}/assets/images/hostorio-domain-hosting-register.jpg" alt="Hostorio domain registration – find and secure your perfect domain name online">
                     </div>
                     <div class="service-content">
                         <h3 class="service-title" data-i18n="services.item1.title">Secure Your Digital Identity</h3>
@@ -908,85 +847,77 @@ get_header();
                         </a>
                     </div>
                 </div>
-
                 <!-- Service Item 2 -->
                 <div class="service-item reverse">
                     <div class="service-image">
-                        <img src="<?php echo htmlspecialchars( HOSTORIO_URI ); ?>/assets/images/hostorio-performance.webp" alt="Hostorio high-performance web hosting powered by LiteSpeed servers and NVMe SSD storage">
+                        <img src="{{ asset('') }}/assets/images/hostorio-performance.webp" alt="Hostorio high-performance web hosting powered by LiteSpeed servers and NVMe SSD storage">
                     </div>
                     <div class="service-content">
                         <h3 class="service-title" data-i18n="services.item2.title">Performance-First Web Hosting</h3>
                         <p class="service-description" data-i18n="services.item2.desc">
                             The Right Foundation for Every Project Whether you need the simplicity of Shared Hosting, the raw power of a VPS, or a specialized WordPress environment, we've got you covered. Powered by NVMe storage and LiteSpeed Web Servers, our infrastructure is built to ensure your site stays fast, stable, and ready for high traffic.
                         </p>
-                        <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="service-link">
+                        <a href="" class="service-link">
                             <span data-i18n="services.item2.link">Choose a hosting</span>
                             <i class="arrow-icon">→</i>
                         </a>
                     </div>
                 </div>
-
                 <!-- Service Item 3 -->
                 <div class="service-item">
                     <div class="service-image">
-                        <img src="<?php echo htmlspecialchars( HOSTORIO_URI ); ?>/assets/images/hostorio-email-solution.webp" alt="Hostorio professional business email hosting with custom domain – name@yourdomain.com">
+                        <img src="{{ asset('') }}/assets/images/hostorio-email-solution.webp" alt="Hostorio professional business email hosting with custom domain – name@yourdomain.com">
                     </div>
                     <div class="service-content">
                         <h3 class="service-title" data-i18n="services.item3.title">Professional Email Solutions</h3>
                         <p class="service-description" data-i18n="services.item3.desc">
                             Build Trust with Every Inbox Move beyond generic email addresses and earn instant credibility with a custom address (name@yourdomain.com). Our secure, ad-free business email plans keep your communications organized, private, and professional, complete with integrated tools to keep your team in sync.
                         </p>
-                        <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="service-link">
+                        <a href="" class="service-link">
                             <span data-i18n="services.item3.link">Business Email Plans</span>
                             <i class="arrow-icon">→</i>
                         </a>
                     </div>
                 </div>
-
                 <!-- Service Item 4 -->
                 <div class="service-item reverse">
                     <div class="service-image">
-                        <img src="<?php echo htmlspecialchars( HOSTORIO_URI ); ?>/assets/images/hostorio-ssl-security.webp" alt="Hostorio free SSL certificate and DDoS protection keeping websites secure 24/7">
+                        <img src="{{ asset('') }}/assets/images/hostorio-ssl-security.webp" alt="Hostorio free SSL certificate and DDoS protection keeping websites secure 24/7">
                     </div>
                     <div class="service-content">
                         <h3 class="service-title" data-i18n="services.item4.title">Bulletproof Security</h3>
                         <p class="service-description" data-i18n="services.item4.desc">
                             Protection for You and Your Visitors We take security seriously so you don't have to. Every Hostorio account comes standard with Free SSL certificates, BitNinja Server Security, and automated malware scanning. With 2-Factor Authentication (2FA) and premium DNS protection, your data—and your customers' trust—remains safe.
                         </p>
-                        <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="service-link">
+                        <a href="" class="service-link">
                             <span data-i18n="services.item4.link">Secure yourself</span>
                             <i class="arrow-icon">→</i>
                         </a>
                     </div>
                 </div>
-
                 <!-- Service Item 5 -->
                 <div class="service-item">
                     <div class="service-image">
-                        <img src="<?php echo htmlspecialchars( HOSTORIO_URI ); ?>/assets/images/enterprice-security.jpg" alt="Hostorio enterprise-grade security with free SSL, DDoS protection via BitNinja and automated daily backups">
+                        <img src="{{ asset('') }}/assets/images/enterprice-security.jpg" alt="Hostorio enterprise-grade security with free SSL, DDoS protection via BitNinja and automated daily backups">
                     </div>
                     <div class="service-content">
                         <h3 class="service-title" data-i18n="services.item5.title">Enterprise-Grade Security, Affordable Prices</h3>
                         <p class="service-description" data-i18n="services.item5.desc">
                             Security isn't luxury—it's essential. Every Hostorio account includes free SSL certificates, DDoS protection via BitNinja, automatic malware scanning, and daily automated backups. We take the stress out of security so you can focus on growing your business. Sleep soundly knowing your data and your customers' data are protected 24/7.
                         </p>
-                        <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="service-link">
+                        <a href="" class="service-link">
                             <span data-i18n="services.item5.link">Learn about security</span>
                             <i class="arrow-icon">→</i>
                         </a>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
-
-
        <!-- WordPress Hosting Section -->
     <section class="wordpress-section">
         <div class="container-wrapper">
             <div class="wordpress-content">
-
                 <!-- Left Side - Graphic -->
                 <div class="wordpress-graphic">
                     <!-- Browser Window -->
@@ -1001,7 +932,6 @@ get_header();
                             <div class="wp-hero">
                                 <h3 class="wp-blog-title" data-i18n="wordpress.blogTitle">Your Blog Title</h3>
                             </div>
-
                             <!-- Latest Post Section -->
                             <div class="wp-posts-section">
                                 <p class="wp-section-title" data-i18n="wordpress.latestPost">Latest Post</p>
@@ -1032,7 +962,6 @@ get_header();
                             </div>
                         </div>
                     </div>
-
                     <!-- Floating Elements -->
                     <div class="floating-element top-element">
                         <div class="theme-preview">
@@ -1059,7 +988,6 @@ get_header();
                             </div>
                         </div>
                     </div>
-
                     <div class="floating-element left-element">
                         <div class="dashboard-menu">
                             <div class="menu-icon">
@@ -1084,7 +1012,6 @@ get_header();
                             </ul>
                         </div>
                     </div>
-
                     <div class="floating-element bottom-element">
                         <div class="editor-toolbar">
                             <svg width="100%" height="40" viewBox="0 0 200 40" fill="none">
@@ -1098,14 +1025,12 @@ get_header();
                         </div>
                     </div>
                 </div>
-
                 <!-- Right Side - Content -->
                 <div class="wordpress-text">
                     <h2 class="wordpress-title" data-i18n="wordpress.title">WordPress Hosting Turbocharged</h2>
                     <p class="wordpress-description" data-i18n="wordpress.description">
                        WordPress powers the web, but we power WordPress. We provide a managed environment that offers the perfect balance of raw power and complete control. Whether you are a solo blogger or a large-scale agency, our infrastructure is fine-tuned to ensure your WordPress site is faster, more secure, and easier to manage than ever before.
                     </p>
-
                     <!-- Features List -->
                     <div class="features-list">
                         <div class="feature-item">
@@ -1117,7 +1042,6 @@ get_header();
                             </div>
                             <h3 class="feature-title" data-i18n="wordpress.feature1">1-Click Script Deployment</h3>
                         </div>
-
                         <div class="feature-item">
                             <div class="feature-icon">
                                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
@@ -1127,7 +1051,6 @@ get_header();
                             </div>
                             <h3 class="feature-title" data-i18n="wordpress.feature2">LiteSpeed-Optimized Stack</h3>
                         </div>
-
                         <div class="feature-item">
                             <div class="feature-icon">
                                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
@@ -1139,17 +1062,14 @@ get_header();
                             <h3 class="feature-title" data-i18n="wordpress.feature3">Proactive Malware Defense</h3>
                         </div>
                     </div>
-
                     <!-- CTA Button -->
                     <div class="wordpress-cta">
-                        <a href="<?php echo htmlspecialchars( route('page', '\1') ); ?>" class="cta-button" data-i18n="wordpress.cta">Get Started Now</a>
+                        <a href="" class="cta-button" data-i18n="wordpress.cta">Get Started Now</a>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
-
     <!-- Support Section -->
     <section class="support-section">
         <div class="container-wrapper">
@@ -1158,14 +1078,12 @@ get_header();
                 <h2 class="section-main-title" data-i18n="support.sectionTitle">Customer Success Focus</h2>
                 <p class="section-subtitle" data-i18n="support.sectionSubtitle">We provide everything you need to succeed online</p>
             </div>
-
             <!-- Support Cards -->
             <div class="support-cards">
-
                 <!-- Card 1 -->
                 <div class="support-card">
                     <div class="card-image-wrapper">
-                        <img src="<?php echo htmlspecialchars( HOSTORIO_URI ); ?>/assets/images/support/support-hostorio.webp" alt="Hostorio 24/7 customer support team guiding new users through web hosting setup and configuration" class="card-image">
+                        <img src="{{ asset('') }}/assets/images/support/support-hostorio.webp" alt="Hostorio 24/7 customer support team guiding new users through web hosting setup and configuration" class="card-image">
                         <div class="image-overlay blue-overlay"></div>
                     </div>
                     <div class="card-content">
@@ -1176,11 +1094,10 @@ get_header();
                         <a href="https://my.hostorio.com/submitticket.php" class="card-button" data-i18n="support.card1.btn">Get started</a>
                     </div>
                 </div>
-
                 <!-- Card 2 -->
                 <div class="support-card">
                     <div class="card-image-wrapper">
-                        <img src="<?php echo htmlspecialchars( HOSTORIO_URI ); ?>/assets/images/support/blog-hostorio.webp" alt="Hostorio knowledge base and resource center with web hosting tutorials, guides and security tips" class="card-image">
+                        <img src="{{ asset('') }}/assets/images/support/blog-hostorio.webp" alt="Hostorio knowledge base and resource center with web hosting tutorials, guides and security tips" class="card-image">
                         <div class="image-overlay green-overlay"></div>
                     </div>
                     <div class="card-content">
@@ -1191,11 +1108,10 @@ get_header();
                         <a href="https://my.hostorio.com/knowledgebase" class="card-button" data-i18n="support.card2.btn">Get learning</a>
                     </div>
                 </div>
-
                 <!-- Card 3 -->
                 <div class="support-card">
                     <div class="card-image-wrapper">
-                        <img src="<?php echo htmlspecialchars( HOSTORIO_URI ); ?>/assets/images/support/trasfer-hosting-hostorio.webp" alt="Hassle-free domain and web hosting transfer service to Hostorio – fast, easy migration" class="card-image">
+                        <img src="{{ asset('') }}/assets/images/support/trasfer-hosting-hostorio.webp" alt="Hassle-free domain and web hosting transfer service to Hostorio – fast, easy migration" class="card-image">
                         <div class="image-overlay orange-overlay"></div>
                     </div>
                     <div class="card-content">
@@ -1206,14 +1122,7 @@ get_header();
                         <a href="https://my.hostorio.com/cart.php?a=add&domain=transfer" class="card-button" data-i18n="support.card3.btn">Transfer today</a>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
-   
-   
-    <!-- Main Footer -->
-    
-<?
-
 @endsection
