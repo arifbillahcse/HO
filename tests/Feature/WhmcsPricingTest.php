@@ -1,0 +1,203 @@
+<?php
+
+namespace Tests\Feature;
+
+use App\Filament\Pages\WhmcsConnection;
+use App\Models\Setting;
+use App\Models\User;
+use App\Services\SettingsService;
+use App\Services\WhmcsService;
+use Filament\Facades\Filament;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\Client\Request;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Http;
+use Livewire\Livewire;
+use Tests\TestCase;
+
+class WhmcsPricingTest extends TestCase
+{
+    use RefreshDatabase;
+
+    private function configure(): void
+    {
+        Setting::set('whmcs_url', 'https://my.example.com');
+        Setting::set('whmcs_api_identifier', 'abc123');
+        WhmcsService::storeSecret('whmcs_api_secret', 's3cret');
+    }
+
+    private function pricingResponse(): array
+    {
+        return [
+            'result' => 'success',
+            'currency' => ['id' => 1, 'code' => 'USD', 'prefix' => '$', 'suffix' => ' USD'],
+            'pricing' => [
+                'com' => ['register' => ['1' => '13.50', '2' => '27.00']],
+                'com.bd' => ['register' => ['1' => '-1.00']],
+                'xyz' => ['register' => ['1' => '2.49']],
+            ],
+        ];
+    }
+
+    public function test_hero_uses_built_in_prices_when_not_configured(): void
+    {
+        Http::fake();
+
+        $prices = app(WhmcsService::class)->heroPrices();
+
+        $this->assertSame(['.com', '.com.bd', '.xyz'], array_column($prices, 'tld'));
+        $this->assertSame(['$12.99', '$9.50', '$2.99'], array_column($prices, 'price'));
+        Http::assertNothingSent();
+
+        $this->get('/')->assertOk()->assertSee('$12.99/yr', false);
+    }
+
+    public function test_hero_shows_live_whmcs_prices_and_skips_unavailable_ones(): void
+    {
+        $this->configure();
+        Http::fake(['my.example.com/*' => Http::response($this->pricingResponse())]);
+
+        $prices = app(WhmcsService::class)->heroPrices();
+
+        $this->assertSame(['$13.50', '$9.50', '$2.49'], array_column($prices, 'price'));
+        $this->assertSame([true, false, true], array_column($prices, 'live'));
+
+        Http::assertSent(fn (Request $r) => $r->url() === 'https://my.example.com/includes/api.php'
+            && $r['action'] === 'GetTLDPricing'
+            && $r['identifier'] === 'abc123'
+            && $r['secret'] === 's3cret'
+            && $r['responsetype'] === 'json');
+
+        $this->get('/')->assertOk()->assertSee('$13.50/yr', false)->assertSee('$2.49/yr', false);
+        Http::assertSentCount(1);
+    }
+
+    public function test_secret_is_stored_encrypted(): void
+    {
+        $this->configure();
+
+        $stored = SettingsService::get('whmcs_api_secret');
+
+        $this->assertNotSame('s3cret', $stored);
+        $this->assertTrue(WhmcsService::hasStoredSecret());
+    }
+
+    public function test_api_failure_falls_back_and_backs_off(): void
+    {
+        $this->configure();
+        Http::fake(['my.example.com/*' => Http::response('Server Error', 500)]);
+
+        $service = app(WhmcsService::class);
+
+        $this->assertSame('$12.99', $service->heroPrices()[0]['price']);
+        $this->assertSame('$12.99', $service->heroPrices()[0]['price']);
+        Http::assertSentCount(1);
+    }
+
+    public function test_api_error_message_is_reported(): void
+    {
+        $this->configure();
+        Http::fake(['my.example.com/*' => Http::response(['result' => 'error', 'message' => 'Invalid IP 1.2.3.4'])]);
+
+        $this->expectExceptionMessage('Invalid IP 1.2.3.4');
+
+        app(WhmcsService::class)->fetchPricing();
+    }
+
+    public function test_last_good_prices_survive_an_outage(): void
+    {
+        $this->configure();
+        Http::fake(['my.example.com/*' => Http::sequence()
+            ->push($this->pricingResponse())
+            ->push('down', 503)]);
+
+        $service = app(WhmcsService::class);
+        $this->assertSame('$13.50', $service->heroPrices()[0]['price']);
+
+        Cache::forget('whmcs_tld_pricing'); // cache expired, WHMCS now down
+
+        $this->assertSame('$13.50', $service->heroPrices()[0]['price']);
+    }
+
+    public function test_hero_tld_setting_controls_order_and_selection(): void
+    {
+        $this->configure();
+        Setting::set('whmcs_hero_tlds', ['xyz', '.COM']);
+        Http::fake(['my.example.com/*' => Http::response($this->pricingResponse())]);
+
+        $this->assertSame(['.xyz', '.com'], array_column(app(WhmcsService::class)->heroPrices(), 'tld'));
+    }
+
+    public function test_admin_page_saves_settings_and_never_stores_plain_secret(): void
+    {
+        Http::fake(['my.example.com/*' => Http::response($this->pricingResponse())]);
+        Filament::setCurrentPanel(Filament::getPanel('admin'));
+        $this->actingAs(User::factory()->create());
+
+        Livewire::test(WhmcsConnection::class)
+            ->fillForm([
+                'url' => 'https://my.example.com/',
+                'api_identifier' => 'abc123',
+                'api_secret' => 's3cret',
+                'cache_minutes' => 60,
+                'hero_tlds' => ['COM', '.xyz'],
+            ])
+            ->call('save')
+            ->assertHasNoFormErrors()
+            ->assertNotified('Saved and connected');
+
+        $this->assertSame('https://my.example.com', SettingsService::get('whmcs_url'));
+        $this->assertSame(['.com', '.xyz'], SettingsService::get('whmcs_hero_tlds'));
+        $this->assertNotSame('s3cret', SettingsService::get('whmcs_api_secret'));
+        $this->assertTrue(WhmcsService::hasStoredSecret());
+        $this->assertSame('$13.50', app(WhmcsService::class)->heroPrices()[0]['price']);
+    }
+
+    public function test_admin_page_requires_https_url_and_a_secret_on_first_save(): void
+    {
+        Filament::setCurrentPanel(Filament::getPanel('admin'));
+        $this->actingAs(User::factory()->create());
+
+        Livewire::test(WhmcsConnection::class)
+            ->fillForm([
+                'url' => 'http://my.example.com',
+                'api_identifier' => 'abc123',
+                'cache_minutes' => 60,
+                'hero_tlds' => ['.com'],
+            ])
+            ->call('save')
+            ->assertHasFormErrors(['url', 'api_secret']);
+    }
+
+    public function test_admin_page_can_test_connection_and_reports_failures(): void
+    {
+        Filament::setCurrentPanel(Filament::getPanel('admin'));
+        $this->actingAs(User::factory()->create());
+
+        $form = [
+            'url' => 'https://my.example.com',
+            'api_identifier' => 'abc123',
+            'api_secret' => 's3cret',
+            'cache_minutes' => 60,
+            'hero_tlds' => ['.com'],
+        ];
+
+        Http::fake(['my.example.com/*' => Http::sequence()
+            ->push($this->pricingResponse())
+            ->push(['result' => 'error', 'message' => 'Authentication Failed'])]);
+
+        Livewire::test(WhmcsConnection::class)->fillForm($form)->call('testConnection')->assertNotified('Connection works');
+        Livewire::test(WhmcsConnection::class)->fillForm($form)->call('testConnection')->assertNotified('Connection failed');
+
+        $this->assertNull(SettingsService::get('whmcs_url'), 'testing must not save anything');
+    }
+
+    public function test_admin_page_is_reachable_and_connection_keys_are_hidden_from_generic_settings(): void
+    {
+        $this->actingAs(User::factory()->create());
+        $this->configure();
+
+        $this->get('/admin/whmcs-connection')->assertOk()->assertSee('WHMCS Connection')->assertDontSee('s3cret');
+        $this->get('/admin/settings')->assertOk()->assertDontSee('whmcs_api_secret');
+    }
+}

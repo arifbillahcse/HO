@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\SitemapController;
+use App\Services\WhmcsService;
 use Illuminate\Support\Facades\Route;
 
 // Sitemap
@@ -8,7 +9,7 @@ Route::get('sitemap.xml', [SitemapController::class, 'sitemap']);
 
 // Homepage
 Route::get('/', function () {
-    return view('pages.home');
+    return view('pages.home', ['heroPrices' => app(WhmcsService::class)->heroPrices()]);
 })->name('home');
 
 // All other pages

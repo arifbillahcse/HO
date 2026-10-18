@@ -363,9 +363,9 @@
 
                     <p class="hero-domains">
                         <span data-i18n="hero.domainsFrom">Domains from</span>
-                        <span class="hero-tld"><strong>.com</strong> <em>$12.99/yr</em><span class="hero-sep" aria-hidden="true">&middot;</span></span>
-                        <span class="hero-tld"><strong>.com.bd</strong> <em>$9.50/yr</em><span class="hero-sep" aria-hidden="true">&middot;</span></span>
-                        <span class="hero-tld"><strong>.xyz</strong> <em>$2.99/yr</em></span>
+                        @foreach (($heroPrices ?? []) as $price)
+                            <span class="hero-tld"><strong>{{ $price['tld'] }}</strong> <em>{{ $price['price'] }}/yr</em>@unless ($loop->last)<span class="hero-sep" aria-hidden="true">&middot;</span>@endunless</span>
+                        @endforeach
                     </p>
                     <p class="hero-transfer">
                         <span data-i18n="hero.haveDomain">Already have a domain?</span>
