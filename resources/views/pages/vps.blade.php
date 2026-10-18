@@ -1,14 +1,4 @@
 @extends('layouts.app')
-@section('title', 'VPS Hosting – Hostorio Web Hosting')
-@push('meta')
-<meta name="description" content="Hostorio - VPS Hosting. Fast, reliable web hosting services.">
-<link rel="canonical" href="{{ url('/vps') }}">
-<meta name="robots" content="index, follow">
-<meta property="og:type" content="website">
-<meta property="og:title" content="VPS Hosting – Hostorio">
-<meta property="og:description" content="Hostorio - VPS Hosting">
-<meta property="og:url" content="{{ url('/vps') }}">
-@endpush
 @push('head')
 <style>
 .st0{fill:none;stroke:#144FC4;stroke-linecap:round;stroke-linejoin:round}.st1{fill:none;stroke:#144FC4}.st2{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#144FC4}.st3{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#FF7800}.st4{fill-rule:evenodd;clip-rule:evenodd;fill:#FF7800}
@@ -61,7 +51,7 @@
       },
       "offers": {
         "@type": "AggregateOffer",
-        "url": "{{ url('/') }}",
+        "url": "{{ hostorio_url('vps') }}",
         "priceCurrency": "BDT",
         "lowPrice": {{ $serviceRange['low'] }},
         "highPrice": {{ $serviceRange['high'] }},
@@ -91,7 +81,7 @@
           "@type": "ListItem",
           "position": 3,
           "name": "VPS Hosting",
-          "item": "{{ url('/') }}"
+          "item": "{{ hostorio_url('vps') }}"
         }
       ]
     }
@@ -190,33 +180,33 @@
                 <!-- Desktop Package Grid -->
                 <div class="packages-desktop">
                     <div class="top-packages">
-                        <a href="{{ route('page', 'web-hosting') }}" class="package-card ">
+                        <a href="{{ hostorio_url('web-hosting') }}" class="package-card ">
                             <span class="card-icon">⚡</span>
                             <span class="card-title-pricing-hero" data-i18n="packageHero.wordpress">WordPress Hosting</span>
                         </a>
-                        <a href="{{ route('page', 'turbo-hosting') }}" class="package-card">
+                        <a href="{{ hostorio_url('turbo-hosting') }}" class="package-card">
                             <span class="card-icon">🚀</span>
                             <span class="card-title-pricing-hero" data-i18n="packageHero.turbo">Turbo Hosting</span>
                         </a>
-                        <a href="{{ route('page', 'reseller-hosting') }}" class="package-card">
+                        <a href="{{ hostorio_url('reseller-hosting') }}" class="package-card">
                             <span class="card-icon">🔄</span>
                             <span class="card-title-pricing-hero" data-i18n="packageHero.reseller">Reseller Hosting</span>
                         </a>
-                        <a href="{{ route('page', 'student-hosting') }}" class="package-card">
+                        <a href="{{ hostorio_url('student-hosting') }}" class="package-card">
                             <span class="card-icon">🎓</span>
                             <span class="card-title-pricing-hero" data-i18n="packageHero.student">Student Hosting</span>
                         </a>
                     </div>
                     <div class="bottom-packages">
-                        <a href="{{ route('page', 'vps') }}" class="package-card highlighted">
+                        <a href="{{ hostorio_url('vps') }}" class="package-card highlighted">
                             <span class="card-icon">🖥️</span>
                             <span class="card-title-pricing-hero" data-i18n="packageHero.vps">VPS</span>
                         </a>
-                        <a href="{{ route('page', 'business-email') }}" class="package-card">
+                        <a href="{{ hostorio_url('business-email') }}" class="package-card">
                             <span class="card-icon">✉️</span>
                             <span class="card-title-pricing-hero" data-i18n="packageHero.email">Business Email</span>
                         </a>
-                        <a href="{{ route('page', 'offer') }}" class="package-card">
+                        <a href="{{ hostorio_url('offer') }}" class="package-card">
                             <span class="card-icon">🌐</span>
                             <span class="card-title-pricing-hero" data-i18n="packageHero.offer">Offer</span>
                         </a>
@@ -231,31 +221,31 @@
                             <i class="fas fa-chevron-down btn-chevron" id="chevronIcon"></i>
                         </button>
                         <nav class="chooser-list" id="packageList">
-                            <a href="{{ route('page', 'web-hosting') }}" class="list-option selected" data-icon="⚡" data-label="WordPress Hosting">
+                            <a href="{{ hostorio_url('web-hosting') }}" class="list-option selected" data-icon="⚡" data-label="WordPress Hosting">
                                 <span class="opt-icon">⚡</span>
                                 <span class="opt-label" data-i18n="packageHero.wordpress">Web Hosting</span>
                             </a>
-                            <a href="{{ route('page', 'turbo-hosting') }}" class="list-option" data-icon="🚀" data-label="Turbo Hosting">
+                            <a href="{{ hostorio_url('turbo-hosting') }}" class="list-option" data-icon="🚀" data-label="Turbo Hosting">
                                 <span class="opt-icon">🚀</span>
                                 <span class="opt-label" data-i18n="packageHero.turbo">Turbo Hosting</span>
                             </a>
-                            <a href="{{ route('page', 'reseller-hosting') }}" class="list-option" data-icon="🔄" data-label="Reseller Hosting">
+                            <a href="{{ hostorio_url('reseller-hosting') }}" class="list-option" data-icon="🔄" data-label="Reseller Hosting">
                                 <span class="opt-icon">🔄</span>
                                 <span class="opt-label" data-i18n="packageHero.reseller">Reseller Hosting</span>
                             </a>
-                            <a href="{{ route('page', 'student-hosting') }}" class="list-option" data-icon="🎓" data-label="Student Hosting">
+                            <a href="{{ hostorio_url('student-hosting') }}" class="list-option" data-icon="🎓" data-label="Student Hosting">
                                 <span class="opt-icon">🎓</span>
                                 <span class="opt-label" data-i18n="packageHero.student">Student Hosting</span>
                             </a>
-                            <a href="{{ route('page', 'vps') }}" class="list-option" data-icon="🖥️" data-label="VPS">
+                            <a href="{{ hostorio_url('vps') }}" class="list-option" data-icon="🖥️" data-label="VPS">
                                 <span class="opt-icon">🖥️</span>
                                 <span class="opt-label" data-i18n="packageHero.vps">VPS</span>
                             </a>
-                            <a href="{{ route('page', 'business-email') }}" class="list-option" data-icon="✉️" data-label="Business Email">
+                            <a href="{{ hostorio_url('business-email') }}" class="list-option" data-icon="✉️" data-label="Business Email">
                                 <span class="opt-icon">✉️</span>
                                 <span class="opt-label" data-i18n="packageHero.email">Business Email</span>
                             </a>
-                            <a href="{{ route('page', 'offer') }}" class="list-option" data-icon="🌐" data-label="Domain">
+                            <a href="{{ hostorio_url('offer') }}" class="list-option" data-icon="🌐" data-label="Domain">
                                 <span class="opt-icon">🌐</span>
                                 <span class="opt-label" data-i18n="packageHero.offer">Offer</span>
                             </a>

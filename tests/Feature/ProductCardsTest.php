@@ -17,9 +17,9 @@ class ProductCardsTest extends TestCase
     use RefreshDatabase;
 
     private const PAGES = [
-        'home' => '/', 'web_hosting' => '/web-hosting', 'turbo_hosting' => '/turbo-hosting',
-        'reseller_hosting' => '/reseller-hosting', 'student_hosting' => '/student-hosting', 'vps' => '/vps',
-        'business_email' => '/business-email', 'offer' => '/offer',
+        'home' => '/', 'web_hosting' => '/web-hosting/', 'turbo_hosting' => '/turbo-hosting/',
+        'reseller_hosting' => '/reseller-hosting/', 'student_hosting' => '/student-hosting/', 'vps' => '/vps/',
+        'business_email' => '/business-email/', 'offer' => '/offer/',
     ];
 
     protected function setUp(): void
@@ -74,7 +74,7 @@ class ProductCardsTest extends TestCase
         ]);
         Product::onPage('web_hosting')->skip(3)->first()->update(['is_visible' => false]);
 
-        $html = $this->get('/web-hosting')->assertOk()->getContent();
+        $html = $this->get('/web-hosting/')->assertOk()->getContent();
 
         $this->assertStringContainsString('<h3 class="cloud-plan-name">Starter Plus</h3>', $html);
         $this->assertStringContainsString('<div class="cloud-popular-badge">Best Value</div>', $html);
@@ -89,7 +89,7 @@ class ProductCardsTest extends TestCase
         [$first, $second] = Product::onPage('turbo_hosting')->take(2)->get()->all();
         $first->update(['sort_order' => 10]);
 
-        $html = $this->get('/turbo-hosting')->getContent();
+        $html = $this->get('/turbo-hosting/')->getContent();
 
         $this->assertLessThan(strpos($html, e($first->name) . '</h3>'), strpos($html, e($second->name) . '</h3>'));
     }
@@ -119,15 +119,15 @@ class ProductCardsTest extends TestCase
     public function test_order_links_follow_the_whmcs_product_id(): void
     {
         $this->get('/')->assertSee('href="https://my.hostorio.com/cart.php?a=add&amp;pid=55"', false);
-        $this->get('/vps')->assertSee('<a href="#" class="cloud-order-btn">DEPLOY NOW</a>', false);
+        $this->get('/vps/')->assertSee('<a href="#" class="cloud-order-btn">DEPLOY NOW</a>', false);
 
         Product::onPage('vps')->first()->update(['whmcs_pid' => 120]);
-        $this->get('/vps')->assertSee('href="https://my.hostorio.com/cart.php?a=add&amp;pid=120" class="cloud-order-btn">DEPLOY NOW</a>', false);
+        $this->get('/vps/')->assertSee('href="https://my.hostorio.com/cart.php?a=add&amp;pid=120" class="cloud-order-btn">DEPLOY NOW</a>', false);
 
         $offer = Product::onPage('offer')->first();
-        $this->get('/offer')->assertSee('pid=16&amp;sld=whmcs&amp;tld=.com', false);
+        $this->get('/offer/')->assertSee('pid=16&amp;sld=whmcs&amp;tld=.com', false);
         $offer->update(['whmcs_pid' => 99]);
-        $this->get('/offer')->assertSee('pid=99&amp;sld=whmcs&amp;tld=.com', false);
+        $this->get('/offer/')->assertSee('pid=99&amp;sld=whmcs&amp;tld=.com', false);
     }
 
     public function test_structured_data_is_generated_from_products_and_is_valid_json(): void
@@ -139,22 +139,22 @@ class ProductCardsTest extends TestCase
         $this->assertSame('Starter Plus Web Hosting Plan', $schemas[0]['name']);
         $this->assertSame(3000, $schemas[0]['offers']['price']);
 
-        $offer = $this->schemas($this->get('/offer')->getContent(), 'AggregateOffer');
+        $offer = $this->schemas($this->get('/offer/')->getContent(), 'AggregateOffer');
         $this->assertSame(999, $offer[0]['lowPrice']);
         $this->assertSame(4500, $offer[0]['highPrice']);
         $this->assertSame(4, $offer[0]['offerCount']);
-        $this->assertCount(4, $this->schemas($this->get('/offer')->getContent(), 'ItemList')[0]['itemListElement']);
+        $this->assertCount(4, $this->schemas($this->get('/offer/')->getContent(), 'ItemList')[0]['itemListElement']);
 
-        $this->get('/web-hosting')->assertSee('"lowPrice": 3000,', false)->assertSee('"highPrice": 12000,', false)->assertSee('"offerCount": 4,', false);
+        $this->get('/web-hosting/')->assertSee('"lowPrice": 3000,', false)->assertSee('"highPrice": 12000,', false)->assertSee('"offerCount": 4,', false);
 
         Product::onPage('turbo_hosting')->first()->update(['yearly_price' => 9000]);
-        $service = $this->schemas($this->get('/turbo-hosting')->getContent(), '"Service"')[0]['offers'];
+        $service = $this->schemas($this->get('/turbo-hosting/')->getContent(), '"Service"')[0]['offers'];
         $this->assertSame([9000, 30000, 4], [$service['lowPrice'], $service['highPrice'], $service['offerCount']]);
     }
 
     public function test_every_page_has_valid_structured_data(): void
     {
-        foreach ([...array_values(self::PAGES), '/about-us', '/privacy-policy', '/terms-and-conditions'] as $url) {
+        foreach ([...array_values(self::PAGES), '/about-us/', '/privacy-policy/', '/terms-and-conditions/'] as $url) {
             $html = $this->get($url)->assertOk()->getContent();
 
             $this->assertSame(substr_count($html, 'application/ld+json'), count($this->schemas($html, '@')), $url);
@@ -179,7 +179,7 @@ class ProductCardsTest extends TestCase
 
     public function test_comparison_tables_render_rows_values_and_prices_from_the_admin(): void
     {
-        foreach (['web_hosting' => '/web-hosting', 'turbo_hosting' => '/turbo-hosting', 'reseller_hosting' => '/reseller-hosting', 'student_hosting' => '/student-hosting', 'offer' => '/offer'] as $page => $url) {
+        foreach (['web_hosting' => '/web-hosting/', 'turbo_hosting' => '/turbo-hosting/', 'reseller_hosting' => '/reseller-hosting/', 'student_hosting' => '/student-hosting/', 'offer' => '/offer/'] as $page => $url) {
             $html = $this->get($url)->assertOk()->getContent();
             $rows = ComparisonRow::onPage($page)->count();
             $products = Product::onPage($page)->count();
@@ -189,7 +189,7 @@ class ProductCardsTest extends TestCase
             $this->assertSame($rows + 1, substr_count($html, 'class="feature-item-hosting'), $page);
         }
 
-        $web = $this->get('/web-hosting')->getContent();
+        $web = $this->get('/web-hosting/')->getContent();
         $this->assertStringContainsString('<span class="strikethrough">৳357/mo</span>', $web);
         $this->assertStringContainsString('<span class="price-amount">৳250/mo</span>', $web);
         $this->assertStringContainsString('<span class="price-period"> (৳3,000/yr)</span>', $web);
@@ -197,8 +197,8 @@ class ProductCardsTest extends TestCase
         $this->assertStringContainsString('<div class="plan-feature"><i class="fas fa-check"></i></div>', $web);
         $this->assertStringContainsString('<div class="plan-feature"><i class="fas fa-times"></i></div>', $web);
 
-        $this->get('/student-hosting')->assertSee('<span class="price-amount">৳800/yr</span>', false)->assertSee('<h3 class="plan-title">SH Plan 3 ⭐</h3>', false);
-        $this->get('/offer')->assertSee('<div class="plan-column popular">', false)->assertSee('<span class="price-amount">৳999</span>', false);
+        $this->get('/student-hosting/')->assertSee('<span class="price-amount">৳800/yr</span>', false)->assertSee('<h3 class="plan-title">SH Plan 3 ⭐</h3>', false);
+        $this->get('/offer/')->assertSee('<div class="plan-column popular">', false)->assertSee('<span class="price-amount">৳999</span>', false);
     }
 
     public function test_comparison_tables_follow_admin_edits(): void
@@ -214,7 +214,7 @@ class ProductCardsTest extends TestCase
         ]);
         Product::onPage('turbo_hosting')->skip(3)->first()->update(['is_visible' => false]);
 
-        $html = $this->get('/turbo-hosting')->assertOk()->getContent();
+        $html = $this->get('/turbo-hosting/')->assertOk()->getContent();
 
         $this->assertStringContainsString('<div class="feature-item-hosting">Disk Space</div>', $html);
         $this->assertStringContainsString('<div class="feature-item-hosting">Malware Scanner</div>', $html);
@@ -229,7 +229,7 @@ class ProductCardsTest extends TestCase
         $this->fakeWhmcs();
 
         // Web Hosting "Starter" is WHMCS product 55, which returns 3100 BDT a year.
-        $this->get('/web-hosting')->assertSee('<span class="price-period"> (৳3,100/yr)</span>', false);
+        $this->get('/web-hosting/')->assertSee('<span class="price-period"> (৳3,100/yr)</span>', false);
     }
 
     /** @return list<array<string, mixed>> */

@@ -1,14 +1,4 @@
 @extends('layouts.app')
-@section('title', 'Fast Web Hosting – Hostorio Web Hosting')
-@push('meta')
-<meta name="description" content="Hostorio - Fast Web Hosting. Fast, reliable web hosting services.">
-<link rel="canonical" href="{{ url('/') }}">
-<meta name="robots" content="index, follow">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Fast Web Hosting – Hostorio">
-<meta property="og:description" content="Hostorio - Fast Web Hosting">
-<meta property="og:url" content="{{ url('/') }}">
-@endpush
 @push('head')
 <style>
 </style>

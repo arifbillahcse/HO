@@ -23,6 +23,17 @@ Then check `.env` has `APP_ENV=production` and `APP_DEBUG=false`, and hard-refre
 Run `composer install --no-dev --optimize-autoloader` only when `composer.lock` changed.
 
 Plans and comparison tables are edited in the admin, see [docs/PRODUCTS_GUIDE.md](docs/PRODUCTS_GUIDE.md).
+Titles, descriptions, verification codes and analytics are under Admin → SEO, see [docs/SEO_GUIDE.md](docs/SEO_GUIDE.md).
+
+**Checks for SEO:**
+- `APP_URL` in `.env` must be the site's real address (`https://ho.demo.softorio.com` on the demo,
+  `https://hostorio.com` on the live site), or uploaded images won't preview in the admin.
+- Page addresses end in `/` (as on WordPress). Laravel adds the slash itself, so the web server must **not**
+  remove trailing slashes. `public/.htaccess` no longer does. If the domain's document root is the project
+  folder rather than `public/`, check that folder's `.htaccess` for a "Redirect Trailing Slashes" rule and
+  delete it, or pages will redirect in a loop.
+- On the demo site, turn on **Admin → SEO → SEO Settings → Hide this site from search engines**.
+  On hostorio.com it must be off.
 
 ## Prerequisites
 

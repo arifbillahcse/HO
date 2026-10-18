@@ -35,6 +35,22 @@ namespace {
         }
     }
 
+    if (!function_exists('hostorio_seo')) {
+        /** Titles, meta tags and tracking code from Admin → SEO. */
+        function hostorio_seo(): \App\Services\Seo
+        {
+            return app(\App\Services\Seo::class);
+        }
+    }
+
+    if (!function_exists('hostorio_url')) {
+        /** Address of a website page with the trailing slash, e.g. hostorio_url('web-hosting'). */
+        function hostorio_url(string $slug = ''): string
+        {
+            return \App\Services\Seo::url($slug);
+        }
+    }
+
     if (!function_exists('hostorio_products')) {
         /** Visible products of a page, in admin order. */
         function hostorio_products(string $page): \Illuminate\Support\Collection

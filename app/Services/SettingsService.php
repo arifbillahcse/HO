@@ -59,6 +59,11 @@ class SettingsService
             'default_language' => 'en',
             'translation_overrides_en' => [],
             'translation_overrides_bn' => [],
+            'seo_site_name' => Seo::DEFAULT_SITE_NAME,
+            'seo_separator' => '-',
+            'seo_title_pattern' => Seo::DEFAULT_PATTERN,
+            'seo_ga4_id' => 'G-PJSW407GJS',
+            'seo_footer_code' => '<script src="https://chat.hostorio.com/widget/widget.js" data-endpoint="https://chat.hostorio.com/api/chat" defer></script>',
         ];
     }
 }

@@ -1,14 +1,4 @@
 @extends('layouts.app')
-@section('title', 'Terms & Conditions – Hostorio Web Hosting')
-@push('meta')
-<meta name="description" content="Read the Terms and Conditions for Hostorio web hosting services. Understand our refund policy, cancellation policy, domain policy, and more.">
-<link rel="canonical" href="{{ url('/terms-and-conditions') }}">
-<meta name="robots" content="index, follow">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Terms & Conditions – Hostorio">
-<meta property="og:description" content="Hostorio Terms and Conditions - Refund Policy, Cancellation Policy, Domain Policy, and more.">
-<meta property="og:url" content="{{ url('/terms-and-conditions') }}">
-@endpush
 @push('head')
 <style>
         /* =============================================

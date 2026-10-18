@@ -1,14 +1,4 @@
 @extends('layouts.app')
-@section('title', 'About Us – Hostorio Web Hosting')
-@push('meta')
-<meta name="description" content="Hostorio - About Us. Fast, reliable web hosting services.">
-<link rel="canonical" href="{{ url('/about-us') }}">
-<meta name="robots" content="index, follow">
-<meta property="og:type" content="website">
-<meta property="og:title" content="About Us – Hostorio">
-<meta property="og:description" content="Hostorio - About Us">
-<meta property="og:url" content="{{ url('/about-us') }}">
-@endpush
 @push('head')
 <style>
 /* =============================================
@@ -1114,37 +1104,37 @@
             <p data-i18n="about.services.subtitle">A complete hosting stack — from your first personal blog to a full reseller business.</p>
         </div>
         <div class="about-services-grid">
-            <a href="{{ route('page', 'web-hosting') }}" class="about-service-card">
+            <a href="{{ hostorio_url('web-hosting') }}" class="about-service-card">
                 <span class="about-service-emoji">⚡</span>
                 <h3 data-i18n="about.services.webHosting.title">Web Hosting</h3>
                 <p data-i18n="about.services.webHosting.desc">NVMe shared hosting on LiteSpeed servers with free SSL, cPanel and unlimited bandwidth. Ideal for business sites, blogs and portfolios.</p>
                 <span class="about-service-link" data-i18n="about.services.learnMore">View Plans <i class="fas fa-arrow-right"></i></span>
             </a>
-            <a href="{{ route('page', 'turbo-hosting') }}" class="about-service-card">
+            <a href="{{ hostorio_url('turbo-hosting') }}" class="about-service-card">
                 <span class="about-service-emoji">🚀</span>
                 <h3 data-i18n="about.services.turbo.title">Turbo Hosting</h3>
                 <p data-i18n="about.services.turbo.desc">Higher CPU and RAM allocation on our fastest nodes for traffic-heavy WordPress sites and growing eCommerce stores.</p>
                 <span class="about-service-link" data-i18n="about.services.learnMore">View Plans <i class="fas fa-arrow-right"></i></span>
             </a>
-            <a href="{{ route('page', 'reseller-hosting') }}" class="about-service-card">
+            <a href="{{ hostorio_url('reseller-hosting') }}" class="about-service-card">
                 <span class="about-service-emoji">🔄</span>
                 <h3 data-i18n="about.services.reseller.title">Reseller Hosting</h3>
                 <p data-i18n="about.services.reseller.desc">Launch your own hosting brand with WHM, white-label cPanel accounts and full control over your client packages and pricing.</p>
                 <span class="about-service-link" data-i18n="about.services.learnMore">View Plans <i class="fas fa-arrow-right"></i></span>
             </a>
-            <a href="{{ route('page', 'student-hosting') }}" class="about-service-card">
+            <a href="{{ hostorio_url('student-hosting') }}" class="about-service-card">
                 <span class="about-service-emoji">🎓</span>
                 <h3 data-i18n="about.services.student.title">Student Hosting</h3>
                 <p data-i18n="about.services.student.desc">Budget-friendly plans built for students, learners and first projects — the same servers and SSL, at a price that fits a student wallet.</p>
                 <span class="about-service-link" data-i18n="about.services.learnMore">View Plans <i class="fas fa-arrow-right"></i></span>
             </a>
-            <a href="{{ route('page', 'vps') }}" class="about-service-card">
+            <a href="{{ hostorio_url('vps') }}" class="about-service-card">
                 <span class="about-service-emoji">🖥️</span>
                 <h3 data-i18n="about.services.vps.title">VPS Hosting</h3>
                 <p data-i18n="about.services.vps.desc">Dedicated CPU, RAM and NVMe storage with full root access for developers and applications that have outgrown shared hosting.</p>
                 <span class="about-service-link" data-i18n="about.services.learnMore">View Plans <i class="fas fa-arrow-right"></i></span>
             </a>
-            <a href="{{ route('page', 'business-email') }}" class="about-service-card">
+            <a href="{{ hostorio_url('business-email') }}" class="about-service-card">
                 <span class="about-service-emoji">✉️</span>
                 <h3 data-i18n="about.services.email.title">Business Email</h3>
                 <p data-i18n="about.services.email.desc">Professional email on your own domain with spam filtering, webmail, mobile sync and 2FA — no web hosting plan required.</p>

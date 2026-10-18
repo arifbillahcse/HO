@@ -18,8 +18,8 @@ class ContactAddressTest extends TestCase
     use RefreshDatabase;
 
     private const PAGES = [
-        '/', '/web-hosting', '/turbo-hosting', '/reseller-hosting', '/student-hosting', '/vps',
-        '/business-email', '/offer', '/about-us', '/privacy-policy', '/terms-and-conditions',
+        '/', '/web-hosting/', '/turbo-hosting/', '/reseller-hosting/', '/student-hosting/', '/vps/',
+        '/business-email/', '/offer/', '/about-us/', '/privacy-policy/', '/terms-and-conditions/',
     ];
 
     private const NEW_DETAILS = [
@@ -85,8 +85,8 @@ class ContactAddressTest extends TestCase
             $this->assertSame(2, substr_count($html, 'class="social-icon"'), "{$url}: empty social links are hidden");
         }
 
-        $this->get('/about-us')->assertSee('href="https://billing.example.com/submitticket.php"', false)->assertSee('Dhanmondi, Dhaka');
-        $this->get('/terms-and-conditions')->assertSee('<a href="mailto:hello@example.com">hello@example.com</a>', false);
+        $this->get('/about-us/')->assertSee('href="https://billing.example.com/submitticket.php"', false)->assertSee('Dhanmondi, Dhaka');
+        $this->get('/terms-and-conditions/')->assertSee('<a href="mailto:hello@example.com">hello@example.com</a>', false);
         $this->get('/')->assertSee('action="https://billing.example.com/cart.php?a=add&domain=register"', false);
     }
 
@@ -101,13 +101,13 @@ class ContactAddressTest extends TestCase
         $this->assertSame(['@type' => 'PostalAddress', 'streetAddress' => 'House 5, Road 7', 'addressLocality' => 'Dhanmondi', 'addressRegion' => 'Dhaka', 'addressCountry' => 'BD'], $organization['address']);
         $this->assertSame(['https://www.facebook.com/example', 'https://www.linkedin.com/company/example/'], $organization['sameAs']);
 
-        $local = $this->schema('/web-hosting', 'LocalBusiness');
+        $local = $this->schema('/web-hosting/', 'LocalBusiness');
         $this->assertSame(['@type' => 'GeoCoordinates', 'latitude' => 23.7461, 'longitude' => 90.3742], $local['geo']);
 
         $this->saveInAdmin(['business_latitude' => '', 'business_longitude' => ''] + self::NEW_DETAILS);
-        $this->assertArrayNotHasKey('geo', $this->schema('/web-hosting', 'LocalBusiness'));
+        $this->assertArrayNotHasKey('geo', $this->schema('/web-hosting/', 'LocalBusiness'));
 
-        $this->assertSame('Hostorio Ltd', $this->schema('/about-us', 'AboutPage')['mainEntity']['name']);
+        $this->assertSame('Hostorio Ltd', $this->schema('/about-us/', 'AboutPage')['mainEntity']['name']);
     }
 
     public function test_admin_page_validates_and_normalises_input(): void

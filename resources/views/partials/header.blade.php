@@ -86,26 +86,26 @@
                             <i class="fas fa-chevron-down dropdown-arrow"></i>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ route('page', 'web-hosting') }}" class="dropdown-item">
+                            <li><a href="{{ hostorio_url('web-hosting') }}" class="dropdown-item">
                                 <i class="fas fa-server"></i>
                                 <span data-i18n="nav.wordpressHosting">Web Hosting</span>
                             </a></li>
-                            <li><a href="{{ route('page', 'turbo-hosting') }}" class="dropdown-item">
+                            <li><a href="{{ hostorio_url('turbo-hosting') }}" class="dropdown-item">
                                 <i class="fas fa-bolt"></i>
                                 <span data-i18n="nav.turboHosting">Turbo Hosting</span>
                             </a></li>
-                            <li><a href="{{ route('page', 'reseller-hosting') }}" class="dropdown-item">
+                            <li><a href="{{ hostorio_url('reseller-hosting') }}" class="dropdown-item">
                                 <i class="fas fa-store"></i>
                                 <span data-i18n="nav.resellerHosting">Reseller Hosting</span>
                             </a></li>
-                            <li><a href="{{ route('page', 'student-hosting') }}" class="dropdown-item">
+                            <li><a href="{{ hostorio_url('student-hosting') }}" class="dropdown-item">
                                 <i class="fas fa-graduation-cap"></i>
                                 <span data-i18n="nav.studentHosting">Student Hosting</span>
                             </a></li>
                         </ul>
                     </li>
-                    <li><a href="{{ route('page', 'business-email') }}" class="nav-item" data-i18n="nav.businessEmail">Business Email</a></li>
-                    <li><a href="{{ route('page', 'vps') }}" class="nav-item" data-i18n="nav.vps">VPS</a></li>
+                    <li><a href="{{ hostorio_url('business-email') }}" class="nav-item" data-i18n="nav.businessEmail">Business Email</a></li>
+                    <li><a href="{{ hostorio_url('vps') }}" class="nav-item" data-i18n="nav.vps">VPS</a></li>
                     <li class="nav-item-dropdown">
                         <a href="#" class="nav-item">
                             <span data-i18n="nav.domain">Domain</span>
@@ -126,7 +126,7 @@
                             </a></li>
                         </ul>
                     </li>
-                    <li><a href="{{ route('page', 'offer') }}" class="nav-item" data-i18n="nav.offer">Offer</a></li>
+                    <li><a href="{{ hostorio_url('offer') }}" class="nav-item" data-i18n="nav.offer">Offer</a></li>
                 </ul>
             </nav>
 
@@ -156,26 +156,26 @@
                 <i class="fas fa-chevron-down dropdown-arrow"></i>
             </a>
             <ul class="dropdown-menu">
-                <li><a href="{{ route('page', 'web-hosting') }}" class="dropdown-item">
+                <li><a href="{{ hostorio_url('web-hosting') }}" class="dropdown-item">
                     <i class="fas fa-server"></i>
                     <span data-i18n="nav.wordpressHosting">Web Hosting</span>
                 </a></li>
-                <li><a href="{{ route('page', 'turbo-hosting') }}" class="dropdown-item">
+                <li><a href="{{ hostorio_url('turbo-hosting') }}" class="dropdown-item">
                     <i class="fas fa-bolt"></i>
                     <span data-i18n="nav.turboHosting">Turbo Hosting</span>
                 </a></li>
-                <li><a href="{{ route('page', 'reseller-hosting') }}" class="dropdown-item">
+                <li><a href="{{ hostorio_url('reseller-hosting') }}" class="dropdown-item">
                     <i class="fas fa-store"></i>
                     <span data-i18n="nav.resellerHosting">Reseller Hosting</span>
                 </a></li>
-                <li><a href="{{ route('page', 'student-hosting') }}" class="dropdown-item">
+                <li><a href="{{ hostorio_url('student-hosting') }}" class="dropdown-item">
                     <i class="fas fa-graduation-cap"></i>
                     <span data-i18n="nav.studentHosting">Student Hosting</span>
                 </a></li>
             </ul>
         </li>
-        <li><a href="{{ route('page', 'business-email') }}" class="nav-item" data-i18n="nav.businessEmail">Business Email</a></li>
-        <li><a href="{{ route('page', 'vps') }}" class="nav-item" data-i18n="nav.vps">VPS</a></li>
+        <li><a href="{{ hostorio_url('business-email') }}" class="nav-item" data-i18n="nav.businessEmail">Business Email</a></li>
+        <li><a href="{{ hostorio_url('vps') }}" class="nav-item" data-i18n="nav.vps">VPS</a></li>
         <li class="nav-item-dropdown">
             <a href="#" class="nav-item mobile-dropdown-trigger">
                 <span data-i18n="nav.domain">Domain</span>
@@ -196,6 +196,6 @@
                 </a></li>
             </ul>
         </li>
-        <li><a href="{{ route('page', 'offer') }}" class="nav-item" data-i18n="nav.offer">Offer</a></li>
+        <li><a href="{{ hostorio_url('offer') }}" class="nav-item" data-i18n="nav.offer">Offer</a></li>
     </ul>
 </nav>

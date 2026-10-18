@@ -24,7 +24,7 @@
                 <h4 class="footer-title" data-i18n="footer.important.title">QUICK LINKS</h4>
                 <ul class="footer-links">
                     <li>
-                        <a href="{{ route('page', 'about-us') }}">
+                        <a href="{{ hostorio_url('about-us') }}">
                             <i class="fas fa-caret-right"></i>
                             <span data-i18n="footer.important.aboutUs">About Us</span>
                         </a>
@@ -61,31 +61,31 @@
                 <h4 class="footer-title" data-i18n="footer.quickLinks.title">OUR SERVICES</h4>
                 <ul class="footer-links">
                     <li>
-                        <a href="{{ route('page', 'web-hosting') }}">
+                        <a href="{{ hostorio_url('web-hosting') }}">
                             <i class="fas fa-caret-right"></i>
                             <span data-i18n="footer.quickLinks.shared">Web Hosting</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('page', 'turbo-hosting') }}">
+                        <a href="{{ hostorio_url('turbo-hosting') }}">
                             <i class="fas fa-caret-right"></i>
                             <span data-i18n="footer.quickLinks.business">Turbo Hosting</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('page', 'business-email') }}">
+                        <a href="{{ hostorio_url('business-email') }}">
                             <i class="fas fa-caret-right"></i>
                             <span data-i18n="footer.quickLinks.email">Business Email</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('page', 'reseller-hosting') }}">
+                        <a href="{{ hostorio_url('reseller-hosting') }}">
                             <i class="fas fa-caret-right"></i>
                             <span data-i18n="footer.quickLinks.reseller">Reseller Hosting</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('page', 'offer') }}">
+                        <a href="{{ hostorio_url('offer') }}">
                             <i class="fas fa-caret-right"></i>
                             <span data-i18n="footer.quickLinks.offer">Offer (Deals)</span>
                         </a>
@@ -131,9 +131,9 @@
                 {!! hostorio('copyright', '© ' . date('Y') . ' Hostorio. All Rights Reserved.') !!}
             </p>
             <div class="footer-bottom-links">
-                <a href="{{ route('page', 'privacy-policy') }}" data-i18n="footer.privacyPolicy">Privacy Policy</a>
+                <a href="{{ hostorio_url('privacy-policy') }}" data-i18n="footer.privacyPolicy">Privacy Policy</a>
                 <span class="separator">|</span>
-                <a href="{{ route('page', 'terms-and-conditions') }}" data-i18n="footer.termsOfService">Terms of Service</a>
+                <a href="{{ hostorio_url('terms-and-conditions') }}" data-i18n="footer.termsOfService">Terms of Service</a>
             </div>
         </div>
     </div>

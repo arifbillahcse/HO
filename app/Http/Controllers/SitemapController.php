@@ -2,35 +2,42 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SeoPage;
+use App\Services\Seo;
 use Illuminate\Support\Facades\Response;
 
 class SitemapController extends Controller
 {
+    private const PRIORITY = [
+        'home' => ['1.0', 'weekly'],
+        'web_hosting' => ['0.9', 'weekly'],
+        'turbo_hosting' => ['0.9', 'weekly'],
+        'offer' => ['0.9', 'weekly'],
+        'about_us' => ['0.9', 'monthly'],
+        'privacy_policy' => ['0.8', 'monthly'],
+        'terms_and_conditions' => ['0.8', 'monthly'],
+    ];
+
     public function sitemap()
     {
-        $pages = [
-            ['url' => url('/'), 'priority' => '1.0', 'changefreq' => 'weekly'],
-            ['url' => url('/terms-and-conditions'), 'priority' => '0.8', 'changefreq' => 'monthly'],
-            ['url' => url('/privacy-policy'), 'priority' => '0.8', 'changefreq' => 'monthly'],
-            ['url' => url('/about-us'), 'priority' => '0.9', 'changefreq' => 'monthly'],
-            ['url' => url('/web-hosting'), 'priority' => '0.9', 'changefreq' => 'weekly'],
-            ['url' => url('/turbo-hosting'), 'priority' => '0.9', 'changefreq' => 'weekly'],
-            ['url' => url('/reseller-hosting'), 'priority' => '0.8', 'changefreq' => 'weekly'],
-            ['url' => url('/student-hosting'), 'priority' => '0.8', 'changefreq' => 'weekly'],
-            ['url' => url('/vps'), 'priority' => '0.8', 'changefreq' => 'weekly'],
-            ['url' => url('/business-email'), 'priority' => '0.8', 'changefreq' => 'weekly'],
-            ['url' => url('/offer'), 'priority' => '0.9', 'changefreq' => 'weekly'],
-        ];
+        // Pages set to "noindex" or pointing their canonical elsewhere are left out.
+        $pages = SeoPage::query()
+            ->where('robots_index', true)
+            ->where(fn ($q) => $q->whereNull('canonical_url')->orWhere('canonical_url', ''))
+            ->orderBy('sort_order')
+            ->get();
 
         $xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
         $xml .= "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n";
 
         foreach ($pages as $page) {
+            [$priority, $changefreq] = self::PRIORITY[$page->page_key] ?? ['0.8', 'weekly'];
+
             $xml .= "  <url>\n";
-            $xml .= "    <loc>" . htmlspecialchars($page['url']) . "</loc>\n";
+            $xml .= "    <loc>" . htmlspecialchars(Seo::url($page->slug())) . "</loc>\n";
             $xml .= "    <lastmod>" . now()->toAtomString() . "</lastmod>\n";
-            $xml .= "    <changefreq>" . $page['changefreq'] . "</changefreq>\n";
-            $xml .= "    <priority>" . $page['priority'] . "</priority>\n";
+            $xml .= "    <changefreq>" . $changefreq . "</changefreq>\n";
+            $xml .= "    <priority>" . $priority . "</priority>\n";
             $xml .= "  </url>\n";
         }
 

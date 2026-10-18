@@ -148,7 +148,7 @@ class ProductCatalog
 
     private function pageUrl(string $page): string
     {
-        return $page === 'home' ? url('/') : url('/' . str_replace('_', '-', $page));
+        return Seo::url($page === 'home' ? '' : str_replace('_', '-', $page));
     }
 
     private function validUntil(): string
