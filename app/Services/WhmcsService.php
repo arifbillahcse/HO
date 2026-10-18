@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Product;
 use App\Models\Setting;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Crypt;
@@ -19,23 +20,6 @@ class WhmcsService
         '.com' => '$12.99',
         '.com.bd' => '$9.50',
         '.xyz' => '$2.99',
-    ];
-
-    /**
-     * Plan cards per page, in the order they appear. Default WHMCS product IDs
-     * are the ones already used by the order buttons; the admin can change them.
-     *
-     * @var array<string, array{label: string, plans: list<array{0: string, 1: int|null}>}>
-     */
-    public const PLANS = [
-        'home' => ['label' => 'Home page', 'plans' => [['Starter', 55], ['Lite Starter', 56], ['Standard', 57], ['Advanced', 58]]],
-        'web_hosting' => ['label' => 'Web Hosting', 'plans' => [['Starter', 55], ['Lite Starter', 56], ['Standard', 57], ['Advanced', 58]]],
-        'turbo_hosting' => ['label' => 'Turbo Hosting', 'plans' => [['Turbo Plus', null], ['Turbo Power', null], ['Turbo Enterprise', null], ['Turbo Rapid', null]]],
-        'reseller_hosting' => ['label' => 'Reseller Hosting', 'plans' => [['R-Starter', null], ['R-Standard', null], ['R-Advanced', null], ['R-Advanced Pro', null]]],
-        'student_hosting' => ['label' => 'Student Hosting', 'plans' => [['SH Plan 1', null], ['SH Plan 2', null], ['SH Plan 3', null]]],
-        'vps' => ['label' => 'VPS', 'plans' => [['Enhanced VPS', null], ['Premium VPS', null], ['Elite VPS', null], ['Ultimate VPS', null]]],
-        'business_email' => ['label' => 'Business Email', 'plans' => [['Starter Mailboxes', null], ['Pro Mailboxes', null], ['Ultimate Mailboxes', null]]],
-        'offer' => ['label' => 'Offer', 'plans' => [['2GB + .SHOP domain', 16], ['5GB + .XYZ', 17], ['10GB + .COM', 18], ['20GB + .COM', 19]]],
     ];
 
     private const TLD_CACHE = 'tld_pricing';
@@ -265,44 +249,42 @@ class WhmcsService
     public static function flush(): void
     {
         foreach ([self::TLD_CACHE, self::PLAN_CACHE] as $name) {
-            Cache::forget("whmcs_{$name}");
-            Cache::forget("whmcs_{$name}_last_good");
-            Cache::forget("whmcs_{$name}_backoff");
+            self::forgetCache($name);
         }
 
         app()->forgetInstance(self::class);
     }
 
+    /** Forget plan prices only, e.g. after a product's WHMCS ID changed. */
+    public static function flushPlans(): void
+    {
+        self::forgetCache(self::PLAN_CACHE);
+        app()->forgetInstance(self::class);
+    }
+
+    private static function forgetCache(string $name): void
+    {
+        Cache::forget("whmcs_{$name}");
+        Cache::forget("whmcs_{$name}_last_good");
+        Cache::forget("whmcs_{$name}_backoff");
+    }
+
     /* ───────────────────────── hosting plans ───────────────────────── */
 
     /**
-     * Effective WHMCS product ID for a plan card (admin value, else the default).
+     * Every WHMCS product ID used by a product in Products & Services.
+     *
+     * @return list<int>
      */
-    public function planPid(string $page, int $slot): ?int
-    {
-        $stored = SettingsService::get('whmcs_plan_pids');
-        $key = "{$page}.{$slot}";
-
-        if (is_array($stored) && array_key_exists($key, $stored)) {
-            return filled($stored[$key]) ? (int) $stored[$key] : null;
-        }
-
-        return self::PLANS[$page]['plans'][$slot][1] ?? null;
-    }
-
-    /** @return list<int> */
     public function mappedPids(): array
     {
-        $pids = [];
-        foreach (self::PLANS as $page => $info) {
-            foreach (array_keys($info['plans']) as $slot) {
-                if ($pid = $this->planPid($page, $slot)) {
-                    $pids[] = $pid;
-                }
-            }
-        }
-
-        return array_values(array_unique($pids));
+        return Product::query()
+            ->whereNotNull('whmcs_pid')
+            ->distinct()
+            ->orderBy('whmcs_pid')
+            ->pluck('whmcs_pid')
+            ->map(fn ($pid) => (int) $pid)
+            ->all();
     }
 
     /**
@@ -346,17 +328,16 @@ class WhmcsService
         return $prices;
     }
 
-    /** Live yearly BDT price for a plan card, or $default. Never throws. */
-    public function planPrice(string $page, int $slot, float | int $default): string
+    /** Live yearly BDT price for a product, else its fallback price. Never throws. */
+    public function productPrice(Product $product): string
     {
-        $price = $default;
+        $price = (float) ($product->yearly_price ?? 0);
 
         try {
-            $pid = $this->planPid($page, $slot);
-            $live = $pid ? ($this->planPrices() ?? []) : [];
+            $live = $product->whmcs_pid ? ($this->planPrices() ?? []) : [];
 
-            if ($pid && isset($live[$pid])) {
-                $price = $live[$pid];
+            if (isset($live[$product->whmcs_pid])) {
+                $price = $live[$product->whmcs_pid];
             }
         } catch (Throwable $e) {
             Log::warning('Plan price unavailable: ' . $e->getMessage());
@@ -365,17 +346,18 @@ class WhmcsService
         return rtrim(rtrim(number_format($price, 2, '.', ''), '0'), '.');
     }
 
-    /** Order link for a plan card: the mapped WHMCS product, else $default. */
-    public function planUrl(string $page, int $slot, string $default = '#'): string
+    /** Order link: the product's own link (pointed at its WHMCS ID), else the WHMCS cart, else "#". */
+    public function productUrl(Product $product): string
     {
-        $pid = $this->planPid($page, $slot);
+        $pid = $product->whmcs_pid;
+        $custom = (string) $product->order_url;
 
-        if (! $pid) {
-            return $default;
+        if ($custom !== '') {
+            return $pid ? preg_replace('/([?&])pid=\d+/', '${1}pid=' . $pid, $custom, 1) : $custom;
         }
 
-        if (preg_match('/([?&])pid=\d+/', $default)) {
-            return preg_replace('/([?&])pid=\d+/', '${1}pid=' . $pid, $default, 1);
+        if (! $pid) {
+            return '#';
         }
 
         $base = rtrim((string) (SettingsService::get('client_area_url') ?: 'https://my.hostorio.com/'), '/');

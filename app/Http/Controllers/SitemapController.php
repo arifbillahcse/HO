@@ -20,7 +20,6 @@ class SitemapController extends Controller
             ['url' => url('/vps'), 'priority' => '0.8', 'changefreq' => 'weekly'],
             ['url' => url('/business-email'), 'priority' => '0.8', 'changefreq' => 'weekly'],
             ['url' => url('/offer'), 'priority' => '0.9', 'changefreq' => 'weekly'],
-            ['url' => url('/package'), 'priority' => '0.7', 'changefreq' => 'monthly'],
         ];
 
         $xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";

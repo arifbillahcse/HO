@@ -30,11 +30,11 @@ class ProductsAdminTest extends TestCase
 
     public function test_import_matches_what_the_pages_showed(): void
     {
-        $this->assertSame(34, Product::count());
-        $this->assertSame(145, ComparisonRow::count());
+        $this->assertSame(30, Product::count());
+        $this->assertSame(118, ComparisonRow::count());
 
         $counts = Product::query()->selectRaw('page_key, count(*) as n')->groupBy('page_key')->pluck('n', 'page_key')->map(fn ($n) => (int) $n)->all();
-        $this->assertEquals(['home' => 4, 'web_hosting' => 4, 'turbo_hosting' => 4, 'reseller_hosting' => 4, 'student_hosting' => 3, 'vps' => 4, 'business_email' => 3, 'offer' => 4, 'package' => 4], $counts);
+        $this->assertEquals(['home' => 4, 'web_hosting' => 4, 'turbo_hosting' => 4, 'reseller_hosting' => 4, 'student_hosting' => 3, 'vps' => 4, 'business_email' => 3, 'offer' => 4], $counts);
 
         $starter = Product::onPage('home')->first();
         $this->assertSame('Starter', $starter->name);
@@ -56,7 +56,7 @@ class ProductsAdminTest extends TestCase
         $this->assertSame('https://my.hostorio.com/cart.php?a=add&pid=16&sld=whmcs&tld=.com', $offer->order_url);
         $this->assertSame(16, $offer->whmcs_pid);
 
-        $this->assertNull(Product::onPage('package')->first()->whmcs_pid);
+        $this->assertSame(0, Product::where('page_key', 'package')->count());
 
         $rows = ComparisonRow::onPage('web_hosting')->get();
         $this->assertCount(27, $rows);
@@ -72,7 +72,7 @@ class ProductsAdminTest extends TestCase
 
         $this->seed(ProductSeeder::class);
 
-        $this->assertSame(34, Product::count());
+        $this->assertSame(30, Product::count());
         $this->assertSame('Edited', Product::onPage('home')->first()->name);
     }
 
@@ -171,5 +171,18 @@ class ProductsAdminTest extends TestCase
 
         $row = ComparisonRow::where('label', 'Malware Scanner')->firstOrFail();
         $this->assertSame(28, $row->sort_order);
+    }
+
+    public function test_import_uses_product_ids_saved_on_the_old_whmcs_page(): void
+    {
+        Product::query()->delete();
+        ComparisonRow::query()->delete();
+        \App\Models\Setting::set('whmcs_plan_pids', ['turbo_hosting.0' => 91, 'home.0' => null]);
+
+        $this->seed(ProductSeeder::class);
+
+        $this->assertSame(91, Product::onPage('turbo_hosting')->first()->whmcs_pid);
+        $this->assertNull(Product::onPage('home')->first()->whmcs_pid);
+        $this->assertSame(56, Product::onPage('home')->skip(1)->first()->whmcs_pid);
     }
 }

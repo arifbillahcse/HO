@@ -69,7 +69,7 @@ class WhmcsPricingTest extends TestCase
             && $r['responsetype'] === 'json');
 
         $this->get('/')->assertOk()->assertSee('$13.50/yr', false)->assertSee('$2.49/yr', false);
-        Http::assertSentCount(2); // 1 x GetTLDPricing (cached), 1 x GetProducts for the plan cards
+        Http::assertSentCount(1); // GetTLDPricing, cached; no products use WHMCS IDs in this test
     }
 
     public function test_secret_is_stored_encrypted(): void
@@ -199,102 +199,5 @@ class WhmcsPricingTest extends TestCase
 
         $this->get('/admin/whmcs-connection')->assertOk()->assertSee('WHMCS Connection')->assertDontSee('s3cret');
         $this->get('/admin/settings')->assertOk()->assertDontSee('whmcs_api_secret');
-    }
-
-    private function productsResponse(): array
-    {
-        return [
-            'result' => 'success',
-            'products' => ['product' => [
-                ['pid' => 55, 'pricing' => ['BDT' => ['annually' => '3100.00'], 'USD' => ['annually' => '24.00']]],
-                ['pid' => 56, 'pricing' => ['USD' => ['annually' => '40.00']]],
-                ['pid' => 57, 'pricing' => ['BDT' => ['annually' => '-1.00']]],
-            ]],
-        ];
-    }
-
-    private function fakeWhmcs(): void
-    {
-        Http::fake(fn (Request $r) => Http::response($r['action'] === 'GetProducts' ? $this->productsResponse() : $this->pricingResponse()));
-    }
-
-    public function test_plan_price_prefers_bdt_then_usd_times_rate_then_the_typed_default(): void
-    {
-        $this->configure();
-        $this->fakeWhmcs();
-
-        $service = app(WhmcsService::class);
-
-        $this->assertSame('3100', $service->planPrice('home', 0, 3000));   // BDT price
-        $this->assertSame('5000', $service->planPrice('home', 1, 4200));   // USD 40 x rate 125
-        $this->assertSame('6000', $service->planPrice('home', 2, 6000));   // unavailable -> default
-        $this->assertSame('12000', $service->planPrice('home', 3, 12000)); // not returned -> default
-
-        Http::assertSent(fn (Request $r) => $r['action'] === 'GetProducts' && $r['pid'] === '55,56,57,58,16,17,18,19');
-    }
-
-    public function test_pages_show_live_plan_prices_and_order_links_from_the_mapped_product(): void
-    {
-        $this->configure();
-        Setting::set('whmcs_plan_pids', ['web_hosting.0' => 77, 'home.1' => null]);
-        $this->fakeWhmcs();
-
-        $home = $this->get('/')->assertOk();
-        $home->assertSee('data-yearly-price="3100"', false)       // live
-            ->assertSee('data-yearly-price="4200"', false)         // slot unmapped -> typed price
-            ->assertSee('"price": 3100,', false)                   // structured data too
-            ->assertSee('cart.php?a=add&amp;pid=55', false);
-
-        $this->get('/web-hosting')->assertOk()->assertSee('cart.php?a=add&amp;pid=77', false);
-    }
-
-    public function test_plan_cards_keep_typed_prices_when_not_configured_or_when_whmcs_is_down(): void
-    {
-        Http::fake();
-        $this->get('/')->assertOk()->assertSee('data-yearly-price="3000"', false);
-        Http::assertNothingSent();
-
-        $this->configure();
-        Http::fake(['my.example.com/*' => Http::response('down', 500)]);
-        $this->get('/')->assertOk()->assertSee('data-yearly-price="3000"', false);
-    }
-
-    public function test_order_links_without_a_known_product_stay_unchanged(): void
-    {
-        $this->get('/turbo-hosting')->assertOk()->assertSee('class="cloud-order-btn"', false);
-
-        $this->assertSame('#', app(WhmcsService::class)->planUrl('turbo_hosting', 0));
-        $this->assertSame('https://my.hostorio.com/cart.php?a=add&pid=9', (function () {
-            Setting::set('whmcs_plan_pids', ['turbo_hosting.0' => 9]);
-            WhmcsService::flush();
-
-            return app(WhmcsService::class)->planUrl('turbo_hosting', 0);
-        })());
-    }
-
-    public function test_admin_page_saves_the_plan_product_mapping(): void
-    {
-        $this->fakeWhmcs();
-        Filament::setCurrentPanel(Filament::getPanel('admin'));
-        $this->actingAs(User::factory()->create());
-
-        Livewire::test(WhmcsConnection::class)
-            ->fillForm([
-                'url' => 'https://my.example.com',
-                'api_identifier' => 'abc123',
-                'api_secret' => 's3cret',
-                'cache_minutes' => 60,
-                'hero_tlds' => ['.com'],
-                'plan_pids' => ['web_hosting' => [0 => '77'], 'home' => [0 => '55', 3 => null]],
-            ])
-            ->call('save')
-            ->assertHasNoFormErrors()
-            ->assertNotified('Saved and connected');
-
-        $stored = SettingsService::get('whmcs_plan_pids');
-        $this->assertSame(77, $stored['web_hosting.0']);
-        $this->assertSame(55, $stored['home.0']);
-        $this->assertNull($stored['home.3']);       // cleared on purpose
-        $this->assertNull($stored['vps.0']);
     }
 }

@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\ComparisonRow;
 use App\Models\Product;
-use App\Services\WhmcsService;
+use App\Services\SettingsService;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -24,9 +24,11 @@ class ProductSeeder extends Seeder
         }
 
         $data = json_decode(file_get_contents(database_path('data/products.json')), true, flags: JSON_THROW_ON_ERROR);
-        $whmcs = app(WhmcsService::class);
+        // Product IDs saved on the WHMCS Connection page before products existed.
+        $savedPids = SettingsService::get('whmcs_plan_pids');
+        $savedPids = is_array($savedPids) ? $savedPids : [];
 
-        DB::transaction(function () use ($data, $whmcs) {
+        DB::transaction(function () use ($data, $savedPids) {
             foreach ($data as $page => $info) {
                 $rowIds = [];
                 foreach ($info['comparison_rows'] as $i => $label) {
@@ -53,7 +55,9 @@ class ProductSeeder extends Seeder
                         'features' => $product['features'],
                         'show_original_price' => $product['show_original_price'],
                         'button_text' => $product['button_text'] ?: 'Order Now',
-                        'whmcs_pid' => isset(WhmcsService::PLANS[$page]) ? $whmcs->planPid($page, $slot) : null,
+                        'whmcs_pid' => array_key_exists("{$page}.{$slot}", $savedPids)
+                            ? (filled($savedPids["{$page}.{$slot}"]) ? (int) $savedPids["{$page}.{$slot}"] : null)
+                            : $product['whmcs_pid'],
                         'yearly_price' => $product['yearly_price'],
                         'order_url' => $product['order_url'],
                         'comparison' => $comparison,

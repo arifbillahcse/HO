@@ -67,6 +67,7 @@
         ],
         "show_original_price": true,
         "button_text": "Order Now",
+        "whmcs_pid": 55,
         "yearly_price": 3000,
         "order_url": null,
         "comparison": []
@@ -136,6 +137,7 @@
         ],
         "show_original_price": true,
         "button_text": "Order Now",
+        "whmcs_pid": 56,
         "yearly_price": 4200,
         "order_url": null,
         "comparison": []
@@ -205,6 +207,7 @@
         ],
         "show_original_price": true,
         "button_text": "Order Now",
+        "whmcs_pid": 57,
         "yearly_price": 6000,
         "order_url": null,
         "comparison": []
@@ -274,6 +277,7 @@
         ],
         "show_original_price": true,
         "button_text": "Order Now",
+        "whmcs_pid": 58,
         "yearly_price": 12000,
         "order_url": null,
         "comparison": []
@@ -376,6 +380,7 @@
         ],
         "show_original_price": true,
         "button_text": "Order Now",
+        "whmcs_pid": 55,
         "yearly_price": 3000,
         "order_url": null,
         "comparison": [
@@ -540,6 +545,7 @@
         ],
         "show_original_price": true,
         "button_text": "Order Now",
+        "whmcs_pid": 56,
         "yearly_price": 4200,
         "order_url": null,
         "comparison": [
@@ -705,6 +711,7 @@
         ],
         "show_original_price": true,
         "button_text": "Order Now",
+        "whmcs_pid": 57,
         "yearly_price": 6000,
         "order_url": null,
         "comparison": [
@@ -870,6 +877,7 @@
         ],
         "show_original_price": true,
         "button_text": "Order Now",
+        "whmcs_pid": 58,
         "yearly_price": 12000,
         "order_url": null,
         "comparison": [
@@ -1063,6 +1071,7 @@
         ],
         "show_original_price": true,
         "button_text": "Order Now",
+        "whmcs_pid": null,
         "yearly_price": 14388,
         "order_url": null,
         "comparison": [
@@ -1222,6 +1231,7 @@
         ],
         "show_original_price": true,
         "button_text": "Order Now",
+        "whmcs_pid": null,
         "yearly_price": 17988,
         "order_url": null,
         "comparison": [
@@ -1381,6 +1391,7 @@
         ],
         "show_original_price": true,
         "button_text": "Order Now",
+        "whmcs_pid": null,
         "yearly_price": 23988,
         "order_url": null,
         "comparison": [
@@ -1540,6 +1551,7 @@
         ],
         "show_original_price": true,
         "button_text": "Order Now",
+        "whmcs_pid": null,
         "yearly_price": 30000,
         "order_url": null,
         "comparison": [
@@ -1725,6 +1737,7 @@
         ],
         "show_original_price": true,
         "button_text": "Order Now",
+        "whmcs_pid": null,
         "yearly_price": 13188,
         "order_url": null,
         "comparison": [
@@ -1855,6 +1868,7 @@
         ],
         "show_original_price": true,
         "button_text": "Order Now",
+        "whmcs_pid": null,
         "yearly_price": 23988,
         "order_url": null,
         "comparison": [
@@ -1990,6 +2004,7 @@
         ],
         "show_original_price": true,
         "button_text": "Order Now",
+        "whmcs_pid": null,
         "yearly_price": 34788,
         "order_url": null,
         "comparison": [
@@ -2125,6 +2140,7 @@
         ],
         "show_original_price": true,
         "button_text": "Order Now",
+        "whmcs_pid": null,
         "yearly_price": 66000,
         "order_url": null,
         "comparison": [
@@ -2283,6 +2299,7 @@
         ],
         "show_original_price": true,
         "button_text": "Order Now",
+        "whmcs_pid": null,
         "yearly_price": 800,
         "order_url": null,
         "comparison": [
@@ -2412,6 +2429,7 @@
         ],
         "show_original_price": true,
         "button_text": "Order Now",
+        "whmcs_pid": null,
         "yearly_price": 999,
         "order_url": null,
         "comparison": [
@@ -2541,6 +2559,7 @@
         ],
         "show_original_price": true,
         "button_text": "Order Now",
+        "whmcs_pid": null,
         "yearly_price": 1199,
         "order_url": null,
         "comparison": [
@@ -2640,6 +2659,7 @@
         ],
         "show_original_price": true,
         "button_text": "DEPLOY NOW",
+        "whmcs_pid": null,
         "yearly_price": 17640,
         "order_url": null,
         "comparison": []
@@ -2674,6 +2694,7 @@
         ],
         "show_original_price": true,
         "button_text": "DEPLOY NOW",
+        "whmcs_pid": null,
         "yearly_price": 35280,
         "order_url": null,
         "comparison": []
@@ -2708,6 +2729,7 @@
         ],
         "show_original_price": true,
         "button_text": "DEPLOY NOW",
+        "whmcs_pid": null,
         "yearly_price": 70560,
         "order_url": null,
         "comparison": []
@@ -2742,6 +2764,7 @@
         ],
         "show_original_price": true,
         "button_text": "DEPLOY NOW",
+        "whmcs_pid": null,
         "yearly_price": 141120,
         "order_url": null,
         "comparison": []
@@ -2786,6 +2809,7 @@
         ],
         "show_original_price": true,
         "button_text": "Get Started",
+        "whmcs_pid": null,
         "yearly_price": 1680,
         "order_url": null,
         "comparison": []
@@ -2830,6 +2854,7 @@
         ],
         "show_original_price": true,
         "button_text": "Get Started",
+        "whmcs_pid": null,
         "yearly_price": 7140,
         "order_url": null,
         "comparison": []
@@ -2879,6 +2904,7 @@
         ],
         "show_original_price": true,
         "button_text": "Get Started",
+        "whmcs_pid": null,
         "yearly_price": 10080,
         "order_url": null,
         "comparison": []
@@ -2991,6 +3017,7 @@
         ],
         "show_original_price": false,
         "button_text": "Order Now",
+        "whmcs_pid": 16,
         "yearly_price": 999,
         "order_url": "https://my.hostorio.com/cart.php?a=add&pid=16&sld=whmcs&tld=.com",
         "comparison": [
@@ -3166,6 +3193,7 @@
         ],
         "show_original_price": false,
         "button_text": "Order Now",
+        "whmcs_pid": 17,
         "yearly_price": 1999,
         "order_url": "https://my.hostorio.com/cart.php?a=add&pid=17&sld=whmcs&tld=.com",
         "comparison": [
@@ -3340,6 +3368,7 @@
         ],
         "show_original_price": false,
         "button_text": "Order Now",
+        "whmcs_pid": 18,
         "yearly_price": 2999,
         "order_url": "https://my.hostorio.com/cart.php?a=add&pid=18&sld=whmcs&tld=.com",
         "comparison": [
@@ -3515,6 +3544,7 @@
         ],
         "show_original_price": false,
         "button_text": "Order Now",
+        "whmcs_pid": 19,
         "yearly_price": 4500,
         "order_url": "https://my.hostorio.com/cart.php?a=add&pid=19&sld=whmcs&tld=.com",
         "comparison": [
@@ -3612,682 +3642,6 @@
           {
             "type": "text",
             "text": "200"
-          }
-        ]
-      }
-    ]
-  },
-  "package": {
-    "comparison_rows": [
-      "Storage Space",
-      "Inodes (Website Files) Allowed",
-      "Websites Allowed",
-      "Datacenter Locations",
-      "CPU Cores",
-      "RAM",
-      "Free Domain Name",
-      "SuperHero Optimized",
-      "1-Click WordPress Hosting",
-      "Free and Auto SSL (https)",
-      "LiteSpeed Cache",
-      "Monthly Bandwidth",
-      "Parked Domains",
-      "Sub Domains",
-      "Email Accounts",
-      "cPanel Mailbox Quota",
-      "Dedicated IP Address",
-      "cPanel",
-      "Jailed SSH Access",
-      "Quic.Cloud CDN",
-      "Unlimited FTP Accounts",
-      "Unlimited Databases",
-      "Multiple PHP Versions",
-      "Perl",
-      "Web Mail",
-      "Nightly/Weekly Backups",
-      "Email Sending Limit (Per Hour)"
-    ],
-    "products": [
-      {
-        "name": "Starter Cloud",
-        "description": "Ideal for beginner/personal websites",
-        "is_popular": false,
-        "badge_text": null,
-        "icon_alt": "Starter Cloud hosting package – affordable web hosting for beginners",
-        "features": [
-          {
-            "value": "1",
-            "text": "Website",
-            "is_new": false
-          },
-          {
-            "value": "~10,000",
-            "text": "Visits Monthly",
-            "is_new": false
-          },
-          {
-            "value": "1 GB",
-            "text": "RAM",
-            "is_new": false
-          },
-          {
-            "value": "Unlimited",
-            "text": "NVMe Storage",
-            "is_new": true
-          },
-          {
-            "value": "FREE",
-            "text": "cPanel",
-            "is_new": false
-          },
-          {
-            "value": "FREE",
-            "text": "& Auto SSL Certificate",
-            "is_new": false
-          },
-          {
-            "value": "FREE",
-            "text": "Website Migrations",
-            "is_new": false
-          },
-          {
-            "value": "FREE",
-            "text": "LiteSpeed",
-            "is_new": false
-          },
-          {
-            "value": "30-Day",
-            "text": "Money-Back",
-            "is_new": false
-          }
-        ],
-        "show_original_price": true,
-        "button_text": "Order Now",
-        "yearly_price": null,
-        "order_url": null,
-        "comparison": [
-          {
-            "type": "text",
-            "text": "25GB NVMe RAID 1 (US)"
-          },
-          {
-            "type": "text",
-            "text": "250,000"
-          },
-          {
-            "type": "text",
-            "text": "1"
-          },
-          {
-            "type": "text",
-            "text": "US"
-          },
-          {
-            "type": "text",
-            "text": "1"
-          },
-          {
-            "type": "text",
-            "text": "1GB"
-          },
-          {
-            "type": "no"
-          },
-          {
-            "type": "text",
-            "text": "Free LiteSpeed!"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "text",
-            "text": "Unlimited"
-          },
-          {
-            "type": "text",
-            "text": "Unlimited"
-          },
-          {
-            "type": "text",
-            "text": "Unlimited"
-          },
-          {
-            "type": "text",
-            "text": "Unlimited"
-          },
-          {
-            "type": "text",
-            "text": "1GB"
-          },
-          {
-            "type": "no"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "text",
-            "text": "50"
-          }
-        ]
-      },
-      {
-        "name": "Plus Cloud",
-        "description": "Best for average-sized websites",
-        "is_popular": false,
-        "badge_text": null,
-        "icon_alt": "Plus Cloud hosting package – reliable web hosting for small businesses",
-        "features": [
-          {
-            "value": "7",
-            "text": "Websites",
-            "is_new": false
-          },
-          {
-            "value": "~25,000",
-            "text": "Visits Monthly",
-            "is_new": false
-          },
-          {
-            "value": "2 GB",
-            "text": "RAM",
-            "is_new": false
-          },
-          {
-            "value": "Unlimited",
-            "text": "NVMe Storage",
-            "is_new": true
-          },
-          {
-            "value": "FREE",
-            "text": "cPanel",
-            "is_new": false
-          },
-          {
-            "value": "FREE",
-            "text": "& Auto SSL Certificate",
-            "is_new": false
-          },
-          {
-            "value": "FREE",
-            "text": "Website Migrations",
-            "is_new": false
-          },
-          {
-            "value": "FREE",
-            "text": "LiteSpeed",
-            "is_new": false
-          },
-          {
-            "value": "30-Day",
-            "text": "Money-Back",
-            "is_new": false
-          }
-        ],
-        "show_original_price": true,
-        "button_text": "Order Now",
-        "yearly_price": null,
-        "order_url": null,
-        "comparison": [
-          {
-            "type": "text",
-            "text": "50GB NVMe RAID 1 (US)"
-          },
-          {
-            "type": "text",
-            "text": "250,000"
-          },
-          {
-            "type": "text",
-            "text": "7"
-          },
-          {
-            "type": "text",
-            "text": "US"
-          },
-          {
-            "type": "text",
-            "text": "2"
-          },
-          {
-            "type": "text",
-            "text": "2GB"
-          },
-          {
-            "type": "no"
-          },
-          {
-            "type": "text",
-            "text": "Free LiteSpeed!"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "text",
-            "text": "Unlimited"
-          },
-          {
-            "type": "text",
-            "text": "Unlimited"
-          },
-          {
-            "type": "text",
-            "text": "Unlimited"
-          },
-          {
-            "type": "text",
-            "text": "Unlimited"
-          },
-          {
-            "type": "text",
-            "text": "2GB"
-          },
-          {
-            "type": "no"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "text",
-            "text": "50"
-          }
-        ]
-      },
-      {
-        "name": "Turbo Cloud",
-        "description": "Most popular package",
-        "is_popular": true,
-        "badge_text": "Most Popular",
-        "icon_alt": "Turbo Cloud hosting package – high-performance hosting for growing websites",
-        "features": [
-          {
-            "value": "Unlimited",
-            "text": "Websites",
-            "is_new": false
-          },
-          {
-            "value": "~50,000",
-            "text": "Visits Monthly",
-            "is_new": false
-          },
-          {
-            "value": "3 GB",
-            "text": "RAM",
-            "is_new": false
-          },
-          {
-            "value": "Unlimited",
-            "text": "NVMe Storage",
-            "is_new": false
-          },
-          {
-            "value": "FREE",
-            "text": "Domain Name",
-            "is_new": false
-          },
-          {
-            "value": "FREE",
-            "text": "cPanel",
-            "is_new": false
-          },
-          {
-            "value": "FREE",
-            "text": "& Auto SSL Certificate",
-            "is_new": false
-          },
-          {
-            "value": "FREE",
-            "text": "Website Migrations",
-            "is_new": false
-          },
-          {
-            "value": "FREE",
-            "text": "Security Suite",
-            "is_new": false
-          },
-          {
-            "value": "FREE",
-            "text": "LiteSpeed w/Turbo",
-            "is_new": false
-          },
-          {
-            "value": "30-Day",
-            "text": "Money-Back",
-            "is_new": false
-          }
-        ],
-        "show_original_price": true,
-        "button_text": "Order Now",
-        "yearly_price": null,
-        "order_url": null,
-        "comparison": [
-          {
-            "type": "text",
-            "text": "75GB NVMe RAID 1 (US)"
-          },
-          {
-            "type": "text",
-            "text": "500,000"
-          },
-          {
-            "type": "text",
-            "text": "Unlimited"
-          },
-          {
-            "type": "text",
-            "text": "US"
-          },
-          {
-            "type": "text",
-            "text": "3"
-          },
-          {
-            "type": "text",
-            "text": "3GB"
-          },
-          {
-            "type": "text",
-            "text": "24 or 36 month term"
-          },
-          {
-            "type": "text",
-            "text": "Free LiteSpeed!"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "text",
-            "text": "Unlimited"
-          },
-          {
-            "type": "text",
-            "text": "Unlimited"
-          },
-          {
-            "type": "text",
-            "text": "Unlimited"
-          },
-          {
-            "type": "text",
-            "text": "Unlimited"
-          },
-          {
-            "type": "text",
-            "text": "Unlimited"
-          },
-          {
-            "type": "no"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "text",
-            "text": "350"
-          }
-        ]
-      },
-      {
-        "name": "Business Cloud",
-        "description": "Ideal for eCommerce websites",
-        "is_popular": false,
-        "badge_text": null,
-        "icon_alt": "Business Cloud hosting package – premium hosting for ecommerce and enterprises",
-        "features": [
-          {
-            "value": "Unlimited",
-            "text": "Websites",
-            "is_new": false
-          },
-          {
-            "value": "~100,000",
-            "text": "Visits Monthly",
-            "is_new": false
-          },
-          {
-            "value": "4 GB",
-            "text": "RAM",
-            "is_new": false
-          },
-          {
-            "value": "Unlimited",
-            "text": "NVMe Storage",
-            "is_new": false
-          },
-          {
-            "value": "FREE",
-            "text": "Domain Name",
-            "is_new": false
-          },
-          {
-            "value": "FREE",
-            "text": "cPanel",
-            "is_new": false
-          },
-          {
-            "value": "FREE",
-            "text": "& Auto SSL Certificate",
-            "is_new": false
-          },
-          {
-            "value": "FREE",
-            "text": "Website Migrations",
-            "is_new": false
-          },
-          {
-            "value": "FREE",
-            "text": "Security Suite",
-            "is_new": false
-          },
-          {
-            "value": "FREE",
-            "text": "Email Filtering",
-            "is_new": false
-          },
-          {
-            "value": "FREE",
-            "text": "LiteSpeed w/Turbo",
-            "is_new": false
-          },
-          {
-            "value": "30-Day",
-            "text": "Money-Back",
-            "is_new": false
-          }
-        ],
-        "show_original_price": true,
-        "button_text": "Order Now",
-        "yearly_price": null,
-        "order_url": null,
-        "comparison": [
-          {
-            "type": "text",
-            "text": "100GB NVMe RAID 1 (US)"
-          },
-          {
-            "type": "text",
-            "text": "500,000"
-          },
-          {
-            "type": "text",
-            "text": "Unlimited"
-          },
-          {
-            "type": "text",
-            "text": "US"
-          },
-          {
-            "type": "text",
-            "text": "4"
-          },
-          {
-            "type": "text",
-            "text": "4GB"
-          },
-          {
-            "type": "text",
-            "text": "24 or 36 month term"
-          },
-          {
-            "type": "text",
-            "text": "Free LiteSpeed!"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "text",
-            "text": "Unlimited"
-          },
-          {
-            "type": "text",
-            "text": "Unlimited"
-          },
-          {
-            "type": "text",
-            "text": "Unlimited"
-          },
-          {
-            "type": "text",
-            "text": "Unlimited"
-          },
-          {
-            "type": "text",
-            "text": "Unlimited"
-          },
-          {
-            "type": "no"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "yes"
-          },
-          {
-            "type": "text",
-            "text": "350"
           }
         ]
       }

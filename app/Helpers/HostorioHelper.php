@@ -27,17 +27,11 @@ namespace {
         }
     }
 
-    if (!function_exists('hostorio_plan_price')) {
-        function hostorio_plan_price(string $page, int $slot, float | int $default): string
+    if (!function_exists('hostorio_products')) {
+        /** Visible products of a page, in admin order. */
+        function hostorio_products(string $page): \Illuminate\Support\Collection
         {
-            return app(\App\Services\WhmcsService::class)->planPrice($page, $slot, $default);
-        }
-    }
-
-    if (!function_exists('hostorio_plan_url')) {
-        function hostorio_plan_url(string $page, int $slot, string $default = '#'): string
-        {
-            return app(\App\Services\WhmcsService::class)->planUrl($page, $slot, $default);
+            return app(\App\Services\ProductCatalog::class)->forPage($page);
         }
     }
 }

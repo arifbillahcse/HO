@@ -1,0 +1,181 @@
+<?php
+
+namespace Tests\Feature;
+
+use App\Models\Product;
+use App\Models\Setting;
+use App\Services\WhmcsService;
+use Database\Seeders\ProductSeeder;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\Client\Request;
+use Illuminate\Support\Facades\Http;
+use Tests\TestCase;
+
+class ProductCardsTest extends TestCase
+{
+    use RefreshDatabase;
+
+    private const PAGES = [
+        'home' => '/', 'web_hosting' => '/web-hosting', 'turbo_hosting' => '/turbo-hosting',
+        'reseller_hosting' => '/reseller-hosting', 'student_hosting' => '/student-hosting', 'vps' => '/vps',
+        'business_email' => '/business-email', 'offer' => '/offer',
+    ];
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->seed(ProductSeeder::class);
+    }
+
+    private function configureWhmcs(): void
+    {
+        Setting::set('whmcs_url', 'https://my.example.com');
+        Setting::set('whmcs_api_identifier', 'abc123');
+        WhmcsService::storeSecret('whmcs_api_secret', 's3cret');
+    }
+
+    private function fakeWhmcs(int $status = 200): void
+    {
+        Http::fake(fn (Request $r) => $status !== 200
+            ? Http::response('down', $status)
+            : Http::response($r['action'] === 'GetProducts'
+                ? ['result' => 'success', 'products' => ['product' => [
+                    ['pid' => 55, 'pricing' => ['BDT' => ['annually' => '3100.00']]],
+                    ['pid' => 56, 'pricing' => ['USD' => ['annually' => '40.00']]],
+                    ['pid' => 57, 'pricing' => ['BDT' => ['annually' => '-1.00']]],
+                ]]]
+                : ['result' => 'success', 'currency' => ['code' => 'USD', 'prefix' => '$'], 'pricing' => []]));
+    }
+
+    public function test_every_plan_page_renders_its_products_from_the_admin(): void
+    {
+        foreach (self::PAGES as $page => $url) {
+            $html = $this->get($url)->assertOk()->getContent();
+            $products = Product::onPage($page)->get();
+
+            $this->assertSame($products->count(), substr_count($html, 'class="cloud-card'), $page);
+            foreach ($products as $product) {
+                $this->assertStringContainsString('<h3 class="cloud-plan-name">' . e($product->name) . '</h3>', $html, $page);
+            }
+            $this->assertStringNotContainsString('data-i18n="pricing.plans.', $html, "{$page}: product text must not be translated");
+        }
+    }
+
+    public function test_admin_edits_show_on_the_website(): void
+    {
+        $starter = Product::onPage('web_hosting')->first();
+        $starter->update([
+            'name' => 'Starter Plus',
+            'is_popular' => true,
+            'badge_text' => 'Best Value',
+            'button_text' => 'Buy now',
+            'features' => [['value' => '10GB', 'text' => 'NVMe Storage', 'is_new' => true]],
+        ]);
+        Product::onPage('web_hosting')->skip(3)->first()->update(['is_visible' => false]);
+
+        $html = $this->get('/web-hosting')->assertOk()->getContent();
+
+        $this->assertStringContainsString('<h3 class="cloud-plan-name">Starter Plus</h3>', $html);
+        $this->assertStringContainsString('<div class="cloud-popular-badge">Best Value</div>', $html);
+        $this->assertStringContainsString('<strong>10GB</strong> NVMe Storage <span class="feature-badge new">NEW</span>', $html);
+        $this->assertStringContainsString('>Buy now</a>', $html);
+        $this->assertStringNotContainsString('<h3 class="cloud-plan-name">Advanced</h3>', $html);
+        $this->assertSame(3, substr_count($html, 'class="cloud-card'));
+    }
+
+    public function test_admin_order_controls_the_card_order(): void
+    {
+        [$first, $second] = Product::onPage('turbo_hosting')->take(2)->get()->all();
+        $first->update(['sort_order' => 10]);
+
+        $html = $this->get('/turbo-hosting')->getContent();
+
+        $this->assertLessThan(strpos($html, e($first->name) . '</h3>'), strpos($html, e($second->name) . '</h3>'));
+    }
+
+    public function test_cards_use_live_whmcs_prices_with_fallbacks(): void
+    {
+        $this->configureWhmcs();
+        $this->fakeWhmcs();
+
+        $html = $this->get('/')->assertOk()->getContent();
+
+        $this->assertStringContainsString('data-yearly-price="3100"', $html);   // BDT price from WHMCS
+        $this->assertStringContainsString('data-yearly-price="5000"', $html);   // USD 40 x rate 125
+        $this->assertStringContainsString('data-yearly-price="6000"', $html);   // unavailable -> fallback
+        $this->assertStringContainsString('data-yearly-price="12000"', $html);  // not returned -> fallback
+        Http::assertSent(fn (Request $r) => $r['action'] === 'GetProducts' && $r['pid'] === '16,17,18,19,55,56,57,58');
+    }
+
+    public function test_cards_keep_fallback_prices_when_whmcs_is_down(): void
+    {
+        $this->configureWhmcs();
+        $this->fakeWhmcs(500);
+
+        $this->get('/')->assertOk()->assertSee('data-yearly-price="3000"', false);
+    }
+
+    public function test_order_links_follow_the_whmcs_product_id(): void
+    {
+        $this->get('/')->assertSee('href="https://my.hostorio.com/cart.php?a=add&amp;pid=55"', false);
+        $this->get('/vps')->assertSee('<a href="#" class="cloud-order-btn">DEPLOY NOW</a>', false);
+
+        Product::onPage('vps')->first()->update(['whmcs_pid' => 120]);
+        $this->get('/vps')->assertSee('href="https://my.hostorio.com/cart.php?a=add&amp;pid=120" class="cloud-order-btn">DEPLOY NOW</a>', false);
+
+        $offer = Product::onPage('offer')->first();
+        $this->get('/offer')->assertSee('pid=16&amp;sld=whmcs&amp;tld=.com', false);
+        $offer->update(['whmcs_pid' => 99]);
+        $this->get('/offer')->assertSee('pid=99&amp;sld=whmcs&amp;tld=.com', false);
+    }
+
+    public function test_structured_data_is_generated_from_products_and_is_valid_json(): void
+    {
+        Product::onPage('home')->first()->update(['name' => 'Starter Plus']);
+
+        $schemas = $this->schemas($this->get('/')->getContent(), 'Web Hosting Plan');
+        $this->assertCount(4, $schemas);
+        $this->assertSame('Starter Plus Web Hosting Plan', $schemas[0]['name']);
+        $this->assertSame(3000, $schemas[0]['offers']['price']);
+
+        $offer = $this->schemas($this->get('/offer')->getContent(), 'AggregateOffer');
+        $this->assertSame(999, $offer[0]['lowPrice']);
+        $this->assertSame(4500, $offer[0]['highPrice']);
+        $this->assertSame(4, $offer[0]['offerCount']);
+        $this->assertCount(4, $this->schemas($this->get('/offer')->getContent(), 'ItemList')[0]['itemListElement']);
+
+        $this->get('/web-hosting')->assertSee('"lowPrice": 3000,', false)->assertSee('"highPrice": 12000,', false)->assertSee('"offerCount": 4,', false);
+    }
+
+    public function test_admin_text_cannot_break_the_page(): void
+    {
+        Product::onPage('home')->first()->update(['name' => 'Evil</script><script>alert(1)</script>']);
+
+        $html = $this->get('/')->assertOk()->getContent();
+
+        $this->assertStringNotContainsString('<script>alert(1)</script>', $html);
+        $this->assertNotEmpty($this->schemas($html, 'Web Hosting Plan'));
+    }
+
+    public function test_package_page_is_gone(): void
+    {
+        $this->get('/package')->assertNotFound();
+        $this->get('/sitemap.xml')->assertOk()->assertDontSee('/package');
+    }
+
+    /** @return list<array<string, mixed>> */
+    private function schemas(string $html, string $needle): array
+    {
+        preg_match_all('#<script type="application/ld\+json">(.*?)</script>#s', $html, $m);
+
+        return collect($m[1])
+            ->filter(fn ($json) => str_contains($json, $needle))
+            ->map(function ($json) {
+                $data = json_decode($json, true);
+                $this->assertIsArray($data, 'invalid JSON-LD: ' . substr($json, 0, 120));
+
+                return $data;
+            })
+            ->values()->all();
+    }
+}
