@@ -504,7 +504,6 @@
 @endpush
 @push('translations')
 <script src="{{ asset('assets/js/translations/header-footer/header.js') }}"></script>
-<script src="{{ asset('assets/js/translations/Pages/about.js') }}"></script>
 <script src="{{ asset('assets/js/translations/header-footer/footer.js') }}"></script>
 @endpush
 @section('content')
@@ -1305,5 +1304,4 @@
         <p class="about-contact-note" data-i18n="about.contact.note">Tickets are answered 24/7. Phone support is available Saturday through Thursday, 9:00 AM – 9:00 PM (BST).</p>
     </div>
 </section>
-<?
 @endsection

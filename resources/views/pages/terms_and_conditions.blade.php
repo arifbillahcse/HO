@@ -243,7 +243,7 @@
 @endpush
 @push('translations')
 <script src="{{ asset('assets/js/translations/header-footer/header.js') }}"></script>
-<script src="{{ asset('assets/js/translations/Legal/terms.js') }}"></script>
+<script src="{{ asset('assets/js/translations/terms-and-conditions/terms.js') }}"></script>
 <script src="{{ asset('assets/js/translations/header-footer/footer.js') }}"></script>
 @endpush
 @section('content')

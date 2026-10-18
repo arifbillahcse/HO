@@ -16,6 +16,11 @@
 @push('translations')
 <script src="{{ asset('assets/js/translations/header-footer/header.js') }}"></script>
 <script src="{{ asset('assets/js/translations/Home/hero.js') }}"></script>
+<script src="{{ asset('assets/js/translations/Home/pricing.js') }}"></script>
+<script src="{{ asset('assets/js/translations/Home/domain.js') }}"></script>
+<script src="{{ asset('assets/js/translations/Home/services.js') }}"></script>
+<script src="{{ asset('assets/js/translations/Home/wordpress.js') }}"></script>
+<script src="{{ asset('assets/js/translations/Home/support.js') }}"></script>
 <script src="{{ asset('assets/js/translations/header-footer/footer.js') }}"></script>
 @endpush
 @section('content')

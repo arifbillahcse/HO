@@ -630,7 +630,7 @@
 @endpush
 @push('translations')
 <script src="{{ asset('assets/js/translations/header-footer/header.js') }}"></script>
-<script src="{{ asset('assets/js/translations/Legal/privacy.js') }}"></script>
+<script src="{{ asset('assets/js/translations/privacy-policy/privacy.js') }}"></script>
 <script src="{{ asset('assets/js/translations/header-footer/footer.js') }}"></script>
 @endpush
 @section('content')
@@ -1500,5 +1500,4 @@
     </section>
     <!-- Main Footer -->
     
-<?
 @endsection

@@ -101,6 +101,7 @@ class I18nManager {
             const key = el.getAttribute('data-i18n');
             if (!key) return;
             const text = this.translate(key);
+            if (text === key) return; // untranslated: keep the inline fallback text
             // Use innerHTML when the translation contains any HTML tag
             if (/<[a-z]/i.test(text)) {
                 el.innerHTML = text;
@@ -113,7 +114,9 @@ class I18nManager {
         document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
             const key = el.getAttribute('data-i18n-placeholder');
             if (!key) return;
-            el.placeholder = this.translate(key);
+            const text = this.translate(key);
+            if (text === key) return;
+            el.placeholder = text;
         });
     }
 

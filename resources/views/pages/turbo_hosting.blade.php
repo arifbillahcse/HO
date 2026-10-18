@@ -15,7 +15,13 @@
 @endpush
 @push('translations')
 <script src="{{ asset('assets/js/translations/header-footer/header.js') }}"></script>
-<script src="{{ asset('assets/js/translations/Hosting/turbo.js') }}"></script>
+<script src="{{ asset('assets/js/translations/Package/hero.js') }}"></script>
+<script src="{{ asset('assets/js/translations/turbo-hosting/pricing.js') }}"></script>
+<script src="{{ asset('assets/js/translations/Package/features.js') }}"></script>
+<script src="{{ asset('assets/js/translations/Package/comparison.js') }}"></script>
+<script src="{{ asset('assets/js/translations/Package/testimonial.js') }}"></script>
+<script src="{{ asset('assets/js/translations/Package/faq.js') }}"></script>
+<script src="{{ asset('assets/js/translations/Package/support.js') }}"></script>
 <script src="{{ asset('assets/js/translations/header-footer/footer.js') }}"></script>
 @endpush
 @section('content')
@@ -1414,5 +1420,4 @@
     </section>
     <!-- Main Footer -->
     
-<?
 @endsection
