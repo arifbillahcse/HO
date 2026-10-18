@@ -208,33 +208,33 @@
                 <!-- Desktop Package Grid -->
                 <div class="packages-desktop">
                     <div class="top-packages">
-                        <a href="" class="package-card">
+                        <a href="{{ route('page', 'web-hosting') }}" class="package-card">
                             <span class="card-icon">⚡</span>
                             <span class="card-title-pricing-hero" data-i18n="packageHero.wordpress">Web Hosting</span>
                         </a>
-                        <a href="" class="package-card">
+                        <a href="{{ route('page', 'turbo-hosting') }}" class="package-card">
                             <span class="card-icon">🚀</span>
                             <span class="card-title-pricing-hero" data-i18n="packageHero.turbo">Turbo Hosting</span>
                         </a>
-                        <a href="" class="package-card">
+                        <a href="{{ route('page', 'reseller-hosting') }}" class="package-card">
                             <span class="card-icon">🔄</span>
                             <span class="card-title-pricing-hero" data-i18n="packageHero.reseller">Reseller Hosting</span>
                         </a>
-                        <a href="" class="package-card">
+                        <a href="{{ route('page', 'student-hosting') }}" class="package-card">
                             <span class="card-icon">🎓</span>
                             <span class="card-title-pricing-hero" data-i18n="packageHero.student">Student Hosting</span>
                         </a>
                     </div>
                     <div class="bottom-packages">
-                        <a href="" class="package-card">
+                        <a href="{{ route('page', 'vps') }}" class="package-card">
                             <span class="card-icon">🖥️</span>
                             <span class="card-title-pricing-hero" data-i18n="packageHero.vps">VPS</span>
                         </a>
-                        <a href="" class="package-card highlighted">
+                        <a href="{{ route('page', 'business-email') }}" class="package-card highlighted">
                             <span class="card-icon">✉️</span>
                             <span class="card-title-pricing-hero" data-i18n="packageHero.email">Business Email</span>
                         </a>
-                        <a href="" class="package-card">
+                        <a href="{{ route('page', 'offer') }}" class="package-card">
                             <span class="card-icon">🌐</span>
                             <span class="card-title-pricing-hero" data-i18n="packageHero.offer">Offer</span>
                         </a>
@@ -249,31 +249,31 @@
                             <i class="fas fa-chevron-down btn-chevron" id="chevronIcon"></i>
                         </button>
                         <nav class="chooser-list" id="packageList">
-                            <a href="" class="list-option selected" data-icon="⚡" data-label="Web Hosting">
+                            <a href="{{ route('page', 'web-hosting') }}" class="list-option selected" data-icon="⚡" data-label="Web Hosting">
                                 <span class="opt-icon">⚡</span>
                                 <span class="opt-label" data-i18n="packageHero.wordpress">Web Hosting</span>
                             </a>
-                            <a href="" class="list-option" data-icon="🚀" data-label="Turbo Hosting">
+                            <a href="{{ route('page', 'turbo-hosting') }}" class="list-option" data-icon="🚀" data-label="Turbo Hosting">
                                 <span class="opt-icon">🚀</span>
                                 <span class="opt-label" data-i18n="packageHero.turbo">Turbo Hosting</span>
                             </a>
-                            <a href="" class="list-option" data-icon="🔄" data-label="Reseller Hosting">
+                            <a href="{{ route('page', 'reseller-hosting') }}" class="list-option" data-icon="🔄" data-label="Reseller Hosting">
                                 <span class="opt-icon">🔄</span>
                                 <span class="opt-label" data-i18n="packageHero.reseller">Reseller Hosting</span>
                             </a>
-                            <a href="" class="list-option" data-icon="🎓" data-label="Student Hosting">
+                            <a href="{{ route('page', 'student-hosting') }}" class="list-option" data-icon="🎓" data-label="Student Hosting">
                                 <span class="opt-icon">🎓</span>
                                 <span class="opt-label" data-i18n="packageHero.student">Student Hosting</span>
                             </a>
-                            <a href="" class="list-option" data-icon="🖥️" data-label="VPS">
+                            <a href="{{ route('page', 'vps') }}" class="list-option" data-icon="🖥️" data-label="VPS">
                                 <span class="opt-icon">🖥️</span>
                                 <span class="opt-label" data-i18n="packageHero.vps">VPS</span>
                             </a>
-                            <a href="" class="list-option" data-icon="✉️" data-label="Business Email">
+                            <a href="{{ route('page', 'business-email') }}" class="list-option" data-icon="✉️" data-label="Business Email">
                                 <span class="opt-icon">✉️</span>
                                 <span class="opt-label" data-i18n="packageHero.email">Business Email</span>
                             </a>
-                            <a href="" class="list-option" data-icon="🌐" data-label="Domain">
+                            <a href="{{ route('page', 'offer') }}" class="list-option" data-icon="🌐" data-label="Domain">
                                 <span class="opt-icon">🌐</span>
                                 <span class="opt-label" data-i18n="packageHero.offer">Offer</span>
                             </a>
