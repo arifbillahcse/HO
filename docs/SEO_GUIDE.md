@@ -38,3 +38,39 @@ Use **View page** to open the page. To check the result, right-click → View pa
 Addresses end in `/`, exactly as on WordPress (`https://hostorio.com/web-hosting/`). Opening an address without the
 slash redirects (301) to the one with it, so Google sees no change of URL when the site moves from WordPress.
 The sitemap is at `/sitemap.xml`.
+
+## Redirects
+
+**Admin → SEO → Redirects** sends visitors and search engines from an old address to a new one.
+
+- **Old address**: a path (`/old-page/`) or a full URL; case and the trailing `/` don't matter. End it with `*` to
+  match everything that starts with it: `/blog/*`.
+- **New address**: a page on this site (`/web-hosting/`) or a full URL. With a `*` old address, a `*` in the new
+  address is replaced by the rest of the address (`/blog/*` → `/news/*` sends `/blog/my-post` to `/news/my-post`).
+- **Type**: **301** for pages that moved for good (search engines pass the ranking on), **302/307** for temporary
+  moves, **410** for pages deleted for good.
+- Each redirect counts its **hits**, so you can see which ones are still used. Switch **Active** off to pause one.
+- The homepage, the whole site, `/admin`, the sitemap and robots.txt can't be redirected.
+
+## 404 Monitor
+
+**Admin → SEO → 404 Monitor** lists addresses people or search engines asked for that don't exist, with how often
+and where they came from. Click **Redirect** on a row (or tick several rows → **Redirect selected**) to create a
+redirect; the entry then leaves the log. Bots probing for `/wp-login.php` and similar can simply be deleted.
+The log keeps the latest 2,000 addresses.
+
+## Sitemap and robots.txt
+
+- `/sitemap.xml` lists every page that is set to index, with the date it last changed (its SEO settings, plans,
+  comparison table or template). The old Rank Math addresses (`/sitemap_index.xml`, `/page-sitemap.xml`, …)
+  redirect to it.
+- `/robots.txt` can be edited in **SEO Settings → robots.txt**. Leave it empty for the default, which keeps search
+  engines out of `/admin/` and points them to the sitemap. "Disallow: /" is refused: use
+  **Hide this site from search engines** for the demo instead.
+
+## Launch checklist
+
+**Admin → SEO → Launch checklist** checks this installation automatically (search engine visibility, debug mode,
+`APP_URL`, storage link, trailing-slash rules, robots.txt, sitemap, descriptions, images, analytics, verification)
+and lists the steps for launch day. Open it on hostorio.com right after the switch: everything should be green
+apart from the blue notes.

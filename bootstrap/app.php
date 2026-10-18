@@ -12,7 +12,12 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        $middleware->web(append: [\App\Http\Middleware\HideFromSearchEngines::class]);
+        // Global, so they also cover addresses no route matches (old WordPress URLs).
+        $middleware->prepend(\App\Http\Middleware\HandleRedirects::class);
+        $middleware->append([
+            \App\Http\Middleware\LogNotFound::class,
+            \App\Http\Middleware\HideFromSearchEngines::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(

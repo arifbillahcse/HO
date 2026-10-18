@@ -7,8 +7,14 @@ use App\Services\WhmcsService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-// Sitemap
+// Sitemap and robots.txt
 Route::get('sitemap.xml', [SitemapController::class, 'sitemap']);
+Route::get('robots.txt', fn () => response(app(Seo::class)->robotsTxt(), 200, ['Content-Type' => 'text/plain; charset=UTF-8']));
+
+// Old Rank Math sitemap addresses still known to search engines
+foreach (['sitemap_index.xml', 'page-sitemap.xml', 'post-sitemap.xml', 'category-sitemap.xml', 'local-sitemap.xml'] as $old) {
+    Route::get($old, fn () => redirect('sitemap.xml', 301));
+}
 
 // Homepage
 Route::get('/', function () {

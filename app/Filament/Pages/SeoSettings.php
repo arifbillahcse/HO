@@ -139,6 +139,22 @@ class SeoSettings extends Page
                     ])
                     ->columns(2),
 
+                Section::make('robots.txt')
+                    ->description('Tells search engines which addresses not to crawl. Leave empty to use the default shown below.')
+                    ->schema([
+                        Textarea::make('seo_robots_txt')
+                            ->label('robots.txt')
+                            ->rows(7)
+                            ->placeholder(fn (): string => Seo::defaultRobotsTxt())
+                            ->extraInputAttributes(['style' => 'font-family: ui-monospace, monospace; font-size: 13px;'])
+                            ->rule(fn () => function (string $attribute, $value, \Closure $fail): void {
+                                if (preg_match('/^\s*Disallow:\s*\/\s*$/mi', (string) $value)) {
+                                    $fail('"Disallow: /" blocks the whole site from Google. Use "Hide this site from search engines" for the demo instead.');
+                                }
+                            })
+                            ->helperText(fn (): string => 'View it at ' . url('robots.txt') . '. Keep the Sitemap line.'),
+                    ]),
+
                 Section::make('Custom code')
                     ->description('For other tools, such as the chat widget or Facebook Pixel. The code is added to every page exactly as typed, so only paste code from a source you trust.')
                     ->schema([
@@ -182,7 +198,7 @@ class SeoSettings extends Page
 
             $value = match (true) {
                 $key === 'seo_hide_site' => (bool) $value,
-                in_array($key, ['seo_head_code', 'seo_footer_code'], true) => trim((string) $value),
+                in_array($key, ['seo_head_code', 'seo_footer_code', 'seo_robots_txt'], true) => trim((string) $value),
                 array_key_exists($key, Seo::VERIFICATION) => Seo::verificationCode($value),
                 in_array($key, ['seo_ga4_id', 'seo_gtm_id'], true) => strtoupper(trim((string) $value)),
                 default => is_string($value) ? trim($value) : $value,

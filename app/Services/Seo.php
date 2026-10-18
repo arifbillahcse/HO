@@ -33,7 +33,7 @@ class Seo
         'seo_site_name', 'seo_separator', 'seo_title_pattern', 'seo_hide_site',
         'seo_default_image', 'seo_favicon',
         'seo_verify_google', 'seo_verify_bing', 'seo_verify_yandex', 'seo_verify_baidu', 'seo_verify_pinterest', 'seo_verify_facebook',
-        'seo_ga4_id', 'seo_gtm_id', 'seo_head_code', 'seo_footer_code',
+        'seo_ga4_id', 'seo_gtm_id', 'seo_head_code', 'seo_footer_code', 'seo_robots_txt',
     ];
 
     private const REQUEST_KEY = 'seo_page';
@@ -239,5 +239,24 @@ class Seo
     public function footerCode(): string
     {
         return (string) SettingsService::get('seo_footer_code', '');
+    }
+
+    /* ───────────────────────── robots.txt ───────────────────────── */
+
+    public function robotsTxt(): string
+    {
+        $custom = trim((string) SettingsService::get('seo_robots_txt', ''));
+
+        return ($custom !== '' ? $custom : self::defaultRobotsTxt()) . "\n";
+    }
+
+    public static function defaultRobotsTxt(): string
+    {
+        return implode("\n", [
+            'User-agent: *',
+            'Disallow: /admin/',
+            '',
+            'Sitemap: ' . url('sitemap.xml'),
+        ]);
     }
 }
