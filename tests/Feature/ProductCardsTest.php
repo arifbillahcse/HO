@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\ComparisonRow;
 use App\Models\Product;
 use App\Models\Setting;
 use App\Services\WhmcsService;
@@ -161,6 +162,61 @@ class ProductCardsTest extends TestCase
     {
         $this->get('/package')->assertNotFound();
         $this->get('/sitemap.xml')->assertOk()->assertDontSee('/package');
+    }
+
+    public function test_comparison_tables_render_rows_values_and_prices_from_the_admin(): void
+    {
+        foreach (['web_hosting' => '/web-hosting', 'turbo_hosting' => '/turbo-hosting', 'reseller_hosting' => '/reseller-hosting', 'student_hosting' => '/student-hosting', 'offer' => '/offer'] as $page => $url) {
+            $html = $this->get($url)->assertOk()->getContent();
+            $rows = ComparisonRow::onPage($page)->count();
+            $products = Product::onPage($page)->count();
+
+            $this->assertSame($products, substr_count($html, 'class="plan-column'), $page);
+            $this->assertSame($rows * $products, substr_count($html, '<div class="plan-feature">'), $page);
+            $this->assertSame($rows + 1, substr_count($html, 'class="feature-item-hosting'), $page);
+        }
+
+        $web = $this->get('/web-hosting')->getContent();
+        $this->assertStringContainsString('<span class="strikethrough">৳357/mo</span>', $web);
+        $this->assertStringContainsString('<span class="price-amount">৳250/mo</span>', $web);
+        $this->assertStringContainsString('<span class="price-period"> (৳3,000/yr)</span>', $web);
+        $this->assertStringContainsString('<div class="plan-feature">5GB NVMe</div>', $web);
+        $this->assertStringContainsString('<div class="plan-feature"><i class="fas fa-check"></i></div>', $web);
+        $this->assertStringContainsString('<div class="plan-feature"><i class="fas fa-times"></i></div>', $web);
+
+        $this->get('/student-hosting')->assertSee('<span class="price-amount">৳800/yr</span>', false)->assertSee('<h3 class="plan-title">SH Plan 3 ⭐</h3>', false);
+        $this->get('/offer')->assertSee('<div class="plan-column popular">', false)->assertSee('<span class="price-amount">৳999</span>', false);
+    }
+
+    public function test_comparison_tables_follow_admin_edits(): void
+    {
+        $row = ComparisonRow::onPage('turbo_hosting')->first();
+        $row->update(['label' => 'Disk Space']);
+        $newRow = ComparisonRow::create(['page_key' => 'turbo_hosting', 'sort_order' => 99, 'label' => 'Malware Scanner']);
+
+        $plus = Product::onPage('turbo_hosting')->first();
+        $plus->update([
+            'comparison' => array_replace($plus->comparison, [(string) $row->id => ['type' => 'text', 'text' => '80 GB NVMe'], (string) $newRow->id => ['type' => 'yes']]),
+            'whmcs_pid' => 77,
+        ]);
+        Product::onPage('turbo_hosting')->skip(3)->first()->update(['is_visible' => false]);
+
+        $html = $this->get('/turbo-hosting')->assertOk()->getContent();
+
+        $this->assertStringContainsString('<div class="feature-item-hosting">Disk Space</div>', $html);
+        $this->assertStringContainsString('<div class="feature-item-hosting">Malware Scanner</div>', $html);
+        $this->assertStringContainsString('<div class="plan-feature">80 GB NVMe</div>', $html);
+        $this->assertSame(3, substr_count($html, 'class="plan-column'));
+        $this->assertStringContainsString('href="https://my.hostorio.com/cart.php?a=add&amp;pid=77" class="btn-order"', $html);
+    }
+
+    public function test_comparison_prices_use_the_live_whmcs_price(): void
+    {
+        $this->configureWhmcs();
+        $this->fakeWhmcs();
+
+        // Web Hosting "Starter" is WHMCS product 55, which returns 3100 BDT a year.
+        $this->get('/web-hosting')->assertSee('<span class="price-period"> (৳3,100/yr)</span>', false);
     }
 
     /** @return list<array<string, mixed>> */

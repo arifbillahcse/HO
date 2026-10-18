@@ -11,7 +11,7 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -40,9 +40,11 @@ class ComparisonRowResource extends Resource
                 ->options(Product::PAGES)
                 ->required()
                 ->native(false),
-            TextInput::make('label')
+            Textarea::make('label')
                 ->label('Row label')
                 ->placeholder('e.g. Storage Space')
+                ->helperText('Press Enter to start a new line in the label.')
+                ->rows(2)
                 ->required()
                 ->maxLength(255),
         ]);

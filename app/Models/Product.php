@@ -36,6 +36,18 @@ class Product extends Model
         'offer' => ['save' => ['pricing.save30', 'Save 30%'], 'period' => ['offerPricing.perYear', '/year']],
     ];
 
+    /**
+     * Comparison-table style per page: how the price cell reads and how the
+     * highlighted plan is marked ("badge" on the column, "star" in the title).
+     */
+    public const COMPARISON = [
+        'web_hosting' => ['price' => 'monthly', 'popular' => 'none'],
+        'turbo_hosting' => ['price' => 'monthly', 'popular' => 'none'],
+        'reseller_hosting' => ['price' => 'monthly', 'popular' => 'none'],
+        'student_hosting' => ['price' => 'yearly', 'popular' => 'star'],
+        'offer' => ['price' => 'offer', 'popular' => 'badge'],
+    ];
+
     protected $fillable = [
         'page_key', 'sort_order', 'is_visible', 'name', 'description', 'is_popular', 'badge_text',
         'icon', 'icon_alt', 'features', 'show_original_price', 'button_text',
