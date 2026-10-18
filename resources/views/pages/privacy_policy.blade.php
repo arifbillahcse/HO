@@ -2,12 +2,12 @@
 @section('title', 'Privacy Policy – Hostorio Web Hosting')
 @push('meta')
 <meta name="description" content="Hostorio - Privacy Policy. Fast, reliable web hosting services.">
-<link rel="canonical" href="{{ url('/privacy') }}">
+<link rel="canonical" href="{{ url('/privacy-policy') }}">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Privacy Policy – Hostorio">
 <meta property="og:description" content="Hostorio - Privacy Policy">
-<meta property="og:url" content="{{ url('/privacy') }}">
+<meta property="og:url" content="{{ url('/privacy-policy') }}">
 @endpush
 @push('head')
 <style>

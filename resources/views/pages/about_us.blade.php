@@ -2,12 +2,12 @@
 @section('title', 'About Us – Hostorio Web Hosting')
 @push('meta')
 <meta name="description" content="Hostorio - About Us. Fast, reliable web hosting services.">
-<link rel="canonical" href="{{ url('/about') }}">
+<link rel="canonical" href="{{ url('/about-us') }}">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
 <meta property="og:title" content="About Us – Hostorio">
 <meta property="og:description" content="Hostorio - About Us">
-<meta property="og:url" content="{{ url('/about') }}">
+<meta property="og:url" content="{{ url('/about-us') }}">
 @endpush
 @push('head')
 <style>
