@@ -301,7 +301,7 @@
                     </div>
                     <h3 class="cloud-plan-name" data-i18n="studentPricing.plans.plan1.name">SH Plan 1</h3>
                     <p class="cloud-plan-desc" data-i18n="studentPricing.plans.plan1.desc">1 GB SSD Disk | 5 GB Monthly Bandwidth</p>
-                    <div class="cloud-pricing" data-yearly-price="800">
+                    <div class="cloud-pricing" data-yearly-price="{{ hostorio_plan_price('student_hosting', 0, 800) }}">
                         <div class="cloud-price-original">
                             <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
                             <span class="cloud-save-badge" data-i18n="studentPricing.saveBadge">Save 30%!</span>
@@ -391,7 +391,7 @@
                             <span data-i18n="studentPricing.features.softaculous">Softaculous One-Click Installer</span>
                         </li>
                     </ul>
-                    <a href="#" class="cloud-order-btn" data-i18n="studentPricing.orderNow">Order Now</a>
+                    <a href="{{ hostorio_plan_url('student_hosting', 0, '#') }}" class="cloud-order-btn" data-i18n="studentPricing.orderNow">Order Now</a>
                 </div>
                 <!-- Card 2 - SH Plan 2 -->
                 <div class="cloud-card">
@@ -400,7 +400,7 @@
                     </div>
                     <h3 class="cloud-plan-name" data-i18n="studentPricing.plans.plan2.name">SH Plan 2</h3>
                     <p class="cloud-plan-desc" data-i18n="studentPricing.plans.plan2.desc">2 GB SSD Disk Space | 15 GB Monthly Bandwidth</p>
-                    <div class="cloud-pricing" data-yearly-price="999">
+                    <div class="cloud-pricing" data-yearly-price="{{ hostorio_plan_price('student_hosting', 1, 999) }}">
                         <div class="cloud-price-original">
                             <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
                             <span class="cloud-save-badge" data-i18n="studentPricing.saveBadge">Save 30%!</span>
@@ -490,7 +490,7 @@
                             <span data-i18n="studentPricing.features.softaculous">Softaculous One-Click Installer</span>
                         </li>
                     </ul>
-                    <a href="#" class="cloud-order-btn" data-i18n="studentPricing.orderNow">Order Now</a>
+                    <a href="{{ hostorio_plan_url('student_hosting', 1, '#') }}" class="cloud-order-btn" data-i18n="studentPricing.orderNow">Order Now</a>
                 </div>
                 <!-- Card 3 - SH Plan 3 (Most Popular) -->
                 <div class="cloud-card popular">
@@ -500,7 +500,7 @@
                     </div>
                     <h3 class="cloud-plan-name" data-i18n="studentPricing.plans.plan3.name">SH Plan 3</h3>
                     <p class="cloud-plan-desc" data-i18n="studentPricing.plans.plan3.desc">3 GB SSD Disk Space | 25 GB Monthly Bandwidth</p>
-                    <div class="cloud-pricing" data-yearly-price="1199">
+                    <div class="cloud-pricing" data-yearly-price="{{ hostorio_plan_price('student_hosting', 2, 1199) }}">
                         <div class="cloud-price-original">
                             <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
                             <span class="cloud-save-badge" data-i18n="studentPricing.saveBadge">Save 30%!</span>
@@ -590,7 +590,7 @@
                             <span data-i18n="studentPricing.features.softaculous">Softaculous One-Click Installer</span>
                         </li>
                     </ul>
-                    <a href="#" class="cloud-order-btn" data-i18n="studentPricing.orderNow">Order Now</a>
+                    <a href="{{ hostorio_plan_url('student_hosting', 2, '#') }}" class="cloud-order-btn" data-i18n="studentPricing.orderNow">Order Now</a>
                 </div>
             </div>
         </div>

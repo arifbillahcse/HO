@@ -75,25 +75,25 @@
         {
           "@type": "Offer",
           "name": "2GB+.SHOP domain Hosting Deal",
-          "price": "999",
+          "price": "{{ hostorio_plan_price('offer', 0, 999) }}",
           "priceCurrency": "BDT"
         },
         {
           "@type": "Offer",
           "name": "5GB+XYZ Hosting Deal",
-          "price": "1999",
+          "price": "{{ hostorio_plan_price('offer', 1, 1999) }}",
           "priceCurrency": "BDT"
         },
         {
           "@type": "Offer",
           "name": "10GB+.COM Hosting Deal (Recommended)",
-          "price": "2999",
+          "price": "{{ hostorio_plan_price('offer', 2, 2999) }}",
           "priceCurrency": "BDT"
         },
         {
           "@type": "Offer",
           "name": "20GB+.COM Hosting Deal",
-          "price": "4500",
+          "price": "{{ hostorio_plan_price('offer', 3, 4500) }}",
           "priceCurrency": "BDT"
         }
       ],
@@ -424,7 +424,7 @@
                     </div>
                     <h3 class="cloud-plan-name" data-i18n="offerPricing.plans.plan1.name">2GB+.SHOP domain</h3>
                     <p class="cloud-plan-desc" data-i18n="offerPricing.plans.plan1.desc">Ideal for beginner/personal websites</p>
-                    <div class="cloud-pricing" data-yearly-price="999">
+                    <div class="cloud-pricing" data-yearly-price="{{ hostorio_plan_price('offer', 0, 999) }}">
                         <div class="cloud-price-current">
                             <span class="cloud-currency" data-currency-symbol>৳</span>
                             <span class="cloud-amount">999</span>
@@ -524,7 +524,7 @@
                             <span data-i18n="offerPricing.plans.plan1.f13">cPanel</span>
                         </li>
                     </ul>
-                    <a href="https://my.hostorio.com/cart.php?a=add&pid=16&sld=whmcs&tld=.com" class="cloud-order-btn" data-i18n="offerPricing.orderNow">Order Now</a>
+                    <a href="{{ hostorio_plan_url('offer', 0, 'https://my.hostorio.com/cart.php?a=add&pid=16&sld=whmcs&tld=.com') }}" class="cloud-order-btn" data-i18n="offerPricing.orderNow">Order Now</a>
                 </div>
                 <!-- Card 2 - 5GB+XYZ -->
                 <div class="cloud-card">
@@ -533,7 +533,7 @@
                     </div>
                     <h3 class="cloud-plan-name" data-i18n="offerPricing.plans.plan2.name">5GB+XYZ</h3>
                     <p class="cloud-plan-desc" data-i18n="offerPricing.plans.plan2.desc">Recommended hosting for beginner. Best Speed 100% guarantee.</p>
-                    <div class="cloud-pricing" data-yearly-price="1999">
+                    <div class="cloud-pricing" data-yearly-price="{{ hostorio_plan_price('offer', 1, 1999) }}">
                         <div class="cloud-price-current">
                             <span class="cloud-currency" data-currency-symbol>৳</span>
                             <span class="cloud-amount">1,999</span>
@@ -633,7 +633,7 @@
                             <span data-i18n="offerPricing.plans.plan2.f12">cPanel</span>
                         </li>
                     </ul>
-                    <a href="https://my.hostorio.com/cart.php?a=add&pid=17&sld=whmcs&tld=.com" class="cloud-order-btn" data-i18n="offerPricing.orderNow">Order Now</a>
+                    <a href="{{ hostorio_plan_url('offer', 1, 'https://my.hostorio.com/cart.php?a=add&pid=17&sld=whmcs&tld=.com') }}" class="cloud-order-btn" data-i18n="offerPricing.orderNow">Order Now</a>
                 </div>
                 <!-- Card 3 - 10GB+.COM (Recommended) -->
                 <div class="cloud-card popular">
@@ -643,7 +643,7 @@
                     </div>
                     <h3 class="cloud-plan-name" data-i18n="offerPricing.plans.plan3.name">10GB+.COM</h3>
                     <p class="cloud-plan-desc" data-i18n="offerPricing.plans.plan3.desc">Best Choice for Start eCommerce</p>
-                    <div class="cloud-pricing" data-yearly-price="2999">
+                    <div class="cloud-pricing" data-yearly-price="{{ hostorio_plan_price('offer', 2, 2999) }}">
                         <div class="cloud-price-current">
                             <span class="cloud-currency" data-currency-symbol>৳</span>
                             <span class="cloud-amount">2,999</span>
@@ -743,7 +743,7 @@
                             <span data-i18n="offerPricing.plans.plan3.f13">cPanel</span>
                         </li>
                     </ul>
-                    <a href="https://my.hostorio.com/cart.php?a=add&pid=18&sld=whmcs&tld=.com" class="cloud-order-btn" data-i18n="offerPricing.orderNow">Order Now</a>
+                    <a href="{{ hostorio_plan_url('offer', 2, 'https://my.hostorio.com/cart.php?a=add&pid=18&sld=whmcs&tld=.com') }}" class="cloud-order-btn" data-i18n="offerPricing.orderNow">Order Now</a>
                 </div>
                 <!-- Card 4 - 20GB+.COM -->
                 <div class="cloud-card">
@@ -752,7 +752,7 @@
                     </div>
                     <h3 class="cloud-plan-name" data-i18n="offerPricing.plans.plan4.name">20GB+.COM</h3>
                     <p class="cloud-plan-desc" data-i18n="offerPricing.plans.plan4.desc">Best for growing businesses</p>
-                    <div class="cloud-pricing" data-yearly-price="4500">
+                    <div class="cloud-pricing" data-yearly-price="{{ hostorio_plan_price('offer', 3, 4500) }}">
                         <div class="cloud-price-current">
                             <span class="cloud-currency" data-currency-symbol>৳</span>
                             <span class="cloud-amount">4,500</span>
@@ -852,7 +852,7 @@
                             <span data-i18n="offerPricing.plans.plan4.f13">cPanel</span>
                         </li>
                     </ul>
-                    <a href="https://my.hostorio.com/cart.php?a=add&pid=19&sld=whmcs&tld=.com" class="cloud-order-btn" data-i18n="offerPricing.orderNow">Order Now</a>
+                    <a href="{{ hostorio_plan_url('offer', 3, 'https://my.hostorio.com/cart.php?a=add&pid=19&sld=whmcs&tld=.com') }}" class="cloud-order-btn" data-i18n="offerPricing.orderNow">Order Now</a>
                 </div>
             </div>
         </div>

@@ -40,6 +40,7 @@ class WhmcsConnection extends Page
             'currency_id' => SettingsService::get('whmcs_currency_id'),
             'cache_minutes' => SettingsService::get('whmcs_cache_minutes') ?: WhmcsService::DEFAULT_CACHE_MINUTES,
             'hero_tlds' => app(WhmcsService::class)->heroTlds(),
+            'plan_pids' => $this->currentPlanPids(),
         ]);
     }
 
@@ -50,7 +51,7 @@ class WhmcsConnection extends Page
         return $schema
             ->components([
                 Section::make('API connection')
-                    ->description('Create an API credential in WHMCS (Configuration > System Settings > API Credentials) with permission for "GetTLDPricing", and allow this server\'s IP address. Prices are fetched on the server, so the secret never reaches visitors.')
+                    ->description('Create an API credential in WHMCS (Configuration > System Settings > API Credentials) with permission for "GetTLDPricing" (domain prices) and "GetProducts" (hosting plan prices), and allow this server\'s IP address. Prices are fetched on the server, so the secret never reaches visitors.')
                     ->schema([
                         TextInput::make('url')
                             ->label('WHMCS URL')
@@ -105,6 +106,9 @@ class WhmcsConnection extends Page
                             ->helperText('Prices are cached so the homepage stays fast. If WHMCS is unreachable, the last good prices are kept.'),
                     ])
                     ->columns(2),
+                Section::make('Hosting plans')
+                    ->description('Enter the WHMCS product ID for each plan card. The card\'s yearly price and its Order button then come from WHMCS. Leave a field empty to keep the price typed into the page and the current Order link.')
+                    ->schema($this->planSections()),
             ])
             ->statePath('data');
     }
@@ -149,21 +153,32 @@ class WhmcsConnection extends Page
             WhmcsService::storeSecret('whmcs_api_access_key', $state['api_access_key']);
         }
 
+        Setting::set('whmcs_plan_pids', $this->flattenPlanPids($state['plan_pids'] ?? []));
+
         WhmcsService::flush();
         $this->form->fill(array_merge($state, ['api_secret' => null, 'api_access_key' => null]));
 
         try {
-            $count = count(app(WhmcsService::class)->pricing()['tlds'] ?? []);
+            $service = app(WhmcsService::class);
+            $count = count($service->pricing()['tlds'] ?? []);
 
             if ($count === 0) {
                 throw new \RuntimeException('WHMCS returned no domain prices.');
             }
 
-            Notification::make()
-                ->success()
+            $mapped = count($service->mappedPids());
+            $priced = count($service->planPrices() ?? []);
+            $notification = Notification::make()
                 ->title('Saved and connected')
-                ->body("Loaded prices for {$count} extensions. The homepage now shows live prices.")
-                ->send();
+                ->body("Loaded prices for {$count} extensions and {$priced} of {$mapped} hosting plans.");
+
+            if ($mapped > 0 && $priced === 0) {
+                $notification->warning()->body("Loaded prices for {$count} extensions, but no hosting plan prices came back. Check the product IDs and that the API credential allows \"GetProducts\".")->persistent();
+            } else {
+                $notification->success();
+            }
+
+            $notification->send();
         } catch (Throwable $e) {
             Notification::make()
                 ->warning()
@@ -200,11 +215,78 @@ class WhmcsConnection extends Page
             ->map(fn ($tld) => $tld . ' ' . WhmcsService::format($pricing['tlds'][$tld], $pricing['currency']) . '/yr')
             ->implode(', ');
 
+        $pids = collect($this->flattenPlanPids($state['plan_pids'] ?? []))->filter()->unique()->values()->all();
+        $plansNote = '';
+
+        if ($pids !== []) {
+            try {
+                $plansNote = ' ' . count($service->fetchPlanPrices($pids)) . ' of ' . count($pids) . ' plan products priced.';
+            } catch (Throwable $e) {
+                $plansNote = ' Plan prices failed: ' . $e->getMessage();
+            }
+        }
+
         Notification::make()
             ->success()
             ->title('Connection works')
-            ->body(count($pricing['tlds']) . ' extensions found' . ($pricing['currency']['code'] ? " ({$pricing['currency']['code']})" : '') . ($sample ? ". Your hero would show: {$sample}." : '.') . ' Click "Save and sync" to apply.')
+            ->body(count($pricing['tlds']) . ' extensions found' . ($pricing['currency']['code'] ? " ({$pricing['currency']['code']})" : '') . ($sample ? ". Your hero would show: {$sample}." : '.') . $plansNote . ' Click "Save and sync" to apply.')
             ->send();
+    }
+
+    /** @return array<string, array<int, int|null>> */
+    private function currentPlanPids(): array
+    {
+        $service = app(WhmcsService::class);
+        $pids = [];
+
+        foreach (WhmcsService::PLANS as $page => $info) {
+            foreach (array_keys($info['plans']) as $slot) {
+                $pids[$page][$slot] = $service->planPid($page, $slot);
+            }
+        }
+
+        return $pids;
+    }
+
+    /** @return list<Section> */
+    private function planSections(): array
+    {
+        $sections = [];
+
+        foreach (WhmcsService::PLANS as $page => $info) {
+            $sections[] = Section::make($info['label'])
+                ->collapsed()
+                ->compact()
+                ->columns(4)
+                ->schema(collect($info['plans'])->map(
+                    fn (array $plan, int $slot) => TextInput::make("plan_pids.{$page}.{$slot}")
+                        ->label($plan[0])
+                        ->placeholder('Product ID')
+                        ->numeric()
+                        ->integer()
+                        ->minValue(1)
+                )->all());
+        }
+
+        return $sections;
+    }
+
+    /**
+     * @param  array<string, array<int, mixed>>  $planPids
+     * @return array<string, int|null>
+     */
+    private function flattenPlanPids(array $planPids): array
+    {
+        $flat = [];
+
+        foreach (WhmcsService::PLANS as $page => $info) {
+            foreach (array_keys($info['plans']) as $slot) {
+                $value = $planPids[$page][$slot] ?? null;
+                $flat["{$page}.{$slot}"] = filled($value) ? (int) $value : null;
+            }
+        }
+
+        return $flat;
     }
 
     private function storedSecret(string $key): ?string

@@ -295,7 +295,7 @@
                 </div>
                 <h3 class="cloud-plan-name" data-i18n="vpsPricing.plans.enhanced.name">Enhanced VPS</h3>
                 <p class="cloud-plan-desc" data-i18n="vpsPricing.plans.enhanced.specs">4 Cores · 4 GB RAM · 50 GB SSD</p>
-                <div class="cloud-pricing" data-yearly-price="17640">
+                <div class="cloud-pricing" data-yearly-price="{{ hostorio_plan_price('vps', 0, 17640) }}">
                     <div class="cloud-price-original">
                         <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
                         <span class="cloud-save-badge" data-i18n="pricing.save30">Save 30%</span>
@@ -345,7 +345,7 @@
                 </div>
                 <h3 class="cloud-plan-name" data-i18n="vpsPricing.plans.premium.name">Premium VPS</h3>
                 <p class="cloud-plan-desc" data-i18n="vpsPricing.plans.premium.specs">6 Cores · 8 GB RAM · 100 GB SSD</p>
-                <div class="cloud-pricing" data-yearly-price="35280">
+                <div class="cloud-pricing" data-yearly-price="{{ hostorio_plan_price('vps', 1, 35280) }}">
                     <div class="cloud-price-original">
                         <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
                         <span class="cloud-save-badge" data-i18n="pricing.save30">Save 30%</span>
@@ -396,7 +396,7 @@
                 </div>
                 <h3 class="cloud-plan-name" data-i18n="vpsPricing.plans.elite.name">Elite VPS</h3>
                 <p class="cloud-plan-desc" data-i18n="vpsPricing.plans.elite.specs">8 Cores · 16 GB RAM · 150 GB SSD</p>
-                <div class="cloud-pricing" data-yearly-price="70560">
+                <div class="cloud-pricing" data-yearly-price="{{ hostorio_plan_price('vps', 2, 70560) }}">
                     <div class="cloud-price-original">
                         <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
                         <span class="cloud-save-badge" data-i18n="pricing.save30">Save 30%</span>
@@ -446,7 +446,7 @@
                 </div>
                 <h3 class="cloud-plan-name" data-i18n="vpsPricing.plans.ultimate.name">Ultimate VPS</h3>
                 <p class="cloud-plan-desc" data-i18n="vpsPricing.plans.ultimate.specs">16 Cores · 32 GB RAM · 300 GB SSD</p>
-                <div class="cloud-pricing" data-yearly-price="141120">
+                <div class="cloud-pricing" data-yearly-price="{{ hostorio_plan_price('vps', 3, 141120) }}">
                     <div class="cloud-price-original">
                         <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
                         <span class="cloud-save-badge" data-i18n="pricing.save30">Save 30%</span>

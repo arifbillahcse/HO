@@ -21,13 +21,31 @@ class WhmcsService
         '.xyz' => '$2.99',
     ];
 
-    private const FRESH_KEY = 'whmcs_tld_pricing';
-    private const STALE_KEY = 'whmcs_tld_pricing_last_good';
-    private const BACKOFF_KEY = 'whmcs_tld_pricing_backoff';
+    /**
+     * Plan cards per page, in the order they appear. Default WHMCS product IDs
+     * are the ones already used by the order buttons; the admin can change them.
+     *
+     * @var array<string, array{label: string, plans: list<array{0: string, 1: int|null}>}>
+     */
+    public const PLANS = [
+        'home' => ['label' => 'Home page', 'plans' => [['Starter', 55], ['Lite Starter', 56], ['Standard', 57], ['Advanced', 58]]],
+        'web_hosting' => ['label' => 'Web Hosting', 'plans' => [['Starter', 55], ['Lite Starter', 56], ['Standard', 57], ['Advanced', 58]]],
+        'turbo_hosting' => ['label' => 'Turbo Hosting', 'plans' => [['Turbo Plus', null], ['Turbo Power', null], ['Turbo Enterprise', null], ['Turbo Rapid', null]]],
+        'reseller_hosting' => ['label' => 'Reseller Hosting', 'plans' => [['R-Starter', null], ['R-Standard', null], ['R-Advanced', null], ['R-Advanced Pro', null]]],
+        'student_hosting' => ['label' => 'Student Hosting', 'plans' => [['SH Plan 1', null], ['SH Plan 2', null], ['SH Plan 3', null]]],
+        'vps' => ['label' => 'VPS', 'plans' => [['Enhanced VPS', null], ['Premium VPS', null], ['Elite VPS', null], ['Ultimate VPS', null]]],
+        'business_email' => ['label' => 'Business Email', 'plans' => [['Starter Mailboxes', null], ['Pro Mailboxes', null], ['Ultimate Mailboxes', null]]],
+        'offer' => ['label' => 'Offer', 'plans' => [['2GB + .SHOP domain', 16], ['5GB + .XYZ', 17], ['10GB + .COM', 18], ['20GB + .COM', 19]]],
+    ];
+
+    private const TLD_CACHE = 'tld_pricing';
+    private const PLAN_CACHE = 'plan_prices';
 
     /**
      * @param  array{url?: ?string, identifier?: ?string, secret?: ?string, access_key?: ?string, currency_id?: int|string|null}|null  $credentials
      */
+    private ?array $planPriceMemo = null;
+
     public function __construct(private ?array $credentials = null)
     {
     }
@@ -189,43 +207,180 @@ class WhmcsService
     /* ───────────────────────── cached access ───────────────────────── */
 
     /**
-     * Cached pricing. Keeps serving the last good copy if WHMCS is unreachable.
-     *
-     * @return array{currency: array{code: string, prefix: string, suffix: string}, tlds: array<string, float>}|null
+     * Fresh cache, then a 5-minute back-off after a failure, then the last
+     * good copy if WHMCS is unreachable.
      */
-    public function pricing(): ?array
+    private function remember(string $name, \Closure $fetch): mixed
     {
         if (! $this->isConfigured()) {
             return null;
         }
 
-        if ($fresh = Cache::get(self::FRESH_KEY)) {
-            return $fresh;
+        $fresh = "whmcs_{$name}";
+        $stale = "whmcs_{$name}_last_good";
+        $backoff = "whmcs_{$name}_backoff";
+
+        if (($cached = Cache::get($fresh)) !== null) {
+            return $cached;
         }
 
-        if (Cache::has(self::BACKOFF_KEY)) {
-            return Cache::get(self::STALE_KEY);
+        if (Cache::has($backoff)) {
+            return Cache::get($stale);
         }
 
         try {
-            $data = $this->fetchPricing();
-            Cache::put(self::FRESH_KEY, $data, now()->addMinutes($this->cacheMinutes()));
-            Cache::forever(self::STALE_KEY, $data);
+            $data = $fetch();
+            Cache::put($fresh, $data, now()->addMinutes($this->cacheMinutes()));
+            Cache::forever($stale, $data);
 
             return $data;
         } catch (Throwable $e) {
-            Log::warning('WHMCS price sync failed: ' . $e->getMessage());
-            Cache::put(self::BACKOFF_KEY, true, now()->addMinutes(5));
+            Log::warning("WHMCS {$name} sync failed: " . $e->getMessage());
+            Cache::put($backoff, true, now()->addMinutes(5));
 
-            return Cache::get(self::STALE_KEY);
+            return Cache::get($stale);
         }
+    }
+
+    /**
+     * Cached domain pricing.
+     *
+     * @return array{currency: array{code: string, prefix: string, suffix: string}, tlds: array<string, float>}|null
+     */
+    public function pricing(): ?array
+    {
+        return $this->remember(self::TLD_CACHE, fn () => $this->fetchPricing());
+    }
+
+    /**
+     * Cached yearly BDT prices keyed by WHMCS product ID.
+     *
+     * @return array<int, float>|null
+     */
+    public function planPrices(): ?array
+    {
+        return $this->planPriceMemo ??= $this->remember(self::PLAN_CACHE, fn () => $this->fetchPlanPrices());
     }
 
     public static function flush(): void
     {
-        Cache::forget(self::FRESH_KEY);
-        Cache::forget(self::STALE_KEY);
-        Cache::forget(self::BACKOFF_KEY);
+        foreach ([self::TLD_CACHE, self::PLAN_CACHE] as $name) {
+            Cache::forget("whmcs_{$name}");
+            Cache::forget("whmcs_{$name}_last_good");
+            Cache::forget("whmcs_{$name}_backoff");
+        }
+
+        app()->forgetInstance(self::class);
+    }
+
+    /* ───────────────────────── hosting plans ───────────────────────── */
+
+    /**
+     * Effective WHMCS product ID for a plan card (admin value, else the default).
+     */
+    public function planPid(string $page, int $slot): ?int
+    {
+        $stored = SettingsService::get('whmcs_plan_pids');
+        $key = "{$page}.{$slot}";
+
+        if (is_array($stored) && array_key_exists($key, $stored)) {
+            return filled($stored[$key]) ? (int) $stored[$key] : null;
+        }
+
+        return self::PLANS[$page]['plans'][$slot][1] ?? null;
+    }
+
+    /** @return list<int> */
+    public function mappedPids(): array
+    {
+        $pids = [];
+        foreach (self::PLANS as $page => $info) {
+            foreach (array_keys($info['plans']) as $slot) {
+                if ($pid = $this->planPid($page, $slot)) {
+                    $pids[] = $pid;
+                }
+            }
+        }
+
+        return array_values(array_unique($pids));
+    }
+
+    /**
+     * Yearly price in BDT per product ID, taken from WHMCS (no cache). Uses the
+     * BDT price when WHMCS has one, else the USD price times the site's rate.
+     *
+     * @param  list<int>|null  $pids
+     * @return array<int, float>
+     */
+    public function fetchPlanPrices(?array $pids = null): array
+    {
+        $pids ??= $this->mappedPids();
+
+        if ($pids === []) {
+            return [];
+        }
+
+        $json = $this->request('GetProducts', ['pid' => implode(',', $pids)]);
+
+        $products = $json['products']['product'] ?? [];
+        if (isset($products['pid'])) {
+            $products = [$products];
+        }
+
+        $rate = (float) SettingsService::get('exchange_rate', 125);
+        $prices = [];
+
+        foreach ($products as $product) {
+            $pricing = $product['pricing'] ?? [];
+            $yearly = (float) ($pricing['BDT']['annually'] ?? 0);
+
+            if ($yearly <= 0) {
+                $yearly = (float) ($pricing['USD']['annually'] ?? 0) * $rate;
+            }
+
+            if ($yearly > 0) {
+                $prices[(int) $product['pid']] = round($yearly, 2);
+            }
+        }
+
+        return $prices;
+    }
+
+    /** Live yearly BDT price for a plan card, or $default. Never throws. */
+    public function planPrice(string $page, int $slot, float | int $default): string
+    {
+        $price = $default;
+
+        try {
+            $pid = $this->planPid($page, $slot);
+            $live = $pid ? ($this->planPrices() ?? []) : [];
+
+            if ($pid && isset($live[$pid])) {
+                $price = $live[$pid];
+            }
+        } catch (Throwable $e) {
+            Log::warning('Plan price unavailable: ' . $e->getMessage());
+        }
+
+        return rtrim(rtrim(number_format($price, 2, '.', ''), '0'), '.');
+    }
+
+    /** Order link for a plan card: the mapped WHMCS product, else $default. */
+    public function planUrl(string $page, int $slot, string $default = '#'): string
+    {
+        $pid = $this->planPid($page, $slot);
+
+        if (! $pid) {
+            return $default;
+        }
+
+        if (preg_match('/([?&])pid=\d+/', $default)) {
+            return preg_replace('/([?&])pid=\d+/', '${1}pid=' . $pid, $default, 1);
+        }
+
+        $base = rtrim((string) (SettingsService::get('client_area_url') ?: 'https://my.hostorio.com/'), '/');
+
+        return "{$base}/cart.php?a=add&pid={$pid}";
     }
 
     /* ───────────────────────── homepage ───────────────────────── */

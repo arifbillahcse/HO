@@ -300,7 +300,7 @@
                     </div>
                     <h3 class="cloud-plan-name" data-i18n="turboPricing.plans.turboPlus.name">Turbo Plus</h3>
                     <p class="cloud-plan-desc" data-i18n="turboPricing.plans.turboPlus.desc">Start your website or WordPress journey here.</p>
-                    <div class="cloud-pricing" data-yearly-price="14388">
+                    <div class="cloud-pricing" data-yearly-price="{{ hostorio_plan_price('turbo_hosting', 0, 14388) }}">
                         <div class="cloud-price-original">
                             <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
                             <span class="cloud-save-badge" data-i18n="turboPricing.saveBadge">Save 30%!</span>
@@ -383,7 +383,7 @@
                             <span><strong>20</strong> <span data-i18n="turboPricing.features.mbIO">MB I/O</span></span>
                         </li>
                     </ul>
-                    <a href="#" class="cloud-order-btn" data-i18n="turboPricing.orderNow">Order Now</a>
+                    <a href="{{ hostorio_plan_url('turbo_hosting', 0, '#') }}" class="cloud-order-btn" data-i18n="turboPricing.orderNow">Order Now</a>
                 </div>
                 <!-- Card 2 - Turbo Power (Recommended) -->
                 <div class="cloud-card popular">
@@ -393,7 +393,7 @@
                     </div>
                     <h3 class="cloud-plan-name" data-i18n="turboPricing.plans.turboPower.name">Turbo Power</h3>
                     <p class="cloud-plan-desc" data-i18n="turboPricing.plans.turboPower.desc">That little extra as your website grows, business or personal.</p>
-                    <div class="cloud-pricing" data-yearly-price="17988">
+                    <div class="cloud-pricing" data-yearly-price="{{ hostorio_plan_price('turbo_hosting', 1, 17988) }}">
                         <div class="cloud-price-original">
                             <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
                             <span class="cloud-save-badge" data-i18n="turboPricing.saveBadge">Save 30%!</span>
@@ -476,7 +476,7 @@
                             <span><strong>30</strong> <span data-i18n="turboPricing.features.mbIO">MB I/O</span></span>
                         </li>
                     </ul>
-                    <a href="#" class="cloud-order-btn" data-i18n="turboPricing.orderNow">Order Now</a>
+                    <a href="{{ hostorio_plan_url('turbo_hosting', 1, '#') }}" class="cloud-order-btn" data-i18n="turboPricing.orderNow">Order Now</a>
                 </div>
                 <!-- Card 3 - Turbo Enterprise -->
                 <div class="cloud-card">
@@ -485,7 +485,7 @@
                     </div>
                     <h3 class="cloud-plan-name" data-i18n="turboPricing.plans.turboEnterprise.name">Turbo Enterprise</h3>
                     <p class="cloud-plan-desc" data-i18n="turboPricing.plans.turboEnterprise.desc">Go further with Rapid for more power and resources.</p>
-                    <div class="cloud-pricing" data-yearly-price="23988">
+                    <div class="cloud-pricing" data-yearly-price="{{ hostorio_plan_price('turbo_hosting', 2, 23988) }}">
                         <div class="cloud-price-original">
                             <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
                             <span class="cloud-save-badge" data-i18n="turboPricing.saveBadge">Save 30%!</span>
@@ -568,7 +568,7 @@
                             <span><strong>50</strong> <span data-i18n="turboPricing.features.mbIO">MB I/O</span></span>
                         </li>
                     </ul>
-                    <a href="#" class="cloud-order-btn" data-i18n="turboPricing.orderNow">Order Now</a>
+                    <a href="{{ hostorio_plan_url('turbo_hosting', 2, '#') }}" class="cloud-order-btn" data-i18n="turboPricing.orderNow">Order Now</a>
                 </div>
                 <!-- Card 4 - Turbo Rapid -->
                 <div class="cloud-card">
@@ -577,7 +577,7 @@
                     </div>
                     <h3 class="cloud-plan-name" data-i18n="turboPricing.plans.turboRapid.name">Turbo Rapid</h3>
                     <p class="cloud-plan-desc" data-i18n="turboPricing.plans.turboRapid.desc">Going beyond with expanded resources for thriving websites.</p>
-                    <div class="cloud-pricing" data-yearly-price="30000">
+                    <div class="cloud-pricing" data-yearly-price="{{ hostorio_plan_price('turbo_hosting', 3, 30000) }}">
                         <div class="cloud-price-original">
                             <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
                             <span class="cloud-save-badge" data-i18n="turboPricing.saveBadge">Save 30%!</span>
@@ -660,7 +660,7 @@
                             <span><strong>50</strong> <span data-i18n="turboPricing.features.mbIO">MB I/O</span></span>
                         </li>
                     </ul>
-                    <a href="#" class="cloud-order-btn" data-i18n="turboPricing.orderNow">Order Now</a>
+                    <a href="{{ hostorio_plan_url('turbo_hosting', 3, '#') }}" class="cloud-order-btn" data-i18n="turboPricing.orderNow">Order Now</a>
                 </div>
             </div>
         </div>

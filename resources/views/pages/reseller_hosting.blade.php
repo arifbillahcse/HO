@@ -301,7 +301,7 @@
                     </div>
                     <h3 class="cloud-plan-name" data-i18n="resellerPricing.plans.starter.name">R-Starter</h3>
                     <p class="cloud-plan-desc" data-i18n="resellerPricing.plans.starter.desc">Ideal for beginner</p>
-                    <div class="cloud-pricing" data-yearly-price="13188">
+                    <div class="cloud-pricing" data-yearly-price="{{ hostorio_plan_price('reseller_hosting', 0, 13188) }}">
                         <div class="cloud-price-original">
                             <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
                             <span class="cloud-save-badge" data-i18n="resellerPricing.saveBadge">Save 30%!</span>
@@ -384,7 +384,7 @@
                             <span data-i18n="resellerPricing.features.freeLiteSpeed">FREE LiteSpeed</span>
                         </li>
                     </ul>
-                    <a href="#" class="cloud-order-btn" data-i18n="resellerPricing.orderNow">Order Now</a>
+                    <a href="{{ hostorio_plan_url('reseller_hosting', 0, '#') }}" class="cloud-order-btn" data-i18n="resellerPricing.orderNow">Order Now</a>
                 </div>
                 <!-- Card 2 - R-Standard (Most Popular) -->
                 <div class="cloud-card popular">
@@ -394,7 +394,7 @@
                     </div>
                     <h3 class="cloud-plan-name" data-i18n="resellerPricing.plans.standard.name">R-Standard</h3>
                     <p class="cloud-plan-desc" data-i18n="resellerPricing.plans.standard.desc">Best for growing resellers</p>
-                    <div class="cloud-pricing" data-yearly-price="23988">
+                    <div class="cloud-pricing" data-yearly-price="{{ hostorio_plan_price('reseller_hosting', 1, 23988) }}">
                         <div class="cloud-price-original">
                             <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
                             <span class="cloud-save-badge" data-i18n="resellerPricing.saveBadge">Save 30%!</span>
@@ -477,7 +477,7 @@
                             <span data-i18n="resellerPricing.features.freeLiteSpeed">FREE LiteSpeed</span>
                         </li>
                     </ul>
-                    <a href="#" class="cloud-order-btn" data-i18n="resellerPricing.orderNow">Order Now</a>
+                    <a href="{{ hostorio_plan_url('reseller_hosting', 1, '#') }}" class="cloud-order-btn" data-i18n="resellerPricing.orderNow">Order Now</a>
                 </div>
                 <!-- Card 3 - R-Advanced -->
                 <div class="cloud-card">
@@ -486,7 +486,7 @@
                     </div>
                     <h3 class="cloud-plan-name" data-i18n="resellerPricing.plans.advanced.name">R-Advanced</h3>
                     <p class="cloud-plan-desc" data-i18n="resellerPricing.plans.advanced.desc">Ideal for established businesses</p>
-                    <div class="cloud-pricing" data-yearly-price="34788">
+                    <div class="cloud-pricing" data-yearly-price="{{ hostorio_plan_price('reseller_hosting', 2, 34788) }}">
                         <div class="cloud-price-original">
                             <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
                             <span class="cloud-save-badge" data-i18n="resellerPricing.saveBadge">Save 30%!</span>
@@ -576,7 +576,7 @@
                             <span data-i18n="resellerPricing.features.freeWhmcs">FREE WHMCS License</span>
                         </li>
                     </ul>
-                    <a href="#" class="cloud-order-btn" data-i18n="resellerPricing.orderNow">Order Now</a>
+                    <a href="{{ hostorio_plan_url('reseller_hosting', 2, '#') }}" class="cloud-order-btn" data-i18n="resellerPricing.orderNow">Order Now</a>
                 </div>
                 <!-- Card 4 - R-Advanced Pro -->
                 <div class="cloud-card">
@@ -585,7 +585,7 @@
                     </div>
                     <h3 class="cloud-plan-name" data-i18n="resellerPricing.plans.advancedPro.name">R-Advanced Pro</h3>
                     <p class="cloud-plan-desc" data-i18n="resellerPricing.plans.advancedPro.desc">Enterprise reseller solution</p>
-                    <div class="cloud-pricing" data-yearly-price="66000">
+                    <div class="cloud-pricing" data-yearly-price="{{ hostorio_plan_price('reseller_hosting', 3, 66000) }}">
                         <div class="cloud-price-original">
                             <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
                             <span class="cloud-save-badge" data-i18n="resellerPricing.saveBadge">Save 30%!</span>
@@ -675,7 +675,7 @@
                             <span data-i18n="resellerPricing.features.freeWhmcs">FREE WHMCS License</span>
                         </li>
                     </ul>
-                    <a href="#" class="cloud-order-btn" data-i18n="resellerPricing.orderNow">Order Now</a>
+                    <a href="{{ hostorio_plan_url('reseller_hosting', 3, '#') }}" class="cloud-order-btn" data-i18n="resellerPricing.orderNow">Order Now</a>
                 </div>
             </div>
         </div>

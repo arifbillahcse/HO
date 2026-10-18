@@ -313,7 +313,7 @@
                     </div>
                     <h3 class="cloud-plan-name" data-i18n="emailPricing.plans.starter.name">Starter Mailboxes</h3>
                     <p class="cloud-plan-desc" data-i18n="emailPricing.plans.starter.mailboxes">1 Mailbox</p>
-                    <div class="cloud-pricing" data-yearly-price="1680">
+                    <div class="cloud-pricing" data-yearly-price="{{ hostorio_plan_price('business_email', 0, 1680) }}">
                         <div class="cloud-price-original">
                             <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
                             <span class="cloud-save-badge" data-i18n="emailPricing.saveBadge">Save 30%!</span>
@@ -361,7 +361,7 @@
                             <span data-i18n="emailPricing.features.twoFA">2FA Protection</span>
                         </li>
                     </ul>
-                    <a href="#" class="cloud-order-btn" data-i18n="emailPricing.getStarted">Get Started</a>
+                    <a href="{{ hostorio_plan_url('business_email', 0, '#') }}" class="cloud-order-btn" data-i18n="emailPricing.getStarted">Get Started</a>
                 </div>
                 <!-- Card 2 - Pro Mailboxes (Most Popular) -->
                 <div class="cloud-card popular">
@@ -371,7 +371,7 @@
                     </div>
                     <h3 class="cloud-plan-name" data-i18n="emailPricing.plans.pro.name">Pro Mailboxes</h3>
                     <p class="cloud-plan-desc" data-i18n="emailPricing.plans.pro.mailboxes">3 Mailboxes</p>
-                    <div class="cloud-pricing" data-yearly-price="7140">
+                    <div class="cloud-pricing" data-yearly-price="{{ hostorio_plan_price('business_email', 1, 7140) }}">
                         <div class="cloud-price-original">
                             <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
                             <span class="cloud-save-badge" data-i18n="emailPricing.saveBadge">Save 30%!</span>
@@ -426,7 +426,7 @@
                             <span data-i18n="emailPricing.features.mobileSyncSupport">Full Mobile Sync Support</span>
                         </li>
                     </ul>
-                    <a href="#" class="cloud-order-btn" data-i18n="emailPricing.getStarted">Get Started</a>
+                    <a href="{{ hostorio_plan_url('business_email', 1, '#') }}" class="cloud-order-btn" data-i18n="emailPricing.getStarted">Get Started</a>
                 </div>
                 <!-- Card 3 - Ultimate Mailboxes -->
                 <div class="cloud-card">
@@ -435,7 +435,7 @@
                     </div>
                     <h3 class="cloud-plan-name" data-i18n="emailPricing.plans.ultimate.name">Ultimate Mailboxes</h3>
                     <p class="cloud-plan-desc" data-i18n="emailPricing.plans.ultimate.mailboxes">5 Mailboxes</p>
-                    <div class="cloud-pricing" data-yearly-price="10080">
+                    <div class="cloud-pricing" data-yearly-price="{{ hostorio_plan_price('business_email', 2, 10080) }}">
                         <div class="cloud-price-original">
                             <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
                             <span class="cloud-save-badge" data-i18n="emailPricing.saveBadge">Save 30%!</span>
@@ -497,7 +497,7 @@
                             <span data-i18n="emailPricing.features.docsSheetsPresentations">Docs, Sheets &amp; Presentations</span>
                         </li>
                     </ul>
-                    <a href="#" class="cloud-order-btn" data-i18n="emailPricing.getStarted">Get Started</a>
+                    <a href="{{ hostorio_plan_url('business_email', 2, '#') }}" class="cloud-order-btn" data-i18n="emailPricing.getStarted">Get Started</a>
                 </div>
             </div>
         </div>

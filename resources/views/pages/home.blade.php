@@ -69,7 +69,7 @@
         "@type": "Offer",
         "url": "https://hostorio.com/",
         "priceCurrency": "BDT",
-        "price": 3000,
+        "price": {{ hostorio_plan_price('home', 0, 3000) }},
         "priceValidUntil": "2026-12-31",
         "availability": "https://schema.org/InStock",
         "shippingDetails": {
@@ -125,7 +125,7 @@
         "@type": "Offer",
         "url": "https://hostorio.com/",
         "priceCurrency": "BDT",
-        "price": 4200,
+        "price": {{ hostorio_plan_price('home', 1, 4200) }},
         "priceValidUntil": "2026-12-31",
         "availability": "https://schema.org/InStock",
         "shippingDetails": {
@@ -181,7 +181,7 @@
         "@type": "Offer",
         "url": "https://hostorio.com/",
         "priceCurrency": "BDT",
-        "price": 6000,
+        "price": {{ hostorio_plan_price('home', 2, 6000) }},
         "priceValidUntil": "2026-12-31",
         "availability": "https://schema.org/InStock",
         "shippingDetails": {
@@ -237,7 +237,7 @@
         "@type": "Offer",
         "url": "https://hostorio.com/",
         "priceCurrency": "BDT",
-        "price": 12000,
+        "price": {{ hostorio_plan_price('home', 3, 12000) }},
         "priceValidUntil": "2026-12-31",
         "availability": "https://schema.org/InStock",
         "shippingDetails": {
@@ -408,7 +408,7 @@
                     </div>
                     <h3 class="cloud-plan-name" data-i18n="pricing.plans.starter.name">Starter</h3>
                     <p class="cloud-plan-desc" data-i18n="pricing.plans.starter.desc">Ideal for beginner/personal websites</p>
-                    <div class="cloud-pricing" data-yearly-price="3000">
+                    <div class="cloud-pricing" data-yearly-price="{{ hostorio_plan_price('home', 0, 3000) }}">
                         <div class="cloud-price-original">
                             <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
                             <span class="cloud-save-badge" data-i18n="pricing.save30">Save 30%</span>
@@ -498,7 +498,7 @@
                             <span data-i18n="pricing.features.cpanelPanel">cPanel</span>
                         </li>
                     </ul>
-                    <a href="https://my.hostorio.com/cart.php?a=add&pid=55" class="cloud-order-btn" data-i18n="pricing.orderNow">Order Now</a>
+                    <a href="{{ hostorio_plan_url('home', 0, 'https://my.hostorio.com/cart.php?a=add&pid=55') }}" class="cloud-order-btn" data-i18n="pricing.orderNow">Order Now</a>
                 </div>
                 <!-- Card 2 - Lite Starter -->
                 <div class="cloud-card">
@@ -507,7 +507,7 @@
                     </div>
                     <h3 class="cloud-plan-name" data-i18n="pricing.plans.plus.name">Lite Starter</h3>
                     <p class="cloud-plan-desc" data-i18n="pricing.plans.plus.desc">Ideal for small business websites</p>
-                    <div class="cloud-pricing" data-yearly-price="4200">
+                    <div class="cloud-pricing" data-yearly-price="{{ hostorio_plan_price('home', 1, 4200) }}">
                         <div class="cloud-price-original">
                             <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
                             <span class="cloud-save-badge" data-i18n="pricing.save30">Save 30%</span>
@@ -597,7 +597,7 @@
                             <span data-i18n="pricing.features.cpanelPanel">cPanel</span>
                         </li>
                     </ul>
-                    <a href="https://my.hostorio.com/cart.php?a=add&pid=56" class="cloud-order-btn" data-i18n="pricing.orderNow">Order Now</a>
+                    <a href="{{ hostorio_plan_url('home', 1, 'https://my.hostorio.com/cart.php?a=add&pid=56') }}" class="cloud-order-btn" data-i18n="pricing.orderNow">Order Now</a>
                 </div>
                 <!-- Card 3 - Standard (Most Popular) -->
                 <div class="cloud-card popular">
@@ -607,7 +607,7 @@
                     </div>
                     <h3 class="cloud-plan-name" data-i18n="pricing.plans.turbo.name">Standard</h3>
                     <p class="cloud-plan-desc" data-i18n="pricing.plans.turbo.desc">Most popular package</p>
-                    <div class="cloud-pricing" data-yearly-price="6000">
+                    <div class="cloud-pricing" data-yearly-price="{{ hostorio_plan_price('home', 2, 6000) }}">
                         <div class="cloud-price-original">
                             <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
                             <span class="cloud-save-badge" data-i18n="pricing.save30">Save 30%</span>
@@ -697,7 +697,7 @@
                             <span data-i18n="pricing.features.cpanelPanel">cPanel</span>
                         </li>
                     </ul>
-                    <a href="https://my.hostorio.com/cart.php?a=add&pid=57" class="cloud-order-btn" data-i18n="pricing.orderNow">Order Now</a>
+                    <a href="{{ hostorio_plan_url('home', 2, 'https://my.hostorio.com/cart.php?a=add&pid=57') }}" class="cloud-order-btn" data-i18n="pricing.orderNow">Order Now</a>
                 </div>
                 <!-- Card 4 - Advanced -->
                 <div class="cloud-card">
@@ -706,7 +706,7 @@
                     </div>
                     <h3 class="cloud-plan-name" data-i18n="pricing.plans.business.name">Advanced</h3>
                     <p class="cloud-plan-desc" data-i18n="pricing.plans.business.desc">Ideal for eCommerce websites</p>
-                    <div class="cloud-pricing" data-yearly-price="12000">
+                    <div class="cloud-pricing" data-yearly-price="{{ hostorio_plan_price('home', 3, 12000) }}">
                         <div class="cloud-price-original">
                             <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
                             <span class="cloud-save-badge" data-i18n="pricing.save30">Save 30%</span>
@@ -796,7 +796,7 @@
                             <span data-i18n="pricing.features.cpanelPanel">cPanel</span>
                         </li>
                     </ul>
-                    <a href="https://my.hostorio.com/cart.php?a=add&pid=58" class="cloud-order-btn" data-i18n="pricing.orderNow">Order Now</a>
+                    <a href="{{ hostorio_plan_url('home', 3, 'https://my.hostorio.com/cart.php?a=add&pid=58') }}" class="cloud-order-btn" data-i18n="pricing.orderNow">Order Now</a>
                 </div>
             </div>
         </div>

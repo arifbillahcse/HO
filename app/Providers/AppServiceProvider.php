@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\WhmcsService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -12,6 +13,8 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         require_once app_path('Helpers/HostorioHelper.php');
+
+        $this->app->singleton(WhmcsService::class);
     }
 
     /**
