@@ -337,17 +337,43 @@
                 <div class="hero-left">
                     <div class="hero-tag" data-i18n="hero.tag">WWW.HOSTORIO.COM</div>
                     <h1 class="hero-title" data-i18n="hero.title">
-                        Everything You Need to Launch<br>
-                        & Grow Online. 
+                        Fastest Data Center<br>Web Hosting
                     </h1>
                     <p class="hero-description" data-i18n="hero.description">
-                        From your first website to scaling a business - we provide lightning-fast hosting, domain, SSL certificates, and expert support. Trusted by 500+ entrepreneurs who started just like you.                    </p>
-                    <a href="" class="cta-button" data-i18n="hero.ctaButton">
-                        Get Started
-                    </a>
+                        We hosted more than 500+ happy customers. Small website to high traffic website customers. Get affordable web hosting package designed to help you start and run a successful website – regardless of your experience.
+                    </p>
+
+                    <form method="post" action="https://my.hostorio.com/cart.php?a=add&domain=register" class="hero-search" role="search">
+                        <input type="hidden" name="token" value="310831da269f185aeff91e84768ddf9e675287bc">
+                        <label class="hero-search-field">
+                            <i class="fas fa-search hero-search-icon" aria-hidden="true"></i>
+                            <input
+                                type="text"
+                                name="sld"
+                                class="hero-search-input"
+                                placeholder="Search your domain name"
+                                data-i18n-placeholder="hero.searchPlaceholder"
+                                aria-label="Search your domain name"
+                                required
+                                autocomplete="off"
+                            >
+                        </label>
+                        <button type="submit" class="hero-search-btn" data-i18n="hero.searchButton">Search</button>
+                    </form>
+
+                    <p class="hero-domains">
+                        <span data-i18n="hero.domainsFrom">Domains from</span>
+                        <span class="hero-tld"><strong>.com</strong> <em>$12.99/yr</em><span class="hero-sep" aria-hidden="true">&middot;</span></span>
+                        <span class="hero-tld"><strong>.com.bd</strong> <em>$9.50/yr</em><span class="hero-sep" aria-hidden="true">&middot;</span></span>
+                        <span class="hero-tld"><strong>.xyz</strong> <em>$2.99/yr</em></span>
+                    </p>
+                    <p class="hero-transfer">
+                        <span data-i18n="hero.haveDomain">Already have a domain?</span>
+                        <a href="https://my.hostorio.com/cart.php?a=add&domain=transfer" data-i18n="hero.transferLink">Transfer it to Hostorio</a>
+                    </p>
                 </div>
                 <div class="hero-right">
-                    <img src="{{ asset('') }}/assets/images/hero/hostorio-cloud.png" alt="Hostorio cloud hosting infrastructure with NVMe SSD storage and LiteSpeed technology in Bangladesh" class="hero-image">
+                    <img src="{{ asset('assets/images/hero/hostorio-cloud.png') }}" alt="Hostorio cloud hosting infrastructure with NVMe SSD storage and LiteSpeed technology in Bangladesh" class="hero-image" width="500" height="500" fetchpriority="high">
                 </div>
             </div>
         </div>
