@@ -1490,6 +1490,19 @@ ul {
     border-bottom: 2px solid #e0e0e0;
 }
 
+/* Keep the comparison table's popular badge inside its column */
+.plan-column.popular .plan-header {
+    position: relative;
+    padding-top: 26px;
+}
+
+.plan-column.popular .plan-header .cloud-popular-badge {
+    top: 0;
+    left: 0;
+    right: 0;
+    border-radius: 0;
+}
+
 .plan-title {
     font-size: 22px;
     font-weight: 700;

@@ -250,7 +250,7 @@
                 <!-- Service Item 1 -->
                 <div class="service-item">
                     <div class="service-image">
-                        <img src="{{ asset('') }}/assets/images/hostorio-domain-hosting-register.jpg" alt="Hostorio domain registration – find and secure your perfect domain name online">
+                        <img src="{{ asset('assets/images/hostorio-domain-hosting-register.jpg') }}" alt="Hostorio domain registration – find and secure your perfect domain name online">
                     </div>
                     <div class="service-content">
                         <h3 class="service-title" data-i18n="services.item1.title">Secure Your Digital Identity</h3>
@@ -266,7 +266,7 @@
                 <!-- Service Item 2 -->
                 <div class="service-item reverse">
                     <div class="service-image">
-                        <img src="{{ asset('') }}/assets/images/hostorio-performance.webp" alt="Hostorio high-performance web hosting powered by LiteSpeed servers and NVMe SSD storage">
+                        <img src="{{ asset('assets/images/hostorio-performance.webp') }}" alt="Hostorio high-performance web hosting powered by LiteSpeed servers and NVMe SSD storage">
                     </div>
                     <div class="service-content">
                         <h3 class="service-title" data-i18n="services.item2.title">Performance-First Web Hosting</h3>
@@ -282,7 +282,7 @@
                 <!-- Service Item 3 -->
                 <div class="service-item">
                     <div class="service-image">
-                        <img src="{{ asset('') }}/assets/images/hostorio-email-solution.webp" alt="Hostorio professional business email hosting with custom domain – name@yourdomain.com">
+                        <img src="{{ asset('assets/images/hostorio-email-solution.webp') }}" alt="Hostorio professional business email hosting with custom domain – name@yourdomain.com">
                     </div>
                     <div class="service-content">
                         <h3 class="service-title" data-i18n="services.item3.title">Professional Email Solutions</h3>
@@ -298,7 +298,7 @@
                 <!-- Service Item 4 -->
                 <div class="service-item reverse">
                     <div class="service-image">
-                        <img src="{{ asset('') }}/assets/images/hostorio-ssl-security.webp" alt="Hostorio free SSL certificate and DDoS protection keeping websites secure 24/7">
+                        <img src="{{ asset('assets/images/hostorio-ssl-security.webp') }}" alt="Hostorio free SSL certificate and DDoS protection keeping websites secure 24/7">
                     </div>
                     <div class="service-content">
                         <h3 class="service-title" data-i18n="services.item4.title">Bulletproof Security</h3>
@@ -314,7 +314,7 @@
                 <!-- Service Item 5 -->
                 <div class="service-item">
                     <div class="service-image">
-                        <img src="{{ asset('') }}/assets/images/enterprice-security.jpg" alt="Hostorio enterprise-grade security with free SSL, DDoS protection via BitNinja and automated daily backups">
+                        <img src="{{ asset('assets/images/enterprice-security.jpg') }}" alt="Hostorio enterprise-grade security with free SSL, DDoS protection via BitNinja and automated daily backups">
                     </div>
                     <div class="service-content">
                         <h3 class="service-title" data-i18n="services.item5.title">Enterprise-Grade Security, Affordable Prices</h3>
@@ -499,7 +499,7 @@
                 <!-- Card 1 -->
                 <div class="support-card">
                     <div class="card-image-wrapper">
-                        <img src="{{ asset('') }}/assets/images/support/support-hostorio.webp" alt="Hostorio 24/7 customer support team guiding new users through web hosting setup and configuration" class="card-image">
+                        <img src="{{ asset('assets/images/support/support-hostorio.webp') }}" alt="Hostorio 24/7 customer support team guiding new users through web hosting setup and configuration" class="card-image">
                         <div class="image-overlay blue-overlay"></div>
                     </div>
                     <div class="card-content">
@@ -513,7 +513,7 @@
                 <!-- Card 2 -->
                 <div class="support-card">
                     <div class="card-image-wrapper">
-                        <img src="{{ asset('') }}/assets/images/support/blog-hostorio.webp" alt="Hostorio knowledge base and resource center with web hosting tutorials, guides and security tips" class="card-image">
+                        <img src="{{ asset('assets/images/support/blog-hostorio.webp') }}" alt="Hostorio knowledge base and resource center with web hosting tutorials, guides and security tips" class="card-image">
                         <div class="image-overlay green-overlay"></div>
                     </div>
                     <div class="card-content">
@@ -527,7 +527,7 @@
                 <!-- Card 3 -->
                 <div class="support-card">
                     <div class="card-image-wrapper">
-                        <img src="{{ asset('') }}/assets/images/support/trasfer-hosting-hostorio.webp" alt="Hassle-free domain and web hosting transfer service to Hostorio – fast, easy migration" class="card-image">
+                        <img src="{{ asset('assets/images/support/trasfer-hosting-hostorio.webp') }}" alt="Hassle-free domain and web hosting transfer service to Hostorio – fast, easy migration" class="card-image">
                         <div class="image-overlay orange-overlay"></div>
                     </div>
                     <div class="card-content">

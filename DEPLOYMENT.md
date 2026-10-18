@@ -2,6 +2,28 @@
 
 Complete guide for deploying the Hostorio Laravel application to production.
 
+## Updating the cPanel site (ho.demo.softorio.com)
+
+Run these in cPanel → Terminal after new code is pushed:
+
+```bash
+cd /disk2/demosoftorio/ho.demo.softorio.com
+PHP=/opt/cpanel/ea-php84/root/usr/bin/php
+
+git fetch origin claude/clone-wp-ho-branch-r2rew7
+git reset --hard origin/claude/clone-wp-ho-branch-r2rew7
+
+$PHP artisan migrate --force                          # products tables, removes the old Package page plans
+$PHP artisan db:seed --class=ProductSeeder --force    # first time only: imports the plans; does nothing once plans exist
+$PHP artisan storage:link                             # once: needed for plan icons uploaded in the admin ("already exists" is fine)
+$PHP artisan optimize:clear
+```
+
+Then check `.env` has `APP_ENV=production` and `APP_DEBUG=false`, and hard-refresh the browser (Ctrl + F5).
+Run `composer install --no-dev --optimize-autoloader` only when `composer.lock` changed.
+
+Plans and comparison tables are edited in the admin, see [docs/PRODUCTS_GUIDE.md](docs/PRODUCTS_GUIDE.md).
+
 ## Prerequisites
 
 - Domain name with DNS access

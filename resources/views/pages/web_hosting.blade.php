@@ -115,8 +115,7 @@
         "opens": "00:00",
         "closes": "23:59"
       },
-      "priceRange": "৳৳",
-      "servesCuisine": "Web Hosting, VPS, Domain Registration",
+      "priceRange": "৳৳"
     }
     </script>
     <script type="application/ld+json">
@@ -531,7 +530,7 @@
                 <!-- Image Side -->
                 <div class="testimonial-image-side">
                     <div class="testimonial-video-wrapper">
-                        <img src="{{ asset('') }}/assets/images/testimonials/shaidulislamrony.png" alt="Shaidul Islam Rony – Hostorio web hosting customer testimonial" class="testimonial-person-image">
+                        <img src="{{ asset('assets/images/testimonials/shaidulislamrony.png') }}" alt="Shaidul Islam Rony – Hostorio web hosting customer testimonial" class="testimonial-person-image">
                         <div class="video-play-button">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="play-svg">
                                 <path fill="currentColor" d="M8 5v14l11-7z"></path>
@@ -577,7 +576,7 @@
                 <!-- Image Side -->
                 <div class="testimonial-image-side">
                     <div class="testimonial-video-wrapper">
-                        <img src="{{ asset('') }}/assets/images/testimonials/tutul.png" alt="Tutul – satisfied Hostorio web hosting customer" class="testimonial-person-image">
+                        <img src="{{ asset('assets/images/testimonials/tutul.png') }}" alt="Tutul – satisfied Hostorio web hosting customer" class="testimonial-person-image">
                         <div class="video-play-button">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="play-svg">
                                 <path fill="currentColor" d="M8 5v14l11-7z"></path>
@@ -891,7 +890,7 @@
                 <!-- Card 1 -->
                 <div class="support-card">
                     <div class="card-image-wrapper">
-                        <img src="{{ asset('') }}/assets/images/support/support-hostorio.webp" alt="Hostorio 24/7 web hosting support team helping customers with website setup and configuration" class="card-image">
+                        <img src="{{ asset('assets/images/support/support-hostorio.webp') }}" alt="Hostorio 24/7 web hosting support team helping customers with website setup and configuration" class="card-image">
                         <div class="image-overlay blue-overlay"></div>
                     </div>
                     <div class="card-content">
@@ -905,7 +904,7 @@
                 <!-- Card 2 -->
                 <div class="support-card">
                     <div class="card-image-wrapper">
-                        <img src="{{ asset('') }}/assets/images/support/blog-hostorio.webp" alt="Hostorio knowledge base – web hosting tutorials, WordPress guides and technical resources" class="card-image">
+                        <img src="{{ asset('assets/images/support/blog-hostorio.webp') }}" alt="Hostorio knowledge base – web hosting tutorials, WordPress guides and technical resources" class="card-image">
                         <div class="image-overlay green-overlay"></div>
                     </div>
                     <div class="card-content">
@@ -919,7 +918,7 @@
                 <!-- Card 3 -->
                 <div class="support-card">
                     <div class="card-image-wrapper">
-                        <img src="{{ asset('') }}/assets/images/support/trasfer-hosting-hostorio.webp" alt="Free website migration service – hassle-free web hosting transfer to Hostorio" class="card-image">
+                        <img src="{{ asset('assets/images/support/trasfer-hosting-hostorio.webp') }}" alt="Free website migration service – hassle-free web hosting transfer to Hostorio" class="card-image">
                         <div class="image-overlay orange-overlay"></div>
                     </div>
                     <div class="card-content">

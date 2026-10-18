@@ -45,6 +45,7 @@
       ]
     }
     </script>
+    @php($serviceRange = app(\App\Services\ProductCatalog::class)->priceRange('business_email'))
     <script type="application/ld+json">
 {
       "@@context": "https://schema.org",
@@ -65,9 +66,9 @@
         "@type": "AggregateOffer",
         "url": "{{ url('/') }}",
         "priceCurrency": "BDT",
-        "lowPrice": "1680",
-        "highPrice": "10080",
-        "offerCount": "3",
+        "lowPrice": {{ $serviceRange['low'] }},
+        "highPrice": {{ $serviceRange['high'] }},
+        "offerCount": {{ $serviceRange['count'] }},
         "availability": "https://schema.org/InStock"
       }
     }
@@ -396,7 +397,7 @@
                 <!-- Image Side -->
                 <div class="testimonial-image-side">
                     <div class="testimonial-video-wrapper">
-                        <img src="{{ asset('') }}/assets/images/testimonials/shaidulislamrony.png" alt="Shaidul Islam Rony – business email customer review" class="testimonial-person-image">
+                        <img src="{{ asset('assets/images/testimonials/shaidulislamrony.png') }}" alt="Shaidul Islam Rony – business email customer review" class="testimonial-person-image">
                         <div class="video-play-button">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="play-svg">
                                 <path fill="currentColor" d="M8 5v14l11-7z"></path>
@@ -442,7 +443,7 @@
                 <!-- Image Side -->
                 <div class="testimonial-image-side">
                     <div class="testimonial-video-wrapper">
-                        <img src="{{ asset('') }}/assets/images/testimonials/tutul.png" alt="Tutul – satisfied business email customer" class="testimonial-person-image">
+                        <img src="{{ asset('assets/images/testimonials/tutul.png') }}" alt="Tutul – satisfied business email customer" class="testimonial-person-image">
                         <div class="video-play-button">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="play-svg">
                                 <path fill="currentColor" d="M8 5v14l11-7z"></path>
@@ -689,7 +690,7 @@
             <!-- Card 1 -->
             <div class="support-card">
                 <div class="card-image-wrapper">
-                    <img src="{{ asset('') }}/assets/images/support/support-hostorio.webp" alt="Onboarding Support" class="card-image">
+                    <img src="{{ asset('assets/images/support/support-hostorio.webp') }}" alt="Onboarding Support" class="card-image">
                     <div class="image-overlay blue-overlay"></div>
                 </div>
                 <div class="card-content">
@@ -703,7 +704,7 @@
             <!-- Card 2 -->
             <div class="support-card">
                 <div class="card-image-wrapper">
-                    <img src="{{ asset('') }}/assets/images/support/blog-hostorio.webp" alt="Discover Resources" class="card-image">
+                    <img src="{{ asset('assets/images/support/blog-hostorio.webp') }}" alt="Discover Resources" class="card-image">
                     <div class="image-overlay green-overlay"></div>
                 </div>
                 <div class="card-content">
@@ -717,7 +718,7 @@
             <!-- Card 3 -->
             <div class="support-card">
                 <div class="card-image-wrapper">
-                    <img src="{{ asset('') }}/assets/images/support/trasfer-hosting-hostorio.webp" alt="Hassle-Free Transfers" class="card-image">
+                    <img src="{{ asset('assets/images/support/trasfer-hosting-hostorio.webp') }}" alt="Hassle-Free Transfers" class="card-image">
                     <div class="image-overlay orange-overlay"></div>
                 </div>
                 <div class="card-content">

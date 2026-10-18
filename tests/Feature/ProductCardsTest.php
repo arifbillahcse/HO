@@ -146,6 +146,19 @@ class ProductCardsTest extends TestCase
         $this->assertCount(4, $this->schemas($this->get('/offer')->getContent(), 'ItemList')[0]['itemListElement']);
 
         $this->get('/web-hosting')->assertSee('"lowPrice": 3000,', false)->assertSee('"highPrice": 12000,', false)->assertSee('"offerCount": 4,', false);
+
+        Product::onPage('turbo_hosting')->first()->update(['yearly_price' => 9000]);
+        $service = $this->schemas($this->get('/turbo-hosting')->getContent(), '"Service"')[0]['offers'];
+        $this->assertSame([9000, 30000, 4], [$service['lowPrice'], $service['highPrice'], $service['offerCount']]);
+    }
+
+    public function test_every_page_has_valid_structured_data(): void
+    {
+        foreach ([...array_values(self::PAGES), '/about-us', '/privacy-policy', '/terms-and-conditions'] as $url) {
+            $html = $this->get($url)->assertOk()->getContent();
+
+            $this->assertSame(substr_count($html, 'application/ld+json'), count($this->schemas($html, '@')), $url);
+        }
     }
 
     public function test_admin_text_cannot_break_the_page(): void
