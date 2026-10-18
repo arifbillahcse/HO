@@ -27,6 +27,14 @@ namespace {
         }
     }
 
+    if (!function_exists('hostorio_business')) {
+        /** Contact details and address from Admin → Contact & Address. */
+        function hostorio_business(): \App\Services\BusinessInfo
+        {
+            return app(\App\Services\BusinessInfo::class);
+        }
+    }
+
     if (!function_exists('hostorio_products')) {
         /** Visible products of a page, in admin order. */
         function hostorio_products(string $page): \Illuminate\Support\Collection

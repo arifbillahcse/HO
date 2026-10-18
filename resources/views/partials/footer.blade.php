@@ -11,21 +11,10 @@
                     {{ hostorio('footer_description', 'Hostorio is a popular web hosting services provider. Hostorio provides Shared Hosting, Business Hosting, Reseller Hosting, VPS, and domain Registration-Transfer services.') }}
                 </p>
                 <div class="social-links">
-                    @php
-                        $socials = [
-                            'facebook' => 'fab fa-facebook-f',
-                            'twitter' => 'fab fa-twitter',
-                            'youtube' => 'fab fa-youtube',
-                            'linkedin' => 'fab fa-linkedin-in',
-                        ];
-                    @endphp
-                    @foreach ($socials as $network => $icon)
-                        @php $url = hostorio('social_' . $network, ''); @endphp
-                        @if (!empty($url))
-                            <a href="{{ $url }}" class="social-icon" aria-label="{{ ucfirst($network) }}">
-                                <i class="{{ $icon }}"></i>
-                            </a>
-                        @endif
+                    @foreach (hostorio_business()->socials() as $network => $url)
+                        <a href="{{ $url }}" class="social-icon" aria-label="{{ $network === 'twitter' ? 'X (Twitter)' : ucfirst($network) }}">
+                            <i class="{{ \App\Services\BusinessInfo::SOCIALS[$network] }}"></i>
+                        </a>
                     @endforeach
                 </div>
             </div>
@@ -41,25 +30,25 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ hostorio('client_area_url', 'https://my.hostorio.com/') }}supporttickets.php">
+                        <a href="{{ hostorio_business()->clientAreaUrl() }}supporttickets.php">
                             <i class="fas fa-caret-right"></i>
                             <span data-i18n="footer.important.contact">Contact Us</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ hostorio('client_area_url', 'https://my.hostorio.com/') }}login">
+                        <a href="{{ hostorio_business()->clientAreaUrl() }}login">
                             <i class="fas fa-caret-right"></i>
                             <span data-i18n="footer.important.login">Log In</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ hostorio('client_area_url', 'https://my.hostorio.com/') }}submitticket.php">
+                        <a href="{{ hostorio_business()->clientAreaUrl() }}submitticket.php">
                             <i class="fas fa-caret-right"></i>
                             <span data-i18n="footer.important.support">Support</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ hostorio('client_area_url', 'https://my.hostorio.com/') }}knowledgebase">
+                        <a href="{{ hostorio_business()->clientAreaUrl() }}knowledgebase">
                             <i class="fas fa-caret-right"></i>
                             <span data-i18n="footer.important.knowledgebase">Knowledgebase</span>
                         </a>
@@ -110,19 +99,19 @@
                 <ul class="footer-contact">
                     <li>
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>{{ hostorio('business_city', 'Kanchan, Rupganj, Narayanganj') }}</span>
+                        <span>{{ hostorio_business()->cityLine() }}</span>
                     </li>
                     <li>
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>{{ hostorio('business_address', 'H-161, OABDA SOROK MATHBARIA') }}</span>
+                        <span>{{ hostorio_business()->street() }}</span>
                     </li>
                     <li>
                         <i class="fas fa-phone-alt"></i>
-                        <span>{{ hostorio('business_phone', '+8801779440297') }}</span>
+                        <span>{{ hostorio_business()->phone() }}</span>
                     </li>
                     <li>
                         <i class="fas fa-envelope"></i>
-                        <span>{{ hostorio('business_email', 'mail@hostorio.com') }}</span>
+                        <span>{{ hostorio_business()->email() }}</span>
                     </li>
                 </ul>
                 <div class="payment-methods">

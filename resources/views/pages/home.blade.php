@@ -28,30 +28,19 @@
 {
       "@@context": "https://schema.org",
       "@type": "Organization",
-      "name": "Hostorio",
+      "name": @json(hostorio_business()->name()),
       "url": "https://hostorio.com",
       "logo": "https://hostorio.com/assets/images/logo/hostorio-logo.png",
       "description": "Hostorio is a web hosting services provider in Bangladesh offering shared hosting, turbo hosting, reseller hosting, VPS, domain registration, and business email solutions.",
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+8801779440297",
+        "telephone": @json(hostorio_business()->phone()),
         "contactType": "customer service",
-        "email": "mail@hostorio.com",
+        "email": @json(hostorio_business()->email()),
         "availableLanguage": ["English", "Bengali"]
       },
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "H-161, OABDA SOROK MATHBARIA",
-        "addressLocality": "Kanchan, Rupganj",
-        "addressRegion": "Narayanganj",
-        "addressCountry": "BD"
-      },
-      "sameAs": [
-        "https://www.facebook.com/hostorio",
-        "https://x.com/hostorio",
-        "https://www.youtube.com/@arifbillahcse",
-        "https://www.linkedin.com/company/hostorio/"
-      ]
+      "address": @json(hostorio_business()->postalAddress()),
+      "sameAs": @json(hostorio_business()->sameAs())
     }
     </script>
     @foreach (app(\App\Services\ProductCatalog::class)->productSchemas('home', 'Web Hosting') as $schema)
@@ -61,19 +50,13 @@
 {
       "@@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "name": "Hostorio",
+      "name": @json(hostorio_business()->name()),
       "image": "https://hostorio.com/assets/images/logo/hostorio-logo.png",
       "@id": "https://hostorio.com",
       "url": "https://hostorio.com",
-      "telephone": "+8801779440297",
-      "email": "mail@hostorio.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "H-161, OABDA SOROK MATHBARIA",
-        "addressLocality": "Kanchan, Rupganj",
-        "addressRegion": "Narayanganj",
-        "addressCountry": "BD"
-      },
+      "telephone": @json(hostorio_business()->phone()),
+      "email": @json(hostorio_business()->email()),
+      "address": @json(hostorio_business()->postalAddress()),
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
@@ -122,7 +105,7 @@
                         We hosted more than 500+ happy customers. Small website to high traffic website customers. Get affordable web hosting package designed to help you start and run a successful website – regardless of your experience.
                     </p>
 
-                    <form method="post" action="https://my.hostorio.com/cart.php?a=add&domain=register" class="hero-search" role="search">
+                    <form method="post" action="{{ hostorio_business()->clientAreaUrl() }}cart.php?a=add&domain=register" class="hero-search" role="search">
                         <input type="hidden" name="token" value="310831da269f185aeff91e84768ddf9e675287bc">
                         <label class="hero-search-field">
                             <i class="fas fa-search hero-search-icon" aria-hidden="true"></i>
@@ -148,7 +131,7 @@
                     </p>
                     <p class="hero-transfer">
                         <span data-i18n="hero.haveDomain">Already have a domain?</span>
-                        <a href="https://my.hostorio.com/cart.php?a=add&domain=transfer" data-i18n="hero.transferLink">Transfer it to Hostorio</a>
+                        <a href="{{ hostorio_business()->clientAreaUrl() }}cart.php?a=add&domain=transfer" data-i18n="hero.transferLink">Transfer it to Hostorio</a>
                     </p>
                 </div>
                 <div class="hero-right">
@@ -197,7 +180,7 @@
             <h2 class="section-heading">Find Your Perfect Domain Name</h2>
             
             <!-- Dynamic Search Box Form -->
-            <form method="post" action="https://my.hostorio.com/cart.php?a=add&domain=register" id="domain-searchform" class="search-box-wrapper">
+            <form method="post" action="{{ hostorio_business()->clientAreaUrl() }}cart.php?a=add&domain=register" id="domain-searchform" class="search-box-wrapper">
                 <!-- Hidden Token Field -->
                 <input type="hidden" name="token" value="310831da269f185aeff91e84768ddf9e675287bc">
                 
@@ -257,7 +240,7 @@
                         <p class="service-description" data-i18n="services.item1.desc">
                             Grab the Perfect Domain Your domain is more than just an address; it's your brand's first impression. Use our lightning-fast search tool to find the perfect name that defines your business. Whether you're starting fresh or want to move an existing domain to a more reliable home, our seamless transfer process makes it effortless.
                         </p>
-                        <a href="https://my.hostorio.com/cart.php?a=add&domain=register" class="service-link">
+                        <a href="{{ hostorio_business()->clientAreaUrl() }}cart.php?a=add&domain=register" class="service-link">
                             <span data-i18n="services.item1.link">Explore Domain</span>
                             <i class="arrow-icon">→</i>
                         </a>
@@ -507,7 +490,7 @@
                         <p class="card-description" data-i18n="support.card1.desc">
                             Don't know where to start? Our step-by-step tutorials and 24/7 support team walk you through domain setup, hosting configuration, and WordPress installation.
                         </p>
-                        <a href="https://my.hostorio.com/submitticket.php" class="card-button" data-i18n="support.card1.btn">Get started</a>
+                        <a href="{{ hostorio_business()->clientAreaUrl() }}submitticket.php" class="card-button" data-i18n="support.card1.btn">Get started</a>
                     </div>
                 </div>
                 <!-- Card 2 -->
@@ -521,7 +504,7 @@
                         <p class="card-description" data-i18n="support.card2.desc">
                             Access our resource center for hosting best practices, security tips, performance optimization guides, and industry insights.
                         </p>
-                        <a href="https://my.hostorio.com/knowledgebase" class="card-button" data-i18n="support.card2.btn">Get learning</a>
+                        <a href="{{ hostorio_business()->clientAreaUrl() }}knowledgebase" class="card-button" data-i18n="support.card2.btn">Get learning</a>
                     </div>
                 </div>
                 <!-- Card 3 -->
@@ -535,7 +518,7 @@
                         <p class="card-description" data-i18n="support.card3.desc">
                             Move your domain and Hosting to Us. Switching hosts shouldn't feel like moving houses. With us, it's simple.
                         </p>
-                        <a href="https://my.hostorio.com/cart.php?a=add&domain=transfer" class="card-button" data-i18n="support.card3.btn">Transfer today</a>
+                        <a href="{{ hostorio_business()->clientAreaUrl() }}cart.php?a=add&domain=transfer" class="card-button" data-i18n="support.card3.btn">Transfer today</a>
                     </div>
                 </div>
             </div>

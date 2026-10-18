@@ -2,13 +2,13 @@
     <div class="container-wrapper">
         <div class="top-bar-content">
             <div class="top-left-links">
-                <a href="{{ hostorio('client_area_url', 'https://my.hostorio.com/') }}submitticket.php" class="info-link">
+                <a href="{{ hostorio_business()->clientAreaUrl() }}submitticket.php" class="info-link">
                     <i class="fas fa-question-circle"></i>
                     <span data-i18n="nav.helpCenter">Help Center</span>
                 </a>
-                <a href="#" class="info-link">
+                <a href="{{ hostorio_business()->phoneHref() }}" class="info-link">
                     <i class="fas fa-phone-alt"></i>
-                    <span>{{ hostorio('business_phone', '+8801779440297') }}</span>
+                    <span>{{ hostorio_business()->phone() }}</span>
                 </a>
                 <div class="language-selector">
                     <img src="{{ asset('assets/images/flags/us.png') }}" alt="English" class="flag-icon">
@@ -73,7 +73,7 @@
                             $logo = asset('assets/images/logo/hostorio-logo.png');
                         }
                     @endphp
-                    <img src="{{ $logo }}" alt="{{ hostorio('business_name', 'Hostorio') }} – web hosting company logo" class="logo-image">
+                    <img src="{{ $logo }}" alt="{{ hostorio_business()->name() }} – web hosting company logo" class="logo-image">
                 </a>
             </div>
 
@@ -112,15 +112,15 @@
                             <i class="fas fa-chevron-down dropdown-arrow"></i>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ hostorio('client_area_url', 'https://my.hostorio.com/') }}cart.php?a=add&amp;domain=register" class="dropdown-item">
+                            <li><a href="{{ hostorio_business()->clientAreaUrl() }}cart.php?a=add&amp;domain=register" class="dropdown-item">
                                 <i class="fas fa-globe"></i>
                                 <span data-i18n="nav.domainRegistration">Domain Registration</span>
                             </a></li>
-                            <li><a href="{{ hostorio('client_area_url', 'https://my.hostorio.com/') }}cart.php?a=add&amp;domain=register" class="dropdown-item">
+                            <li><a href="{{ hostorio_business()->clientAreaUrl() }}cart.php?a=add&amp;domain=register" class="dropdown-item">
                                 <i class="fas fa-tags"></i>
                                 <span data-i18n="nav.domainPricing">Domain Pricing</span>
                             </a></li>
-                            <li><a href="{{ hostorio('client_area_url', 'https://my.hostorio.com/') }}cart.php?a=add&amp;domain=transfer" class="dropdown-item">
+                            <li><a href="{{ hostorio_business()->clientAreaUrl() }}cart.php?a=add&amp;domain=transfer" class="dropdown-item">
                                 <i class="fas fa-exchange-alt"></i>
                                 <span data-i18n="nav.domainTransfer">Domain Transfer</span>
                             </a></li>
@@ -131,11 +131,11 @@
             </nav>
 
             <div class="mobile-account-center">
-                <a href="{{ hostorio('client_area_url', 'https://my.hostorio.com/') }}" class="account-btn" data-i18n="nav.myAccount">My Account</a>
+                <a href="{{ hostorio_business()->clientAreaUrl() }}" class="account-btn" data-i18n="nav.myAccount">My Account</a>
             </div>
 
             <div class="header-right">
-                <a href="{{ hostorio('client_area_url', 'https://my.hostorio.com/') }}" class="account-btn desktop-account" data-i18n="nav.myAccount">My Account</a>
+                <a href="{{ hostorio_business()->clientAreaUrl() }}" class="account-btn desktop-account" data-i18n="nav.myAccount">My Account</a>
 
                 <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Menu">
                     <span class="hamburger-line"></span>
@@ -182,15 +182,15 @@
                 <i class="fas fa-chevron-down dropdown-arrow"></i>
             </a>
             <ul class="dropdown-menu">
-                <li><a href="{{ hostorio('client_area_url', 'https://my.hostorio.com/') }}cart.php?a=add&amp;domain=register" class="dropdown-item">
+                <li><a href="{{ hostorio_business()->clientAreaUrl() }}cart.php?a=add&amp;domain=register" class="dropdown-item">
                     <i class="fas fa-globe"></i>
                     <span data-i18n="nav.domainRegistration">Domain Registration</span>
                 </a></li>
-                <li><a href="{{ hostorio('client_area_url', 'https://my.hostorio.com/') }}cart.php?a=add&amp;domain=register" class="dropdown-item">
+                <li><a href="{{ hostorio_business()->clientAreaUrl() }}cart.php?a=add&amp;domain=register" class="dropdown-item">
                     <i class="fas fa-tags"></i>
                     <span data-i18n="nav.domainPricing">Domain Pricing</span>
                 </a></li>
-                <li><a href="{{ hostorio('client_area_url', 'https://my.hostorio.com/') }}cart.php?a=add&amp;domain=transfer" class="dropdown-item">
+                <li><a href="{{ hostorio_business()->clientAreaUrl() }}cart.php?a=add&amp;domain=transfer" class="dropdown-item">
                     <i class="fas fa-exchange-alt"></i>
                     <span data-i18n="nav.domainTransfer">Domain Transfer</span>
                 </a></li>

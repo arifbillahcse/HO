@@ -29,23 +29,18 @@
 {
       "@@context": "https://schema.org",
       "@type": "Organization",
-      "name": "Hostorio",
+      "name": @json(hostorio_business()->name()),
       "url": "https://hostorio.com",
       "logo": "https://hostorio.com/assets/images/logo/hostorio-logo.png",
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+8801779440297",
+        "telephone": @json(hostorio_business()->phone()),
         "contactType": "customer service",
-        "email": "mail@hostorio.com",
+        "email": @json(hostorio_business()->email()),
         "areaServed": "BD",
         "availableLanguage": ["English", "Bengali"]
       },
-      "sameAs": [
-        "https://www.facebook.com/hostorio",
-        "https://x.com/hostorio",
-        "https://www.youtube.com/@arifbillahcse",
-        "https://www.linkedin.com/company/hostorio/"
-      ]
+      "sameAs": @json(hostorio_business()->sameAs())
     }
     </script>
     @php($serviceRange = app(\App\Services\ProductCatalog::class)->priceRange('turbo_hosting'))
@@ -58,7 +53,7 @@
       "description": "Lightning-fast turbo web hosting powered by LiteSpeed web server, NVMe SSD storage, HTTP/3 (QUIC) protocol, and built-in LSCache caching. Optimized for maximum speed, SEO performance, and conversion rates. Perfect for eCommerce sites and growing businesses.",
       "provider": {
         "@type": "Organization",
-        "name": "Hostorio",
+        "name": @json(hostorio_business()->name()),
         "url": "https://hostorio.com"
       },
       "areaServed": {
@@ -767,7 +762,7 @@
                         <p data-i18n="faq.cta.desc">Can't find the answer you're looking for? Please chat with our friendly team.</p>
                     </div>
                 </div>
-                <a href="https://my.hostorio.com/submitticket.php" class="faq-cta-button" data-i18n="faq.cta.btn">Get in Touch</a>
+                <a href="{{ hostorio_business()->clientAreaUrl() }}submitticket.php" class="faq-cta-button" data-i18n="faq.cta.btn">Get in Touch</a>
             </div>
         </div>
     </section>
@@ -792,7 +787,7 @@
                         <p class="card-description" data-i18n="support.card1.desc">
                             Don't know where to start? Our step-by-step tutorials and 24/7 support team walk you through domain setup, hosting configuration, and WordPress installation.
                         </p>
-                        <a href="https://my.hostorio.com/submitticket.php" class="card-button" data-i18n="support.card1.btn">Get started</a>
+                        <a href="{{ hostorio_business()->clientAreaUrl() }}submitticket.php" class="card-button" data-i18n="support.card1.btn">Get started</a>
                     </div>
                 </div>
                 <!-- Card 2 -->
@@ -806,7 +801,7 @@
                         <p class="card-description" data-i18n="support.card2.desc">
                             Access our resource center for hosting best practices, security tips, performance optimization guides, and industry insights.
                         </p>
-                        <a href="https://my.hostorio.com/knowledgebase" class="card-button" data-i18n="support.card2.btn">Get learning</a>
+                        <a href="{{ hostorio_business()->clientAreaUrl() }}knowledgebase" class="card-button" data-i18n="support.card2.btn">Get learning</a>
                     </div>
                 </div>
                 <!-- Card 3 -->
@@ -820,7 +815,7 @@
                         <p class="card-description" data-i18n="support.card3.desc">
                             Move your domain and Hosting to Us. Switching hosts shouldn't feel like moving houses. With us, it's simple.
                         </p>
-                        <a href="https://my.hostorio.com/cart.php?a=add&domain=transfer" class="card-button" data-i18n="support.card3.btn">Transfer today</a>
+                        <a href="{{ hostorio_business()->clientAreaUrl() }}cart.php?a=add&domain=transfer" class="card-button" data-i18n="support.card3.btn">Transfer today</a>
                     </div>
                 </div>
             </div>

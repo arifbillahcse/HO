@@ -391,21 +391,21 @@
                     <i class="fas fa-life-ring"></i>
                     <span>
                         <strong data-i18n="termsConditions.sections.contact.supportLabel">Support Portal:</strong>
-                        <a href="{{ hostorio('client_area_url', 'https://my.hostorio.com/') }}submitticket.php" data-i18n="termsConditions.sections.contact.supportLink">my.hostorio.com/submitticket.php</a>
+                        <a href="{{ hostorio_business()->clientAreaUrl() }}submitticket.php">{{ preg_replace('#^https?://#', '', hostorio_business()->clientAreaUrl()) }}submitticket.php</a>
                     </span>
                 </li>
                 <li>
                     <i class="fas fa-envelope"></i>
                     <span>
                         <strong data-i18n="termsConditions.sections.contact.emailLabel">Email:</strong>
-                        <a href="mailto:{{ hostorio('business_email', 'mail@hostorio.com') }}" data-i18n="termsConditions.sections.contact.email">{{ hostorio('business_email', 'mail@hostorio.com') }}</a>
+                        <a href="mailto:{{ hostorio_business()->email() }}">{{ hostorio_business()->email() }}</a>
                     </span>
                 </li>
                 <li>
                     <i class="fas fa-phone-alt"></i>
                     <span>
                         <strong data-i18n="termsConditions.sections.contact.phoneLabel">Phone:</strong>
-                        <span data-i18n="termsConditions.sections.contact.phone">{{ hostorio('business_phone', '+8801779440297') }}</span>
+                        <a href="{{ hostorio_business()->phoneHref() }}">{{ hostorio_business()->phone() }}</a>
                     </span>
                 </li>
             </ul>

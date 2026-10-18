@@ -6,6 +6,7 @@ use App\Filament\Resources\Settings\Pages\CreateSetting;
 use App\Filament\Resources\Settings\Pages\EditSetting;
 use App\Filament\Resources\Settings\Pages\ListSettings;
 use App\Models\Setting;
+use App\Services\BusinessInfo;
 use BackedEnum;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
@@ -46,7 +47,7 @@ class SettingResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->modifyQueryUsing(fn ($query) => $query->where('key', 'not like', 'whmcs%'))
+            ->modifyQueryUsing(fn ($query) => $query->where('key', 'not like', 'whmcs%')->whereNotIn('key', BusinessInfo::KEYS))
             ->columns([
                 TextColumn::make('key')
                     ->searchable()

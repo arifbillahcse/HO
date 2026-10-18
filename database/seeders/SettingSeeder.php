@@ -14,7 +14,10 @@ class SettingSeeder extends Seeder
             'business_phone' => '+8801779440297',
             'business_email' => 'mail@hostorio.com',
             'business_address' => 'H-161, OABDA SOROK MATHBARIA',
-            'business_city' => 'Kanchan, Rupganj, Narayanganj',
+            'business_city' => 'Kanchan, Rupganj',
+            'business_region' => 'Narayanganj',
+            'business_latitude' => '23.7104',
+            'business_longitude' => '90.4074',
             'client_area_url' => 'https://my.hostorio.com/',
             'social_facebook' => 'https://www.facebook.com/hostorio',
             'social_twitter' => 'https://x.com/hostorio',
@@ -30,8 +33,9 @@ class SettingSeeder extends Seeder
             'translation_overrides_bn' => json_encode([]),
         ];
 
+        // Only add missing settings, so seeding again never undoes admin edits.
         foreach ($defaults as $key => $value) {
-            Setting::updateOrCreate(['key' => $key], ['value' => $value]);
+            Setting::firstOrCreate(['key' => $key], ['value' => $value]);
         }
     }
 }

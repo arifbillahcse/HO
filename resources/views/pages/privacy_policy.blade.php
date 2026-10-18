@@ -1490,7 +1490,7 @@
                     </div>
                     <h3 class="contact-heading" data-i18n="privacyPolicy.contact.heading">Have Questions About Privacy?</h3>
                     <p class="contact-description" data-i18n="privacyPolicy.contact.description">If you have any questions or concerns about our privacy policy, our support team is here to help you</p>
-                    <a href="https://my.hostorio.com/submitticket.php" class="contact-support-button">
+                    <a href="{{ hostorio_business()->clientAreaUrl() }}submitticket.php" class="contact-support-button">
                         <span data-i18n="privacyPolicy.contact.button">Contact Support Team</span>
                         <i class="fas fa-arrow-right"></i>
                     </a>

@@ -516,31 +516,20 @@
       "description": "Hostorio is a web hosting services provider in Bangladesh offering shared hosting, turbo hosting, reseller hosting, VPS, domain registration, and business email solutions.",
       "mainEntity": {
         "@type": "Organization",
-        "name": "Hostorio",
+        "name": @json(hostorio_business()->name()),
         "url": "https://hostorio.com",
         "logo": "https://hostorio.com/assets/images/logo/hostorio-logo.png",
         "description": "Hostorio is a web hosting services provider in Bangladesh offering shared hosting, turbo hosting, reseller hosting, VPS, domain registration, and business email solutions.",
         "contactPoint": {
           "@type": "ContactPoint",
-          "telephone": "+8801779440297",
+          "telephone": @json(hostorio_business()->phone()),
           "contactType": "customer service",
-          "email": "mail@hostorio.com",
+          "email": @json(hostorio_business()->email()),
           "areaServed": "BD",
           "availableLanguage": ["English", "Bengali"]
         },
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "H-161, OABDA SOROK MATHBARIA",
-          "addressLocality": "Kanchan, Rupganj",
-          "addressRegion": "Narayanganj",
-          "addressCountry": "BD"
-        },
-        "sameAs": [
-          "https://www.facebook.com/hostorio",
-          "https://x.com/hostorio",
-          "https://www.youtube.com/@arifbillahcse",
-          "https://www.linkedin.com/company/hostorio/"
-        ]
+        "address": @json(hostorio_business()->postalAddress()),
+        "sameAs": @json(hostorio_business()->sameAs())
       }
     }
     </script>
@@ -1267,29 +1256,29 @@
                 <i class="fas fa-life-ring"></i>
                 <span>
                     <strong data-i18n="about.contact.supportLabel">Support Portal:</strong><br>
-                    <a href="https://my.hostorio.com/submitticket.php">my.hostorio.com/submitticket.php</a>
+                    <a href="{{ hostorio_business()->clientAreaUrl() }}submitticket.php">{{ preg_replace('#^https?://#', '', hostorio_business()->clientAreaUrl()) }}submitticket.php</a>
                 </span>
             </li>
             <li>
                 <i class="fas fa-envelope"></i>
                 <span>
                     <strong data-i18n="about.contact.emailLabel">Email:</strong><br>
-                    <a href="mailto:{{ hostorio('business_email', 'mail@hostorio.com') }}">{{ hostorio('business_email', 'mail@hostorio.com') }}</a>
+                    <a href="mailto:{{ hostorio_business()->email() }}">{{ hostorio_business()->email() }}</a>
                 </span>
             </li>
             <li>
                 <i class="fas fa-phone-alt"></i>
                 <span>
                     <strong data-i18n="about.contact.phoneLabel">Phone &amp; WhatsApp:</strong><br>
-                    <a href="tel:{{ hostorio('business_phone', '+8801779440297') }}">{{ hostorio('business_phone', '+8801779440297') }}</a>
+                    <a href="{{ hostorio_business()->phoneHref() }}">{{ hostorio_business()->phone() }}</a>
                 </span>
             </li>
             <li>
                 <i class="fas fa-location-dot"></i>
                 <span>
                     <strong data-i18n="about.contact.addressLabel">Office:</strong><br>
-                    {{ hostorio('business_address', 'H-161, OABDA SOROK MATHBARIA') }},
-                    {{ hostorio('business_city', 'Kanchan, Rupganj, Narayanganj') }}
+                    {{ hostorio_business()->street() }},
+                    {{ hostorio_business()->cityLine() }}
                 </span>
             </li>
         </ul>
@@ -1297,7 +1286,7 @@
             <a href="" class="about-btn about-btn-primary" data-i18n="about.contact.ctaPlans">
                 <i class="fas fa-rocket"></i> Explore Hosting Plans
             </a>
-            <a href="https://my.hostorio.com/submitticket.php" class="about-btn about-btn-outline" data-i18n="about.contact.ctaSupport">
+            <a href="{{ hostorio_business()->clientAreaUrl() }}submitticket.php" class="about-btn about-btn-outline" data-i18n="about.contact.ctaSupport">
                 <i class="fas fa-headset"></i> Contact Support
             </a>
         </div>
