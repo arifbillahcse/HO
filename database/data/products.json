@@ -1,0 +1,4296 @@
+{
+  "home": {
+    "comparison_rows": [],
+    "products": [
+      {
+        "name": "Starter",
+        "description": "Ideal for beginner/personal websites",
+        "is_popular": false,
+        "badge_text": null,
+        "icon_alt": "Starter web hosting plan – 5GB NVMe storage for personal websites",
+        "features": [
+          {
+            "value": "5GB",
+            "text": "NVMe Storage",
+            "is_new": false
+          },
+          {
+            "value": "1",
+            "text": "Domain",
+            "is_new": false
+          },
+          {
+            "value": "1TB",
+            "text": "Bandwidth",
+            "is_new": false
+          },
+          {
+            "value": "10",
+            "text": "Sub Domain",
+            "is_new": false
+          },
+          {
+            "value": "10",
+            "text": "Email Accounts",
+            "is_new": false
+          },
+          {
+            "value": "10",
+            "text": "Databases",
+            "is_new": false
+          },
+          {
+            "value": "1 Core / 2GB RAM / 20 EP",
+            "text": "CPU Core / RAM / EP",
+            "is_new": false
+          },
+          {
+            "value": "1Gbps",
+            "text": "Connectivity",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Free SSL Certificate",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "LiteSpeed Server",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "cPanel",
+            "is_new": false
+          }
+        ],
+        "show_original_price": true,
+        "button_text": "Order Now",
+        "yearly_price": 3000,
+        "order_url": null,
+        "comparison": []
+      },
+      {
+        "name": "Lite Starter",
+        "description": "Ideal for small business websites",
+        "is_popular": false,
+        "badge_text": null,
+        "icon_alt": "Lite Starter web hosting plan – 10GB NVMe storage for small business websites",
+        "features": [
+          {
+            "value": "10GB",
+            "text": "NVMe Storage",
+            "is_new": false
+          },
+          {
+            "value": "5",
+            "text": "Domain",
+            "is_new": false
+          },
+          {
+            "value": "2TB",
+            "text": "Bandwidth",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Sub Domain",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Email Accounts",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Databases",
+            "is_new": false
+          },
+          {
+            "value": "4 Core / 4GB RAM / 20 EP",
+            "text": "CPU Core / RAM / EP",
+            "is_new": false
+          },
+          {
+            "value": "1Gbps",
+            "text": "Connectivity",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Free SSL Certificate",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "LiteSpeed Server",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "cPanel",
+            "is_new": false
+          }
+        ],
+        "show_original_price": true,
+        "button_text": "Order Now",
+        "yearly_price": 4200,
+        "order_url": null,
+        "comparison": []
+      },
+      {
+        "name": "Standard",
+        "description": "Most popular package",
+        "is_popular": true,
+        "badge_text": "Most Popular",
+        "icon_alt": "Standard web hosting plan – most popular plan with 20GB NVMe storage and 10 domains",
+        "features": [
+          {
+            "value": "20GB",
+            "text": "NVMe Storage",
+            "is_new": false
+          },
+          {
+            "value": "10",
+            "text": "Domain",
+            "is_new": false
+          },
+          {
+            "value": "5TB",
+            "text": "Bandwidth",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Sub Domain",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Email Accounts",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Databases",
+            "is_new": false
+          },
+          {
+            "value": "6 Core / 6GB RAM / 20 EP",
+            "text": "CPU Core / RAM / EP",
+            "is_new": false
+          },
+          {
+            "value": "1Gbps",
+            "text": "Connectivity",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Free SSL Certificate",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "LiteSpeed Server",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "cPanel",
+            "is_new": false
+          }
+        ],
+        "show_original_price": true,
+        "button_text": "Order Now",
+        "yearly_price": 6000,
+        "order_url": null,
+        "comparison": []
+      },
+      {
+        "name": "Advanced",
+        "description": "Ideal for eCommerce websites",
+        "is_popular": false,
+        "badge_text": null,
+        "icon_alt": "Advanced web hosting plan – unlimited NVMe storage for eCommerce and high-traffic websites",
+        "features": [
+          {
+            "value": null,
+            "text": "Unlimited NVMe Storage",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Domain",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Bandwidth",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Sub Domain",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Email Accounts",
+            "is_new": false
+          },
+          {
+            "value": "20",
+            "text": "Databases",
+            "is_new": false
+          },
+          {
+            "value": "16 Core / 16GB RAM / 40 EP",
+            "text": "CPU Core / RAM / EP",
+            "is_new": false
+          },
+          {
+            "value": "1Gbps",
+            "text": "Connectivity",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Free SSL Certificate",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "LiteSpeed Server",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "cPanel",
+            "is_new": false
+          }
+        ],
+        "show_original_price": true,
+        "button_text": "Order Now",
+        "yearly_price": 12000,
+        "order_url": null,
+        "comparison": []
+      }
+    ]
+  },
+  "web_hosting": {
+    "comparison_rows": [
+      "Storage Space",
+      "Inodes (Website Files) Allowed",
+      "Websites Allowed",
+      "Datacenter Locations",
+      "CPU Cores",
+      "RAM",
+      "Free Domain Name",
+      "SuperHero Optimized",
+      "1-Click WordPress Hosting",
+      "Free and Auto SSL (https)",
+      "LiteSpeed Cache",
+      "Monthly Bandwidth",
+      "Parked Domains",
+      "Sub Domains",
+      "Email Accounts",
+      "cPanel Mailbox Quota",
+      "Dedicated IP Address",
+      "cPanel",
+      "Jailed SSH Access",
+      "Quic.Cloud CDN",
+      "Unlimited FTP Accounts",
+      "Unlimited Databases",
+      "Multiple PHP Versions",
+      "Perl",
+      "Web Mail",
+      "Nightly/Weekly Backups",
+      "Email Sending Limit (Per Hour)"
+    ],
+    "products": [
+      {
+        "name": "Starter",
+        "description": "Ideal for beginner/personal websites",
+        "is_popular": false,
+        "badge_text": null,
+        "icon_alt": "Starter web hosting plan – affordable 5GB NVMe storage for personal blogs and websites",
+        "features": [
+          {
+            "value": "5GB",
+            "text": "NVMe Storage",
+            "is_new": false
+          },
+          {
+            "value": "1",
+            "text": "Domain",
+            "is_new": false
+          },
+          {
+            "value": "1TB",
+            "text": "Bandwidth",
+            "is_new": false
+          },
+          {
+            "value": "10",
+            "text": "Sub Domain",
+            "is_new": false
+          },
+          {
+            "value": "10",
+            "text": "Email Accounts",
+            "is_new": false
+          },
+          {
+            "value": "10",
+            "text": "Databases",
+            "is_new": false
+          },
+          {
+            "value": "1 Core / 1GB RAM / 20 EP",
+            "text": "CPU Core / RAM / EP",
+            "is_new": false
+          },
+          {
+            "value": "1Gbps",
+            "text": "Connectivity",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Free SSL Certificate",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "LiteSpeed Server",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "cPanel",
+            "is_new": false
+          }
+        ],
+        "show_original_price": true,
+        "button_text": "Order Now",
+        "yearly_price": 3000,
+        "order_url": null,
+        "comparison": [
+          {
+            "type": "text",
+            "text": "5GB NVMe"
+          },
+          {
+            "type": "text",
+            "text": "250,000"
+          },
+          {
+            "type": "text",
+            "text": "1"
+          },
+          {
+            "type": "text",
+            "text": "US,SG,BD"
+          },
+          {
+            "type": "text",
+            "text": "1"
+          },
+          {
+            "type": "text",
+            "text": "1GB"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "text",
+            "text": "Free LiteSpeed!"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "1TB"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "text",
+            "text": "10"
+          },
+          {
+            "type": "text",
+            "text": "10"
+          },
+          {
+            "type": "text",
+            "text": "1GB"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "10"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "50"
+          }
+        ]
+      },
+      {
+        "name": "Lite Starter",
+        "description": "Ideal for small business websites",
+        "is_popular": false,
+        "badge_text": null,
+        "icon_alt": "Lite Starter web hosting plan – 10GB NVMe storage for small business websites",
+        "features": [
+          {
+            "value": "10GB",
+            "text": "NVMe Storage",
+            "is_new": false
+          },
+          {
+            "value": "5",
+            "text": "Domain",
+            "is_new": false
+          },
+          {
+            "value": "2TB",
+            "text": "Bandwidth",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Sub Domain",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Email Accounts",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Databases",
+            "is_new": false
+          },
+          {
+            "value": "1 Core / 1GB RAM / 20 EP",
+            "text": "CPU Core / RAM / EP",
+            "is_new": false
+          },
+          {
+            "value": "1Gbps",
+            "text": "Connectivity",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Free SSL Certificate",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "LiteSpeed Server",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "cPanel",
+            "is_new": false
+          }
+        ],
+        "show_original_price": true,
+        "button_text": "Order Now",
+        "yearly_price": 4200,
+        "order_url": null,
+        "comparison": [
+          {
+            "type": "text",
+            "text": "10GB NVMe"
+          },
+          {
+            "type": "text",
+            "text": "250,000"
+          },
+          {
+            "type": "text",
+            "text": "5"
+          },
+          {
+            "type": "text",
+            "text": "US,SG,BD"
+          },
+          {
+            "type": "text",
+            "text": "1"
+          },
+          {
+            "type": "text",
+            "text": "1GB"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "text",
+            "text": "Free LiteSpeed!"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "2TB"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "1GB"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "60"
+          }
+        ]
+      },
+      {
+        "name": "Standard",
+        "description": "Most popular package",
+        "is_popular": true,
+        "badge_text": "Most Popular",
+        "icon_alt": "Standard web hosting plan – most popular 20GB NVMe hosting for growing websites",
+        "features": [
+          {
+            "value": "20GB",
+            "text": "NVMe Storage",
+            "is_new": false
+          },
+          {
+            "value": "10",
+            "text": "Domain",
+            "is_new": false
+          },
+          {
+            "value": "5TB",
+            "text": "Bandwidth",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Sub Domain",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Email Accounts",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Databases",
+            "is_new": false
+          },
+          {
+            "value": "1 Core / 1GB RAM / 40 EP",
+            "text": "CPU Core / RAM / EP",
+            "is_new": false
+          },
+          {
+            "value": "1Gbps",
+            "text": "Connectivity",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Free SSL Certificate",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "LiteSpeed Server",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "cPanel",
+            "is_new": false
+          }
+        ],
+        "show_original_price": true,
+        "button_text": "Order Now",
+        "yearly_price": 6000,
+        "order_url": null,
+        "comparison": [
+          {
+            "type": "text",
+            "text": "20GB NVMe"
+          },
+          {
+            "type": "text",
+            "text": "500,000"
+          },
+          {
+            "type": "text",
+            "text": "10"
+          },
+          {
+            "type": "text",
+            "text": "US,SG,BD"
+          },
+          {
+            "type": "text",
+            "text": "1"
+          },
+          {
+            "type": "text",
+            "text": "2GB"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "text",
+            "text": "Free LiteSpeed!"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "5TB"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "2GB"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "70"
+          }
+        ]
+      },
+      {
+        "name": "Advanced",
+        "description": "Ideal for eCommerce websites",
+        "is_popular": false,
+        "badge_text": null,
+        "icon_alt": "Advanced web hosting plan – unlimited NVMe storage for eCommerce and high-traffic websites",
+        "features": [
+          {
+            "value": null,
+            "text": "Unlimited NVMe Storage",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Domain",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Bandwidth",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Sub Domain",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Email Accounts",
+            "is_new": false
+          },
+          {
+            "value": "20",
+            "text": "Databases",
+            "is_new": false
+          },
+          {
+            "value": "2 Core / 2GB RAM / 40 EP",
+            "text": "CPU Core / RAM / EP",
+            "is_new": false
+          },
+          {
+            "value": "1Gbps",
+            "text": "Connectivity",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Free SSL Certificate",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "LiteSpeed Server",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "cPanel",
+            "is_new": false
+          }
+        ],
+        "show_original_price": true,
+        "button_text": "Order Now",
+        "yearly_price": 12000,
+        "order_url": null,
+        "comparison": [
+          {
+            "type": "text",
+            "text": "Unlimited NVMe"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "US,SG,BD"
+          },
+          {
+            "type": "text",
+            "text": "2"
+          },
+          {
+            "type": "text",
+            "text": "2GB"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "text",
+            "text": "Free LiteSpeed!"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "100"
+          }
+        ]
+      }
+    ]
+  },
+  "turbo_hosting": {
+    "comparison_rows": [
+      "Storage Space",
+      "Inodes (Website Files) Allowed",
+      "Websites Allowed",
+      "Datacenter Locations",
+      "CPU Cores",
+      "RAM",
+      "Free Domain Name",
+      "SuperHero Optimized",
+      "1-Click WordPress Hosting",
+      "Free and Auto SSL (https)",
+      "LiteSpeed Cache",
+      "Monthly Bandwidth",
+      "Parked Domains",
+      "Sub Domains",
+      "Email Accounts",
+      "cPanel Mailbox Quota",
+      "Dedicated IP Address",
+      "cPanel",
+      "Jailed SSH Access",
+      "Quic.Cloud CDN",
+      "Unlimited FTP Accounts",
+      "Unlimited Databases",
+      "Multiple PHP Versions",
+      "Perl",
+      "Web Mail",
+      "Nightly/Weekly Backups",
+      "Email Sending Limit (Per Hour)"
+    ],
+    "products": [
+      {
+        "name": "Turbo Plus",
+        "description": "Start your website or WordPress journey here.",
+        "is_popular": false,
+        "badge_text": null,
+        "icon_alt": "Turbo Plus – fast LiteSpeed web hosting plan for beginners",
+        "features": [
+          {
+            "value": "75 GB",
+            "text": "NVMe Space",
+            "is_new": false
+          },
+          {
+            "value": "250 GB",
+            "text": "Bandwidth",
+            "is_new": false
+          },
+          {
+            "value": "25",
+            "text": "Host Website",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Sub Domain",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Database",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Email",
+            "is_new": false
+          },
+          {
+            "value": "3",
+            "text": "Core CPU",
+            "is_new": false
+          },
+          {
+            "value": "3",
+            "text": "GB RAM",
+            "is_new": false
+          },
+          {
+            "value": "75",
+            "text": "Entry Process",
+            "is_new": false
+          },
+          {
+            "value": "20",
+            "text": "MB I/O",
+            "is_new": false
+          }
+        ],
+        "show_original_price": true,
+        "button_text": "Order Now",
+        "yearly_price": 14388,
+        "order_url": null,
+        "comparison": [
+          {
+            "type": "text",
+            "text": "75GB NVMe"
+          },
+          {
+            "type": "text",
+            "text": "500,000"
+          },
+          {
+            "type": "text",
+            "text": "25"
+          },
+          {
+            "type": "text",
+            "text": "BD"
+          },
+          {
+            "type": "text",
+            "text": "3"
+          },
+          {
+            "type": "text",
+            "text": "3GB"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "text",
+            "text": "Free LiteSpeed!"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "250 GB"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "1GB"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "75"
+          }
+        ]
+      },
+      {
+        "name": "Turbo Power",
+        "description": "That little extra as your website grows, business or personal.",
+        "is_popular": true,
+        "badge_text": "Recommended",
+        "icon_alt": "Turbo Power – high-performance SSD hosting with enhanced speed",
+        "features": [
+          {
+            "value": "100 GB",
+            "text": "NVMe Space",
+            "is_new": false
+          },
+          {
+            "value": "500 GB",
+            "text": "Bandwidth",
+            "is_new": false
+          },
+          {
+            "value": "50",
+            "text": "Host Website",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Sub Domain",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Database",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Email",
+            "is_new": false
+          },
+          {
+            "value": "4",
+            "text": "Core CPU",
+            "is_new": false
+          },
+          {
+            "value": "4",
+            "text": "GB RAM",
+            "is_new": false
+          },
+          {
+            "value": "100",
+            "text": "Entry Process",
+            "is_new": false
+          },
+          {
+            "value": "30",
+            "text": "MB I/O",
+            "is_new": false
+          }
+        ],
+        "show_original_price": true,
+        "button_text": "Order Now",
+        "yearly_price": 17988,
+        "order_url": null,
+        "comparison": [
+          {
+            "type": "text",
+            "text": "100GB NVMe"
+          },
+          {
+            "type": "text",
+            "text": "750,000"
+          },
+          {
+            "type": "text",
+            "text": "50"
+          },
+          {
+            "type": "text",
+            "text": "BD"
+          },
+          {
+            "type": "text",
+            "text": "4"
+          },
+          {
+            "type": "text",
+            "text": "4GB"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "text",
+            "text": "Free LiteSpeed!"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "500 GB"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "2GB"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "100"
+          }
+        ]
+      },
+      {
+        "name": "Turbo Enterprise",
+        "description": "Go further with Rapid for more power and resources.",
+        "is_popular": false,
+        "badge_text": null,
+        "icon_alt": "Turbo Enterprise – ultra-fast hosting for businesses and ecommerce",
+        "features": [
+          {
+            "value": "125 GB",
+            "text": "NVMe Space",
+            "is_new": false
+          },
+          {
+            "value": "1000 GB",
+            "text": "Bandwidth",
+            "is_new": false
+          },
+          {
+            "value": "75",
+            "text": "Host Website",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Sub Domain",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Database",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Email",
+            "is_new": false
+          },
+          {
+            "value": "6",
+            "text": "Core CPU",
+            "is_new": false
+          },
+          {
+            "value": "6",
+            "text": "GB RAM",
+            "is_new": false
+          },
+          {
+            "value": "125",
+            "text": "Entry Process",
+            "is_new": false
+          },
+          {
+            "value": "50",
+            "text": "MB I/O",
+            "is_new": false
+          }
+        ],
+        "show_original_price": true,
+        "button_text": "Order Now",
+        "yearly_price": 23988,
+        "order_url": null,
+        "comparison": [
+          {
+            "type": "text",
+            "text": "125GB NVMe"
+          },
+          {
+            "type": "text",
+            "text": "1,000,000"
+          },
+          {
+            "type": "text",
+            "text": "75"
+          },
+          {
+            "type": "text",
+            "text": "BD"
+          },
+          {
+            "type": "text",
+            "text": "6"
+          },
+          {
+            "type": "text",
+            "text": "6GB"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "text",
+            "text": "Free LiteSpeed!"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "1,000 GB"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "2GB"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "125"
+          }
+        ]
+      },
+      {
+        "name": "Turbo Rapid",
+        "description": "Going beyond with expanded resources for thriving websites.",
+        "is_popular": false,
+        "badge_text": null,
+        "icon_alt": "Turbo Rapid – maximum performance hosting for high-traffic sites",
+        "features": [
+          {
+            "value": "150 GB",
+            "text": "NVMe Space",
+            "is_new": false
+          },
+          {
+            "value": "1000 GB",
+            "text": "Bandwidth",
+            "is_new": false
+          },
+          {
+            "value": "100",
+            "text": "Host Website",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Sub Domain",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Database",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Email",
+            "is_new": false
+          },
+          {
+            "value": "8",
+            "text": "Core CPU",
+            "is_new": false
+          },
+          {
+            "value": "8",
+            "text": "GB RAM",
+            "is_new": false
+          },
+          {
+            "value": "150",
+            "text": "Entry Process",
+            "is_new": false
+          },
+          {
+            "value": "50",
+            "text": "MB I/O",
+            "is_new": false
+          }
+        ],
+        "show_original_price": true,
+        "button_text": "Order Now",
+        "yearly_price": 30000,
+        "order_url": null,
+        "comparison": [
+          {
+            "type": "text",
+            "text": "150GB NVMe"
+          },
+          {
+            "type": "text",
+            "text": "1,500,000"
+          },
+          {
+            "type": "text",
+            "text": "100"
+          },
+          {
+            "type": "text",
+            "text": "BD"
+          },
+          {
+            "type": "text",
+            "text": "8"
+          },
+          {
+            "type": "text",
+            "text": "8GB"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "text",
+            "text": "Free LiteSpeed!"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "1,000 GB"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "2GB"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "150"
+          }
+        ]
+      }
+    ]
+  },
+  "reseller_hosting": {
+    "comparison_rows": [
+      "Storage Space",
+      "Inodes (Website Files) Allowed",
+      "Monthly Bandwidth",
+      "Datacenter Locations",
+      "RAM",
+      "Free Domain Name",
+      "SuperHero Optimized",
+      "Free and Auto SSL (https)",
+      "LiteSpeed Cache",
+      "1-Click WordPress Hosting",
+      "Sub Domains",
+      "Email Accounts",
+      "Parked Domains",
+      "Unlimited Databases",
+      "Unlimited FTP Accounts",
+      "Multiple PHP Versions",
+      "Web Mail",
+      "Nightly/Weekly Backups",
+      "Jailed SSH Access",
+      "Dedicated IP Address"
+    ],
+    "products": [
+      {
+        "name": "R-Starter",
+        "description": "Ideal for beginner",
+        "is_popular": false,
+        "badge_text": null,
+        "icon_alt": "R-Starter reseller hosting – start your hosting business for agencies",
+        "features": [
+          {
+            "value": "20GB",
+            "text": "SSD Storage",
+            "is_new": false
+          },
+          {
+            "value": "25",
+            "text": "cPanel Accounts",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Bandwidth",
+            "is_new": false
+          },
+          {
+            "value": "1",
+            "text": "GB RAM Per cPanel",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "CPanel / WHM Access",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "100% Whitelabel Servers",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Softaculous + JetBackup",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Private NameServers",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "FREE SSL Certificate",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "FREE LiteSpeed",
+            "is_new": false
+          }
+        ],
+        "show_original_price": true,
+        "button_text": "Order Now",
+        "yearly_price": 13188,
+        "order_url": null,
+        "comparison": [
+          {
+            "type": "text",
+            "text": "20 GB SSD"
+          },
+          {
+            "type": "text",
+            "text": "25"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "BD"
+          },
+          {
+            "type": "text",
+            "text": "1 GB"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "no"
+          }
+        ]
+      },
+      {
+        "name": "R-Standard",
+        "description": "Best for growing resellers",
+        "is_popular": true,
+        "badge_text": "Most Popular",
+        "icon_alt": "R-Standard reseller plan – white-label hosting with unlimited client accounts",
+        "features": [
+          {
+            "value": "50GB",
+            "text": "SSD Storage",
+            "is_new": false
+          },
+          {
+            "value": "50",
+            "text": "cPanel Accounts",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Bandwidth",
+            "is_new": false
+          },
+          {
+            "value": "1",
+            "text": "GB RAM Per cPanel",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "CPanel / WHM Access",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "100% Whitelabel Servers",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Softaculous + JetBackup",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Private NameServers",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "FREE SSL Certificate",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "FREE LiteSpeed",
+            "is_new": false
+          }
+        ],
+        "show_original_price": true,
+        "button_text": "Order Now",
+        "yearly_price": 23988,
+        "order_url": null,
+        "comparison": [
+          {
+            "type": "text",
+            "text": "50 GB SSD"
+          },
+          {
+            "type": "text",
+            "text": "50"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "BD"
+          },
+          {
+            "type": "text",
+            "text": "1 GB"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "no"
+          }
+        ]
+      },
+      {
+        "name": "R-Advanced",
+        "description": "Ideal for established businesses",
+        "is_popular": false,
+        "badge_text": null,
+        "icon_alt": "R-Advanced reseller hosting – premium plan for growing hosting businesses",
+        "features": [
+          {
+            "value": "100GB",
+            "text": "NVMe Storage",
+            "is_new": false
+          },
+          {
+            "value": "100",
+            "text": "cPanel Accounts",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Bandwidth",
+            "is_new": false
+          },
+          {
+            "value": "1",
+            "text": "GB RAM Per cPanel",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "CPanel / WHM Access",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "100% Whitelabel Servers",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Softaculous + JetBackup",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Private NameServers",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "FREE SSL Certificate",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "FREE LiteSpeed",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "FREE WHMCS License",
+            "is_new": false
+          }
+        ],
+        "show_original_price": true,
+        "button_text": "Order Now",
+        "yearly_price": 34788,
+        "order_url": null,
+        "comparison": [
+          {
+            "type": "text",
+            "text": "100 GB NVMe"
+          },
+          {
+            "type": "text",
+            "text": "100"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "BD"
+          },
+          {
+            "type": "text",
+            "text": "1 GB"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          }
+        ]
+      },
+      {
+        "name": "R-Advanced Pro",
+        "description": "Enterprise reseller solution",
+        "is_popular": false,
+        "badge_text": null,
+        "icon_alt": "R-Advanced Pro reseller – enterprise hosting reseller plan with maximum resources",
+        "features": [
+          {
+            "value": "200GB",
+            "text": "NVMe Storage",
+            "is_new": false
+          },
+          {
+            "value": "200",
+            "text": "cPanel Accounts",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Bandwidth",
+            "is_new": false
+          },
+          {
+            "value": "1",
+            "text": "GB RAM Per cPanel",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "CPanel / WHM Access",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "100% Whitelabel Servers",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Softaculous + JetBackup",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Private NameServers",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "FREE SSL Certificate",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "FREE LiteSpeed",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "FREE WHMCS License",
+            "is_new": false
+          }
+        ],
+        "show_original_price": true,
+        "button_text": "Order Now",
+        "yearly_price": 66000,
+        "order_url": null,
+        "comparison": [
+          {
+            "type": "text",
+            "text": "200 GB NVMe"
+          },
+          {
+            "type": "text",
+            "text": "200"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "BD"
+          },
+          {
+            "type": "text",
+            "text": "1 GB"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          }
+        ]
+      }
+    ]
+  },
+  "student_hosting": {
+    "comparison_rows": [
+      "Storage Space",
+      "Websites Allowed",
+      "Datacenter Locations",
+      "Monthly Bandwidth",
+      "1-Click WordPress Hosting",
+      "Free and Auto SSL (https)",
+      "LiteSpeed Cache",
+      "Unlimited Databases",
+      "SuperHero Optimized",
+      "Email Accounts",
+      "Sub Domains",
+      "Unlimited FTP Accounts",
+      "Web Mail",
+      "cPanel",
+      "Multiple PHP Versions",
+      "Perl",
+      "Nightly/Weekly Backups"
+    ],
+    "products": [
+      {
+        "name": "SH Plan 1",
+        "description": "1 GB SSD Disk | 5 GB Monthly Bandwidth",
+        "is_popular": false,
+        "badge_text": null,
+        "icon_alt": "SH Plan 1 student hosting – affordable web hosting for students and school projects",
+        "features": [
+          {
+            "value": "1 GB",
+            "text": "SSD Disk Space",
+            "is_new": false
+          },
+          {
+            "value": "1",
+            "text": "Website",
+            "is_new": false
+          },
+          {
+            "value": "5 GB",
+            "text": "Monthly Bandwidth",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "PHP, MySQL, Perl Support",
+            "is_new": false
+          },
+          {
+            "value": "1",
+            "text": "MySQL Database",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "phpMyAdmin",
+            "is_new": false
+          },
+          {
+            "value": "Limited",
+            "text": "E-mail Accounts",
+            "is_new": false
+          },
+          {
+            "value": "Limited",
+            "text": "Subdomains",
+            "is_new": false
+          },
+          {
+            "value": "Limited",
+            "text": "FTP Account",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "DNS Zone Editor",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Softaculous One-Click Installer",
+            "is_new": false
+          }
+        ],
+        "show_original_price": true,
+        "button_text": "Order Now",
+        "yearly_price": 800,
+        "order_url": null,
+        "comparison": [
+          {
+            "type": "text",
+            "text": "1 GB SSD"
+          },
+          {
+            "type": "text",
+            "text": "1"
+          },
+          {
+            "type": "text",
+            "text": "BD"
+          },
+          {
+            "type": "text",
+            "text": "5 GB"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "1"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "Limited"
+          },
+          {
+            "type": "text",
+            "text": "Limited"
+          },
+          {
+            "type": "text",
+            "text": "Limited"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          }
+        ]
+      },
+      {
+        "name": "SH Plan 2",
+        "description": "2 GB SSD Disk Space | 15 GB Monthly Bandwidth",
+        "is_popular": false,
+        "badge_text": null,
+        "icon_alt": "SH Plan 2 student hosting – budget-friendly hosting for student portfolios",
+        "features": [
+          {
+            "value": "2 GB",
+            "text": "SSD Disk Space",
+            "is_new": false
+          },
+          {
+            "value": "1",
+            "text": "Website",
+            "is_new": false
+          },
+          {
+            "value": "15 GB",
+            "text": "Monthly Bandwidth",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "PHP, MySQL, Perl Support",
+            "is_new": false
+          },
+          {
+            "value": "3",
+            "text": "MySQL Databases",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "phpMyAdmin",
+            "is_new": false
+          },
+          {
+            "value": "Limited",
+            "text": "E-mail Accounts",
+            "is_new": false
+          },
+          {
+            "value": "Limited",
+            "text": "Subdomains",
+            "is_new": false
+          },
+          {
+            "value": "Limited",
+            "text": "FTP Account",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "DNS Zone Editor",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Softaculous One-Click Installer",
+            "is_new": false
+          }
+        ],
+        "show_original_price": true,
+        "button_text": "Order Now",
+        "yearly_price": 999,
+        "order_url": null,
+        "comparison": [
+          {
+            "type": "text",
+            "text": "2 GB SSD"
+          },
+          {
+            "type": "text",
+            "text": "1"
+          },
+          {
+            "type": "text",
+            "text": "BD"
+          },
+          {
+            "type": "text",
+            "text": "15 GB"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "3"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "Limited"
+          },
+          {
+            "type": "text",
+            "text": "Limited"
+          },
+          {
+            "type": "text",
+            "text": "Limited"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          }
+        ]
+      },
+      {
+        "name": "SH Plan 3",
+        "description": "3 GB SSD Disk Space | 25 GB Monthly Bandwidth",
+        "is_popular": true,
+        "badge_text": "Most Popular",
+        "icon_alt": "SH Plan 3 student hosting – most popular student web hosting with unlimited features",
+        "features": [
+          {
+            "value": "3 GB",
+            "text": "SSD Disk Space",
+            "is_new": false
+          },
+          {
+            "value": "2",
+            "text": "Website",
+            "is_new": false
+          },
+          {
+            "value": "25 GB",
+            "text": "Monthly Bandwidth",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "PHP, MySQL, Perl Support",
+            "is_new": false
+          },
+          {
+            "value": "Unlimited",
+            "text": "MySQL Databases",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "phpMyAdmin",
+            "is_new": false
+          },
+          {
+            "value": "Unlimited",
+            "text": "E-mail Accounts",
+            "is_new": false
+          },
+          {
+            "value": "Unlimited",
+            "text": "Subdomains",
+            "is_new": false
+          },
+          {
+            "value": "Unlimited",
+            "text": "FTP Accounts",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "DNS Zone Editor",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Softaculous One-Click Installer",
+            "is_new": false
+          }
+        ],
+        "show_original_price": true,
+        "button_text": "Order Now",
+        "yearly_price": 1199,
+        "order_url": null,
+        "comparison": [
+          {
+            "type": "text",
+            "text": "3 GB SSD"
+          },
+          {
+            "type": "text",
+            "text": "2"
+          },
+          {
+            "type": "text",
+            "text": "BD"
+          },
+          {
+            "type": "text",
+            "text": "25 GB"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          }
+        ]
+      }
+    ]
+  },
+  "vps": {
+    "comparison_rows": [],
+    "products": [
+      {
+        "name": "Enhanced VPS",
+        "description": "4 Cores · 4 GB RAM · 50 GB SSD",
+        "is_popular": false,
+        "badge_text": null,
+        "icon_alt": "Enhanced VPS hosting – 4 core CPU, 4GB RAM virtual private server",
+        "features": [
+          {
+            "value": null,
+            "text": "4 Core CPU",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "4 GB RAM",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "50 GB SSD Storage",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "2 TB Bandwidth",
+            "is_new": false
+          }
+        ],
+        "show_original_price": true,
+        "button_text": "DEPLOY NOW",
+        "yearly_price": 17640,
+        "order_url": null,
+        "comparison": []
+      },
+      {
+        "name": "Premium VPS",
+        "description": "6 Cores · 8 GB RAM · 100 GB SSD",
+        "is_popular": false,
+        "badge_text": null,
+        "icon_alt": "Premium VPS hosting – 6 core CPU, 8GB RAM dedicated virtual server",
+        "features": [
+          {
+            "value": null,
+            "text": "6 Core CPU",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "8 GB RAM",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "100 GB SSD Storage",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "4 TB Bandwidth",
+            "is_new": false
+          }
+        ],
+        "show_original_price": true,
+        "button_text": "DEPLOY NOW",
+        "yearly_price": 35280,
+        "order_url": null,
+        "comparison": []
+      },
+      {
+        "name": "Elite VPS",
+        "description": "8 Cores · 16 GB RAM · 150 GB SSD",
+        "is_popular": true,
+        "badge_text": "Most Popular",
+        "icon_alt": "Elite VPS hosting – 8 core CPU, 16GB RAM high-performance server",
+        "features": [
+          {
+            "value": null,
+            "text": "8 Core CPU",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "16 GB RAM",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "150 GB SSD Storage",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "6 TB Bandwidth",
+            "is_new": false
+          }
+        ],
+        "show_original_price": true,
+        "button_text": "DEPLOY NOW",
+        "yearly_price": 70560,
+        "order_url": null,
+        "comparison": []
+      },
+      {
+        "name": "Ultimate VPS",
+        "description": "16 Cores · 32 GB RAM · 300 GB SSD",
+        "is_popular": false,
+        "badge_text": null,
+        "icon_alt": "Ultimate VPS hosting – 16 core CPU, 32GB RAM enterprise virtual server",
+        "features": [
+          {
+            "value": null,
+            "text": "16 Core CPU",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "32 GB RAM",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "300 GB SSD Storage",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "8 TB Bandwidth",
+            "is_new": false
+          }
+        ],
+        "show_original_price": true,
+        "button_text": "DEPLOY NOW",
+        "yearly_price": 141120,
+        "order_url": null,
+        "comparison": []
+      }
+    ]
+  },
+  "business_email": {
+    "comparison_rows": [],
+    "products": [
+      {
+        "name": "Starter Mailboxes",
+        "description": "1 Mailbox",
+        "is_popular": false,
+        "badge_text": null,
+        "icon_alt": "Starter business email plan – professional email hosting for small businesses",
+        "features": [
+          {
+            "value": "1",
+            "text": "Mailbox Included",
+            "is_new": false
+          },
+          {
+            "value": "5",
+            "text": "GB for Emails",
+            "is_new": false
+          },
+          {
+            "value": "10",
+            "text": "Aliases per Mailbox",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Calendar, Contacts & Tasks",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "2FA Protection",
+            "is_new": false
+          }
+        ],
+        "show_original_price": true,
+        "button_text": "Get Started",
+        "yearly_price": 1680,
+        "order_url": null,
+        "comparison": []
+      },
+      {
+        "name": "Pro Mailboxes",
+        "description": "3 Mailboxes",
+        "is_popular": true,
+        "badge_text": "Most Popular",
+        "icon_alt": "Pro business email plan – custom domain email with spam protection",
+        "features": [
+          {
+            "value": "3",
+            "text": "Mailboxes Included",
+            "is_new": false
+          },
+          {
+            "value": "30",
+            "text": "GB for Emails",
+            "is_new": false
+          },
+          {
+            "value": "50",
+            "text": "Aliases per Mailbox",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Shared Calendar, Contacts & Tasks",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "2FA Protection",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Full Mobile Sync Support",
+            "is_new": false
+          }
+        ],
+        "show_original_price": true,
+        "button_text": "Get Started",
+        "yearly_price": 7140,
+        "order_url": null,
+        "comparison": []
+      },
+      {
+        "name": "Ultimate Mailboxes",
+        "description": "5 Mailboxes",
+        "is_popular": false,
+        "badge_text": null,
+        "icon_alt": "Ultimate business email plan – premium email hosting for growing companies",
+        "features": [
+          {
+            "value": "5",
+            "text": "Mailboxes Included",
+            "is_new": false
+          },
+          {
+            "value": "75",
+            "text": "GB for Emails",
+            "is_new": false
+          },
+          {
+            "value": "Unlimited",
+            "text": "Aliases per Mailbox",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Shared Calendar, Contacts & Tasks",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "2FA Protection",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Full Mobile Sync Support",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Docs, Sheets & Presentations",
+            "is_new": false
+          }
+        ],
+        "show_original_price": true,
+        "button_text": "Get Started",
+        "yearly_price": 10080,
+        "order_url": null,
+        "comparison": []
+      }
+    ]
+  },
+  "offer": {
+    "comparison_rows": [
+      "Storage Space",
+      "Inodes (Website Files) Allowed",
+      "Websites Allowed",
+      "Datacenter Locations",
+      "CPU Cores",
+      "RAM",
+      "Free Domain Name",
+      "SuperHero Optimized",
+      "1-Click WordPress Hosting",
+      "Free and Auto SSL (https)",
+      "LiteSpeed Cache",
+      "Monthly Bandwidth",
+      "Parked Domains",
+      "Sub Domains",
+      "Email Accounts",
+      "cPanel Mailbox Quota",
+      "Dedicated IP Address",
+      "cPanel",
+      "Jailed SSH Access",
+      "Quic.Cloud CDN",
+      "Unlimited FTP Accounts",
+      "Unlimited Databases",
+      "Multiple PHP Versions",
+      "Perl",
+      "Web Mail",
+      "Nightly/Weekly Backups",
+      "Email Sending Limit (Per Hour)"
+    ],
+    "products": [
+      {
+        "name": "2GB+.SHOP domain",
+        "description": "Ideal for beginner/personal websites",
+        "is_popular": false,
+        "badge_text": null,
+        "icon_alt": "2GB+.SHOP domain hosting special offer – affordable deal at ৳999 per year",
+        "features": [
+          {
+            "value": null,
+            "text": "100% Pure 2GB NVMe",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Host 1 Domain",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "2 GB NVMe Storage",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Bandwidth",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "10 Email Accounts",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "10 Sub Domain",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "10 Databases",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "1 Core / 1GB RAM / 20 EP",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Free SSL Certificate",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "100% Uptime Guarantee",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "1Gbps Connectivity",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "LiteSpeed Server",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "cPanel",
+            "is_new": false
+          }
+        ],
+        "show_original_price": false,
+        "button_text": "Order Now",
+        "yearly_price": 999,
+        "order_url": "https://my.hostorio.com/cart.php?a=add&pid=16&sld=whmcs&tld=.com",
+        "comparison": [
+          {
+            "type": "text",
+            "text": "2 GB NVMe"
+          },
+          {
+            "type": "text",
+            "text": "100,000"
+          },
+          {
+            "type": "text",
+            "text": "1"
+          },
+          {
+            "type": "text",
+            "text": "BD"
+          },
+          {
+            "type": "text",
+            "text": "1"
+          },
+          {
+            "type": "text",
+            "text": "1GB"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "text",
+            "text": "Free LiteSpeed!"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "10"
+          },
+          {
+            "type": "text",
+            "text": "10"
+          },
+          {
+            "type": "text",
+            "text": "1GB"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "10"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "50"
+          }
+        ]
+      },
+      {
+        "name": "5GB+XYZ",
+        "description": "Recommended hosting for beginner. Best Speed 100% guarantee.",
+        "is_popular": false,
+        "badge_text": null,
+        "icon_alt": "5GB+XYZ hosting deal – special offer at ৳1,999 per year for small businesses",
+        "features": [
+          {
+            "value": null,
+            "text": "100% Pure 5GB NVMe",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Free .com Domain",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Host 1 Domain",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "5 GB NVMe Storage",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Bandwidth",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "100 Email Accounts",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Sub Domain",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Databases",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Free SSL Certificate",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "100% Uptime Guarantee",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "1Gbps Connectivity",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "LiteSpeed Server",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "cPanel",
+            "is_new": false
+          }
+        ],
+        "show_original_price": false,
+        "button_text": "Order Now",
+        "yearly_price": 1999,
+        "order_url": "https://my.hostorio.com/cart.php?a=add&pid=17&sld=whmcs&tld=.com",
+        "comparison": [
+          {
+            "type": "text",
+            "text": "5 GB NVMe"
+          },
+          {
+            "type": "text",
+            "text": "200,000"
+          },
+          {
+            "type": "text",
+            "text": "1"
+          },
+          {
+            "type": "text",
+            "text": "BD"
+          },
+          {
+            "type": "text",
+            "text": "1"
+          },
+          {
+            "type": "text",
+            "text": "1GB"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "text",
+            "text": "Free LiteSpeed!"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "100"
+          },
+          {
+            "type": "text",
+            "text": "1GB"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "100"
+          }
+        ]
+      },
+      {
+        "name": "10GB+.COM",
+        "description": "Best Choice for Start eCommerce",
+        "is_popular": true,
+        "badge_text": "Recommended",
+        "icon_alt": "10GB+.COM best hosting deal – recommended offer with FREE domain at ৳2,999 per year",
+        "features": [
+          {
+            "value": null,
+            "text": "100% Pure 10GB NVMe",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Free .com Domain",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Host 10 Domains",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "10 GB NVMe Storage",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Bandwidth",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Email Accounts",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Sub Domain",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Databases",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Free SSL Certificate",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "100% Uptime Guarantee",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "1Gbps Connectivity",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "LiteSpeed Server",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "cPanel",
+            "is_new": false
+          }
+        ],
+        "show_original_price": false,
+        "button_text": "Order Now",
+        "yearly_price": 2999,
+        "order_url": "https://my.hostorio.com/cart.php?a=add&pid=18&sld=whmcs&tld=.com",
+        "comparison": [
+          {
+            "type": "text",
+            "text": "10 GB NVMe"
+          },
+          {
+            "type": "text",
+            "text": "300,000"
+          },
+          {
+            "type": "text",
+            "text": "10"
+          },
+          {
+            "type": "text",
+            "text": "BD"
+          },
+          {
+            "type": "text",
+            "text": "1"
+          },
+          {
+            "type": "text",
+            "text": "1GB"
+          },
+          {
+            "type": "text",
+            "text": "Free .com"
+          },
+          {
+            "type": "text",
+            "text": "Free LiteSpeed!"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "1GB"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "200"
+          }
+        ]
+      },
+      {
+        "name": "20GB+.COM",
+        "description": "Best for growing businesses",
+        "is_popular": false,
+        "badge_text": null,
+        "icon_alt": "20GB+.COM hosting deal – exclusive offer with FREE domain for growing businesses at ৳4,500/year",
+        "features": [
+          {
+            "value": null,
+            "text": "100% Pure 20GB NVMe",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Free .com Domain",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Host 1 Domain",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "20 GB NVMe Storage",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Bandwidth",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "100 Email Accounts",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Sub Domain",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Unlimited Databases",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "Free SSL Certificate",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "100% Uptime Guarantee",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "1Gbps Connectivity",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "LiteSpeed Server",
+            "is_new": false
+          },
+          {
+            "value": null,
+            "text": "cPanel",
+            "is_new": false
+          }
+        ],
+        "show_original_price": false,
+        "button_text": "Order Now",
+        "yearly_price": 4500,
+        "order_url": "https://my.hostorio.com/cart.php?a=add&pid=19&sld=whmcs&tld=.com",
+        "comparison": [
+          {
+            "type": "text",
+            "text": "20 GB NVMe"
+          },
+          {
+            "type": "text",
+            "text": "500,000"
+          },
+          {
+            "type": "text",
+            "text": "1"
+          },
+          {
+            "type": "text",
+            "text": "BD"
+          },
+          {
+            "type": "text",
+            "text": "1"
+          },
+          {
+            "type": "text",
+            "text": "1GB"
+          },
+          {
+            "type": "text",
+            "text": "Free .com"
+          },
+          {
+            "type": "text",
+            "text": "Free LiteSpeed!"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "100"
+          },
+          {
+            "type": "text",
+            "text": "2GB"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "200"
+          }
+        ]
+      }
+    ]
+  },
+  "package": {
+    "comparison_rows": [
+      "Storage Space",
+      "Inodes (Website Files) Allowed",
+      "Websites Allowed",
+      "Datacenter Locations",
+      "CPU Cores",
+      "RAM",
+      "Free Domain Name",
+      "SuperHero Optimized",
+      "1-Click WordPress Hosting",
+      "Free and Auto SSL (https)",
+      "LiteSpeed Cache",
+      "Monthly Bandwidth",
+      "Parked Domains",
+      "Sub Domains",
+      "Email Accounts",
+      "cPanel Mailbox Quota",
+      "Dedicated IP Address",
+      "cPanel",
+      "Jailed SSH Access",
+      "Quic.Cloud CDN",
+      "Unlimited FTP Accounts",
+      "Unlimited Databases",
+      "Multiple PHP Versions",
+      "Perl",
+      "Web Mail",
+      "Nightly/Weekly Backups",
+      "Email Sending Limit (Per Hour)"
+    ],
+    "products": [
+      {
+        "name": "Starter Cloud",
+        "description": "Ideal for beginner/personal websites",
+        "is_popular": false,
+        "badge_text": null,
+        "icon_alt": "Starter Cloud hosting package – affordable web hosting for beginners",
+        "features": [
+          {
+            "value": "1",
+            "text": "Website",
+            "is_new": false
+          },
+          {
+            "value": "~10,000",
+            "text": "Visits Monthly",
+            "is_new": false
+          },
+          {
+            "value": "1 GB",
+            "text": "RAM",
+            "is_new": false
+          },
+          {
+            "value": "Unlimited",
+            "text": "NVMe Storage",
+            "is_new": true
+          },
+          {
+            "value": "FREE",
+            "text": "cPanel",
+            "is_new": false
+          },
+          {
+            "value": "FREE",
+            "text": "& Auto SSL Certificate",
+            "is_new": false
+          },
+          {
+            "value": "FREE",
+            "text": "Website Migrations",
+            "is_new": false
+          },
+          {
+            "value": "FREE",
+            "text": "LiteSpeed",
+            "is_new": false
+          },
+          {
+            "value": "30-Day",
+            "text": "Money-Back",
+            "is_new": false
+          }
+        ],
+        "show_original_price": true,
+        "button_text": "Order Now",
+        "yearly_price": null,
+        "order_url": null,
+        "comparison": [
+          {
+            "type": "text",
+            "text": "25GB NVMe RAID 1 (US)"
+          },
+          {
+            "type": "text",
+            "text": "250,000"
+          },
+          {
+            "type": "text",
+            "text": "1"
+          },
+          {
+            "type": "text",
+            "text": "US"
+          },
+          {
+            "type": "text",
+            "text": "1"
+          },
+          {
+            "type": "text",
+            "text": "1GB"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "text",
+            "text": "Free LiteSpeed!"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "1GB"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "50"
+          }
+        ]
+      },
+      {
+        "name": "Plus Cloud",
+        "description": "Best for average-sized websites",
+        "is_popular": false,
+        "badge_text": null,
+        "icon_alt": "Plus Cloud hosting package – reliable web hosting for small businesses",
+        "features": [
+          {
+            "value": "7",
+            "text": "Websites",
+            "is_new": false
+          },
+          {
+            "value": "~25,000",
+            "text": "Visits Monthly",
+            "is_new": false
+          },
+          {
+            "value": "2 GB",
+            "text": "RAM",
+            "is_new": false
+          },
+          {
+            "value": "Unlimited",
+            "text": "NVMe Storage",
+            "is_new": true
+          },
+          {
+            "value": "FREE",
+            "text": "cPanel",
+            "is_new": false
+          },
+          {
+            "value": "FREE",
+            "text": "& Auto SSL Certificate",
+            "is_new": false
+          },
+          {
+            "value": "FREE",
+            "text": "Website Migrations",
+            "is_new": false
+          },
+          {
+            "value": "FREE",
+            "text": "LiteSpeed",
+            "is_new": false
+          },
+          {
+            "value": "30-Day",
+            "text": "Money-Back",
+            "is_new": false
+          }
+        ],
+        "show_original_price": true,
+        "button_text": "Order Now",
+        "yearly_price": null,
+        "order_url": null,
+        "comparison": [
+          {
+            "type": "text",
+            "text": "50GB NVMe RAID 1 (US)"
+          },
+          {
+            "type": "text",
+            "text": "250,000"
+          },
+          {
+            "type": "text",
+            "text": "7"
+          },
+          {
+            "type": "text",
+            "text": "US"
+          },
+          {
+            "type": "text",
+            "text": "2"
+          },
+          {
+            "type": "text",
+            "text": "2GB"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "text",
+            "text": "Free LiteSpeed!"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "2GB"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "50"
+          }
+        ]
+      },
+      {
+        "name": "Turbo Cloud",
+        "description": "Most popular package",
+        "is_popular": true,
+        "badge_text": "Most Popular",
+        "icon_alt": "Turbo Cloud hosting package – high-performance hosting for growing websites",
+        "features": [
+          {
+            "value": "Unlimited",
+            "text": "Websites",
+            "is_new": false
+          },
+          {
+            "value": "~50,000",
+            "text": "Visits Monthly",
+            "is_new": false
+          },
+          {
+            "value": "3 GB",
+            "text": "RAM",
+            "is_new": false
+          },
+          {
+            "value": "Unlimited",
+            "text": "NVMe Storage",
+            "is_new": false
+          },
+          {
+            "value": "FREE",
+            "text": "Domain Name",
+            "is_new": false
+          },
+          {
+            "value": "FREE",
+            "text": "cPanel",
+            "is_new": false
+          },
+          {
+            "value": "FREE",
+            "text": "& Auto SSL Certificate",
+            "is_new": false
+          },
+          {
+            "value": "FREE",
+            "text": "Website Migrations",
+            "is_new": false
+          },
+          {
+            "value": "FREE",
+            "text": "Security Suite",
+            "is_new": false
+          },
+          {
+            "value": "FREE",
+            "text": "LiteSpeed w/Turbo",
+            "is_new": false
+          },
+          {
+            "value": "30-Day",
+            "text": "Money-Back",
+            "is_new": false
+          }
+        ],
+        "show_original_price": true,
+        "button_text": "Order Now",
+        "yearly_price": null,
+        "order_url": null,
+        "comparison": [
+          {
+            "type": "text",
+            "text": "75GB NVMe RAID 1 (US)"
+          },
+          {
+            "type": "text",
+            "text": "500,000"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "US"
+          },
+          {
+            "type": "text",
+            "text": "3"
+          },
+          {
+            "type": "text",
+            "text": "3GB"
+          },
+          {
+            "type": "text",
+            "text": "24 or 36 month term"
+          },
+          {
+            "type": "text",
+            "text": "Free LiteSpeed!"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "350"
+          }
+        ]
+      },
+      {
+        "name": "Business Cloud",
+        "description": "Ideal for eCommerce websites",
+        "is_popular": false,
+        "badge_text": null,
+        "icon_alt": "Business Cloud hosting package – premium hosting for ecommerce and enterprises",
+        "features": [
+          {
+            "value": "Unlimited",
+            "text": "Websites",
+            "is_new": false
+          },
+          {
+            "value": "~100,000",
+            "text": "Visits Monthly",
+            "is_new": false
+          },
+          {
+            "value": "4 GB",
+            "text": "RAM",
+            "is_new": false
+          },
+          {
+            "value": "Unlimited",
+            "text": "NVMe Storage",
+            "is_new": false
+          },
+          {
+            "value": "FREE",
+            "text": "Domain Name",
+            "is_new": false
+          },
+          {
+            "value": "FREE",
+            "text": "cPanel",
+            "is_new": false
+          },
+          {
+            "value": "FREE",
+            "text": "& Auto SSL Certificate",
+            "is_new": false
+          },
+          {
+            "value": "FREE",
+            "text": "Website Migrations",
+            "is_new": false
+          },
+          {
+            "value": "FREE",
+            "text": "Security Suite",
+            "is_new": false
+          },
+          {
+            "value": "FREE",
+            "text": "Email Filtering",
+            "is_new": false
+          },
+          {
+            "value": "FREE",
+            "text": "LiteSpeed w/Turbo",
+            "is_new": false
+          },
+          {
+            "value": "30-Day",
+            "text": "Money-Back",
+            "is_new": false
+          }
+        ],
+        "show_original_price": true,
+        "button_text": "Order Now",
+        "yearly_price": null,
+        "order_url": null,
+        "comparison": [
+          {
+            "type": "text",
+            "text": "100GB NVMe RAID 1 (US)"
+          },
+          {
+            "type": "text",
+            "text": "500,000"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "US"
+          },
+          {
+            "type": "text",
+            "text": "4"
+          },
+          {
+            "type": "text",
+            "text": "4GB"
+          },
+          {
+            "type": "text",
+            "text": "24 or 36 month term"
+          },
+          {
+            "type": "text",
+            "text": "Free LiteSpeed!"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "text",
+            "text": "Unlimited"
+          },
+          {
+            "type": "no"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "yes"
+          },
+          {
+            "type": "text",
+            "text": "350"
+          }
+        ]
+      }
+    ]
+  }
+}
