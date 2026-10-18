@@ -21,7 +21,7 @@
 @section('content')
 <script type="application/ld+json">
 {
-      "@context": "https://schema.org",
+      "@@context": "https://schema.org",
       "@type": "Organization",
       "name": "Hostorio",
       "url": "https://hostorio.com",
@@ -52,7 +52,7 @@
     </script>
     <script type="application/ld+json">
 {
-      "@context": "https://schema.org",
+      "@@context": "https://schema.org",
       "@type": "AggregateOffer",
       "name": "Special Web Hosting Deals",
       "description": "Limited time special offers on web hosting packages with free domain, SSL, and premium features at discounted prices.",
@@ -97,7 +97,7 @@
     </script>
     <script type="application/ld+json">
 {
-      "@context": "https://schema.org",
+      "@@context": "https://schema.org",
       "@type": "ItemList",
       "name": "Special Hosting Offers",
       "description": "Limited time web hosting deals and promotional offers",
@@ -184,7 +184,7 @@
     </script>
     <script type="application/ld+json">
 {
-      "@context": "https://schema.org",
+      "@@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
         {

@@ -510,7 +510,7 @@
 @section('content')
 <script type="application/ld+json">
 {
-      "@context": "https://schema.org",
+      "@@context": "https://schema.org",
       "@type": "AboutPage",
       "name": "About Hostorio",
       "url": "https://hostorio.com/about-us/",
@@ -547,7 +547,7 @@
     </script>
     <script type="application/ld+json">
 {
-      "@context": "https://schema.org",
+      "@@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
         {
@@ -1275,22 +1275,22 @@
                 <i class="fas fa-envelope"></i>
                 <span>
                     <strong data-i18n="about.contact.emailLabel">Email:</strong><br>
-                    <a href="mailto:<?php echo hostorio('\1', '\2'); ?>"><?php echo hostorio('\1', '\2'); ?></a>
+                    <a href="mailto:{{ hostorio('business_email', 'mail@hostorio.com') }}">{{ hostorio('business_email', 'mail@hostorio.com') }}</a>
                 </span>
             </li>
             <li>
                 <i class="fas fa-phone-alt"></i>
                 <span>
                     <strong data-i18n="about.contact.phoneLabel">Phone &amp; WhatsApp:</strong><br>
-                    <a href="tel:<?php echo hostorio('\1', '\2'); ?>"><?php echo hostorio('\1', '\2'); ?></a>
+                    <a href="tel:{{ hostorio('business_phone', '+8801779440297') }}">{{ hostorio('business_phone', '+8801779440297') }}</a>
                 </span>
             </li>
             <li>
                 <i class="fas fa-location-dot"></i>
                 <span>
                     <strong data-i18n="about.contact.addressLabel">Office:</strong><br>
-                    <?php echo hostorio('\1', '\2'); ?>,
-                    <?php echo hostorio('\1', '\2'); ?>
+                    {{ hostorio('business_address', 'H-161, OABDA SOROK MATHBARIA') }},
+                    {{ hostorio('business_city', 'Kanchan, Rupganj, Narayanganj') }}
                 </span>
             </li>
         </ul>

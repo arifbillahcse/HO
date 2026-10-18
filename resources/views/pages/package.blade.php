@@ -21,7 +21,7 @@
 @section('content')
 <script type="application/ld+json">
 {
-      "@context": "https://schema.org",
+      "@@context": "https://schema.org",
       "@type": "Organization",
       "name": "Hostorio",
       "url": "https://hostorio.com",
@@ -44,7 +44,7 @@
     </script>
     <script type="application/ld+json">
 {
-      "@context": "https://schema.org",
+      "@@context": "https://schema.org",
       "@type": "Service",
       "serviceType": "Web Hosting Service",
       "name": "Web Hosting Packages",
@@ -71,7 +71,7 @@
     </script>
     <script type="application/ld+json">
 {
-      "@context": "https://schema.org",
+      "@@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
         {
@@ -91,7 +91,7 @@
     </script>
     <script type="application/ld+json">
 {
-      "@context": "https://schema.org",
+      "@@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
         {

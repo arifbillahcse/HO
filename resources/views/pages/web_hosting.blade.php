@@ -21,7 +21,7 @@
 @section('content')
 <script type="application/ld+json">
 {
-      "@context": "https://schema.org",
+      "@@context": "https://schema.org",
       "@type": "Organization",
       "name": "Hostorio",
       "url": "https://hostorio.com",
@@ -52,7 +52,7 @@
     </script>
     <script type="application/ld+json">
 {
-      "@context": "https://schema.org/",
+      "@@context": "https://schema.org/",
       "@type": "Product",
       "name": "Starter Web Hosting Plan",
       "description": "Ideal for beginner and personal websites. Includes 5GB NVMe storage, 1 domain, 1TB bandwidth, 10 email accounts, free SSL certificate, and LiteSpeed server.",
@@ -108,7 +108,7 @@
     </script>
     <script type="application/ld+json">
 {
-      "@context": "https://schema.org/",
+      "@@context": "https://schema.org/",
       "@type": "Product",
       "name": "Lite Starter Web Hosting Plan",
       "description": "Ideal for small business websites. Includes 10GB NVMe storage, 5 domains, 2TB bandwidth, unlimited email accounts and databases, free SSL certificate, and LiteSpeed server.",
@@ -164,7 +164,7 @@
     </script>
     <script type="application/ld+json">
 {
-      "@context": "https://schema.org/",
+      "@@context": "https://schema.org/",
       "@type": "Product",
       "name": "Standard Web Hosting Plan",
       "description": "Most popular hosting plan. Includes 20GB NVMe storage, 10 domains, 5TB bandwidth, unlimited email accounts and databases, free SSL certificate, and LiteSpeed server.",
@@ -220,7 +220,7 @@
     </script>
     <script type="application/ld+json">
 {
-      "@context": "https://schema.org/",
+      "@@context": "https://schema.org/",
       "@type": "Product",
       "name": "Advanced Web Hosting Plan",
       "description": "Ideal for eCommerce websites. Includes unlimited NVMe storage, unlimited domains and bandwidth, unlimited email accounts, 16 CPU cores, 16GB RAM, free SSL certificate, and LiteSpeed server.",
@@ -276,7 +276,7 @@
     </script>
     <script type="application/ld+json">
 {
-      "@context": "https://schema.org",
+      "@@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
         {
@@ -302,7 +302,7 @@
     </script>
     <script type="application/ld+json">
 {
-      "@context": "https://schema.org",
+      "@@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Hostorio",
       "image": "https://hostorio.com/assets/images/logo/hostorio-logo.png",
@@ -334,7 +334,7 @@
     </script>
     <script type="application/ld+json">
 {
-      "@context": "https://schema.org",
+      "@@context": "https://schema.org",
       "@type": "Product",
       "name": "Web Hosting Service",
       "description": "Reliable shared web hosting with free SSL, cPanel, NVMe storage, unlimited email, 99.9% uptime. Perfect for WordPress, blogs and small business websites.",
@@ -371,7 +371,7 @@
     </script>
     <script type="application/ld+json">
 {
-      "@context": "https://schema.org",
+      "@@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
         {
@@ -425,7 +425,6 @@
       ]
     }
     </script>
-    <?php
     <!-- ===========================
          PACKAGE CHOOSER SECTION
          =========================== -->

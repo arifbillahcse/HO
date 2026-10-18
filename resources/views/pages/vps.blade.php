@@ -22,7 +22,7 @@
 @section('content')
 <script type="application/ld+json">
 {
-      "@context": "https://schema.org",
+      "@@context": "https://schema.org",
       "@type": "Organization",
       "name": "Hostorio",
       "url": "https://hostorio.com",
@@ -45,7 +45,7 @@
     </script>
     <script type="application/ld+json">
 {
-      "@context": "https://schema.org",
+      "@@context": "https://schema.org",
       "@type": "Service",
       "serviceType": "Virtual Private Server Hosting",
       "name": "VPS Hosting Plans",
@@ -72,7 +72,7 @@
     </script>
     <script type="application/ld+json">
 {
-      "@context": "https://schema.org",
+      "@@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
         {
@@ -98,7 +98,7 @@
     </script>
     <script type="application/ld+json">
 {
-      "@context": "https://schema.org",
+      "@@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
         {
