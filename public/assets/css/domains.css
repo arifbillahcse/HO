@@ -1,0 +1,656 @@
+/* =====================================================================
+   Domain Registration page (resources/views/pages/domain_registration)
+   All classes start with "dr-" so nothing here touches other pages.
+   The search box reuses .hero-search from styles.css so it matches Home.
+   ===================================================================== */
+
+/* ---------- Hero ---------- */
+.dr-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 70px 0 80px;
+    background: linear-gradient(135deg, #061c57 0%, #0a2a80 55%, #0d3597 100%);
+    color: var(--color-white);
+}
+
+.dr-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 12% 30%, rgba(255, 120, 0, 0.10) 0%, transparent 45%),
+        radial-gradient(circle at 88% 70%, rgba(19, 104, 231, 0.28) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.dr-hero-inner {
+    position: relative;
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.dr-hero-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    margin-bottom: 18px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #ffd2a8;
+    background: rgba(255, 120, 0, 0.15);
+    border: 1px solid rgba(255, 120, 0, 0.35);
+    border-radius: var(--radius-full);
+}
+
+.dr-hero-title {
+    margin: 0 0 16px;
+    font-size: 44px;
+    line-height: 1.15;
+    font-weight: 800;
+    color: var(--color-white);
+}
+
+.dr-hero-subtitle {
+    max-width: 640px;
+    margin: 0 auto 30px;
+    font-size: 17px;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.dr-search {
+    margin: 0 auto;
+    text-align: left;
+}
+
+.dr-hero-popular {
+    margin: 20px 0 0;
+    font-size: 15px;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.dr-hero-tld {
+    display: inline-block;
+    margin: 0 8px;
+    white-space: nowrap;
+}
+
+.dr-hero-tld strong {
+    color: var(--color-white);
+}
+
+.dr-hero-tld em {
+    font-style: normal;
+    font-weight: 700;
+    color: var(--orange-primary);
+}
+
+.dr-hero-per {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.dr-hero-transfer {
+    margin: 10px 0 0;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.dr-hero-transfer a {
+    margin-left: 4px;
+    font-weight: 600;
+    color: var(--color-white);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.dr-hero-transfer a:hover {
+    color: var(--orange-primary);
+}
+
+/* ---------- Shared section heading and buttons ---------- */
+.dr-prices,
+.dr-why,
+.dr-steps,
+.dr-cta {
+    padding: 70px 0;
+}
+
+.dr-why {
+    background: #f6f8fc;
+}
+
+.dr-section-head {
+    max-width: 680px;
+    margin: 0 auto 36px;
+    text-align: center;
+}
+
+.dr-section-title {
+    margin: 0 0 10px;
+    font-size: 34px;
+    line-height: 1.25;
+    font-weight: 800;
+    color: var(--navy-blue);
+}
+
+.dr-section-subtitle {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-text);
+}
+
+.dr-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 22px;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+    border: 2px solid transparent;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.dr-btn:active {
+    transform: translateY(1px);
+}
+
+.dr-btn-primary,
+.dr-btn-buy {
+    color: var(--color-white);
+    background: var(--orange-primary);
+}
+
+.dr-btn-primary:hover,
+.dr-btn-buy:hover {
+    background: var(--orange-bright);
+    color: var(--color-white);
+}
+
+.dr-btn-buy {
+    padding: 9px 18px;
+    font-size: 14px;
+}
+
+.dr-btn-ghost {
+    color: var(--color-white);
+    border-color: rgba(255, 255, 255, 0.6);
+    background: transparent;
+}
+
+.dr-btn-ghost:hover {
+    border-color: var(--color-white);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-white);
+}
+
+.dr-visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+/* ---------- Price table ---------- */
+.dr-filter {
+    position: relative;
+    max-width: 420px;
+    margin: 0 auto 22px;
+}
+
+.dr-filter i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #8a96b0;
+}
+
+.dr-filter input {
+    width: 100%;
+    padding: 13px 16px 13px 42px;
+    font-family: var(--font-primary);
+    font-size: 15px;
+    color: #1c2540;
+    background: var(--color-white);
+    border: 1px solid #d9dfeb;
+    border-radius: var(--radius-lg);
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dr-filter input:focus {
+    border-color: var(--orange-primary);
+    box-shadow: 0 0 0 3px rgba(255, 120, 0, 0.18);
+}
+
+.dr-table-wrap {
+    max-width: 960px;
+    margin: 0 auto;
+    background: var(--color-white);
+    border: 1px solid #e6eaf2;
+    border-radius: var(--radius-xl);
+    box-shadow: 0 10px 30px rgba(1, 37, 125, 0.06);
+    overflow: hidden;
+}
+
+.dr-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+
+.dr-table thead th {
+    padding: 15px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-align: left;
+    color: #5b6785;
+    background: #f6f8fc;
+    border-bottom: 1px solid #e6eaf2;
+}
+
+.dr-table tbody th,
+.dr-table td {
+    padding: 15px 20px;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid #eef1f6;
+}
+
+.dr-table tbody tr:last-child th,
+.dr-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.dr-table tbody tr:hover {
+    background: #fbfcff;
+}
+
+.dr-ext {
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.dr-tld {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--navy-blue);
+}
+
+.dr-badge {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 3px 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    border-radius: var(--radius-full);
+    vertical-align: middle;
+}
+
+.dr-badge-hot {
+    color: #b42318;
+    background: #fee4e2;
+}
+
+.dr-badge-new {
+    color: #067647;
+    background: #dcfae6;
+}
+
+.dr-badge-sale {
+    color: #b54708;
+    background: #fef0c7;
+}
+
+.dr-price {
+    font-weight: 700;
+    color: #1c2540;
+    white-space: nowrap;
+}
+
+.dr-per {
+    margin-left: 2px;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--color-gray);
+}
+
+.dr-price-none {
+    font-weight: 400;
+    color: #a0a8ba;
+}
+
+.dr-cell-label {
+    display: none;
+}
+
+.dr-cell-action {
+    text-align: right !important;
+}
+
+.dr-no-match {
+    margin: 0;
+    padding: 26px 20px;
+    text-align: center;
+    color: var(--color-text);
+}
+
+.dr-note {
+    max-width: 960px;
+    margin: 14px auto 0;
+    font-size: 14px;
+    color: var(--color-gray);
+    text-align: center;
+}
+
+.dr-unavailable {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 32px;
+    text-align: center;
+    background: #f6f8fc;
+    border: 1px dashed #c9d2e3;
+    border-radius: var(--radius-xl);
+}
+
+.dr-unavailable p {
+    margin: 0 0 18px;
+    color: var(--color-text);
+}
+
+/* ---------- Why Hostorio ---------- */
+.dr-why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.dr-why-card {
+    padding: 28px;
+    background: var(--color-white);
+    border: 1px solid #e6eaf2;
+    border-radius: var(--radius-xl);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dr-why-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(1, 37, 125, 0.08);
+}
+
+.dr-why-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 16px;
+    font-size: 20px;
+    color: var(--orange-primary);
+    background: rgba(255, 120, 0, 0.1);
+    border-radius: 12px;
+}
+
+.dr-why-title {
+    margin: 0 0 8px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy-blue);
+}
+
+.dr-why-text {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-text);
+}
+
+/* ---------- Steps ---------- */
+.dr-steps-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    counter-reset: none;
+}
+
+.dr-step {
+    position: relative;
+    text-align: center;
+}
+
+.dr-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: calc(50% + 40px);
+    width: calc(100% - 80px + 28px);
+    border-top: 2px dashed #c9d2e3;
+}
+
+.dr-step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    margin-bottom: 16px;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--color-white);
+    background: linear-gradient(135deg, var(--orange-primary), #ff9a3d);
+    border-radius: 50%;
+    box-shadow: 0 8px 18px rgba(255, 120, 0, 0.3);
+}
+
+.dr-step-title {
+    margin: 0 0 8px;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--navy-blue);
+}
+
+.dr-step-text {
+    margin: 0 auto;
+    max-width: 280px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-text);
+}
+
+/* ---------- Call to action ---------- */
+.dr-cta {
+    padding-top: 10px;
+}
+
+.dr-cta-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 36px 40px;
+    color: var(--color-white);
+    background: linear-gradient(135deg, #061c57 0%, #0d3597 100%);
+    border-radius: 16px;
+}
+
+.dr-cta-title {
+    margin: 0 0 6px;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--color-white);
+}
+
+.dr-cta-text {
+    margin: 0;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.dr-cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 991px) {
+    .dr-hero-title {
+        font-size: 36px;
+    }
+
+    .dr-why-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dr-cta-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* ---------- Mobile: table rows become cards ---------- */
+@media (max-width: 767px) {
+    .dr-hero {
+        padding: 48px 0 56px;
+    }
+
+    .dr-hero-title {
+        font-size: 29px;
+    }
+
+    .dr-hero-subtitle {
+        font-size: 15.5px;
+    }
+
+    .dr-prices,
+    .dr-why,
+    .dr-steps,
+    .dr-cta {
+        padding: 50px 0;
+    }
+
+    .dr-section-title {
+        font-size: 26px;
+    }
+
+    .dr-table-wrap {
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+        overflow: visible;
+    }
+
+    .dr-table thead {
+        display: none;
+    }
+
+    .dr-table,
+    .dr-table tbody {
+        display: block;
+    }
+
+    .dr-table tbody tr {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px 8px;
+        margin-bottom: 14px;
+        padding: 16px;
+        background: var(--color-white);
+        border: 1px solid #e6eaf2;
+        border-radius: var(--radius-xl);
+        box-shadow: 0 6px 18px rgba(1, 37, 125, 0.05);
+    }
+
+    .dr-table tbody tr[hidden] {
+        display: none;
+    }
+
+    .dr-table tbody th,
+    .dr-table td {
+        padding: 0;
+        border: 0;
+    }
+
+    .dr-ext {
+        grid-column: 1 / 3;
+        align-self: center;
+    }
+
+    .dr-cell-action {
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    .dr-cell-label {
+        display: block;
+        margin-bottom: 2px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: #7a86a3;
+    }
+
+    .dr-price {
+        font-size: 15px;
+    }
+
+    .dr-why-grid,
+    .dr-steps-list {
+        grid-template-columns: 1fr;
+    }
+
+    .dr-step:not(:last-child)::after {
+        display: none;
+    }
+
+    .dr-cta-box {
+        padding: 28px 22px;
+    }
+
+    .dr-cta-actions,
+    .dr-cta-actions .dr-btn {
+        width: 100%;
+    }
+}
+
+/* Prices use .cloud-amount so the site's currency switch shows "৳১,৪৯৯" like the plan cards;
+   keep the table's own size instead of the large card size. */
+.dr-price .cloud-amount,
+.dr-hero-tld .cloud-amount {
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    line-height: inherit;
+}
+
+/* Bengali digits render small in the system font: give prices a little more size. */
+.dr-table .dr-price {
+    font-size: 16px;
+}
+
+.dr-table .dr-cell-register .dr-price {
+    font-size: 17px;
+    color: var(--navy-blue);
+}

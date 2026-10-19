@@ -19,6 +19,7 @@ class SeoPage extends Model
         'vps' => ['vps', 'VPS'],
         'business_email' => ['business-email', 'Business Email'],
         'offer' => ['offer', 'Offer'],
+        'domain_registration' => ['domain-registration', 'Domain Registration'],
         'about_us' => ['about-us', 'About Us'],
         'privacy_policy' => ['privacy-policy', 'Privacy Policy'],
         'terms_and_conditions' => ['terms-and-conditions', 'Terms and Conditions'],

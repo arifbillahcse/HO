@@ -85,6 +85,12 @@
                         </a>
                     </li>
                     <li>
+                        <a href="{{ hostorio_url('domain-registration') }}">
+                            <i class="fas fa-caret-right"></i>
+                            <span data-i18n="footer.quickLinks.domain">Domain Registration</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{ hostorio_url('offer') }}">
                             <i class="fas fa-caret-right"></i>
                             <span data-i18n="footer.quickLinks.offer">Offer (Deals)</span>

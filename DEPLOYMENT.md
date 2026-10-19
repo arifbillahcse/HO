@@ -23,6 +23,7 @@ Then check `.env` has `APP_ENV=production` and `APP_DEBUG=false`, and hard-refre
 Run `composer install --no-dev --optimize-autoloader` only when `composer.lock` changed.
 
 Plans and comparison tables are edited in the admin, see [docs/PRODUCTS_GUIDE.md](docs/PRODUCTS_GUIDE.md).
+The Domain Registration page and its prices are described in [docs/DOMAINS_GUIDE.md](docs/DOMAINS_GUIDE.md).
 Titles, descriptions, verification codes and analytics are under Admin → SEO, see [docs/SEO_GUIDE.md](docs/SEO_GUIDE.md).
 
 **Checks for SEO:**

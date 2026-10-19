@@ -16,6 +16,7 @@ window.translations.en.footer = {
         business: "Turbo Hosting",
         email: "Business Email",
         reseller: "Reseller Hosting",
+        domain: "Domain Registration",
         offer: "Offer (Deals)"
     },
     contactUs: {
@@ -42,6 +43,7 @@ window.translations.bn.footer = {
         business: "টার্বো হোস্টিং",
         email: "বিজনেস ইমেইল",
         reseller: "রিসেলার হোস্টিং",
+        domain: "ডোমেইন রেজিস্ট্রেশন",
         offer: "অফার (ডিলস)",
     },
     contactUs: {

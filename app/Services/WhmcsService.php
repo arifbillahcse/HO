@@ -22,7 +22,7 @@ class WhmcsService
         '.xyz' => '$2.99',
     ];
 
-    private const TLD_CACHE = 'tld_pricing';
+    private const TLD_CACHE = 'tld_pricing_v2'; // v2 adds renew/transfer details
     private const PLAN_CACHE = 'plan_prices';
 
     /**
@@ -158,9 +158,11 @@ class WhmcsService
     }
 
     /**
-     * Fetch 1-year registration prices straight from WHMCS (no cache).
+     * Fetch 1-year prices straight from WHMCS (no cache). "tlds" holds the
+     * registration price (used by the homepage hero); "details" adds renewal,
+     * transfer, the WHMCS group (hot/new/sale) and whether WHMCS lists it as popular.
      *
-     * @return array{currency: array{code: string, prefix: string, suffix: string}, tlds: array<string, float>}
+     * @return array{currency: array{code: string, prefix: string, suffix: string}, tlds: array<string, float>, details: array<string, array{register: ?float, renew: ?float, transfer: ?float, group: string, popular: bool}>}
      */
     public function fetchPricing(): array
     {
@@ -169,10 +171,25 @@ class WhmcsService
         $json = $this->request('GetTLDPricing', filled($currencyId) ? ['currencyid' => (int) $currencyId] : []);
 
         $tlds = [];
+        $details = [];
+        $year = fn ($prices) => is_array($prices) && (float) ($prices['1'] ?? 0) > 0 ? (float) $prices['1'] : null;
+
         foreach (($json['pricing'] ?? []) as $tld => $info) {
-            $amount = (float) ($info['register']['1'] ?? 0);
-            if ($amount > 0) {
-                $tlds[self::normalizeTld((string) $tld)] = $amount;
+            $tld = self::normalizeTld((string) $tld);
+            $register = $year($info['register'] ?? null);
+
+            if ($register !== null) {
+                $tlds[$tld] = $register;
+            }
+
+            if ($register !== null || $year($info['transfer'] ?? null) !== null) {
+                $details[$tld] = [
+                    'register' => $register,
+                    'renew' => $year($info['renew'] ?? null),
+                    'transfer' => $year($info['transfer'] ?? null),
+                    'group' => strtolower((string) ($info['group'] ?? '')),
+                    'popular' => in_array('Popular', (array) ($info['categories'] ?? []), true),
+                ];
             }
         }
 
@@ -185,6 +202,7 @@ class WhmcsService
                 'suffix' => (string) ($currency['suffix'] ?? ''),
             ],
             'tlds' => $tlds,
+            'details' => $details,
         ];
     }
 

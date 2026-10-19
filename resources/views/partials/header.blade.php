@@ -112,11 +112,11 @@
                             <i class="fas fa-chevron-down dropdown-arrow"></i>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ hostorio_business()->clientAreaUrl() }}cart.php?a=add&amp;domain=register" class="dropdown-item">
+                            <li><a href="{{ hostorio_url('domain-registration') }}" class="dropdown-item">
                                 <i class="fas fa-globe"></i>
                                 <span data-i18n="nav.domainRegistration">Domain Registration</span>
                             </a></li>
-                            <li><a href="{{ hostorio_business()->clientAreaUrl() }}cart.php?a=add&amp;domain=register" class="dropdown-item">
+                            <li><a href="{{ hostorio_url('domain-registration') }}#domain-prices" class="dropdown-item">
                                 <i class="fas fa-tags"></i>
                                 <span data-i18n="nav.domainPricing">Domain Pricing</span>
                             </a></li>
@@ -182,11 +182,11 @@
                 <i class="fas fa-chevron-down dropdown-arrow"></i>
             </a>
             <ul class="dropdown-menu">
-                <li><a href="{{ hostorio_business()->clientAreaUrl() }}cart.php?a=add&amp;domain=register" class="dropdown-item">
+                <li><a href="{{ hostorio_url('domain-registration') }}" class="dropdown-item">
                     <i class="fas fa-globe"></i>
                     <span data-i18n="nav.domainRegistration">Domain Registration</span>
                 </a></li>
-                <li><a href="{{ hostorio_business()->clientAreaUrl() }}cart.php?a=add&amp;domain=register" class="dropdown-item">
+                <li><a href="{{ hostorio_url('domain-registration') }}#domain-prices" class="dropdown-item">
                     <i class="fas fa-tags"></i>
                     <span data-i18n="nav.domainPricing">Domain Pricing</span>
                 </a></li>

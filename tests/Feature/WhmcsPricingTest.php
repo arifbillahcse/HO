@@ -114,7 +114,7 @@ class WhmcsPricingTest extends TestCase
         $service = app(WhmcsService::class);
         $this->assertSame('$13.50', $service->heroPrices()[0]['price']);
 
-        Cache::forget('whmcs_tld_pricing'); // cache expired, WHMCS now down
+        Cache::forget('whmcs_tld_pricing_v2'); // cache expired, WHMCS now down
 
         $this->assertSame('$13.50', $service->heroPrices()[0]['price']);
     }

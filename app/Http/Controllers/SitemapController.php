@@ -16,6 +16,7 @@ class SitemapController extends Controller
         'web_hosting' => ['0.9', 'weekly'],
         'turbo_hosting' => ['0.9', 'weekly'],
         'offer' => ['0.9', 'weekly'],
+        'domain_registration' => ['0.9', 'weekly'],
         'about_us' => ['0.9', 'monthly'],
         'privacy_policy' => ['0.8', 'monthly'],
         'terms_and_conditions' => ['0.8', 'monthly'],

@@ -21,7 +21,7 @@ class SeoTest extends TestCase
 
     private const PAGES = [
         '/', '/web-hosting/', '/turbo-hosting/', '/reseller-hosting/', '/student-hosting/', '/vps/',
-        '/business-email/', '/offer/', '/about-us/', '/privacy-policy/', '/terms-and-conditions/',
+        '/business-email/', '/offer/', '/domain-registration/', '/about-us/', '/privacy-policy/', '/terms-and-conditions/',
     ];
 
     protected function setUp(): void
@@ -77,7 +77,7 @@ class SeoTest extends TestCase
 
         $sitemap = $this->get('/sitemap.xml')->getContent();
         $this->assertStringContainsString('<loc>' . hostorio_url('web-hosting') . '</loc>', $sitemap);
-        $this->assertSame(11, substr_count($sitemap, '<loc>'));
+        $this->assertSame(12, substr_count($sitemap, '<loc>'));
     }
 
     public function test_page_seo_edits_show_on_the_website(): void

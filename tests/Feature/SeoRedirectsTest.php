@@ -236,8 +236,8 @@ class SeoRedirectsTest extends TestCase
             ->assertOk()
             ->assertSee('Search engines can index the site')
             ->assertSee('Page addresses keep their trailing slash')
-            ->assertSee('1 of 11 pages have a meta description')
-            ->assertSee('Sitemap lists 11 pages')
+            ->assertSee('2 of 12 pages have a meta description')
+            ->assertSee('Sitemap lists 12 pages')
             ->assertSee('On launch day');
 
         $checks = collect((new LaunchChecklist())->checks())->keyBy('title');

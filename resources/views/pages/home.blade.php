@@ -193,7 +193,7 @@
                         <p class="service-description" data-i18n="services.item1.desc">
                             Grab the Perfect Domain Your domain is more than just an address; it's your brand's first impression. Use our lightning-fast search tool to find the perfect name that defines your business. Whether you're starting fresh or want to move an existing domain to a more reliable home, our seamless transfer process makes it effortless.
                         </p>
-                        <a href="{{ hostorio_business()->clientAreaUrl() }}cart.php?a=add&domain=register" class="service-link">
+                        <a href="{{ hostorio_url('domain-registration') }}" class="service-link">
                             <span data-i18n="services.item1.link">Explore Domain</span>
                             <i class="arrow-icon">→</i>
                         </a>

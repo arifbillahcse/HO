@@ -19,7 +19,7 @@ class ContactAddressTest extends TestCase
 
     private const PAGES = [
         '/', '/web-hosting/', '/turbo-hosting/', '/reseller-hosting/', '/student-hosting/', '/vps/',
-        '/business-email/', '/offer/', '/about-us/', '/privacy-policy/', '/terms-and-conditions/',
+        '/business-email/', '/offer/', '/domain-registration/', '/about-us/', '/privacy-policy/', '/terms-and-conditions/',
     ];
 
     private const NEW_DETAILS = [
