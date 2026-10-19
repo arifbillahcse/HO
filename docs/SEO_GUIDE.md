@@ -100,3 +100,30 @@ template, not the admin; to change a heading so it contains the keyword, ask you
 
 Name, phone, email, address, map location and social links come from **Contact & Address**. Every page uses the
 same details. **Test in Google** opens Google's Rich Results Test for the homepage.
+
+## Google reports on the dashboard
+
+**Admin → Google Connection** puts Search Console and Google Analytics numbers on the dashboard. The page has the
+setup steps; in short:
+
+1. In [Google Cloud Console](https://console.cloud.google.com/), create a project and enable the
+   **Google Search Console API** and the **Google Analytics Data API**.
+2. Create a **service account** and download a **JSON key** for it.
+3. Add the service account's email (…@….iam.gserviceaccount.com) as a user in Search Console (**Restricted**) and in
+   Google Analytics → Property access management (**Viewer**).
+4. Paste the key in Google Connection, enter the Search Console property (`sc-domain:hostorio.com` for a Domain
+   property, or `https://hostorio.com/`) and the GA4 **property ID** (a number from GA4 → Admin → Property details,
+   not the `G-…` ID), then **Save and test**.
+
+The key is stored encrypted; only its email and private key are kept. **Disconnect** removes it.
+
+The dashboard then shows, for the last 7 days, 28 days or 3 months (the **Period** menu):
+
+- **Google Search**: clicks, impressions, click-through rate and average position, each compared with the period
+  before; a daily chart; top searches and top pages.
+- **Visitors**: users, sessions and page views with the change; most visited pages; where visitors come from.
+
+**Page SEO** gets a "Google, 28 days" column with each page's clicks and average position.
+
+Numbers are cached (3 hours by default, set in Google Connection). If Google is unreachable the last numbers stay
+on screen. Search Console data arrives about two days late, so the newest days look low at first.

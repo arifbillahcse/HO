@@ -5,6 +5,7 @@ namespace App\Filament\Resources\SeoPages;
 use App\Filament\Resources\SeoPages\Pages\EditSeoPage;
 use App\Filament\Resources\SeoPages\Pages\ListSeoPages;
 use App\Models\SeoPage;
+use App\Services\GoogleReports;
 use App\Services\Seo;
 use App\Services\SeoAnalyzer;
 use BackedEnum;
@@ -161,6 +162,11 @@ class SeoPageResource extends Resource
                     ->formatStateUsing(fn (int $state): string => "{$state} / 100")
                     ->badge()
                     ->color(fn (int $state): string => SeoAnalyzer::color($state)),
+                TextColumn::make('google')
+                    ->label('Google, 28 days')
+                    ->state(fn (SeoPage $record): string => static::googleNumbers($record))
+                    ->color('gray')
+                    ->visible(fn (): bool => app(GoogleReports::class)->hasSearchConsole()),
                 TextColumn::make('focus_keyword')
                     ->label('Focus keyword')
                     ->placeholder('—'),
@@ -215,6 +221,18 @@ class SeoPageResource extends Resource
         $analyzer = app(SeoAnalyzer::class);
 
         return $analyzer->scoreFor($record, $analyzer->cachedContent($record))['score'];
+    }
+
+    /** "12 clicks · position 8.3" from Search Console, or a dash. */
+    public static function googleNumbers(SeoPage $record): string
+    {
+        try {
+            $row = app(GoogleReports::class)->searchForPath('/' . ltrim($record->slug() . '/', '/'));
+        } catch (\Throwable) {
+            return '—';
+        }
+
+        return $row ? number_format($row['clicks']) . ' clicks · position ' . number_format($row['position'], 1) : '—';
     }
 
     private static function titleHelp(Get $get): string
