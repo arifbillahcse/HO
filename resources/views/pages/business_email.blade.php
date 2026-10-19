@@ -12,24 +12,7 @@
 <script src="{{ asset('assets/js/translations/header-footer/footer.js') }}"></script>
 @endpush
 @section('content')
-<script type="application/ld+json">
-{
-      "@@context": "https://schema.org",
-      "@type": "Organization",
-      "name": @json(hostorio_business()->name()),
-      "url": "https://hostorio.com",
-      "logo": "https://hostorio.com/assets/images/logo/hostorio-logo.png",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": @json(hostorio_business()->phone()),
-        "contactType": "customer service",
-        "email": @json(hostorio_business()->email()),
-        "areaServed": "BD",
-        "availableLanguage": ["English", "Bengali"]
-      },
-      "sameAs": @json(hostorio_business()->sameAs())
-    }
-    </script>
+@include('partials.schema.organization')
     @php($serviceRange = app(\App\Services\ProductCatalog::class)->priceRange('business_email'))
     <script type="application/ld+json">
 {

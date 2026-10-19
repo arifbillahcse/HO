@@ -14,48 +14,11 @@
 <script src="{{ asset('assets/js/translations/header-footer/footer.js') }}"></script>
 @endpush
 @section('content')
-<script type="application/ld+json">
-{
-      "@@context": "https://schema.org",
-      "@type": "Organization",
-      "name": @json(hostorio_business()->name()),
-      "url": "https://hostorio.com",
-      "logo": "https://hostorio.com/assets/images/logo/hostorio-logo.png",
-      "description": "Hostorio is a web hosting services provider in Bangladesh offering shared hosting, turbo hosting, reseller hosting, VPS, domain registration, and business email solutions.",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": @json(hostorio_business()->phone()),
-        "contactType": "customer service",
-        "email": @json(hostorio_business()->email()),
-        "availableLanguage": ["English", "Bengali"]
-      },
-      "address": @json(hostorio_business()->postalAddress()),
-      "sameAs": @json(hostorio_business()->sameAs())
-    }
-    </script>
+@include('partials.schema.organization')
     @foreach (app(\App\Services\ProductCatalog::class)->productSchemas('home', 'Web Hosting') as $schema)
     <script type="application/ld+json">{!! $schema !!}</script>
     @endforeach
-    <script type="application/ld+json">
-{
-      "@@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": @json(hostorio_business()->name()),
-      "image": "https://hostorio.com/assets/images/logo/hostorio-logo.png",
-      "@id": "https://hostorio.com",
-      "url": "https://hostorio.com",
-      "telephone": @json(hostorio_business()->phone()),
-      "email": @json(hostorio_business()->email()),
-      "address": @json(hostorio_business()->postalAddress()),
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-        "opens": "00:00",
-        "closes": "23:59"
-      },
-      "priceRange": "৳৳"
-    }
-    </script>
+    @include('partials.schema.local-business')
     <script type="application/ld+json">
 {
       "@@context": "https://schema.org",
@@ -246,7 +209,7 @@
                         <p class="service-description" data-i18n="services.item2.desc">
                             The Right Foundation for Every Project Whether you need the simplicity of Shared Hosting, the raw power of a VPS, or a specialized WordPress environment, we've got you covered. Powered by NVMe storage and LiteSpeed Web Servers, our infrastructure is built to ensure your site stays fast, stable, and ready for high traffic.
                         </p>
-                        <a href="" class="service-link">
+                        <a href="{{ hostorio_url('web-hosting') }}" class="service-link">
                             <span data-i18n="services.item2.link">Choose a hosting</span>
                             <i class="arrow-icon">→</i>
                         </a>
@@ -262,7 +225,7 @@
                         <p class="service-description" data-i18n="services.item3.desc">
                             Build Trust with Every Inbox Move beyond generic email addresses and earn instant credibility with a custom address (name@yourdomain.com). Our secure, ad-free business email plans keep your communications organized, private, and professional, complete with integrated tools to keep your team in sync.
                         </p>
-                        <a href="" class="service-link">
+                        <a href="{{ hostorio_url('business-email') }}" class="service-link">
                             <span data-i18n="services.item3.link">Business Email Plans</span>
                             <i class="arrow-icon">→</i>
                         </a>
@@ -278,7 +241,7 @@
                         <p class="service-description" data-i18n="services.item4.desc">
                             Protection for You and Your Visitors We take security seriously so you don't have to. Every Hostorio account comes standard with Free SSL certificates, BitNinja Server Security, and automated malware scanning. With 2-Factor Authentication (2FA) and premium DNS protection, your data—and your customers' trust—remains safe.
                         </p>
-                        <a href="" class="service-link">
+                        <a href="{{ hostorio_url('offer') }}" class="service-link">
                             <span data-i18n="services.item4.link">Secure yourself</span>
                             <i class="arrow-icon">→</i>
                         </a>
@@ -294,7 +257,7 @@
                         <p class="service-description" data-i18n="services.item5.desc">
                             Security isn't luxury—it's essential. Every Hostorio account includes free SSL certificates, DDoS protection via BitNinja, automatic malware scanning, and daily automated backups. We take the stress out of security so you can focus on growing your business. Sleep soundly knowing your data and your customers' data are protected 24/7.
                         </p>
-                        <a href="" class="service-link">
+                        <a href="{{ hostorio_url('turbo-hosting') }}" class="service-link">
                             <span data-i18n="services.item5.link">Learn about security</span>
                             <i class="arrow-icon">→</i>
                         </a>
@@ -453,7 +416,7 @@
                     </div>
                     <!-- CTA Button -->
                     <div class="wordpress-cta">
-                        <a href="" class="cta-button" data-i18n="wordpress.cta">Get Started Now</a>
+                        <a href="{{ hostorio_url('web-hosting') }}" class="cta-button" data-i18n="wordpress.cta">Get Started Now</a>
                     </div>
                 </div>
             </div>

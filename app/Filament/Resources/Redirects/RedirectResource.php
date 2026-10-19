@@ -28,7 +28,7 @@ class RedirectResource extends Resource
     protected static ?string $model = Redirect::class;
     protected static string | UnitEnum | null $navigationGroup = 'SEO';
     protected static ?string $navigationLabel = 'Redirects';
-    protected static ?int $navigationSort = 3;
+    protected static ?int $navigationSort = 4;
     protected static string | BackedEnum | null $navigationIcon = Heroicon::OutlinedArrowsRightLeft;
     protected static ?string $recordTitleAttribute = 'source';
 

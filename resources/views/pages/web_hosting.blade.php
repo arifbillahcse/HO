@@ -17,26 +17,7 @@
 @endpush
 @section('content')
 @php($webRange = app(\App\Services\ProductCatalog::class)->priceRange('web_hosting'))
-<script type="application/ld+json">
-{
-      "@@context": "https://schema.org",
-      "@type": "Organization",
-      "name": @json(hostorio_business()->name()),
-      "url": "https://hostorio.com",
-      "logo": "https://hostorio.com/assets/images/logo/hostorio-logo.png",
-      "description": "Hostorio provides reliable web hosting services in Bangladesh including shared hosting, WordPress hosting, turbo hosting, VPS and business email solutions.",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": @json(hostorio_business()->phone()),
-        "contactType": "customer service",
-        "email": @json(hostorio_business()->email()),
-        "availableLanguage": ["English", "Bengali"],
-        "areaServed": "BD"
-      },
-      "address": @json(hostorio_business()->postalAddress()),
-      "sameAs": @json(hostorio_business()->sameAs())
-    }
-    </script>
+@include('partials.schema.organization')
     @foreach (app(\App\Services\ProductCatalog::class)->productSchemas('web_hosting', 'Web Hosting') as $schema)
     <script type="application/ld+json">{!! $schema !!}</script>
     @endforeach
@@ -66,28 +47,7 @@
       ]
     }
     </script>
-    <script type="application/ld+json">
-{
-      "@@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": @json(hostorio_business()->name()),
-      "image": "https://hostorio.com/assets/images/logo/hostorio-logo.png",
-      "@id": "https://hostorio.com",
-      "url": "https://hostorio.com",
-      "telephone": @json(hostorio_business()->phone()),
-      "email": @json(hostorio_business()->email()),
-      "address": @json(hostorio_business()->postalAddress()),
-      @if ($geo = hostorio_business()->geo())"geo": @json($geo),
-      @endif
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-        "opens": "00:00",
-        "closes": "23:59"
-      },
-      "priceRange": "৳৳"
-    }
-    </script>
+    @include('partials.schema.local-business')
     <script type="application/ld+json">
 {
       "@@context": "https://schema.org",
@@ -841,7 +801,7 @@
                     </div>
                     <!-- CTA Button -->
                     <div class="wordpress-cta">
-                        <a href="" class="cta-button" data-i18n="wordpress.cta">Get Started Now</a>
+                        <a href="{{ hostorio_url('web-hosting') }}" class="cta-button" data-i18n="wordpress.cta">Get Started Now</a>
                     </div>
                 </div>
             </div>

@@ -502,25 +502,9 @@
       "@@context": "https://schema.org",
       "@type": "AboutPage",
       "name": "About Hostorio",
-      "url": "https://hostorio.com/about-us/",
-      "description": "Hostorio is a web hosting services provider in Bangladesh offering shared hosting, turbo hosting, reseller hosting, VPS, domain registration, and business email solutions.",
-      "mainEntity": {
-        "@type": "Organization",
-        "name": @json(hostorio_business()->name()),
-        "url": "https://hostorio.com",
-        "logo": "https://hostorio.com/assets/images/logo/hostorio-logo.png",
-        "description": "Hostorio is a web hosting services provider in Bangladesh offering shared hosting, turbo hosting, reseller hosting, VPS, domain registration, and business email solutions.",
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": @json(hostorio_business()->phone()),
-          "contactType": "customer service",
-          "email": @json(hostorio_business()->email()),
-          "areaServed": "BD",
-          "availableLanguage": ["English", "Bengali"]
-        },
-        "address": @json(hostorio_business()->postalAddress()),
-        "sameAs": @json(hostorio_business()->sameAs())
-      }
+      "url": "{{ hostorio_url('about-us') }}",
+      "description": @json(app(\App\Services\LocalSeo::class)->description()),
+      "mainEntity": {!! \App\Services\LocalSeo::json(app(\App\Services\LocalSeo::class)->organization(false)) !!}
     }
     </script>
     <script type="application/ld+json">
@@ -1273,7 +1257,7 @@
             </li>
         </ul>
         <div class="about-contact-actions">
-            <a href="" class="about-btn about-btn-primary" data-i18n="about.contact.ctaPlans">
+            <a href="{{ hostorio_url('web-hosting') }}" class="about-btn about-btn-primary" data-i18n="about.contact.ctaPlans">
                 <i class="fas fa-rocket"></i> Explore Hosting Plans
             </a>
             <a href="{{ hostorio_business()->clientAreaUrl() }}submitticket.php" class="about-btn about-btn-outline" data-i18n="about.contact.ctaSupport">

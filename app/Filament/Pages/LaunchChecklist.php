@@ -23,7 +23,7 @@ class LaunchChecklist extends Page
     protected static ?string $title = 'Launch checklist';
     protected static ?string $navigationLabel = 'Launch checklist';
     protected static string | UnitEnum | null $navigationGroup = 'SEO';
-    protected static ?int $navigationSort = 5;
+    protected static ?int $navigationSort = 6;
     protected static string | BackedEnum | null $navigationIcon = Heroicon::OutlinedRocketLaunch;
 
     public function getSubheading(): ?string

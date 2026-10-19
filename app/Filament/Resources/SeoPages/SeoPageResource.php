@@ -6,6 +6,7 @@ use App\Filament\Resources\SeoPages\Pages\EditSeoPage;
 use App\Filament\Resources\SeoPages\Pages\ListSeoPages;
 use App\Models\SeoPage;
 use App\Services\Seo;
+use App\Services\SeoAnalyzer;
 use BackedEnum;
 use Filament\Actions\Action;
 use Filament\Actions\EditAction;
@@ -57,6 +58,8 @@ class SeoPageResource extends Resource
                 ->tabs([
                     Tab::make('Google')
                         ->icon(Heroicon::OutlinedMagnifyingGlass)
+                        ->badge(fn (Get $get, ?SeoPage $record): string => (string) static::score($get, $record)['score'])
+                        ->badgeColor(fn (Get $get, ?SeoPage $record): string => SeoAnalyzer::color(static::score($get, $record)['score']))
                         ->schema([
                             View::make('filament.seo.google-preview')
                                 ->viewData(fn (Get $get, ?SeoPage $record): array => static::preview($get, $record)),
@@ -75,8 +78,11 @@ class SeoPageResource extends Resource
                             TextInput::make('focus_keyword')
                                 ->label('Focus keyword')
                                 ->maxLength(100)
+                                ->live(debounce: 400)
                                 ->placeholder('e.g. web hosting bangladesh')
                                 ->helperText('The main search phrase you want this page to rank for.'),
+                            View::make('filament.seo.score')
+                                ->viewData(fn (Get $get, ?SeoPage $record): array => static::score($get, $record)),
                         ]),
 
                     Tab::make('Social')
@@ -149,6 +155,12 @@ class SeoPageResource extends Resource
                     ->state(fn (SeoPage $record): string => filled($record->meta_description) ? mb_strlen($record->meta_description) . ' characters' : 'Missing')
                     ->badge()
                     ->color(fn (string $state): string => $state === 'Missing' ? 'warning' : 'success'),
+                TextColumn::make('score')
+                    ->label('SEO score')
+                    ->state(fn (SeoPage $record): int => static::savedScore($record))
+                    ->formatStateUsing(fn (int $state): string => "{$state} / 100")
+                    ->badge()
+                    ->color(fn (int $state): string => SeoAnalyzer::color($state)),
                 TextColumn::make('focus_keyword')
                     ->label('Focus keyword')
                     ->placeholder('—'),
@@ -183,6 +195,26 @@ class SeoPageResource extends Resource
             'favicon' => $seo->faviconUrl(),
             'indexed' => (bool) $get('robots_index') && ! $seo->isHidden(),
         ];
+    }
+
+    /** Live score from the form being edited. Page text comes from cache (EditSeoPage::mount fills it). */
+    public static function score(Get $get, ?SeoPage $record): array
+    {
+        $analyzer = app(SeoAnalyzer::class);
+
+        return $analyzer->analyze([
+            'title' => app(Seo::class)->resolveTitle($get('seo_title'), (string) ($get('name') ?: $record?->name)),
+            'description' => (string) $get('meta_description'),
+            'keyword' => $get('focus_keyword'),
+            'indexed' => (bool) $get('robots_index'),
+        ], $record ? $analyzer->cachedContent($record) : null);
+    }
+
+    public static function savedScore(SeoPage $record): int
+    {
+        $analyzer = app(SeoAnalyzer::class);
+
+        return $analyzer->scoreFor($record, $analyzer->cachedContent($record))['score'];
     }
 
     private static function titleHelp(Get $get): string

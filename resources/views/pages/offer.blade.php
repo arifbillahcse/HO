@@ -16,26 +16,7 @@
 <script src="{{ asset('assets/js/translations/header-footer/footer.js') }}"></script>
 @endpush
 @section('content')
-<script type="application/ld+json">
-{
-      "@@context": "https://schema.org",
-      "@type": "Organization",
-      "name": @json(hostorio_business()->name()),
-      "url": "https://hostorio.com",
-      "logo": "https://hostorio.com/assets/images/logo/hostorio-logo.png",
-      "description": "Hostorio offers limited-time special web hosting deals and promotional offers in Bangladesh. Save big on hosting packages with free domain and SSL.",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": @json(hostorio_business()->phone()),
-        "contactType": "customer service",
-        "email": @json(hostorio_business()->email()),
-        "availableLanguage": ["English", "Bengali"],
-        "areaServed": "BD"
-      },
-      "address": @json(hostorio_business()->postalAddress()),
-      "sameAs": @json(hostorio_business()->sameAs())
-    }
-    </script>
+@include('partials.schema.organization')
     @foreach (app(\App\Services\ProductCatalog::class)->offerSchemas('offer') as $schema)
     <script type="application/ld+json">{!! $schema !!}</script>
     @endforeach
@@ -790,7 +771,7 @@
                     </div>
                     <!-- CTA Button -->
                     <div class="wordpress-cta">
-                        <a href="" class="cta-button" data-i18n="wordpress.cta">Get Started Now</a>
+                        <a href="{{ hostorio_url('web-hosting') }}" class="cta-button" data-i18n="wordpress.cta">Get Started Now</a>
                     </div>
                 </div>
             </div>

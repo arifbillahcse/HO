@@ -47,7 +47,7 @@ class SettingResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->modifyQueryUsing(fn ($query) => $query->where('key', 'not like', 'whmcs%')->where('key', 'not like', 'seo%')->whereNotIn('key', BusinessInfo::KEYS))
+            ->modifyQueryUsing(fn ($query) => $query->where('key', 'not like', 'whmcs%')->where('key', 'not like', 'seo%')->where('key', 'not like', 'biz%')->whereNotIn('key', BusinessInfo::KEYS))
             ->columns([
                 TextColumn::make('key')
                     ->searchable()

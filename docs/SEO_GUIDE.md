@@ -74,3 +74,29 @@ The log keeps the latest 2,000 addresses.
 `APP_URL`, storage link, trailing-slash rules, robots.txt, sitemap, descriptions, images, analytics, verification)
 and lists the steps for launch day. Open it on hostorio.com right after the switch: everything should be green
 apart from the blue notes.
+
+## SEO score
+
+Every page in **Page SEO** has a score from 0 to 100, like Rank Math. Open a page and the **Google** tab shows the
+score next to its name and a checklist under the fields. Both update as you type. 80 or more is good.
+
+- **Focus keyword** checks (65 points): the keyword in the SEO title (and near its start), in the meta description,
+  in the main heading (H1), in a subheading, at the start of the page text, in an image description, and a keyword
+  density of 0.5–2.5%. Matching is by whole words: "host" is not found inside "hosting".
+- **Basics** (35 points): title 30–60 characters, description 120–160 characters, 600+ words, exactly one H1,
+  every image described (alt text), links to other pages.
+
+The page text, headings and images are read from the English version of the page. They are part of the page
+template, not the admin; to change a heading so it contains the keyword, ask your developer.
+
+## Local SEO
+
+**Admin → SEO → Local SEO** holds the business details Google uses for the knowledge panel and local results:
+
+- **Business type**: with an office (Local business, Professional service, Store) or online only. Office types
+  include opening hours and a price range.
+- **Business description**, **logo** (empty = the header logo), **area served** and **support languages**.
+- **Opening hours**: 24/7, or rows of days with opening and closing times (e.g. Saturday–Thursday 09:00–21:00).
+
+Name, phone, email, address, map location and social links come from **Contact & Address**. Every page uses the
+same details. **Test in Google** opens Google's Rich Results Test for the homepage.

@@ -28,7 +28,7 @@ class NotFoundLogResource extends Resource
     protected static ?string $navigationLabel = '404 Monitor';
     protected static ?string $modelLabel = '404 address';
     protected static ?string $pluralModelLabel = '404 Monitor';
-    protected static ?int $navigationSort = 4;
+    protected static ?int $navigationSort = 5;
     protected static string | BackedEnum | null $navigationIcon = Heroicon::OutlinedExclamationTriangle;
 
     public static function canCreate(): bool
