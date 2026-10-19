@@ -239,7 +239,7 @@
         </div>
     </div>
 <!-- VPS Pricing Section -->
-<section class="vps-plan-pricing-section" id="#vps-section-id" style="padding: 60px 0; background: #f8fafc;">
+<section class="vps-plan-pricing-section" id="vps-section-id" style="padding: 60px 0; background: #f8fafc;">
     <div class="container-wrapper">
         <!-- Section Header -->
         <div class="pricing-header" style="margin-bottom: 40px;">
@@ -464,7 +464,7 @@
                     <p class="testimonial-quote" data-i18n="testimonial.item1.quote">
                         I could <span class="highlight-text">manage</span> the hosting, domain name, and SSL certificate <span class="highlight-text">in one place</span>, which was really refreshing.
                     </p>
-                    <a href="#" class="testimonial-read-more" data-i18n="testimonial.readMore">Read more</a>
+                    @if ($reviewsUrl = hostorio_business()->reviewsUrl())<a href="{{ $reviewsUrl }}" class="testimonial-read-more" target="_blank" rel="noopener" data-i18n="testimonial.readMore">Read more</a>@endif
                     <div class="testimonial-author-section">
                         <div class="author-details">
                             <p class="author-name-text">Shaidul Islam Rony</p>
@@ -510,7 +510,7 @@
                     <p class="testimonial-quote" data-i18n="testimonial.item2.quote">
                         We honestly reference <span class="highlight-text">Hostorio as the benchmark</span> for our engineers when providing support.
                     </p>
-                    <a href="#" class="testimonial-read-more" data-i18n="testimonial.readMore">Read more</a>
+                    @if ($reviewsUrl = hostorio_business()->reviewsUrl())<a href="{{ $reviewsUrl }}" class="testimonial-read-more" target="_blank" rel="noopener" data-i18n="testimonial.readMore">Read more</a>@endif
                     <div class="testimonial-author-section">
                         <div class="author-details">
                             <p class="author-name-text">Tutul</p>

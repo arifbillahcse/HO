@@ -19,7 +19,7 @@ class BusinessInfo
     public const KEYS = [
         'business_name', 'business_phone', 'business_email', 'client_area_url',
         'business_address', 'business_city', 'business_region', 'business_latitude', 'business_longitude',
-        'social_facebook', 'social_twitter', 'social_youtube', 'social_linkedin',
+        'social_facebook', 'social_twitter', 'social_youtube', 'social_linkedin', 'reviews_url',
     ];
 
     private function value(string $key): string
@@ -73,6 +73,12 @@ class BusinessInfo
     public function cityLine(): string
     {
         return implode(', ', array_filter([$this->city(), $this->region()]));
+    }
+
+    /** Where testimonials' "Read more" goes, e.g. the Google reviews of the business. Empty hides the link. */
+    public function reviewsUrl(): string
+    {
+        return $this->value('reviews_url');
     }
 
     /** @return array<string, string> network => url, empty ones left out */

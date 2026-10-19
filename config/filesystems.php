@@ -41,7 +41,9 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => rtrim(env('APP_URL', 'http://localhost'), '/').'/storage',
+            // Relative, so uploaded images load on whatever domain the site is opened on
+            // (admin previews break with an absolute URL when APP_URL is wrong).
+            'url' => '/storage',
             'visibility' => 'public',
             'throw' => false,
             'report' => false,

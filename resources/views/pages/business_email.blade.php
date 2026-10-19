@@ -307,7 +307,7 @@
                         <p data-i18n="emailJellyfish.desc1">See spam disappear over time as Jellyfish uses machine learning to tighten the net on junk emails — based on your preferences.</p>
                         <p data-i18n="emailJellyfish.desc2">From tailoring your email flow to creating specific advanced filter rules, Jellyfish is ready! Its smart machine-learning technology works quietly in the background to ensure your inbox is always free of spam.</p>
                     </div>
-                    <a href="#" class="jellyfish-link">
+                    <a href="{{ hostorio_business()->clientAreaUrl() }}knowledgebase" class="jellyfish-link">
                         <span data-i18n="emailJellyfish.link">Dive Deeper into Jellyfish</span>
                         <svg class="arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
                             <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -383,7 +383,7 @@
                     <p class="testimonial-quote" data-i18n="testimonial.item1.quote">
                         I could <span class="highlight-text">manage</span> the hosting, domain name, and SSL certificate <span class="highlight-text">in one place</span>, which was really refreshing.
                     </p>
-                    <a href="#" class="testimonial-read-more" data-i18n="testimonial.readMore">Read more</a>
+                    @if ($reviewsUrl = hostorio_business()->reviewsUrl())<a href="{{ $reviewsUrl }}" class="testimonial-read-more" target="_blank" rel="noopener" data-i18n="testimonial.readMore">Read more</a>@endif
                     <div class="testimonial-author-section">
                         <div class="author-details">
                             <p class="author-name-text">Shaidul Islam Rony</p>
@@ -429,7 +429,7 @@
                     <p class="testimonial-quote" data-i18n="testimonial.item2.quote">
                         We honestly reference <span class="highlight-text">Hostorio as the benchmark</span> for our engineers when providing support.
                     </p>
-                    <a href="#" class="testimonial-read-more" data-i18n="testimonial.readMore">Read more</a>
+                    @if ($reviewsUrl = hostorio_business()->reviewsUrl())<a href="{{ $reviewsUrl }}" class="testimonial-read-more" target="_blank" rel="noopener" data-i18n="testimonial.readMore">Read more</a>@endif
                     <div class="testimonial-author-section">
                         <div class="author-details">
                             <p class="author-name-text">Tutul</p>
@@ -476,7 +476,7 @@
                     <div class="faq-answer">
                         <p>Just like web hosting, email hosting is server space that stores your mailbox rather than a website. It also has a portal that manages the sending and receiving of emails. Like web hosting, it connects to your domain allowing you to make professional email addresses (<strong>yourname@yourdomain.com</strong>). Most companies basically rent out space on an email server to customers, then handle email sending and receiving.</p>
                         <p>Our professional business email is, however, more than just storage space and a delivery service. It also includes a wide variety of integrations and collaboration features designed to boost productivity and team effectiveness.</p>
-                        <a href="#" class="faq-link">Discover more about our email hosting</a>
+                        <a href="{{ hostorio_business()->clientAreaUrl() }}knowledgebase" class="faq-link">Discover more about our email hosting</a>
                     </div>
                 </div>
                 <!-- FAQ Item 2 -->
@@ -641,7 +641,7 @@
                         <p data-i18n="emailFaq.ctaDesc">Can't find the answer you're looking for? Please chat with our friendly team.</p>
                     </div>
                 </div>
-                <a href="#" class="faq-cta-button" data-i18n="emailFaq.ctaBtn">Get in Touch</a>
+                <a href="{{ hostorio_business()->clientAreaUrl() }}submitticket.php" class="faq-cta-button" data-i18n="emailFaq.ctaBtn">Get in Touch</a>
             </div>
         </div>
     </section>

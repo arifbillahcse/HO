@@ -111,6 +111,12 @@ class ContactAddress extends Page
                         TextInput::make('social_twitter')->label('X (Twitter)')->url()->maxLength(255),
                         TextInput::make('social_youtube')->label('YouTube')->url()->maxLength(255),
                         TextInput::make('social_linkedin')->label('LinkedIn')->url()->maxLength(255),
+                        TextInput::make('reviews_url')
+                            ->label('Reviews page')
+                            ->url()
+                            ->maxLength(500)
+                            ->placeholder('https://g.page/r/…/review')
+                            ->helperText('Where "Read more" under customer testimonials goes, e.g. your Google reviews or Facebook reviews. Empty hides "Read more".'),
                     ])
                     ->columns(2),
             ])

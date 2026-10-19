@@ -346,7 +346,7 @@ class WhmcsService
         return rtrim(rtrim(number_format($price, 2, '.', ''), '0'), '.');
     }
 
-    /** Order link: the product's own link (pointed at its WHMCS ID), else the WHMCS cart, else "#". */
+    /** Order link: the product's own link (pointed at its WHMCS ID), else the WHMCS cart for that ID, else the WHMCS store. */
     public function productUrl(Product $product): string
     {
         $pid = $product->whmcs_pid;
@@ -356,13 +356,10 @@ class WhmcsService
             return $pid ? preg_replace('/([?&])pid=\d+/', '${1}pid=' . $pid, $custom, 1) : $custom;
         }
 
-        if (! $pid) {
-            return '#';
-        }
-
         $base = rtrim((string) (SettingsService::get('client_area_url') ?: 'https://my.hostorio.com/'), '/');
 
-        return "{$base}/cart.php?a=add&pid={$pid}";
+        // Without a WHMCS ID the button still leads somewhere useful: the store.
+        return $pid ? "{$base}/cart.php?a=add&pid={$pid}" : "{$base}/cart.php";
     }
 
     /* ───────────────────────── homepage ───────────────────────── */

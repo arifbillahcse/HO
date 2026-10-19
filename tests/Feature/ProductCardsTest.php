@@ -119,7 +119,7 @@ class ProductCardsTest extends TestCase
     public function test_order_links_follow_the_whmcs_product_id(): void
     {
         $this->get('/')->assertSee('href="https://my.hostorio.com/cart.php?a=add&amp;pid=55"', false);
-        $this->get('/vps/')->assertSee('<a href="#" class="cloud-order-btn">DEPLOY NOW</a>', false);
+        $this->get('/vps/')->assertSee('<a href="https://my.hostorio.com/cart.php" class="cloud-order-btn">DEPLOY NOW</a>', false); // no WHMCS ID: the store
 
         Product::onPage('vps')->first()->update(['whmcs_pid' => 120]);
         $this->get('/vps/')->assertSee('href="https://my.hostorio.com/cart.php?a=add&amp;pid=120" class="cloud-order-btn">DEPLOY NOW</a>', false);

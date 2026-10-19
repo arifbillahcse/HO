@@ -27,7 +27,9 @@ Titles, descriptions, verification codes and analytics are under Admin → SEO, 
 
 **Checks for SEO:**
 - `APP_URL` in `.env` must be the site's real address (`https://ho.demo.softorio.com` on the demo,
-  `https://hostorio.com` on the live site), or uploaded images won't preview in the admin.
+  `https://hostorio.com` on the live site). With `APP_ENV=production` and an https `APP_URL`, every link,
+  canonical and stylesheet is generated as https (so Cloudflare "Flexible" SSL can't cause mixed content);
+  the site must therefore be reachable over https.
 - Page addresses end in `/` (as on WordPress). Laravel adds the slash itself, so the web server must **not**
   remove trailing slashes. `public/.htaccess` no longer does. If the domain's document root is the project
   folder rather than `public/`, check that folder's `.htaccess` for a "Redirect Trailing Slashes" rule and

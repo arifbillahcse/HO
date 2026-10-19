@@ -59,6 +59,9 @@ Click a plan's name. The form has four tabs.
   the number in the product's edit link, `id=55`). When it is set:
   - the price comes live from WHMCS (the yearly BDT price; if WHMCS only has USD, USD × the site's exchange rate), and
   - the order button opens the WHMCS cart for that product.
+
+  Without an ID (and without an order link) the button opens the WHMCS store and the fallback price is shown.
+  **Admin → SEO → Launch checklist** lists the plans that still have no ID.
 - **Fallback yearly price** (BDT): used when the product has no WHMCS ID, or when WHMCS is unreachable.
   Always fill this in. Monthly prices on the site are worked out from the yearly price.
 - **Order link (optional)**: a custom order link. If the link contains `pid=…`, that number is replaced with

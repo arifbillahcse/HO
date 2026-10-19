@@ -18,7 +18,8 @@ window.translations.en.faq = {
     },
     q4: {
         q: "Can you help me to get started?",
-        a: "Of course! You can join our community forum where you can find a variety of tips and tricks."
+        a: "Of course! Our support team will help you get set up, and our knowledgebase has step-by-step guides with tips and tricks.",
+        link: "Read the guides"
     },
     q5: {
         q: "Can I transfer my website to your web hosting?",
@@ -53,7 +54,8 @@ window.translations.bn.faq = {
     },
     q4: {
         q: "আমাকে শুরু করতে সাহায্য করবেন?",
-        a: "অবশ্যই! আমাদের কমিউনিটি ফোরামে যোগ দিন যেখানে আপনি নানা ধরনের টিপস ও ট্রিকস পাবেন।"
+        a: "অবশ্যই! আমাদের সাপোর্ট টিম আপনাকে সেটআপে সাহায্য করবে, আর আমাদের নলেজবেসে ধাপে ধাপে গাইড ও টিপস রয়েছে।",
+        link: "গাইডগুলো পড়ুন"
     },
     q5: {
         q: "আমি কি আমার ওয়েবসাইট আপনাদের হোস্টিংয়ে ট্রান্সফার করতে পারব?",

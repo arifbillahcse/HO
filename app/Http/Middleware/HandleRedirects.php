@@ -51,12 +51,12 @@ class HandleRedirects
         }
 
         if (str_starts_with($target, '/')) {
-            $target = rtrim($request->getSchemeAndHttpHost() . $request->getBaseUrl(), '/') . $target;
-        }
+            // Never redirect an address to itself.
+            if (! str_contains($target, '?') && Redirect::normalize($target) === Redirect::normalize($request->getPathInfo())) {
+                return null;
+            }
 
-        // Never redirect an address to itself.
-        if (rtrim(strtok($target, '?#'), '/') === rtrim($request->url(), '/') && ! str_contains($target, '?')) {
-            return null;
+            $target = rtrim(url('/'), '/') . $target; // url() keeps https when it is forced
         }
 
         if (! str_contains($target, '?') && ($query = $request->getQueryString())) {

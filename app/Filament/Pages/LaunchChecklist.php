@@ -86,6 +86,14 @@ class LaunchChecklist extends Page
         $indexed = $pages->where('robots_index', true)->count();
         $checks[] = ['status' => $indexed > 0 ? 'ok' : 'fail', 'title' => "Sitemap lists {$indexed} pages", 'detail' => url('sitemap.xml') . '. Old Rank Math sitemap addresses redirect to it.'];
 
+        $noPid = \App\Models\Product::query()->where('is_visible', true)->whereNull('whmcs_pid')
+            ->where(fn ($q) => $q->whereNull('order_url')->orWhere('order_url', ''))->get();
+        $checks[] = $noPid->isEmpty()
+            ? ['status' => 'ok', 'title' => 'Every plan is linked to WHMCS', 'detail' => 'Order buttons go straight to the right product in the cart.']
+            : ['status' => 'warn', 'title' => $noPid->count() . ' plans have no WHMCS product ID', 'detail' => 'Their Order buttons open the WHMCS store instead of the plan, and they show the fallback price: '
+                . $noPid->groupBy(fn ($p) => $p->pageLabel())->map(fn ($group, $page) => $page . ' (' . $group->pluck('name')->implode(', ') . ')')->implode('; ') . '.',
+                'link' => \App\Filament\Resources\Products\ProductResource::getUrl()];
+
         $missing = $pages->filter(fn (SeoPage $p) => blank($p->meta_description))->pluck('name');
         $checks[] = $missing->isEmpty()
             ? ['status' => 'ok', 'title' => 'Every page has a meta description', 'detail' => $pages->count() . ' of ' . $pages->count() . ' pages.']
@@ -109,6 +117,11 @@ class LaunchChecklist extends Page
         $checks[] = filled(SettingsService::get('seo_verify_google'))
             ? ['status' => 'ok', 'title' => 'Google Search Console code is set', 'detail' => 'The verification tag is on every page.']
             : ['status' => 'info', 'title' => 'No Google Search Console code', 'detail' => 'Fine if hostorio.com is verified with a DNS record. Otherwise add the code in SEO Settings.', 'link' => $settingsUrl];
+
+        $google = app(\App\Services\GoogleReports::class);
+        $checks[] = $google->isConfigured()
+            ? ['status' => 'ok', 'title' => 'Google reports are connected', 'detail' => 'Search Console' . ($google->hasAnalytics() ? ' and Analytics' : '') . ' numbers show on the dashboard. Enter the key again on the live site after the switch.']
+            : ['status' => 'info', 'title' => 'Google reports not connected', 'detail' => 'Optional: connect Search Console and Analytics to see their numbers on the dashboard.', 'link' => GoogleConnection::getUrl()];
 
         $business = hostorio_business();
         $checks[] = ['status' => 'info', 'title' => 'Contact details match Google Maps?', 'detail' => "The site shows {$business->phone()}, {$business->street()}, {$business->cityLine()}. Use the same phone and address as your Google Business Profile.", 'link' => ContactAddress::getUrl()];

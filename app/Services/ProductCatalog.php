@@ -4,7 +4,6 @@ namespace App\Services;
 
 use App\Models\Product;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ProductCatalog
@@ -27,7 +26,7 @@ class ProductCatalog
 
     public function icon(Product $product): string
     {
-        return filled($product->icon) ? Storage::disk('public')->url($product->icon) : asset(Product::DEFAULT_ICON);
+        return asset(filled($product->icon) ? 'storage/' . ltrim($product->icon, '/') : Product::DEFAULT_ICON);
     }
 
     /** @return array{low: float|int, high: float|int, count: int} */

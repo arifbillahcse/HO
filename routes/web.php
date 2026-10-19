@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('sitemap.xml', [SitemapController::class, 'sitemap']);
 Route::get('robots.txt', fn () => response(app(Seo::class)->robotsTxt(), 200, ['Content-Type' => 'text/plain; charset=UTF-8']));
 
+// Browsers ask for /favicon.ico on their own: send them the icon uploaded in SEO Settings.
+Route::get('favicon.ico', fn () => ($icon = app(Seo::class)->faviconUrl()) ? redirect($icon, 302) : response()->noContent());
+
 // Old Rank Math sitemap addresses still known to search engines
 foreach (['sitemap_index.xml', 'page-sitemap.xml', 'post-sitemap.xml', 'category-sitemap.xml', 'local-sitemap.xml'] as $old) {
     Route::get($old, fn () => redirect('sitemap.xml', 301));

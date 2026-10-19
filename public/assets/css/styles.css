@@ -7708,3 +7708,9 @@ ul {
     }
 }
 
+
+/* Testimonial photos have no video yet: hide the play button so it does not promise one.
+   Remove this rule when the testimonials get real videos. */
+.testimonial-video-wrapper .video-play-button {
+    display: none;
+}

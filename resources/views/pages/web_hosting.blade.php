@@ -478,7 +478,7 @@
                     <p class="testimonial-quote" data-i18n="testimonial.item1.quote">
                         I could <span class="highlight-text">manage</span> the hosting, domain name, and SSL certificate <span class="highlight-text">in one place</span>, which was really refreshing.
                     </p>
-                    <a href="#" class="testimonial-read-more" data-i18n="testimonial.readMore">Read more</a>
+                    @if ($reviewsUrl = hostorio_business()->reviewsUrl())<a href="{{ $reviewsUrl }}" class="testimonial-read-more" target="_blank" rel="noopener" data-i18n="testimonial.readMore">Read more</a>@endif
                     <div class="testimonial-author-section">
                         <div class="author-details">
                             <p class="author-name-text">Shaidul Islam Rony</p>
@@ -524,7 +524,7 @@
                     <p class="testimonial-quote" data-i18n="testimonial.item2.quote">
                         We honestly reference <span class="highlight-text">Hostorio as the benchmark</span> for our engineers when providing support.
                     </p>
-                    <a href="#" class="testimonial-read-more" data-i18n="testimonial.readMore">Read more</a>
+                    @if ($reviewsUrl = hostorio_business()->reviewsUrl())<a href="{{ $reviewsUrl }}" class="testimonial-read-more" target="_blank" rel="noopener" data-i18n="testimonial.readMore">Read more</a>@endif
                     <div class="testimonial-author-section">
                         <div class="author-details">
                             <p class="author-name-text">Tutul</p>
@@ -608,7 +608,7 @@
                         <i class="fas fa-chevron-down faq-arrow"></i>
                     </div>
                     <div class="faq-answer">
-                        <p data-i18n="faq.q4.a">Of course! You can join our community forum where you can find a variety of tips and tricks. <a href="#" class="faq-link">Click here</a> to join.</p>
+                        <p><span data-i18n="faq.q4.a">Of course! Our support team will help you get set up, and our knowledgebase has step-by-step guides with tips and tricks.</span> <a href="{{ hostorio_business()->clientAreaUrl() }}knowledgebase" class="faq-link" data-i18n="faq.q4.link">Read the guides</a></p>
                     </div>
                 </div>
                 <!-- FAQ Item 5 -->
