@@ -122,6 +122,12 @@ class ProductCardsTest extends TestCase
         $this->assertStringContainsString('data-yearly-url="https://my.hostorio.com/cart.php?a=add&amp;pid=55&amp;billingcycle=annually" data-monthly-url="https://my.hostorio.com/cart.php?a=add&amp;pid=55&amp;billingcycle=monthly"', $html);
         $this->assertStringContainsString('<span class="price-period">or ৳350/mo billed monthly</span>', $html);
         $this->assertStringContainsString('data-period-year="pricing.perYear|/yr" data-period-month="pricing.perMonth|/mo">/yr</span>', $html);
+
+        // Crossed-out price = 12 × the WHMCS monthly price (350 × 12), only on the plan that has one.
+        $this->assertSame(1, substr_count($html, 'class="cloud-price-original"'));
+        $this->assertStringContainsString('<span class="orig-amount">4,200</span>', $html);
+        $this->assertStringContainsString('data-i18n="pricing.save30">Up to 30%!</span>', $html);
+        $this->assertStringContainsString('data-i18n="pricing.saveBadge">Up to 30%!</span>', $html);
     }
 
     public function test_billing_switch_is_hidden_when_plans_are_sold_yearly_only(): void
@@ -130,6 +136,7 @@ class ProductCardsTest extends TestCase
             $html = $this->get($url)->assertOk()->getContent();
             $this->assertStringNotContainsString('id="billingToggle"', $html, $url);
             $this->assertStringNotContainsString('data-monthly-price', $html, $url);
+            $this->assertStringNotContainsString('cloud-price-original', $html, "{$url}: no made-up crossed-out price");
         }
 
         // VPS used to label the yearly price "/mo" until the script ran.

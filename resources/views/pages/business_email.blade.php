@@ -268,7 +268,7 @@
                         <span class="toggle-slider"></span>
                     </label>
                     <span class="toggle-label active" data-i18n="emailPricing.billedAnnually">Billed Annually</span>
-                    <span class="save-badge" data-i18n="emailPricing.saveBadge">Save 30%!</span>
+                    <span class="save-badge" data-i18n="emailPricing.saveBadge">Up to 30%!</span>
                 </div>
                 @endif
             </div>

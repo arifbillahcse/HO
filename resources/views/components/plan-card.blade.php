@@ -5,6 +5,9 @@
     $price = $catalog->price($product);
     $shownPrice = number_format((float) $price, str_contains($price, '.') ? 2 : 0);
     $monthly = $catalog->monthlyPrice($product);
+    // Crossed-out price: 12 months at the WHMCS monthly price. No monthly price, nothing to compare.
+    $fullYear = $monthly !== null ? (float) $monthly * 12 : null;
+    $showOriginal = $product->show_original_price && $fullYear !== null && $fullYear > (float) $price;
 @endphp
 <div class="cloud-card{{ $product->is_popular ? ' popular' : '' }}">
     @if ($product->is_popular)
@@ -18,9 +21,9 @@
         <p class="cloud-plan-desc">{{ $product->description }}</p>
     @endif
     <div class="cloud-pricing" data-yearly-price="{{ $price }}"@if ($monthly !== null) data-monthly-price="{{ $monthly }}"@endif>
-        @if ($product->show_original_price)
+        @if ($showOriginal)
             <div class="cloud-price-original">
-                <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
+                <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount">{{ number_format($fullYear) }}</span>
                 <span class="cloud-save-badge" data-i18n="{{ $ui['save'][0] }}">{{ $ui['save'][1] }}</span>
             </div>
         @endif

@@ -253,7 +253,7 @@
                     <span class="toggle-slider"></span>
                 </label>
                 <span class="toggle-label" data-i18n="pricing.billedAnnually">Billed Annually</span>
-                <span class="save-badge" data-i18n="pricing.saveBadge">Save 30%!</span>
+                <span class="save-badge" data-i18n="pricing.saveBadge">Up to 30%!</span>
             </div>
             @endif
         </div>

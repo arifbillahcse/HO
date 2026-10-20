@@ -26,14 +26,14 @@ class Product extends Model
      * "Save" badge and the price period (translation key, English text).
      */
     public const CARD_UI = [
-        'home' => ['save' => ['pricing.save30', 'Save 30%'], 'year' => ['pricing.perYear', '/yr'], 'month' => ['pricing.perMonth', '/mo']],
-        'web_hosting' => ['save' => ['pricing.save30', 'Save 30%'], 'year' => ['pricing.perYear', '/yr'], 'month' => ['pricing.perMonth', '/mo']],
-        'turbo_hosting' => ['save' => ['turboPricing.saveBadge', 'Save 30%!'], 'year' => ['turboPricing.perYear', '/yr'], 'month' => ['turboPricing.perMonth', '/mo']],
-        'reseller_hosting' => ['save' => ['resellerPricing.saveBadge', 'Save 30%!'], 'year' => ['resellerPricing.perYear', '/yr'], 'month' => ['resellerPricing.perMonth', '/mo']],
-        'student_hosting' => ['save' => ['studentPricing.saveBadge', 'Save 30%!'], 'year' => ['studentPricing.perYear', '/yr'], 'month' => ['studentPricing.perMonth', '/mo']],
-        'vps' => ['save' => ['pricing.save30', 'Save 30%'], 'year' => ['vpsPricing.perYear', '/yr'], 'month' => ['vpsPricing.perMonth', '/mo']],
-        'business_email' => ['save' => ['emailPricing.saveBadge', 'Save 30%!'], 'year' => ['emailPricing.perYear', '/yr'], 'month' => ['emailPricing.perMonth', '/mo']],
-        'offer' => ['save' => ['pricing.save30', 'Save 30%'], 'year' => ['offerPricing.perYear', '/year'], 'month' => ['pricing.perMonth', '/mo']],
+        'home' => ['save' => ['pricing.save30', 'Up to 30%!'], 'year' => ['pricing.perYear', '/yr'], 'month' => ['pricing.perMonth', '/mo']],
+        'web_hosting' => ['save' => ['pricing.save30', 'Up to 30%!'], 'year' => ['pricing.perYear', '/yr'], 'month' => ['pricing.perMonth', '/mo']],
+        'turbo_hosting' => ['save' => ['turboPricing.saveBadge', 'Up to 30%!'], 'year' => ['turboPricing.perYear', '/yr'], 'month' => ['turboPricing.perMonth', '/mo']],
+        'reseller_hosting' => ['save' => ['resellerPricing.saveBadge', 'Up to 30%!'], 'year' => ['resellerPricing.perYear', '/yr'], 'month' => ['resellerPricing.perMonth', '/mo']],
+        'student_hosting' => ['save' => ['studentPricing.saveBadge', 'Up to 30%!'], 'year' => ['studentPricing.perYear', '/yr'], 'month' => ['studentPricing.perMonth', '/mo']],
+        'vps' => ['save' => ['pricing.save30', 'Up to 30%!'], 'year' => ['vpsPricing.perYear', '/yr'], 'month' => ['vpsPricing.perMonth', '/mo']],
+        'business_email' => ['save' => ['emailPricing.saveBadge', 'Up to 30%!'], 'year' => ['emailPricing.perYear', '/yr'], 'month' => ['emailPricing.perMonth', '/mo']],
+        'offer' => ['save' => ['pricing.save30', 'Up to 30%!'], 'year' => ['offerPricing.perYear', '/year'], 'month' => ['pricing.perMonth', '/mo']],
     ];
 
     /**

@@ -256,7 +256,7 @@
                         <span class="toggle-slider"></span>
                     </label>
                     <span class="toggle-label active" data-i18n="studentPricing.billedAnnually">Billed Annually</span>
-                    <span class="save-badge" data-i18n="studentPricing.saveBadge">Save 30%!</span>
+                    <span class="save-badge" data-i18n="studentPricing.saveBadge">Up to 30%!</span>
                 </div>
                 @endif
             </div>

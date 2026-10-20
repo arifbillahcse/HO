@@ -7,7 +7,6 @@
 (function () {
     'use strict';
 
-    const YEARLY_DISCOUNT = 0.30;   // 30 % off when billed yearly
     const STORAGE_KEY     = 'billingPeriod';
 
     let isYearly = true; // default: yearly
@@ -102,13 +101,14 @@
             if (amountEl) amountEl.textContent = fmtAmt(showMonthly ? monthlyBdt / bdtRate : yearlyUsd);
             if (periodEl) setPeriod(periodEl, periodEl.getAttribute(showMonthly ? 'data-period-month' : 'data-period-year'));
 
-            // Strikethrough = yearly price without the 30% discount; the monthly price has none.
+            // Strikethrough (yearly view only) = 12 months at the WHMCS monthly
+            // price; the card only has it when that is more than the yearly price.
             if (origBlock) {
                 if (showMonthly) {
                     origBlock.style.display = 'none';
                 } else {
                     if (origCurEl) origCurEl.textContent = sym;
-                    if (origAmtEl) origAmtEl.textContent = fmtAmt(yearlyUsd / (1 - YEARLY_DISCOUNT));
+                    if (origAmtEl) origAmtEl.textContent = fmtAmt(monthlyBdt * 12 / bdtRate);
                     origBlock.style.display = '';
                 }
             }

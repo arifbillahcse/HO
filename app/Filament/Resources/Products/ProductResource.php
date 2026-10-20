@@ -94,7 +94,8 @@ class ProductResource extends Resource
                                 ->visible(fn (Get $get): bool => (bool) $get('is_popular'))
                                 ->required(fn (Get $get): bool => (bool) $get('is_popular')),
                             Toggle::make('show_original_price')
-                                ->label('Show crossed-out price and "Save" badge')
+                                ->label('Show crossed-out price and "Up to 30%!" badge')
+                                ->helperText('The crossed-out price is 12 months at the WHMCS monthly price, so it only shows for plans that have a monthly price.')
                                 ->default(true)
                                 ->inline(false)
                                 ->columnSpanFull(),

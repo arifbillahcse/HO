@@ -43,7 +43,8 @@ Click a plan's name. The form has four tabs.
 - **Plan name**, **Short description**, **Button text**: shown on the card.
 - **Highlight this plan**: orange border plus a badge. **Badge text** is what the badge says (for example "Recommended").
   Only highlight one plan per page.
-- **Show crossed-out price and "Save" badge**: the old price with a line through it, plus "Save 30%".
+- **Show crossed-out price and "Up to 30%!" badge**: 12 months at the plan's monthly price, crossed out, next to
+  the yearly price. It is taken from the WHMCS monthly price, so plans sold yearly only show no crossed-out price.
 - **Icon**: optional image (PNG, JPG or WebP, up to 1 MB). Leave empty for the standard server icon.
 
 **Specifications**: the ticked list on the card.
