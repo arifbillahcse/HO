@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Product;
 use App\Models\Setting;
 use App\Models\User;
 use App\Providers\AppServiceProvider;
@@ -62,7 +63,8 @@ class SiteAuditTest extends TestCase
     public function test_home_plans_are_sold_yearly_only(): void
     {
         $this->get('/')->assertOk()->assertDontSee('id="billingToggle"', false)->assertDontSee('Billed Monthly');
-        $this->get('/web-hosting/')->assertSee('id="billingToggle"', false);
+        Product::onPage('home')->first()->update(['monthly_price' => 350]);
+        $this->get('/')->assertDontSee('id="billingToggle"', false); // even when the plan has a monthly price
     }
 
     public function test_testimonial_read_more_follows_the_reviews_link(): void

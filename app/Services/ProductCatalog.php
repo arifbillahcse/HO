@@ -19,6 +19,24 @@ class ProductCatalog
         return app(WhmcsService::class)->productPrice($product);
     }
 
+    /** Monthly BDT price, or null when the plan is sold yearly only. */
+    public function monthlyPrice(Product $product): ?string
+    {
+        return app(WhmcsService::class)->productMonthlyPrice($product);
+    }
+
+    /** Whether any plan on the page can be bought monthly (shows the billing switch). */
+    public function hasMonthly(string $page): bool
+    {
+        return $this->forPage($page)->contains(fn (Product $p) => $this->monthlyPrice($p) !== null);
+    }
+
+    /** Order link for a billing cycle ("annually" or "monthly"). */
+    public function cycleUrl(Product $product, string $cycle): string
+    {
+        return app(WhmcsService::class)->productCycleUrl($product, $cycle);
+    }
+
     public function url(Product $product): string
     {
         return app(WhmcsService::class)->productUrl($product);

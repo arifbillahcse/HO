@@ -153,6 +153,12 @@ class ProductResource extends Resource
                                 ->minValue(0)
                                 ->prefix('৳')
                                 ->helperText('In BDT. Shown when WHMCS has no price for this product.'),
+                            TextInput::make('monthly_price')
+                                ->label('Fallback monthly price')
+                                ->numeric()
+                                ->minValue(0)
+                                ->prefix('৳')
+                                ->helperText('In BDT. Leave empty if the plan is sold yearly only. When WHMCS is connected, its monthly price is used instead.'),
                             TextInput::make('order_url')
                                 ->label('Order link (optional)')
                                 ->url()

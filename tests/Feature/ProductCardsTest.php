@@ -41,9 +41,10 @@ class ProductCardsTest extends TestCase
             ? Http::response('down', $status)
             : Http::response($r['action'] === 'GetProducts'
                 ? ['result' => 'success', 'products' => ['product' => [
-                    ['pid' => 55, 'pricing' => ['BDT' => ['annually' => '3100.00']]],
-                    ['pid' => 56, 'pricing' => ['USD' => ['annually' => '40.00']]],
-                    ['pid' => 57, 'pricing' => ['BDT' => ['annually' => '-1.00']]],
+                    ['pid' => 55, 'paytype' => 'recurring', 'pricing' => ['BDT' => ['annually' => '3100.00', 'monthly' => '350.00']]],
+                    ['pid' => 56, 'paytype' => 'recurring', 'pricing' => ['USD' => ['annually' => '40.00', 'monthly' => '-1.00']]],
+                    ['pid' => 57, 'pricing' => ['BDT' => ['annually' => '-1.00', 'monthly' => '600.00']]],
+                    ['pid' => 58, 'paytype' => 'onetime', 'pricing' => ['BDT' => ['annually' => '12500.00', 'monthly' => '12500.00']]],
                 ]]]
                 : ['result' => 'success', 'currency' => ['code' => 'USD', 'prefix' => '$'], 'pricing' => []]));
     }
@@ -104,8 +105,43 @@ class ProductCardsTest extends TestCase
         $this->assertStringContainsString('data-yearly-price="3100"', $html);   // BDT price from WHMCS
         $this->assertStringContainsString('data-yearly-price="5000"', $html);   // USD 40 x rate 125
         $this->assertStringContainsString('data-yearly-price="6000"', $html);   // unavailable -> fallback
-        $this->assertStringContainsString('data-yearly-price="12000"', $html);  // not returned -> fallback
+        $this->assertStringContainsString('data-yearly-price="12500"', $html);
         Http::assertSent(fn (Request $r) => $r['action'] === 'GetProducts' && $r['pid'] === '16,17,18,19,55,56,57,58');
+    }
+
+    public function test_monthly_view_uses_real_monthly_prices_from_whmcs(): void
+    {
+        $this->configureWhmcs();
+        $this->fakeWhmcs();
+
+        $html = $this->get('/web-hosting/')->assertOk()->getContent();
+
+        $this->assertStringContainsString('id="billingToggle"', $html);
+        $this->assertSame(1, substr_count($html, 'data-monthly-price='), 'only pid 55 sells monthly (56 has no monthly cycle, 57 has no yearly price, 58 is one-time)');
+        $this->assertStringContainsString('data-yearly-price="3100" data-monthly-price="350"', $html);
+        $this->assertStringContainsString('data-yearly-url="https://my.hostorio.com/cart.php?a=add&amp;pid=55&amp;billingcycle=annually" data-monthly-url="https://my.hostorio.com/cart.php?a=add&amp;pid=55&amp;billingcycle=monthly"', $html);
+        $this->assertStringContainsString('<span class="price-period">or ৳350/mo billed monthly</span>', $html);
+        $this->assertStringContainsString('data-period-year="pricing.perYear|/yr" data-period-month="pricing.perMonth|/mo">/yr</span>', $html);
+    }
+
+    public function test_billing_switch_is_hidden_when_plans_are_sold_yearly_only(): void
+    {
+        foreach (['/web-hosting/', '/turbo-hosting/', '/reseller-hosting/', '/student-hosting/', '/vps/', '/business-email/', '/'] as $url) {
+            $html = $this->get($url)->assertOk()->getContent();
+            $this->assertStringNotContainsString('id="billingToggle"', $html, $url);
+            $this->assertStringNotContainsString('data-monthly-price', $html, $url);
+        }
+
+        // VPS used to label the yearly price "/mo" until the script ran.
+        $this->get('/vps/')->assertSee('data-i18n="vpsPricing.perYear"', false);
+
+        Product::onPage('turbo_hosting')->first()->update(['monthly_price' => 1500]);
+
+        $this->get('/turbo-hosting/')
+            ->assertSee('id="billingToggle"', false)
+            ->assertSee('data-monthly-price="1500"', false)
+            ->assertSee('or ৳1,500/mo billed monthly');
+        $this->get('/vps/')->assertDontSee('id="billingToggle"', false);
     }
 
     public function test_cards_keep_fallback_prices_when_whmcs_is_down(): void
@@ -190,9 +226,8 @@ class ProductCardsTest extends TestCase
         }
 
         $web = $this->get('/web-hosting/')->getContent();
-        $this->assertStringContainsString('<span class="strikethrough">৳357/mo</span>', $web);
-        $this->assertStringContainsString('<span class="price-amount">৳250/mo</span>', $web);
-        $this->assertStringContainsString('<span class="price-period"> (৳3,000/yr)</span>', $web);
+        $this->assertStringContainsString('<span class="price-amount">৳3,000/yr</span>', $web);
+        $this->assertStringNotContainsString('/mo billed monthly', $web, 'yearly-only plans show no monthly price');
         $this->assertStringContainsString('<div class="plan-feature">5GB NVMe</div>', $web);
         $this->assertStringContainsString('<div class="plan-feature"><i class="fas fa-check"></i></div>', $web);
         $this->assertStringContainsString('<div class="plan-feature"><i class="fas fa-times"></i></div>', $web);
@@ -229,7 +264,7 @@ class ProductCardsTest extends TestCase
         $this->fakeWhmcs();
 
         // Web Hosting "Starter" is WHMCS product 55, which returns 3100 BDT a year.
-        $this->get('/web-hosting/')->assertSee('<span class="price-period"> (৳3,100/yr)</span>', false);
+        $this->get('/web-hosting/')->assertSee('<span class="price-amount">৳3,100/yr</span>', false);
     }
 
     /** @return list<array<string, mixed>> */

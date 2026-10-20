@@ -9,6 +9,7 @@ window.translations.en.resellerPricing = {
     mostPopular: "Most Popular",
     orderNow: "Order Now",
     perMonth: "/mo",
+    perYear: "/yr",
     plans: {
         starter: {
             name: "R-Starter",
@@ -52,6 +53,7 @@ window.translations.bn.resellerPricing = {
     mostPopular: "সবচেয়ে জনপ্রিয়",
     orderNow: "এখনই অর্ডার করুন",
     perMonth: "/মাস",
+    perYear: "/বছর",
     plans: {
         starter: {
             name: "R-স্টার্টার",

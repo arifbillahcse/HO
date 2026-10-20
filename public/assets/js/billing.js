@@ -1,6 +1,7 @@
 /**
  * Billing Toggle Module
- * Handles Monthly / Yearly pricing toggle with 30% yearly discount.
+ * Handles the Monthly / Yearly pricing toggle. Monthly shows each plan's own
+ * monthly price (data-monthly-price); plans without one stay yearly.
  * Integrates with window.i18n (I18nManager) for currency + language sync.
  */
 (function () {
@@ -10,7 +11,6 @@
     const STORAGE_KEY     = 'billingPeriod';
 
     let isYearly = true; // default: yearly
-    let hasToggle = false; // pages without the switch keep their own period label
 
     /* ──────────────────────────────────────────
        Persistence helpers
@@ -48,20 +48,6 @@
         return window.i18n.formatPrice(usd).replace(/[^\d০-৯.,]/g, '');
     }
 
-    function isBangla() {
-        return !!(window.i18n && window.i18n.currentLanguage === 'bn');
-    }
-
-    function billedNote(wrapper) {
-        let note = wrapper.querySelector('.cloud-billed-note');
-        if (!note) {
-            note = document.createElement('div');
-            note.className = 'cloud-billed-note';
-            wrapper.appendChild(note);
-        }
-        return note;
-    }
-
     function t(key) {
         if (window.i18n) {
             const v = window.i18n.translate(key);
@@ -75,64 +61,61 @@
     ────────────────────────────────────────── */
     function updateLabels() {
         document.querySelectorAll('.billing-toggle').forEach(function (wrapper) {
-            const monthly = wrapper.querySelector('[data-i18n="pricing.billedMonthly"]');
-            const yearly  = wrapper.querySelector('[data-i18n="pricing.billedAnnually"]');
-            if (monthly) monthly.classList.toggle('active', !isYearly);
-            if (yearly)  yearly.classList.toggle('active',  isYearly);
+            const labels = wrapper.querySelectorAll('.toggle-label');
+            if (labels[0]) labels[0].classList.toggle('active', !isYearly);
+            if (labels[1]) labels[1].classList.toggle('active',  isYearly);
         });
     }
 
     /* ──────────────────────────────────────────
        DOM: price cards
     ────────────────────────────────────────── */
+    // data-period-year / data-period-month hold "translationKey|fallback".
+    function setPeriod(el, spec) {
+        if (!el || !spec) return;
+        const parts = spec.split('|');
+        el.setAttribute('data-i18n', parts[0]); // so a language switch keeps the right label
+        el.textContent = t(parts[0]) || parts[1] || '';
+    }
+
     function updatePrices() {
-        const sym = symbol();
+        const sym     = symbol();
+        const bdtRate = (window.i18n && window.i18n.exchangeRate) ? window.i18n.exchangeRate : 125;
 
         document.querySelectorAll('.cloud-pricing[data-yearly-price]').forEach(function (wrapper) {
-            // data-yearly-price stores the BDT amount; convert to USD for calculations
-            const yearlyBdt  = parseFloat(wrapper.getAttribute('data-yearly-price'));
-            if (isNaN(yearlyBdt)) return;
-            const bdtRate    = (window.i18n && window.i18n.exchangeRate) ? window.i18n.exchangeRate : 125;
-            const yearlyUsd  = yearlyBdt / bdtRate;
+            // Prices are stored in BDT; formatting expects USD.
+            const yearlyUsd = parseFloat(wrapper.getAttribute('data-yearly-price')) / bdtRate;
+            if (isNaN(yearlyUsd)) return;
+            const monthlyBdt = parseFloat(wrapper.getAttribute('data-monthly-price'));
 
-            // Undiscounted monthly price = yearly / (12 × (1 − discount))  →  yearly / 8.4
-            const fullMonthlyUsd = yearlyUsd / (12 * (1 - YEARLY_DISCOUNT));
+            // Plans without a monthly price (sold yearly only) always show yearly.
+            const showMonthly = !isYearly && !isNaN(monthlyBdt);
 
-            const amountEl   = wrapper.querySelector('.cloud-amount');
-            const periodEl   = wrapper.querySelector('.cloud-period');
-            const origBlock  = wrapper.querySelector('.cloud-price-original');
-            const origCurEl  = origBlock  && origBlock.querySelector('[data-orig-currency]');
-            const origAmtEl  = origBlock  && origBlock.querySelector('.orig-amount');
-            const currEl     = wrapper.querySelector('[data-currency-symbol]');
-            const noteEl     = billedNote(wrapper);
+            const amountEl  = wrapper.querySelector('.cloud-amount');
+            const periodEl  = wrapper.querySelector('.cloud-period');
+            const origBlock = wrapper.querySelector('.cloud-price-original');
+            const origCurEl = origBlock && origBlock.querySelector('[data-orig-currency]');
+            const origAmtEl = origBlock && origBlock.querySelector('.orig-amount');
+            const currEl    = wrapper.querySelector('[data-currency-symbol]');
+            const orderBtn  = wrapper.parentElement && wrapper.parentElement.querySelector('.cloud-order-btn[data-monthly-url]');
 
-            // Both views show the same plan price: the yearly price, or that
-            // price spread over 12 months. The strikethrough is the matching
-            // price without the 30% discount.
-            if (amountEl) amountEl.textContent = fmtAmt(isYearly ? yearlyUsd : yearlyUsd / 12);
+            if (amountEl) amountEl.textContent = fmtAmt(showMonthly ? monthlyBdt / bdtRate : yearlyUsd);
+            if (periodEl) setPeriod(periodEl, periodEl.getAttribute(showMonthly ? 'data-period-month' : 'data-period-year'));
 
-            if (periodEl && hasToggle) {
-                periodEl.textContent = isYearly
-                    ? (t('pricing.perYear') || '/yr')
-                    : (t('pricing.perMonth') || '/mo');
-            }
-
+            // Strikethrough = yearly price without the 30% discount; the monthly price has none.
             if (origBlock) {
-                if (origCurEl) origCurEl.textContent = sym;
-                if (origAmtEl) origAmtEl.textContent = fmtAmt(isYearly ? fullMonthlyUsd * 12 : fullMonthlyUsd);
-                origBlock.style.display = '';
+                if (showMonthly) {
+                    origBlock.style.display = 'none';
+                } else {
+                    if (origCurEl) origCurEl.textContent = sym;
+                    if (origAmtEl) origAmtEl.textContent = fmtAmt(yearlyUsd / (1 - YEARLY_DISCOUNT));
+                    origBlock.style.display = '';
+                }
             }
 
-            // Monthly view: say what is actually charged at checkout.
-            if (isYearly) {
-                noteEl.style.display = 'none';
-            } else {
-                const amount = sym + fmtAmt(yearlyUsd);
-                noteEl.textContent = isBangla() ? 'বার্ষিক ' + amount + ' বিল করা হয়' : 'Billed ' + amount + ' yearly';
-                noteEl.style.display = '';
-            }
+            // Order the billing cycle that is on screen.
+            if (orderBtn) orderBtn.href = orderBtn.getAttribute(showMonthly ? 'data-monthly-url' : 'data-yearly-url');
 
-            // Always refresh currency symbol
             if (currEl) currEl.textContent = sym;
         });
     }
@@ -173,7 +156,6 @@
             return;
         }
 
-        hasToggle = true;
         loadPref();
         patchI18n();
 

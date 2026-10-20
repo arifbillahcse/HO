@@ -4,6 +4,7 @@
     $ui = \App\Models\Product::CARD_UI[$page] ?? \App\Models\Product::CARD_UI['home'];
     $price = $catalog->price($product);
     $shownPrice = number_format((float) $price, str_contains($price, '.') ? 2 : 0);
+    $monthly = $catalog->monthlyPrice($product);
 @endphp
 <div class="cloud-card{{ $product->is_popular ? ' popular' : '' }}">
     @if ($product->is_popular)
@@ -16,7 +17,7 @@
     @if (filled($product->description))
         <p class="cloud-plan-desc">{{ $product->description }}</p>
     @endif
-    <div class="cloud-pricing" data-yearly-price="{{ $price }}">
+    <div class="cloud-pricing" data-yearly-price="{{ $price }}"@if ($monthly !== null) data-monthly-price="{{ $monthly }}"@endif>
         @if ($product->show_original_price)
             <div class="cloud-price-original">
                 <span class="orig-currency" data-orig-currency>৳</span><span class="orig-amount"></span>
@@ -26,7 +27,7 @@
         <div class="cloud-price-current">
             <span class="cloud-currency" data-currency-symbol>৳</span>
             <span class="cloud-amount">{{ $shownPrice }}</span>
-            <span class="cloud-period" data-i18n="{{ $ui['period'][0] }}">{{ $ui['period'][1] }}</span>
+            <span class="cloud-period" data-i18n="{{ $ui['year'][0] }}" data-period-year="{{ $ui['year'][0] }}|{{ $ui['year'][1] }}" data-period-month="{{ $ui['month'][0] }}|{{ $ui['month'][1] }}">{{ $ui['year'][1] }}</span>
         </div>
     </div>
     <ul class="cloud-features">
@@ -40,5 +41,9 @@
             </li>
         @endforeach
     </ul>
+    @if ($monthly !== null)
+    <a href="{{ $catalog->cycleUrl($product, 'annually') }}" class="cloud-order-btn" data-yearly-url="{{ $catalog->cycleUrl($product, 'annually') }}" data-monthly-url="{{ $catalog->cycleUrl($product, 'monthly') }}">{{ $product->button_text ?: 'Order Now' }}</a>
+    @else
     <a href="{{ $catalog->url($product) }}" class="cloud-order-btn">{{ $product->button_text ?: 'Order Now' }}</a>
+    @endif
 </div>

@@ -3,7 +3,6 @@
     $catalog = app(\App\Services\ProductCatalog::class);
     $config = \App\Models\Product::COMPARISON[$page] ?? ['price' => 'monthly', 'popular' => 'none'];
     $rows = \App\Models\ComparisonRow::query()->onPage($page)->get();
-    // Monthly price before the 30% yearly discount; matches billing.js (YEARLY_DISCOUNT).
     $money = fn (float $amount): string => '৳' . number_format(round($amount));
 @endphp
                 <div class="features-column">
@@ -20,6 +19,7 @@
                 @foreach ($catalog->forPage($page) as $product)
                 @php
                     $yearly = (float) $catalog->price($product);
+                    $monthly = $catalog->monthlyPrice($product);
                     $badge = $product->is_popular && $config['popular'] === 'badge';
                 @endphp
                 <div class="plan-column{{ $badge ? ' popular' : '' }}">
@@ -36,26 +36,22 @@
                         @endforeach
                         <div class="plan-feature plan-pricing-cell">
                             <div class="pricing-box">
-                                @if ($config['price'] === 'monthly')
-                                <div class="price-old">
-                                    <span class="strikethrough">{{ $money($yearly / 8.4) }}/mo</span>
-                                    <span class="save-badge">Save 30%</span>
-                                </div>
-                                <div class="price-current">
-                                    <span class="price-amount">{{ $money($yearly / 12) }}/mo</span>
-                                    <span class="price-period"> ({{ $money($yearly) }}/yr)</span>
-                                </div>
-                                @elseif ($config['price'] === 'yearly')
+                                @if ($config['price'] !== 'offer')
                                 <div class="price-current">
                                     <span class="price-amount">{{ $money($yearly) }}/yr</span>
                                 </div>
+                                @if ($config['price'] === 'monthly' && $monthly !== null)
+                                <div class="price-old">
+                                    <span class="price-period">or {{ $money((float) $monthly) }}/mo billed monthly</span>
+                                </div>
+                                @endif
                                 @else
                                 <div class="price-current">
                                     <span class="price-amount">{{ $money($yearly) }}</span>
                                     <span class="price-period">/year</span>
                                 </div>
                                 @endif
-                                <a href="{{ $catalog->url($product) }}" class="btn-order">{{ $product->button_text ?: 'Order Now' }}</a>
+                                <a href="{{ $monthly !== null ? $catalog->cycleUrl($product, 'annually') : $catalog->url($product) }}" class="btn-order">{{ $product->button_text ?: 'Order Now' }}</a>
                             </div>
                         </div>
                     </div>

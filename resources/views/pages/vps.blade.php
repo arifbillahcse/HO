@@ -244,6 +244,7 @@
         <!-- Section Header -->
         <div class="pricing-header" style="margin-bottom: 40px;">
             <h2 class="pricing-main-title" data-i18n="vpsPricing.heading">Choose Your VPS Hosting Plan</h2>
+            @if (app(\App\Services\ProductCatalog::class)->hasMonthly('vps'))
             <!-- VPS Billing Toggle -->
             <div class="billing-toggle" data-billing-default="monthly">
                 <span class="toggle-label active" data-i18n="pricing.billedMonthly">Billed Monthly</span>
@@ -254,6 +255,7 @@
                 <span class="toggle-label" data-i18n="pricing.billedAnnually">Billed Annually</span>
                 <span class="save-badge" data-i18n="pricing.saveBadge">Save 30%!</span>
             </div>
+            @endif
         </div>
         <!-- VPS Plan Cards -->
         <div class="cloud-pricing-cards" style="justify-content: center;">

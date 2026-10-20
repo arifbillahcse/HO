@@ -23,7 +23,7 @@ class WhmcsService
     ];
 
     private const TLD_CACHE = 'tld_pricing_v2'; // v2 adds renew/transfer details
-    private const PLAN_CACHE = 'plan_prices';
+    private const PLAN_CACHE = 'plan_prices_v2'; // v2 adds the monthly price
 
     /**
      * @param  array{url?: ?string, identifier?: ?string, secret?: ?string, access_key?: ?string, currency_id?: int|string|null}|null  $credentials
@@ -255,9 +255,9 @@ class WhmcsService
     }
 
     /**
-     * Cached yearly BDT prices keyed by WHMCS product ID.
+     * Cached BDT prices keyed by WHMCS product ID.
      *
-     * @return array<int, float>|null
+     * @return array<int, array{yearly: float, monthly: ?float}>|null
      */
     public function planPrices(): ?array
     {
@@ -306,11 +306,12 @@ class WhmcsService
     }
 
     /**
-     * Yearly price in BDT per product ID, taken from WHMCS (no cache). Uses the
-     * BDT price when WHMCS has one, else the USD price times the site's rate.
+     * Yearly and monthly price in BDT per product ID, taken from WHMCS (no
+     * cache). Uses the BDT price when WHMCS has one, else the USD price times
+     * the site's rate. A product without a monthly cycle gets monthly null.
      *
      * @param  list<int>|null  $pids
-     * @return array<int, float>
+     * @return array<int, array{yearly: float, monthly: ?float}>
      */
     public function fetchPlanPrices(?array $pids = null): array
     {
@@ -332,15 +333,24 @@ class WhmcsService
 
         foreach ($products as $product) {
             $pricing = $product['pricing'] ?? [];
-            $yearly = (float) ($pricing['BDT']['annually'] ?? 0);
+            $cycle = function (string $name) use ($pricing, $rate): ?float {
+                $amount = (float) ($pricing['BDT'][$name] ?? 0);
+                if ($amount <= 0) {
+                    $amount = (float) ($pricing['USD'][$name] ?? 0) * $rate;
+                }
 
-            if ($yearly <= 0) {
-                $yearly = (float) ($pricing['USD']['annually'] ?? 0) * $rate;
+                return $amount > 0 ? round($amount, 2) : null;
+            };
+
+            $yearly = $cycle('annually');
+            if ($yearly === null) {
+                continue;
             }
 
-            if ($yearly > 0) {
-                $prices[(int) $product['pid']] = round($yearly, 2);
-            }
+            // One-time products keep their price in "monthly"; it is not a monthly price.
+            $recurring = ($product['paytype'] ?? 'recurring') === 'recurring';
+
+            $prices[(int) $product['pid']] = ['yearly' => $yearly, 'monthly' => $recurring ? $cycle('monthly') : null];
         }
 
         return $prices;
@@ -349,19 +359,54 @@ class WhmcsService
     /** Live yearly BDT price for a product, else its fallback price. Never throws. */
     public function productPrice(Product $product): string
     {
-        $price = (float) ($product->yearly_price ?? 0);
+        $live = $this->livePrices($product);
 
-        try {
-            $live = $product->whmcs_pid ? ($this->planPrices() ?? []) : [];
+        return self::plain($live ? $live['yearly'] : (float) ($product->yearly_price ?? 0));
+    }
 
-            if (isset($live[$product->whmcs_pid])) {
-                $price = $live[$product->whmcs_pid];
-            }
-        } catch (Throwable $e) {
-            Log::warning('Plan price unavailable: ' . $e->getMessage());
+    /**
+     * Live monthly BDT price, else the fallback monthly price. Null when the
+     * plan is sold yearly only. Never throws.
+     */
+    public function productMonthlyPrice(Product $product): ?string
+    {
+        $live = $this->livePrices($product);
+        $monthly = $live ? $live['monthly'] : ($product->monthly_price !== null ? (float) $product->monthly_price : null);
+
+        return $monthly > 0 ? self::plain($monthly) : null;
+    }
+
+    /** @return array{yearly: float, monthly: ?float}|null */
+    private function livePrices(Product $product): ?array
+    {
+        if (! $product->whmcs_pid) {
+            return null;
         }
 
+        try {
+            return ($this->planPrices() ?? [])[$product->whmcs_pid] ?? null;
+        } catch (Throwable $e) {
+            Log::warning('Plan price unavailable: ' . $e->getMessage());
+
+            return null;
+        }
+    }
+
+    private static function plain(float $price): string
+    {
         return rtrim(rtrim(number_format($price, 2, '.', ''), '0'), '.');
+    }
+
+    /** Order link for one billing cycle, so WHMCS opens the cart on that cycle. */
+    public function productCycleUrl(Product $product, string $cycle): string
+    {
+        $url = $this->productUrl($product);
+
+        if (! str_contains($url, 'pid=') || str_contains($url, 'billingcycle=')) {
+            return $url;
+        }
+
+        return $url . (str_contains($url, '?') ? '&' : '?') . 'billingcycle=' . $cycle;
     }
 
     /** Order link: the product's own link (pointed at its WHMCS ID), else the WHMCS cart for that ID, else the WHMCS store. */

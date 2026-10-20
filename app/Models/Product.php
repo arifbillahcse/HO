@@ -26,14 +26,14 @@ class Product extends Model
      * "Save" badge and the price period (translation key, English text).
      */
     public const CARD_UI = [
-        'home' => ['save' => ['pricing.save30', 'Save 30%'], 'period' => ['pricing.perYear', '/yr']],
-        'web_hosting' => ['save' => ['pricing.save30', 'Save 30%'], 'period' => ['pricing.perYear', '/yr']],
-        'turbo_hosting' => ['save' => ['turboPricing.saveBadge', 'Save 30%!'], 'period' => ['turboPricing.perMonth', '/mo']],
-        'reseller_hosting' => ['save' => ['resellerPricing.saveBadge', 'Save 30%!'], 'period' => ['resellerPricing.perMonth', '/mo']],
-        'student_hosting' => ['save' => ['studentPricing.saveBadge', 'Save 30%!'], 'period' => ['studentPricing.perYear', '/yr']],
-        'vps' => ['save' => ['pricing.save30', 'Save 30%'], 'period' => ['pricing.perMonth', '/mo']],
-        'business_email' => ['save' => ['emailPricing.saveBadge', 'Save 30%!'], 'period' => ['emailPricing.perMonth', '/mo']],
-        'offer' => ['save' => ['pricing.save30', 'Save 30%'], 'period' => ['offerPricing.perYear', '/year']],
+        'home' => ['save' => ['pricing.save30', 'Save 30%'], 'year' => ['pricing.perYear', '/yr'], 'month' => ['pricing.perMonth', '/mo']],
+        'web_hosting' => ['save' => ['pricing.save30', 'Save 30%'], 'year' => ['pricing.perYear', '/yr'], 'month' => ['pricing.perMonth', '/mo']],
+        'turbo_hosting' => ['save' => ['turboPricing.saveBadge', 'Save 30%!'], 'year' => ['turboPricing.perYear', '/yr'], 'month' => ['turboPricing.perMonth', '/mo']],
+        'reseller_hosting' => ['save' => ['resellerPricing.saveBadge', 'Save 30%!'], 'year' => ['resellerPricing.perYear', '/yr'], 'month' => ['resellerPricing.perMonth', '/mo']],
+        'student_hosting' => ['save' => ['studentPricing.saveBadge', 'Save 30%!'], 'year' => ['studentPricing.perYear', '/yr'], 'month' => ['studentPricing.perMonth', '/mo']],
+        'vps' => ['save' => ['pricing.save30', 'Save 30%'], 'year' => ['vpsPricing.perYear', '/yr'], 'month' => ['vpsPricing.perMonth', '/mo']],
+        'business_email' => ['save' => ['emailPricing.saveBadge', 'Save 30%!'], 'year' => ['emailPricing.perYear', '/yr'], 'month' => ['emailPricing.perMonth', '/mo']],
+        'offer' => ['save' => ['pricing.save30', 'Save 30%'], 'year' => ['offerPricing.perYear', '/year'], 'month' => ['pricing.perMonth', '/mo']],
     ];
 
     /**
@@ -51,7 +51,7 @@ class Product extends Model
     protected $fillable = [
         'page_key', 'sort_order', 'is_visible', 'name', 'description', 'is_popular', 'badge_text',
         'icon', 'icon_alt', 'features', 'show_original_price', 'button_text',
-        'whmcs_pid', 'yearly_price', 'order_url', 'comparison',
+        'whmcs_pid', 'yearly_price', 'monthly_price', 'order_url', 'comparison',
     ];
 
     protected static function booted(): void
@@ -75,6 +75,7 @@ class Product extends Model
             'comparison' => 'array',
             'whmcs_pid' => 'integer',
             'yearly_price' => 'decimal:2',
+            'monthly_price' => 'decimal:2',
         ];
     }
 

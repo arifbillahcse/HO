@@ -9,6 +9,7 @@ window.translations.en.turboPricing = {
     recommended: "Recommended",
     orderNow: "Order Now",
     perMonth: "/mo",
+    perYear: "/yr",
     plans: {
         turboPlus: {
             name: "Turbo Plus",
@@ -51,6 +52,7 @@ window.translations.bn.turboPricing = {
     recommended: "প্রস্তাবিত",
     orderNow: "এখনই অর্ডার করুন",
     perMonth: "/মাস",
+    perYear: "/বছর",
     plans: {
         turboPlus: {
             name: "টার্বো প্লাস",

@@ -63,7 +63,13 @@ Click a plan's name. The form has four tabs.
   Without an ID (and without an order link) the button opens the WHMCS store and the fallback price is shown.
   **Admin → SEO → Launch checklist** lists the plans that still have no ID.
 - **Fallback yearly price** (BDT): used when the product has no WHMCS ID, or when WHMCS is unreachable.
-  Always fill this in. Monthly prices on the site are worked out from the yearly price.
+  Always fill this in.
+- **Fallback monthly price** (BDT): leave empty when the plan is sold yearly only. With WHMCS connected,
+  the plan's monthly price in WHMCS is used instead (a plan with no monthly price there is yearly only).
+
+**Billed Monthly / Annually switch.** The switch only appears on a page where at least one plan has a
+monthly price. In monthly view those plans show their real monthly price and the Order button opens WHMCS
+on the monthly cycle; yearly-only plans keep showing their yearly price. The home page never shows the switch.
 - **Order link (optional)**: a custom order link. If the link contains `pid=…`, that number is replaced with
   the WHMCS product ID above, so the link stays correct if you change the ID.
 
