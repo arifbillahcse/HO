@@ -99,7 +99,7 @@
             <!-- Section Header -->
             <div class="pricing-header">
                 <h2 class="pricing-main-title" data-i18n="pricing.mainTitle">Find the Hosting Plan that's Right for Your Business</h2>
-                <p class="pricing-subtitle" data-i18n="pricing.subtitle">We Have the Features and Service You Deserve!</p>
+                <p class="pricing-subtitle" data-i18n="pricing.subtitle">Exclusive Hosting Deals &amp; Special Offers</p>
             </div>
         <!-- Cloud Pricing Section -->
         <section class="cloud-pricing-section">
