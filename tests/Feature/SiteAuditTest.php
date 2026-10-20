@@ -59,6 +59,12 @@ class SiteAuditTest extends TestCase
         $this->get('/admin/launch-checklist')->assertSee('plans have no WHMCS product ID')->assertSee('Turbo Hosting (');
     }
 
+    public function test_home_plans_are_sold_yearly_only(): void
+    {
+        $this->get('/')->assertOk()->assertDontSee('id="billingToggle"', false)->assertDontSee('Billed Monthly');
+        $this->get('/web-hosting/')->assertSee('id="billingToggle"', false);
+    }
+
     public function test_testimonial_read_more_follows_the_reviews_link(): void
     {
         $this->get('/web-hosting/')->assertDontSee('testimonial-read-more', false);

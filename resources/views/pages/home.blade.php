@@ -100,16 +100,6 @@
             <div class="pricing-header">
                 <h2 class="pricing-main-title" data-i18n="pricing.mainTitle">Find the Hosting Plan that's Right for Your Business</h2>
                 <p class="pricing-subtitle" data-i18n="pricing.subtitle">We Have the Features and Service You Deserve!</p>
-                <!-- Billing Toggle -->
-                <div class="billing-toggle">
-                    <span class="toggle-label" data-i18n="pricing.billedMonthly">Billed Monthly</span>
-                    <label class="toggle-switch">
-                        <input type="checkbox" id="billingToggle" checked>
-                        <span class="toggle-slider"></span>
-                    </label>
-                    <span class="toggle-label active" data-i18n="pricing.billedAnnually">Billed Annually</span>
-                    <span class="save-badge" data-i18n="pricing.saveBadge">Save 30%!</span>
-                </div>
             </div>
         <!-- Cloud Pricing Section -->
         <section class="cloud-pricing-section">

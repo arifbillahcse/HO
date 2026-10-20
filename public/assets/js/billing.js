@@ -10,6 +10,7 @@
     const STORAGE_KEY     = 'billingPeriod';
 
     let isYearly = true; // default: yearly
+    let hasToggle = false; // pages without the switch keep their own period label
 
     /* ──────────────────────────────────────────
        Persistence helpers
@@ -110,7 +111,7 @@
             // price without the 30% discount.
             if (amountEl) amountEl.textContent = fmtAmt(isYearly ? yearlyUsd : yearlyUsd / 12);
 
-            if (periodEl) {
+            if (periodEl && hasToggle) {
                 periodEl.textContent = isYearly
                     ? (t('pricing.perYear') || '/yr')
                     : (t('pricing.perMonth') || '/mo');
@@ -160,13 +161,23 @@
        Init
     ────────────────────────────────────────── */
     function init() {
-        if (!document.getElementById('billingToggle')) return; // not a pricing page
+        const toggle = document.getElementById('billingToggle');
 
+        // Pages without the switch sell yearly only: still fill in the
+        // yearly and crossed-out prices, and keep them in sync with currency.
+        if (!toggle) {
+            if (!document.querySelector('.cloud-pricing[data-yearly-price]')) return; // not a pricing page
+            isYearly = true;
+            patchI18n();
+            updatePrices();
+            return;
+        }
+
+        hasToggle = true;
         loadPref();
         patchI18n();
 
         // Set toggle visual state
-        const toggle = document.getElementById('billingToggle');
         toggle.checked = isYearly;
 
         updateLabels();
