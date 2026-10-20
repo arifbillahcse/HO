@@ -262,7 +262,6 @@
             <div class="pricing-header">
                 <h2 class="pricing-main-title" data-i18n="pricing.mainTitle">Choose Your Perfect Hosting Plan</h2>
                 <p class="pricing-subtitle" data-i18n="pricing.subtitle">Everything you need to launch, manage, and scale your website.</p>
-                @if (app(\App\Services\ProductCatalog::class)->hasMonthly('web_hosting'))
                 <!-- Billing Toggle -->
                 <div class="billing-toggle">
                     <span class="toggle-label" data-i18n="pricing.billedMonthly">Billed Monthly</span>
@@ -273,7 +272,6 @@
                     <span class="toggle-label active" data-i18n="pricing.billedAnnually">Billed Annually</span>
                     <span class="save-badge" data-i18n="pricing.saveBadge">Up to 30%!</span>
                 </div>
-                @endif
             </div>
         <!-- Cloud Pricing Section -->
         <section class="cloud-pricing-section">

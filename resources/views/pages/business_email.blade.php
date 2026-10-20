@@ -259,7 +259,6 @@
             <div class="pricing-header">
                 <h2 class="pricing-main-title" data-i18n="emailPricing.mainTitle">Choose Your Business Email Plan</h2>
                 <p class="pricing-subtitle" data-i18n="emailPricing.subtitle">Professional email hosting to keep your business communication secure and reliable.</p>
-                @if (app(\App\Services\ProductCatalog::class)->hasMonthly('business_email'))
                 <!-- Billing Toggle -->
                 <div class="billing-toggle">
                     <span class="toggle-label" data-i18n="emailPricing.billedMonthly">Billed Monthly</span>
@@ -270,7 +269,6 @@
                     <span class="toggle-label active" data-i18n="emailPricing.billedAnnually">Billed Annually</span>
                     <span class="save-badge" data-i18n="emailPricing.saveBadge">Up to 30%!</span>
                 </div>
-                @endif
             </div>
         <!-- Cloud Pricing Section -->
         <section class="cloud-pricing-section">

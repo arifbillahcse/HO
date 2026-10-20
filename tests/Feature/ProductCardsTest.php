@@ -130,25 +130,44 @@ class ProductCardsTest extends TestCase
         $this->assertStringContainsString('data-i18n="pricing.saveBadge">Up to 30%!</span>', $html);
     }
 
-    public function test_billing_switch_is_hidden_when_plans_are_sold_yearly_only(): void
+    public function test_hosting_pages_always_offer_monthly_and_yearly_billing(): void
     {
-        foreach (['/web-hosting/', '/turbo-hosting/', '/reseller-hosting/', '/student-hosting/', '/vps/', '/business-email/', '/'] as $url) {
+        foreach (['/web-hosting/', '/turbo-hosting/', '/reseller-hosting/', '/student-hosting/', '/vps/', '/business-email/'] as $url) {
             $html = $this->get($url)->assertOk()->getContent();
-            $this->assertStringNotContainsString('id="billingToggle"', $html, $url);
-            $this->assertStringNotContainsString('data-monthly-price', $html, $url);
+            $this->assertStringContainsString('id="billingToggle"', $html, $url);
+            $this->assertStringNotContainsString('data-monthly-price', $html, "{$url}: no monthly price is made up");
             $this->assertStringNotContainsString('cloud-price-original', $html, "{$url}: no made-up crossed-out price");
         }
 
-        // VPS used to label the yearly price "/mo" until the script ran.
+        foreach (['/', '/offer/'] as $url) {
+            $this->get($url)->assertDontSee('id="billingToggle"', false);
+        }
+
+        // Cards start on the yearly label (VPS used to show "/mo" next to the yearly price).
         $this->get('/vps/')->assertSee('data-i18n="vpsPricing.perYear"', false);
 
         Product::onPage('turbo_hosting')->first()->update(['monthly_price' => 1500]);
 
         $this->get('/turbo-hosting/')
-            ->assertSee('id="billingToggle"', false)
             ->assertSee('data-monthly-price="1500"', false)
             ->assertSee('or ৳1,500/mo billed monthly');
-        $this->get('/vps/')->assertDontSee('id="billingToggle"', false);
+    }
+
+    public function test_admin_lists_live_prices_and_plans_missing_a_monthly_price(): void
+    {
+        $this->configureWhmcs();
+        $this->fakeWhmcs();
+        \Filament\Facades\Filament::setCurrentPanel(\Filament\Facades\Filament::getPanel('admin'));
+        $this->actingAs(\App\Models\User::factory()->create());
+
+        \Livewire\Livewire::test(\App\Filament\Resources\Products\Pages\ListProducts::class)
+            ->assertOk()
+            ->assertSee('৳3,100/yr')   // live WHMCS yearly price, not the 3,000 fallback
+            ->assertSee('৳350/mo')
+            ->assertSee('Missing')
+            ->assertSee('Yearly only');
+
+        $this->get('/admin/launch-checklist')->assertSee('plans have no monthly price')->assertSee('Reseller Hosting (R-Starter');
     }
 
     public function test_cards_keep_fallback_prices_when_whmcs_is_down(): void

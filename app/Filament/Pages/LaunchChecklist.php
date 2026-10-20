@@ -94,6 +94,15 @@ class LaunchChecklist extends Page
                 . $noPid->groupBy(fn ($p) => $p->pageLabel())->map(fn ($group, $page) => $page . ' (' . $group->pluck('name')->implode(', ') . ')')->implode('; ') . '.',
                 'link' => \App\Filament\Resources\Products\ProductResource::getUrl()];
 
+        $catalog = app(\App\Services\ProductCatalog::class);
+        $noMonthly = \App\Models\Product::query()->where('is_visible', true)->whereIn('page_key', \App\Models\Product::MONTHLY_PAGES)->get()
+            ->filter(fn ($p) => $catalog->monthlyPrice($p) === null);
+        $checks[] = $noMonthly->isEmpty()
+            ? ['status' => 'ok', 'title' => 'Every monthly plan has a monthly price', 'detail' => 'Billed Monthly shows the WHMCS monthly price on every hosting page.']
+            : ['status' => 'warn', 'title' => $noMonthly->count() . ' plans have no monthly price', 'detail' => 'In Billed Monthly view they show their yearly price. Add a monthly price to the product in WHMCS (and its WHMCS ID here): '
+                . $noMonthly->groupBy(fn ($p) => $p->pageLabel())->map(fn ($group, $page) => $page . ' (' . $group->pluck('name')->implode(', ') . ')')->implode('; ') . '.',
+                'link' => \App\Filament\Resources\Products\ProductResource::getUrl()];
+
         $missing = $pages->filter(fn (SeoPage $p) => blank($p->meta_description))->pluck('name');
         $checks[] = $missing->isEmpty()
             ? ['status' => 'ok', 'title' => 'Every page has a meta description', 'detail' => $pages->count() . ' of ' . $pages->count() . ' pages.']

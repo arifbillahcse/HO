@@ -25,6 +25,9 @@ class Product extends Model
      * Fixed card words that keep switching language with the page: the
      * "Save" badge and the price period (translation key, English text).
      */
+    /** Pages with the Billed Monthly / Annually switch; home and offer sell yearly only. */
+    public const MONTHLY_PAGES = ['web_hosting', 'turbo_hosting', 'reseller_hosting', 'student_hosting', 'vps', 'business_email'];
+
     public const CARD_UI = [
         'home' => ['save' => ['pricing.save30', 'Up to 30%!'], 'year' => ['pricing.perYear', '/yr'], 'month' => ['pricing.perMonth', '/mo']],
         'web_hosting' => ['save' => ['pricing.save30', 'Up to 30%!'], 'year' => ['pricing.perYear', '/yr'], 'month' => ['pricing.perMonth', '/mo']],

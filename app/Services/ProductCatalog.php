@@ -25,12 +25,6 @@ class ProductCatalog
         return app(WhmcsService::class)->productMonthlyPrice($product);
     }
 
-    /** Whether any plan on the page can be bought monthly (shows the billing switch). */
-    public function hasMonthly(string $page): bool
-    {
-        return $this->forPage($page)->contains(fn (Product $p) => $this->monthlyPrice($p) !== null);
-    }
-
     /** Order link for a billing cycle ("annually" or "monthly"). */
     public function cycleUrl(Product $product, string $cycle): string
     {

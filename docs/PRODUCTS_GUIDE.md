@@ -68,9 +68,11 @@ Click a plan's name. The form has four tabs.
 - **Fallback monthly price** (BDT): leave empty when the plan is sold yearly only. With WHMCS connected,
   the plan's monthly price in WHMCS is used instead (a plan with no monthly price there is yearly only).
 
-**Billed Monthly / Annually switch.** The switch only appears on a page where at least one plan has a
-monthly price. In monthly view those plans show their real monthly price and the Order button opens WHMCS
-on the monthly cycle; yearly-only plans keep showing their yearly price. The home page never shows the switch.
+**Billed Monthly / Annually switch.** Web, Turbo, Reseller, Student, VPS and Business Email hosting always
+have the switch; the home page and the Offer page are yearly only. Both prices come from WHMCS (the product's
+Annually and Monthly prices). In monthly view the Order button opens WHMCS on the monthly cycle. A plan with no
+monthly price shows its yearly price instead: the **Monthly** column in Products & Services marks it "Missing",
+and the Launch checklist lists it.
 - **Order link (optional)**: a custom order link. If the link contains `pid=…`, that number is replaced with
   the WHMCS product ID above, so the link stays correct if you change the ID.
 

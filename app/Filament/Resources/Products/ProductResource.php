@@ -7,6 +7,7 @@ use App\Filament\Resources\Products\Pages\EditProduct;
 use App\Filament\Resources\Products\Pages\ListProducts;
 use App\Models\ComparisonRow;
 use App\Models\Product;
+use App\Services\ProductCatalog;
 use BackedEnum;
 use Filament\Actions\ActionGroup;
 use Filament\Actions\BulkActionGroup;
@@ -197,6 +198,18 @@ class ProductResource extends Resource
             ]))->all();
     }
 
+    /** Price as shown on the site (from WHMCS when connected). */
+    private static function monthlyLabel(Product $record): string
+    {
+        if (! in_array($record->page_key, Product::MONTHLY_PAGES, true)) {
+            return 'Yearly only';
+        }
+
+        $monthly = app(ProductCatalog::class)->monthlyPrice($record);
+
+        return $monthly === null ? 'Missing' : '৳' . number_format((float) $monthly) . '/mo';
+    }
+
     public static function table(Table $table): Table
     {
         $pageOrder = 'CASE page_key ' . collect(array_keys(Product::PAGES))
@@ -210,9 +223,15 @@ class ProductResource extends Resource
                     ->description(fn (Product $record): ?string => $record->description)
                     ->searchable(),
                 TextColumn::make('yearly_price')
-                    ->label('Price')
+                    ->label('Yearly')
+                    ->state(fn (Product $record): string => app(ProductCatalog::class)->price($record))
                     ->formatStateUsing(fn ($state): string => '৳' . number_format((float) $state) . '/yr')
                     ->placeholder('—'),
+                TextColumn::make('monthly_price')
+                    ->label('Monthly')
+                    ->state(fn (Product $record): string => self::monthlyLabel($record))
+                    ->color(fn (string $state): ?string => $state === 'Missing' ? 'danger' : ($state === 'Yearly only' ? 'gray' : null))
+                    ->tooltip(fn (string $state): ?string => $state === 'Missing' ? 'No monthly price in WHMCS: in monthly view this plan shows its yearly price.' : null),
                 TextColumn::make('whmcs_pid')
                     ->label('WHMCS ID')
                     ->placeholder('—'),

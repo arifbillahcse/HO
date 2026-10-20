@@ -247,7 +247,6 @@
             <div class="pricing-header">
                 <h2 class="pricing-main-title" data-i18n="studentPricing.mainTitle">Our Special Student Web Hosting Plans</h2>
                 <p class="pricing-subtitle" data-i18n="studentPricing.subtitle">Affordable hosting plans designed specially for students.</p>
-                @if (app(\App\Services\ProductCatalog::class)->hasMonthly('student_hosting'))
                 <!-- Billing Toggle -->
                 <div class="billing-toggle">
                     <span class="toggle-label" data-i18n="studentPricing.billedMonthly">Billed Monthly</span>
@@ -258,7 +257,6 @@
                     <span class="toggle-label active" data-i18n="studentPricing.billedAnnually">Billed Annually</span>
                     <span class="save-badge" data-i18n="studentPricing.saveBadge">Up to 30%!</span>
                 </div>
-                @endif
             </div>
         <!-- Cloud Pricing Section -->
         <section class="cloud-pricing-section">
