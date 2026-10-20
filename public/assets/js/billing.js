@@ -47,6 +47,20 @@
         return window.i18n.formatPrice(usd).replace(/[^\d০-৯.,]/g, '');
     }
 
+    function isBangla() {
+        return !!(window.i18n && window.i18n.currentLanguage === 'bn');
+    }
+
+    function billedNote(wrapper) {
+        let note = wrapper.querySelector('.cloud-billed-note');
+        if (!note) {
+            note = document.createElement('div');
+            note.className = 'cloud-billed-note';
+            wrapper.appendChild(note);
+        }
+        return note;
+    }
+
     function t(key) {
         if (window.i18n) {
             const v = window.i18n.translate(key);
@@ -80,8 +94,8 @@
             const bdtRate    = (window.i18n && window.i18n.exchangeRate) ? window.i18n.exchangeRate : 125;
             const yearlyUsd  = yearlyBdt / bdtRate;
 
-            // Monthly base = yearly / (12 × (1 − discount))  →  yearly / 8.4
-            const monthlyUsd = yearlyUsd / (12 * (1 - YEARLY_DISCOUNT));
+            // Undiscounted monthly price = yearly / (12 × (1 − discount))  →  yearly / 8.4
+            const fullMonthlyUsd = yearlyUsd / (12 * (1 - YEARLY_DISCOUNT));
 
             const amountEl   = wrapper.querySelector('.cloud-amount');
             const periodEl   = wrapper.querySelector('.cloud-period');
@@ -89,32 +103,32 @@
             const origCurEl  = origBlock  && origBlock.querySelector('[data-orig-currency]');
             const origAmtEl  = origBlock  && origBlock.querySelector('.orig-amount');
             const currEl     = wrapper.querySelector('[data-currency-symbol]');
+            const noteEl     = billedNote(wrapper);
 
+            // Both views show the same plan price: the yearly price, or that
+            // price spread over 12 months. The strikethrough is the matching
+            // price without the 30% discount.
+            if (amountEl) amountEl.textContent = fmtAmt(isYearly ? yearlyUsd : yearlyUsd / 12);
+
+            if (periodEl) {
+                periodEl.textContent = isYearly
+                    ? (t('pricing.perYear') || '/yr')
+                    : (t('pricing.perMonth') || '/mo');
+            }
+
+            if (origBlock) {
+                if (origCurEl) origCurEl.textContent = sym;
+                if (origAmtEl) origAmtEl.textContent = fmtAmt(isYearly ? fullMonthlyUsd * 12 : fullMonthlyUsd);
+                origBlock.style.display = '';
+            }
+
+            // Monthly view: say what is actually charged at checkout.
             if (isYearly) {
-                /* ── Yearly view ──────────────────────────────── */
-                if (amountEl) amountEl.textContent = fmtAmt(yearlyUsd);
-
-                if (periodEl) {
-                    periodEl.textContent = t('pricing.perYear') || '/yr';
-                }
-
-                // Strikethrough = what you'd pay monthly × 12 (no discount)
-                if (origBlock) {
-                    const origUsd = monthlyUsd * 12;
-                    if (origCurEl) origCurEl.textContent = sym;
-                    if (origAmtEl) origAmtEl.textContent = fmtAmt(origUsd);
-                    origBlock.style.display = '';
-                }
+                noteEl.style.display = 'none';
             } else {
-                /* ── Monthly view ─────────────────────────────── */
-                if (amountEl) amountEl.textContent = fmtAmt(monthlyUsd);
-
-                if (periodEl) {
-                    periodEl.textContent = t('pricing.perMonth') || '/mo';
-                }
-
-                // Hide strikethrough block
-                if (origBlock) origBlock.style.display = 'none';
+                const amount = sym + fmtAmt(yearlyUsd);
+                noteEl.textContent = isBangla() ? 'বার্ষিক ' + amount + ' বিল করা হয়' : 'Billed ' + amount + ' yearly';
+                noteEl.style.display = '';
             }
 
             // Always refresh currency symbol
