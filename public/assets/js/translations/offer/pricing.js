@@ -1,7 +1,7 @@
 window.translations = window.translations || { en: {}, bn: {} };
 
 window.translations.en.offerPricing = {
-    mainTitle: "The Best Web Hosting",
+    mainTitle: "Exclusive Hosting Special Offers",
     orderNow: "Order Now",
     recommended: "Recommended",
     perYear: "/year",
@@ -78,7 +78,7 @@ window.translations.en.offerPricing = {
 };
 
 window.translations.bn.offerPricing = {
-    mainTitle: "সেরা ওয়েব হোস্টিং",
+    mainTitle: "এক্সক্লুসিভ হোস্টিং স্পেশাল অফার",
     orderNow: "অর্ডার করুন",
     recommended: "প্রস্তাবিত",
     perYear: "/বছর",

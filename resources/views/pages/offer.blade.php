@@ -15,6 +15,9 @@
 <script src="{{ asset('assets/js/translations/Package/support.js') }}"></script>
 <script src="{{ asset('assets/js/translations/header-footer/footer.js') }}"></script>
 @endpush
+@push('scripts')
+<script src="{{ asset('assets/js/countdown.js') }}" defer></script>
+@endpush
 @section('content')
 @include('partials.schema.organization')
     @foreach (app(\App\Services\ProductCatalog::class)->offerSchemas('offer') as $schema)
@@ -241,7 +244,7 @@
         <div class="container-wrapper">
             <!-- Section Header -->
             <div class="pricing-header">
-                <h2 class="pricing-main-title" data-i18n="offerPricing.mainTitle">The Best Web Hosting</h2>
+                <h2 class="pricing-main-title" data-i18n="offerPricing.mainTitle">Exclusive Hosting Special Offers</h2>
             </div>
         <!-- Cloud Pricing Section -->
         <section class="cloud-pricing-section" id="offer-plans">

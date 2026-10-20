@@ -1,70 +1,76 @@
 /**
  * Countdown Timer for Offer Page
- * Auto-repeating 1 week countdown with localStorage persistence
+ * Each visitor gets 7 days from their first visit; when it runs out a new
+ * 7 days starts. The end time is remembered in localStorage.
  */
 (function() {
     'use strict';
 
-    // =============================
-    // AUTO-REPEATING 1 WEEK COUNTDOWN
-    // =============================
-    function startCountdown() {
-        // Get or set the end time (1 week from now)
-        let countdownEnd = localStorage.getItem('countdownEnd');
+    const STORAGE_KEY = 'countdownEnd';
+    const ONE_WEEK = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
 
-        // If no countdown exists or it's expired, create a new one
-        if (!countdownEnd || new Date().getTime() > parseInt(countdownEnd)) {
-            const now = new Date().getTime();
-            const oneWeek = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
-            countdownEnd = now + oneWeek;
-            localStorage.setItem('countdownEnd', countdownEnd);
+    function readEnd() {
+        try {
+            return parseInt(localStorage.getItem(STORAGE_KEY), 10);
+        } catch (_) {
+            return NaN;
         }
+    }
 
-        // Update the countdown every second
-        const timer = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = parseInt(countdownEnd) - now;
+    function saveEnd(end) {
+        try { localStorage.setItem(STORAGE_KEY, String(end)); } catch (_) {}
+    }
 
-            // If countdown is finished, reset it
-            if (distance < 0) {
-                const oneWeek = 7 * 24 * 60 * 60 * 1000;
-                countdownEnd = new Date().getTime() + oneWeek;
-                localStorage.setItem('countdownEnd', countdownEnd);
-                return; // Skip this iteration and let it recalculate next second
+    // Helper function to pad single digits with zero
+    function padZero(num) {
+        return num < 10 ? '0' + num : String(num);
+    }
+
+    function startCountdown() {
+        const daysEl = document.getElementById('days');
+        if (!daysEl) return; // no countdown on this page
+
+        const hoursEl = document.getElementById('hours');
+        const minutesEl = document.getElementById('minutes');
+        const secondsEl = document.getElementById('seconds');
+        const daysRemainingEl = document.getElementById('daysRemaining');
+
+        let countdownEnd = readEnd();
+
+        function tick() {
+            const now = Date.now();
+
+            // First visit, or the week is over: start a new week
+            if (isNaN(countdownEnd) || countdownEnd <= now) {
+                countdownEnd = now + ONE_WEEK;
+                saveEnd(countdownEnd);
             }
 
-            // Calculate time units
+            const distance = countdownEnd - now;
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // Update DOM - only if elements exist
-            const daysEl = document.getElementById('days');
-            const hoursEl = document.getElementById('hours');
-            const minutesEl = document.getElementById('minutes');
-            const secondsEl = document.getElementById('seconds');
-            const daysRemainingEl = document.getElementById('daysRemaining');
-
-            if (daysEl) daysEl.textContent = padZero(days);
+            daysEl.textContent = padZero(days);
             if (hoursEl) hoursEl.textContent = padZero(hours);
             if (minutesEl) minutesEl.textContent = padZero(minutes);
             if (secondsEl) secondsEl.textContent = padZero(seconds);
 
-            // Update header text
+            // Header text, rounded up: "7 Days" ... "1 Day", then hours on the last day
             if (daysRemainingEl) {
-                const daysText = days === 1 ? 'Day' : 'Days';
-                daysRemainingEl.textContent = days + ' ' + daysText;
+                const daysLeft = Math.ceil(distance / (1000 * 60 * 60 * 24));
+                const hoursLeft = Math.ceil(distance / (1000 * 60 * 60));
+                daysRemainingEl.textContent = daysLeft > 1
+                    ? daysLeft + ' Days'
+                    : hoursLeft + ' ' + (hoursLeft === 1 ? 'Hour' : 'Hours');
             }
-        }, 1000);
+        }
+
+        tick(); // show the time straight away, not after the first second
+        setInterval(tick, 1000);
     }
 
-    // Helper function to pad single digits with zero
-    function padZero(num) {
-        return num < 10 ? '0' + num : num;
-    }
-
-    // Start countdown when DOM is ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', startCountdown);
     } else {
