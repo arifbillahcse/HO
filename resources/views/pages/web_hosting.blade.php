@@ -68,22 +68,7 @@
         "offerCount": {{ $webRange['count'] }},
         "validFrom": "{{ app(\App\Services\ProductCatalog::class)->pageValidFrom('web_hosting') }}",
         "availability": "https://schema.org/InStock"
-      },
-      "review": [
-        {
-          "@type": "Review",
-          "author": {
-            "@type": "Person",
-            "name": "Shaidul Islam Rony"
-          },
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": 5,
-            "bestRating": 5
-          },
-          "reviewBody": "Excellent web hosting service with great support and reliable uptime."
-        }
-      ]
+      }
     }
     </script>
     <script type="application/ld+json">

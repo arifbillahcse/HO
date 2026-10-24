@@ -254,6 +254,19 @@ class ProductCardsTest extends TestCase
         $this->assertGreaterThan(20, $offers);
     }
 
+    public function test_no_review_markup_without_reviews_shown_on_the_page(): void
+    {
+        // Google requires marked-up reviews and ratings to be visible on the page.
+        // The site shows no star ratings, so the structured data must not claim any.
+        foreach ([...array_values(self::PAGES), '/about-us/'] as $url) {
+            preg_match_all('#<script type="application/ld\+json">(.*?)</script>#s', $this->get($url)->getContent(), $m);
+
+            foreach ($m[1] as $json) {
+                $this->assertDoesNotMatchRegularExpression('/"@type":\s*"(Review|AggregateRating)"|"(review|aggregateRating|reviewRating)":/', $json, $url);
+            }
+        }
+    }
+
     public function test_admin_text_cannot_break_the_page(): void
     {
         Product::onPage('home')->first()->update(['name' => 'Evil</script><script>alert(1)</script>']);
