@@ -223,6 +223,37 @@ class ProductCardsTest extends TestCase
         }
     }
 
+    public function test_every_product_offer_says_when_its_price_starts(): void
+    {
+        $today = now()->toDateString();
+        $offers = 0;
+
+        foreach (self::PAGES as $url) {
+            preg_match_all('#<script type="application/ld\+json">(.*?)</script>#s', $this->get($url)->getContent(), $m);
+
+            foreach ($m[1] as $json) {
+                $walk = function ($node) use (&$walk, &$offers, $today, $url) {
+                    if (! is_array($node)) {
+                        return;
+                    }
+                    if (in_array($node['@type'] ?? null, ['Offer', 'AggregateOffer'], true) && isset($node['priceCurrency'])) {
+                        // Google Merchant listings: Missing field "validFrom" (in "offers").
+                        $this->assertArrayHasKey('validFrom', $node, "{$url}: " . json_encode($node));
+                        $this->assertMatchesRegularExpression('/^\d{4}-\d{2}-\d{2}$/', $node['validFrom']);
+                        $this->assertLessThanOrEqual($today, $node['validFrom'], $url);
+                        $offers++;
+                    }
+                    foreach ($node as $child) {
+                        $walk($child);
+                    }
+                };
+                $walk(json_decode($json, true));
+            }
+        }
+
+        $this->assertGreaterThan(20, $offers);
+    }
+
     public function test_admin_text_cannot_break_the_page(): void
     {
         Product::onPage('home')->first()->update(['name' => 'Evil</script><script>alert(1)</script>']);

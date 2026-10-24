@@ -66,6 +66,7 @@
         "lowPrice": {{ $webRange['low'] }},
         "highPrice": {{ $webRange['high'] }},
         "offerCount": {{ $webRange['count'] }},
+        "validFrom": "{{ app(\App\Services\ProductCatalog::class)->pageValidFrom('web_hosting') }}",
         "availability": "https://schema.org/InStock"
       },
       "review": [

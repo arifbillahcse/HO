@@ -66,6 +66,7 @@ class ProductCatalog
                 'url' => $this->pageUrl($page),
                 'priceCurrency' => 'BDT',
                 'price' => $this->number($this->price($p)),
+                'validFrom' => $this->validFrom($p),
                 'priceValidUntil' => $this->validUntil(),
                 'availability' => 'https://schema.org/InStock',
                 'shippingDetails' => [
@@ -112,7 +113,9 @@ class ProductCatalog
                     'name' => "{$p->name} Hosting Deal",
                     'price' => $this->number($this->price($p)),
                     'priceCurrency' => 'BDT',
+                    'validFrom' => $this->validFrom($p),
                 ])->values()->all(),
+                'validFrom' => $this->pageValidFrom($page),
                 'priceValidUntil' => $this->validUntil(),
                 'availability' => 'https://schema.org/InStock',
                 'url' => $this->pageUrl($page),
@@ -135,6 +138,7 @@ class ProductCatalog
                             '@type' => 'Offer',
                             'price' => $this->number($this->price($p)),
                             'priceCurrency' => 'BDT',
+                            'validFrom' => $this->validFrom($p),
                             'priceValidUntil' => $this->validUntil(),
                             'availability' => 'https://schema.org/InStock',
                             'url' => $this->pageUrl($page),
@@ -160,6 +164,18 @@ class ProductCatalog
     private function pageUrl(string $page): string
     {
         return Seo::url($page === 'home' ? '' : str_replace('_', '-', $page));
+    }
+
+    /** Date the plan's current details took effect: when it was last saved in the admin. */
+    public function validFrom(Product $p): string
+    {
+        return ($p->updated_at ?? $p->created_at ?? now())->toDateString();
+    }
+
+    /** validFrom for a page-wide AggregateOffer: the most recently saved plan on the page. */
+    public function pageValidFrom(string $page): string
+    {
+        return $this->forPage($page)->map(fn (Product $p) => $this->validFrom($p))->max() ?? now()->toDateString();
     }
 
     private function validUntil(): string

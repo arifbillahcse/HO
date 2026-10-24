@@ -39,6 +39,7 @@
         "lowPrice": {{ $serviceRange['low'] }},
         "highPrice": {{ $serviceRange['high'] }},
         "offerCount": {{ $serviceRange['count'] }},
+        "validFrom": "{{ app(\App\Services\ProductCatalog::class)->pageValidFrom('vps') }}",
         "availability": "https://schema.org/InStock"
       }
     }

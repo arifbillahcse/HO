@@ -40,6 +40,7 @@
         "lowPrice": {{ $serviceRange['low'] }},
         "highPrice": {{ $serviceRange['high'] }},
         "offerCount": {{ $serviceRange['count'] }},
+        "validFrom": "{{ app(\App\Services\ProductCatalog::class)->pageValidFrom('turbo_hosting') }}",
         "availability": "https://schema.org/InStock"
       }
     }
