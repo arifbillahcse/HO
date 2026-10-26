@@ -494,6 +494,7 @@
 @endpush
 @push('translations')
 <script src="{{ asset('assets/js/translations/header-footer/header.js') }}"></script>
+<script src="{{ asset('assets/js/translations/about-us/about.js') }}"></script>
 <script src="{{ asset('assets/js/translations/header-footer/footer.js') }}"></script>
 @endpush
 @section('content')

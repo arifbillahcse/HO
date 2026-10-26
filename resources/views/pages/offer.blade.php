@@ -184,7 +184,7 @@
                             </a>
                             <a href="{{ hostorio_url('offer') }}" class="list-option" data-icon="🌐" data-label="Offer">
                                 <span class="opt-icon">🌐</span>
-                                <span class="opt-label" data-i18n="packageHero.">Offer</span>
+                                <span class="opt-label" data-i18n="packageHero.offer">Offer</span>
                             </a>
                         </nav>
                     </div>

@@ -47,6 +47,32 @@ class SiteAuditTest extends TestCase
         }
     }
 
+    public function test_every_translated_text_has_english_and_bangla_loaded(): void
+    {
+        foreach (self::PAGES as $url) {
+            $html = $this->get($url)->getContent();
+
+            preg_match_all('#data-i18n(?:-placeholder)?="([^"]*)"#', $html, $keys);
+            preg_match_all('#<script src="[^"]*/(assets/js/translations/[^"]+\.js)"#', $html, $files);
+
+            // Translation groups (e.g. "about", "pricing") each loaded file defines per language.
+            $groups = ['en' => [], 'bn' => []];
+            foreach ($files[1] as $file) {
+                preg_match_all('#window\.translations\.(en|bn)\.(\w+)\s*=#', (string) file_get_contents(public_path($file)), $m, PREG_SET_ORDER);
+                foreach ($m as [, $lang, $group]) {
+                    $groups[$lang][$group] = true;
+                }
+            }
+
+            foreach (array_unique($keys[1]) as $key) {
+                $this->assertMatchesRegularExpression('/^\w+(\.\w+)+$/', $key, "{$url}: malformed translation key \"{$key}\"");
+                $group = strtok($key, '.');
+                $this->assertArrayHasKey($group, $groups['en'], "{$url}: no English translations loaded for {$key}");
+                $this->assertArrayHasKey($group, $groups['bn'], "{$url}: no Bangla translations loaded for {$key}");
+            }
+        }
+    }
+
     public function test_plans_without_a_whmcs_id_open_the_store(): void
     {
         $this->get('/turbo-hosting/')->assertSee('href="https://my.hostorio.com/cart.php" class="cloud-order-btn"', false);
