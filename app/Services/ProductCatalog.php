@@ -69,24 +69,7 @@ class ProductCatalog
                 'validFrom' => $this->validFrom($p),
                 'priceValidUntil' => $this->validUntil(),
                 'availability' => 'https://schema.org/InStock',
-                'shippingDetails' => [
-                    '@type' => 'OfferShippingDetails',
-                    'shippingDestination' => ['@type' => 'DefinedRegion', 'addressCountry' => 'BD'],
-                    'deliveryTime' => [
-                        '@type' => 'ShippingDeliveryTime',
-                        'handlingTime' => ['@type' => 'QuantitativeValue', 'minValue' => 0, 'maxValue' => 1, 'unitCode' => 'DAY'],
-                        'transitTime' => ['@type' => 'QuantitativeValue', 'minValue' => 0, 'maxValue' => 0, 'unitCode' => 'DAY'],
-                    ],
-                    'shippingRate' => ['@type' => 'MonetaryAmount', 'value' => 0, 'currency' => 'BDT'],
-                ],
-                'hasMerchantReturnPolicy' => [
-                    '@type' => 'MerchantReturnPolicy',
-                    'applicableCountry' => 'BD',
-                    'returnPolicyCategory' => 'https://schema.org/MerchantReturnFiniteReturnWindow',
-                    'merchantReturnDays' => 30,
-                    'returnMethod' => 'https://schema.org/ReturnByMail',
-                    'returnFees' => 'https://schema.org/FreeReturn',
-                ],
+                ...$this->deliveryTerms(),
             ],
         ]))->values()->all();
     }
@@ -142,6 +125,7 @@ class ProductCatalog
                             'priceValidUntil' => $this->validUntil(),
                             'availability' => 'https://schema.org/InStock',
                             'url' => $this->pageUrl($page),
+                            ...$this->deliveryTerms(),
                         ],
                     ],
                 ])->all(),
@@ -176,6 +160,37 @@ class ProductCatalog
     public function pageValidFrom(string $page): string
     {
         return $this->forPage($page)->map(fn (Product $p) => $this->validFrom($p))->max() ?? now()->toDateString();
+    }
+
+    /**
+     * Shipping and return terms Google's Merchant listings ask for on every
+     * product offer. These plans are delivered online, instantly, and carry
+     * the 30-day money-back guarantee.
+     *
+     * @return array<string, mixed>
+     */
+    private function deliveryTerms(): array
+    {
+        return [
+            'shippingDetails' => [
+                '@type' => 'OfferShippingDetails',
+                'shippingDestination' => ['@type' => 'DefinedRegion', 'addressCountry' => 'BD'],
+                'deliveryTime' => [
+                    '@type' => 'ShippingDeliveryTime',
+                    'handlingTime' => ['@type' => 'QuantitativeValue', 'minValue' => 0, 'maxValue' => 1, 'unitCode' => 'DAY'],
+                    'transitTime' => ['@type' => 'QuantitativeValue', 'minValue' => 0, 'maxValue' => 0, 'unitCode' => 'DAY'],
+                ],
+                'shippingRate' => ['@type' => 'MonetaryAmount', 'value' => 0, 'currency' => 'BDT'],
+            ],
+            'hasMerchantReturnPolicy' => [
+                '@type' => 'MerchantReturnPolicy',
+                'applicableCountry' => 'BD',
+                'returnPolicyCategory' => 'https://schema.org/MerchantReturnFiniteReturnWindow',
+                'merchantReturnDays' => 30,
+                'returnMethod' => 'https://schema.org/ReturnByMail',
+                'returnFees' => 'https://schema.org/FreeReturn',
+            ],
+        ];
     }
 
     private function validUntil(): string

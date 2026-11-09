@@ -254,6 +254,38 @@ class ProductCardsTest extends TestCase
         $this->assertGreaterThan(20, $offers);
     }
 
+    public function test_every_product_offer_has_shipping_and_return_terms(): void
+    {
+        $products = 0;
+
+        foreach (['/', '/web-hosting/', '/offer/'] as $url) {
+            preg_match_all('#<script type="application/ld\+json">(.*?)</script>#s', $this->get($url)->getContent(), $m);
+
+            $walk = function ($node) use (&$walk, &$products, $url) {
+                if (! is_array($node)) {
+                    return;
+                }
+                // Merchant listings: every offer of a Product needs these (Missing field ... (in "offers")).
+                if (($node['@type'] ?? null) === 'Product' && isset($node['offers']['@type']) && $node['offers']['@type'] === 'Offer') {
+                    foreach (['shippingDetails', 'hasMerchantReturnPolicy', 'validFrom', 'price', 'priceCurrency'] as $field) {
+                        $this->assertArrayHasKey($field, $node['offers'], "{$url}: {$node['name']} offer lacks {$field}");
+                    }
+                    $this->assertSame(30, $node['offers']['hasMerchantReturnPolicy']['merchantReturnDays']);
+                    $products++;
+                }
+                foreach ($node as $child) {
+                    $walk($child);
+                }
+            };
+
+            foreach ($m[1] as $json) {
+                $walk(json_decode($json, true));
+            }
+        }
+
+        $this->assertSame(12, $products, 'home 4 + web hosting 4 + offer 4');
+    }
+
     public function test_no_review_markup_without_reviews_shown_on_the_page(): void
     {
         // Google requires marked-up reviews and ratings to be visible on the page.
